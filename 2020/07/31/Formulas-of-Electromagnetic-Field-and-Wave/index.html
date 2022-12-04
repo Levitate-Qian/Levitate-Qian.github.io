@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>电磁场与电磁波公式整理 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="电磁场与电磁波公式整理 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/">
+
+	
+	<meta property="article:published_time" content="2020-07-30T22:07:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-07-30T22:48:41.000Z">
+                    2020-07-30
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">电磁场与电磁波公式整理</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a72BGV.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="电磁场与电磁波公式整理"><a href="#电磁场与电磁波公式整理" class="headerlink" title="电磁场与电磁波公式整理"></a>电磁场与电磁波公式整理</h1><blockquote>
+<ol>
+<li>以下是电磁场与电磁波的公式整理，如有错误欢迎在评论区指出。</li>
+<li>电子版见👉<a href="https://levitate-qian.github.io/2020/05/01/XDU-note/">笔记整理部分</a>电磁场与电磁波整理， <strong>后续增减添补仅在电子PDF版中作修改，此处不再做改动。</strong> 博客网站版截止更新至v1.1版本。</li>
+<li>勘误：电阻的公式是 $R&#x3D;\frac{l}{\sigma S}$</li>
+</ol>
+</blockquote>
+<h2 id="场论与电磁模型"><a href="#场论与电磁模型" class="headerlink" title="场论与电磁模型"></a>场论与电磁模型</h2><ol>
+<li><p>散度定理：$\int_V\nabla\cdot\boldsymbol{A}, \mathrm{d}v&#x3D;\oint_s \boldsymbol{A}, \mathrm{d}\boldsymbol{s}$</p>
+</li>
+<li><p>斯托克斯定理：$\int_{S} \nabla \times \boldsymbol{A} \cdot \mathrm{d} \boldsymbol{s}&#x3D;\oint_{C} \boldsymbol{A} \cdot \mathrm{d} \boldsymbol{l}$</p>
+</li>
+<li><p>矢量恒等式：$\nabla\cdot(\boldsymbol{E}\times \boldsymbol{H})&#x3D;\boldsymbol{H}\cdot (\nabla\times \boldsymbol{E})-\boldsymbol{E}\cdot(\nabla\times \boldsymbol{H})$</p>
+</li>
+<li><p>球坐标</p>
+<ul>
+<li><p>哈密尔顿算子：$\nabla&#x3D;\hat{\boldsymbol{r}} \frac{\partial}{\partial r}+\hat{\boldsymbol{\theta}} \frac{1}{r} \frac{\partial}{\partial \theta}+\hat{\boldsymbol{\phi}} \frac{1}{r \sin \theta} \frac{\partial}{\partial \phi}$</p>
+</li>
+<li><p>梯度：$\nabla u&#x3D;\hat{\boldsymbol{r}}\frac{\partial u}{\partial r}+\hat{\boldsymbol{\theta}}\frac{1}{r}\frac{\partial u}{\partial \theta}+\hat{\boldsymbol{\phi}}\frac{1}{r\sin \theta}\frac{\partial u}{\partial \phi}$</p>
+</li>
+<li><p>散度：$\nabla\cdot \boldsymbol{A} &#x3D;\frac{1}{r^2}\frac{\partial(r^2 A_r)}{\partial r}+\frac{1}{r\sin\theta}\frac{\partial(\sin \theta A_\theta)}{\partial \theta}+\frac{1}{r\sin\theta}\frac{\partial(A_\phi)}{\partial \phi}$</p>
+</li>
+<li><p>旋度：$\nabla\times\boldsymbol{A}&#x3D;\frac{1}{r^{2} \sin \theta}\left|\begin{array}{ccc}\hat{\boldsymbol{r}} &amp; r \hat{\boldsymbol{\theta}} &amp; r \sin \theta \hat{\boldsymbol{\phi}} \ \frac{\partial}{\partial r} &amp; \frac{\partial}{\partial \theta} &amp; \frac{\partial}{\partial \phi} \ A_{r} &amp; r A_{\theta} &amp; r \sin \theta A_{\phi}\end{array}\right|$</p>
+</li>
+<li><p>拉普拉斯算子：$\nabla^{2} u&#x3D;\frac{1}{r^{2} \sin \theta}\left[\sin \theta \frac{\partial}{\partial r}\left(r^{2} \frac{\partial u}{\partial r}\right)+\frac{\partial}{\partial \theta}\left(\sin \theta \frac{\partial u}{\partial \theta}\right)+\frac{1}{r^{2} \sin \theta} \frac{\partial^{2} u}{\partial \phi^{2}}\right]$</p>
+</li>
+</ul>
+</li>
+<li><p>圆柱坐标</p>
+<ul>
+<li><p>哈密尔顿算子：$\nabla&#x3D;\hat{\boldsymbol{\rho}} \frac{\partial}{\partial \rho}+\hat{\boldsymbol{\phi}} \frac{1}{\rho} \frac{\partial}{\partial \phi}+\hat{\boldsymbol{z}} \frac{1}{r \sin \theta} \frac{\partial}{\partial z}$</p>
+</li>
+<li><p>梯度：$\nabla u&#x3D;\hat{\boldsymbol{\rho}} \frac{\partial u}{\partial \rho}+\hat{\boldsymbol{\phi}} \frac{1}{\rho} \frac{\partial u}{\partial \phi}+\hat{\boldsymbol{z}} \frac{1}{r \sin \theta} \frac{\partial u}{\partial z}$</p>
+</li>
+<li><p>散度：$\nabla\cdot \boldsymbol{A} &#x3D;\frac{1}{\rho} \frac{\partial\left(\rho A_{\rho}\right)}{\partial \rho}+\frac{1}{\rho} \frac{\partial A_{\phi}}{\partial \phi}+\frac{\partial A_{z}}{\partial z}$</p>
+</li>
+<li><p>旋度：$\nabla\times\boldsymbol{A}&#x3D;\frac{1}{\rho}\left|\begin{array}{ccc}<br>    \hat{\boldsymbol{\rho}} &amp; \rho \hat{\boldsymbol{\phi}} &amp; \hat{\boldsymbol{z}} \<br>    \frac{\partial}{\partial \rho} &amp; \frac{\partial}{\partial \phi} &amp; \frac{\partial}{\partial z} \<br>    A_{\rho} &amp; \rho A_{\phi} &amp; A_{z}<br>    \end{array}\right|$</p>
+</li>
+<li><p>拉普拉斯算子：$\nabla^{2} u&#x3D;\frac{1}{\rho} \frac{\partial}{\partial \rho}\left(\rho \frac{\partial u}{\partial \rho}\right)+\frac{1}{\rho^{2}} \frac{\partial^{2} u}{\partial \phi^{2}}+\frac{\partial^{2} u}{\partial z^{2}}$</p>
+</li>
+</ul>
+</li>
+<li><p>本构参数</p>
+<ul>
+<li><p>真空中磁导率　 $\mu_0$：$4\pi \times 10^{-7}$ (H&#x2F;m)</p>
+</li>
+<li><p>真空中的介电常数$\varepsilon_0$：$\frac{1}{36\pi}\times 10^{-9}&#x3D;8.854\times 10^{-12}$ (F&#x2F;m)</p>
+</li>
+</ul>
+</li>
+<li><p>光是电磁波（光速）：$c&#x3D;\frac{1}{\sqrt{\varepsilon_0 \mu_0}}&#x3D;3\times 10^8$ (m&#x2F;s)</p>
+</li>
+</ol>
+<h2 id="静电场"><a href="#静电场" class="headerlink" title="静电场"></a>静电场</h2><ol>
+<li><p>散度定理<br>$$ \int_v \nabla\cdot \boldsymbol{A} \mathrm{d}v&#x3D;\oint_S \boldsymbol{A}\cdot \mathrm{d}\boldsymbol{s} $$</p>
+</li>
+<li><p>斯托克斯定理<br>$$ \int_S \nabla \times \boldsymbol{A} \cdot \mathrm{d}\boldsymbol{s}&#x3D;\oint_C \boldsymbol{A}\cdot \mathrm{d}\boldsymbol{l} $$</p>
+</li>
+<li><p>静电学基本公理</p>
+<p>微分形式：</p>
+</li>
+</ol>
+<p> $$               \nabla \cdot \boldsymbol{E}&#x3D;\frac{\rho}{\varepsilon_0}$$<br>$$               \nabla \times \boldsymbol{E}&#x3D;0 $$<br> 积分形式：<br> $$               \oint_S \boldsymbol{E}\cdot \mathrm{d}\boldsymbol{s}&#x3D;\frac{Q}{\varepsilon_0}$$<br> $$               \oint_C \boldsymbol{E}\cdot \mathrm{d}\boldsymbol{l}&#x3D;0$$<br>4. 圆环轴线上的电场强度<br>$$<br>\boldsymbol{E}&#x3D;\hat{z}\frac{Qz}{4\pi \varepsilon_0(z^2+a^2)^{3&#x2F;2}}<br>$$<br>5. 无限长线电荷的电场强度<br>$$<br>               \boldsymbol{E}&#x3D;\boldsymbol{a}<em>r\frac{\rho_l}{2\pi \varepsilon_0r}<br>$$<br>6. 电场强度与电位的关系<br>$$<br>               \boldsymbol{E}&#x3D;-\nabla V<br>$$<br>7. 分布电荷的电位<br>$$<br>               V&#x3D;\frac{q}{4\pi \varepsilon_0R}<br>$$<br>8. 多电荷产生的电位<br>$$ V&#x3D;\frac{1}{4\pi \varepsilon_0}\sum</em>{k&#x3D;1}^n \frac{q_k}{|\boldsymbol{R}-\boldsymbol{R}’_k|} $$<br>9. 导体表面的边界条件<br>$$<br>               E_t&#x3D;0<br>$$</p>
+<p>$$<br>               E_n&#x3D;\frac{\rho_s}{\varepsilon_0}<br>$$<br>10. 极化电荷密度<br>    -   束缚电荷面密度：$\rho_{ps}&#x3D;\boldsymbol{P}\cdot \boldsymbol{a}_n$</p>
+<pre><code>-   束缚电荷体密度：$\rho_p=-\nabla\cdot \boldsymbol&#123;P&#125;$
+</code></pre>
+<ol start="11">
+<li><p>电通密度（电位移）<br>$$<br>        \boldsymbol{D}&#x3D;\varepsilon_0\boldsymbol{E}+\boldsymbol{P}<br>$$</p>
+</li>
+<li><p>静电场的边界条件</p>
+<p>切向分量</p>
+</li>
+</ol>
+<p> $$ E_{1t}&#x3D;E_{2t}  $$<br> 法向分量<br> $$ \boldsymbol{a}<em>{n2}\cdot(\boldsymbol{D}<em>1-\boldsymbol{D}<em>2)&#x3D;\rho_s $$<br>13. 电容器<br> $$ C&#x3D;\frac{Q}{V} $$<br>14. 同轴线电缆的电容<br> $$C&#x3D;\frac{Q}{V}&#x3D;\frac{2\pi \varepsilon L}{ln\left(\frac{b}{a}\right)}$$<br>15. 部分电容<br> $$C</em>{ii}&#x3D;\sum</em>{j&#x3D;1}^{n}\beta</em>{ij}$$<br> $$C_{ij}&#x3D;-\beta_{ij},,i\not&#x3D;j$$<br>16. 静电场的能量<br> $$            W_e&#x3D;\frac{1}{2}\sum_{k&#x3D;1}^N Q_k V_k$$<br> $$ W_e&#x3D;\frac{1}{2}\int_{V’}\rho V \mathrm{d}v $$<br> 场量表示：<br> $$  W_e&#x3D;\frac{1}{2}\int_{V’}\boldsymbol{D}\cdot\boldsymbol{E}\mathrm{d}v$$<br>17. 能量密度<br> $$ w_e&#x3D;\frac{1}{2}\boldsymbol{D}\cdot\boldsymbol{E}&#x3D;\frac{1}{2}\varepsilon E^2 $$</p>
+<h2 id="静电场问题的解"><a href="#静电场问题的解" class="headerlink" title="静电场问题的解"></a>静电场问题的解</h2><ol>
+<li>泊松方程<br>$$<br>        \nabla^2&#x3D;-\frac{\rho}{\varepsilon}<br>$$</li>
+</ol>
+<p>$$<br>               \frac{\partial^2 V}{\partial x^2}+\frac{\partial^2 V}{\partial y^2}+\frac{\partial^2 V}{\partial z^2}&#x3D;\frac{\rho}{\varepsilon} (\mathrm{V&#x2F;m}^2)<br>$$<br>2. 拉普拉斯方程<br>$$<br>               \nabla^2 V&#x3D;0<br>$$<br>3. 唯一性定理：满足给定<em>边界条件</em>的<em>泊松方程</em>(拉普拉斯方程是特例)的解唯一</p>
+<ol start="4">
+<li><p>镜像法：这种利用合适的镜像电荷代替边界面,代替正规的求解泊松方程和拉普拉斯方程的方法叫做镜像法。</p>
+</li>
+<li><p>分离变量法</p>
+<p>(1) 边界条件</p>
+<p>(2) 色散条件：$k_x^2+k_y^2+k_z^2&#x3D;0$</p>
+<p>(3) 方程$X’’(x)+k_x^2X(x)&#x3D;0$的解</p>
+<p><img alt="方程的解" class="post-img b-lazy" data-img="/%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3.png" data-index="0" data-src="/%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3.png"></p>
+</li>
+</ol>
+<h2 id="稳恒电流与静磁场"><a href="#稳恒电流与静磁场" class="headerlink" title="稳恒电流与静磁场"></a>稳恒电流与静磁场</h2><ol>
+<li><p>（体）电流密度<br>$$<br>        \boldsymbol{J}&#x3D;Nq\boldsymbol{v}&#x3D;\rho \boldsymbol{v}<br>$$</p>
+</li>
+<li><p>总电流<br>$$<br>        I&#x3D;\int_S \boldsymbol{J}\cdot \mathrm{d}\boldsymbol{s}&#x3D;\frac{\mathrm{d}Q}{\mathrm{d}t}<br>$$</p>
+</li>
+<li><p>欧姆定律（本构关系2）<br> $$\boldsymbol{J}&#x3D;\sigma \boldsymbol{E}$$</p>
+</li>
+<li><p>电阻<br> $$R&#x3D;\frac{l}{\sigma S}$$</p>
+</li>
+<li><p>静磁学的两个基本公理</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>微分形式</th>
+<th>积分形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>磁通连续性原理</td>
+<td>$\nabla\cdot \boldsymbol{B}&#x3D;0$</td>
+<td>$\oint_S \boldsymbol{B}\cdot \mathrm{d}\boldsymbol{s}&#x3D;0$</td>
+</tr>
+<tr>
+<td>安培环路定律</td>
+<td>$\nabla\times \boldsymbol{B}&#x3D;\mu_0 \boldsymbol{J}$</td>
+<td>$\oint_S \boldsymbol{B}\cdot \mathrm{d}\boldsymbol{l}&#x3D;\mu_0$</td>
+</tr>
+</tbody></table>
+<ol start="6">
+<li><p>矢量磁位与磁通密度的关系<br>$$<br>        \boldsymbol{B}&#x3D;\nabla\times \boldsymbol{A}<br>$$</p>
+</li>
+<li><p>矢量旋度的旋度公式<br>$$<br>        \nabla \times\nabla\times \boldsymbol{A}&#x3D;\nabla(\nabla\cdot\boldsymbol{A})-\nabla^2\boldsymbol{A}<br>$$</p>
+</li>
+<li><p>矢量泊松方程<br>$$<br>        \nabla^2\boldsymbol{A}&#x3D;-\mu_0\boldsymbol{J}<br>$$</p>
+</li>
+<li><p>矢量磁位<br>$$<br>        \boldsymbol{A}&#x3D;\frac{\mu_0}{4\pi}\int_{V’}\frac{\boldsymbol{J}}{R}\mathrm{d}v’<br>$$</p>
+</li>
+<li><p>磁通量<br> $$\begin{aligned}                \varPhi&#x3D;&amp;\int_S \boldsymbol{B}\cdot \mathrm{d}\boldsymbol{s}\                \varPhi&#x3D;&amp;\int_S(\nabla\times \boldsymbol{A})\cdot \mathrm{d}\boldsymbol{s}&#x3D;\oint_C \boldsymbol{A}\cdot \mathrm{d}\boldsymbol{l}           \end{aligned}$$</p>
+</li>
+<li><p>毕奥-萨伐尔定律<br> $$\begin{aligned}                \boldsymbol{B}&amp;&#x3D;\frac{\mu_0}{4\pi}\int_{V’}\frac{\boldsymbol{J}’\times \hat{R}}{R^2}\mathrm{d}v’\                &amp;&#x3D;\frac{\mu_0I}{4\pi}\oint_{C’}\frac{\mathrm{d}\boldsymbol{l}’\times \hat{R}}{R^2}\text{（线电流）}\                 &amp;&#x3D;\frac{\mu_0}{4\pi}\int_{S}\frac{\boldsymbol{J}’_s\times \hat{R}}{R^2}\mathrm{d}s\text{（面电流）}           \end{aligned}$$</p>
+</li>
+<li><p>磁偶极子<br> $$ \boldsymbol{A}&#x3D;\hat{\phi}\frac{\mu_0Ib^2}{4R^2}\sin \theta<br>        &#x3D;\frac{\mu_0\boldsymbol{m}\times\hat{R}}{4\pi R^2}$$</p>
+</li>
+<li><p>磁场强度<br> $$ \boldsymbol{H}&#x3D;\frac{\boldsymbol{B}}{\mu_0}-\boldsymbol{M}<br>        &#x3D;\frac{1}{\mu}{\boldsymbol{B}}$$</p>
+</li>
+<li><p>安培环路定律<br> $$ \begin{aligned}                \text{积分形式：}&amp;\oint_C \boldsymbol{H}\cdot \mathrm{d}\boldsymbol{l}&#x3D;I\                \text{微分形式：}&amp;\nabla\times \boldsymbol{H}&#x3D;\boldsymbol{J}         \end{aligned} $$</p>
+</li>
+<li><p>本构关系3<br> $$ \boldsymbol{B}&#x3D;\mu_0(1+\chi_m)\boldsymbol{H}&#x3D;\mu_0\mu_r\boldsymbol{H}&#x3D;\mu\boldsymbol{H} $$</p>
+</li>
+<li><p>静磁场的边界条件<br> $$\begin{aligned}                \text{$\boldsymbol{B}$法向连续：}&amp;B_{1n}&#x3D;B_{2n}\                \text{$\boldsymbol{H}$切向不连续：}&amp;\hat{n}\times(\boldsymbol{H}_1-\boldsymbol{H}_2)&#x3D;\boldsymbol{J}_s            \end{aligned}$$</p>
+</li>
+<li><p>自感</p>
+<p>(1) 对于给定的几何形状选择适当的坐标系。</p>
+<p>(2) 假设导线中的电流为$I$。</p>
+<p>(3) 如果存在对称性，就根据安培环路定理，由$I$求$\boldsymbol{B}$; 如果不存在对称性，就必须用毕奥－萨伐定律求$\boldsymbol{B}$。</p>
+<p>(4) 用积分方法，由$\boldsymbol{B}$求出每一圈所交链的磁通中$\varPhi&#x3D;\int_S \boldsymbol{B}\cdot\mathrm{d}\boldsymbol{s}$。其中$S$为面积，在该面积上$\boldsymbol{B}$存在且与假设的电流交链。</p>
+<p>(5) 用磁通量$\varPhi$中乘以匝数，得到回路的磁链$\varLambda$。</p>
+<p>(6) 通过求比率$L&#x3D;\frac{\varLambda}{I}$, 从而求出自感$L$。</p>
+</li>
+<li><p>静磁场的能量<br> $$ W_m&#x3D;\frac{1}{2}\sum_{j&#x3D;1}^{N}\sum_{k&#x3D;1}^{N}L_{jk}I_jI_k&#x3D;\frac{1}{2}\sum_{k&#x3D;1}^{N}I_k\varPhi_k $$</p>
+</li>
+</ol>
+<p> 场量表示：<br> $$ W_m&#x3D;\frac{1}{2}\int_{V’}\boldsymbol{A}\cdot\boldsymbol{J}\mathrm{d}v’&#x3D;\frac{1}{2}\int_{V’}\boldsymbol{H}\cdot\boldsymbol{B}\mathrm{d}v’ $$</p>
+<ol start="19">
+<li>磁能密度<br> $$ w_m&#x3D;\frac{1}{2}\boldsymbol{H}\cdot \boldsymbol{B}&#x3D;\frac{B^2}{2\mu}&#x3D;\frac{1}{2}\mu H^2 $$</li>
+</ol>
+<h2 id="时变电磁场"><a href="#时变电磁场" class="headerlink" title="时变电磁场"></a>时变电磁场</h2><ol>
+<li><p>法拉第电磁感应定律<br> $$\begin{aligned}<br>        \text{积分形式：}&amp;\oint_C \boldsymbol{E}\cdot \mathrm{d}\boldsymbol{l}&#x3D;-\int_s \frac{\partial \boldsymbol{B}}{\partial t}\cdot \mathrm{d}\boldsymbol{s}\<br>        \text{微分形式：}&amp;\nabla\times\boldsymbol{E}&#x3D;-\frac{\partial \boldsymbol{B}}{\partial t}<br>    \end{aligned}$$</p>
+</li>
+<li><p>连续性方程<br> $$\nabla\cdot \boldsymbol{J}&#x3D;-\frac{\partial \rho}{\partial t}$$</p>
+</li>
+<li><p>麦克斯韦方程</p>
+<table>
+<thead>
+<tr>
+<th>意义</th>
+<th>微分形式</th>
+<th>积分形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>法拉第定律</td>
+<td>$\displaystyle\nabla\times \boldsymbol{E}&#x3D;-\frac{\partial \boldsymbol{B}}{\partial t}$</td>
+<td>$\displaystyle\oint_C \boldsymbol{E}\cdot \mathrm{d}\boldsymbol{l}&#x3D;-\frac{\partial \Phi}{\partial t}&#x3D;-\int_s \frac{\partial \boldsymbol{B}}{\partial t}\cdot \mathrm{d}\boldsymbol{s}$</td>
+</tr>
+<tr>
+<td>安培环路定律</td>
+<td>$\displaystyle\nabla\times \boldsymbol{H}&#x3D;\boldsymbol{J}+\frac{\partial \boldsymbol{D}}{\partial t}$</td>
+<td>$\displaystyle\oint_C \boldsymbol{H}\cdot \mathrm{d}\boldsymbol{l}&#x3D;\int_s \left(\boldsymbol{J}+\frac{\partial \boldsymbol{D}}{\partial t}\right)\cdot \mathrm{d}\boldsymbol{s}$</td>
+</tr>
+<tr>
+<td>高斯定理(导出)</td>
+<td>$\nabla\cdot \boldsymbol{D}&#x3D;\rho$</td>
+<td>$\displaystyle\oint_s \boldsymbol{D}\cdot \mathrm{d}\boldsymbol{s} &#x3D;\int_V \rho \mathrm{d}V &#x3D;Q$</td>
+</tr>
+<tr>
+<td>磁通连续性原理(导出)</td>
+<td>$\nabla\cdot \boldsymbol{B}&#x3D;0$</td>
+<td>$\displaystyle\oint_S \boldsymbol{B}\cdot \mathrm{d}\boldsymbol{s}&#x3D;0$</td>
+</tr>
+<tr>
+<td>电流连续性方程</td>
+<td>$\displaystyle\nabla\cdot \boldsymbol{J}&#x3D;-\frac{\partial \rho}{\partial t}$</td>
+<td>$\displaystyle\oint_s \boldsymbol{J}\cdot \boldsymbol{s}&#x3D;-\int_V\frac{\partial \rho}{\partial t} \mathrm{d}V$</td>
+</tr>
+<tr>
+<td>洛伦兹力方程</td>
+<td>$\boldsymbol{F}&#x3D;q \boldsymbol{v} \times \boldsymbol{B}$</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>本构关系<br> $$\begin{aligned}<br>        \boldsymbol{D}&amp;&#x3D;\varepsilon\boldsymbol{E}\<br>        \boldsymbol{B}&amp;&#x3D;\mu\boldsymbol{H}\<br>        \boldsymbol{J}&amp;&#x3D;\sigma \boldsymbol{E}<br>    \end{aligned}$$</p>
+</li>
+<li><p>限定形式的麦克斯韦方程组<br> $$\begin{aligned}<br>            &amp;\nabla \times \boldsymbol{E}&#x3D;-\mu \frac{\partial \boldsymbol{H}}{\partial t} \<br>            &amp;\nabla \times \boldsymbol{H}&#x3D;\boldsymbol{J}+\varepsilon \frac{\partial \boldsymbol{E}}{\partial t} \<br>            &amp;\nabla \cdot \boldsymbol{E}&#x3D;\frac{\rho}{\varepsilon} \<br>            &amp;\nabla \cdot \boldsymbol{H}&#x3D;0<br>    \end{aligned}$$</p>
+</li>
+<li><p>电磁边界条件</p>
+<p>切向分量（分界面上$\boldsymbol{E}$的切向分量连续；有面电流时，$\boldsymbol{H}$的切向分量不连续）</p>
+</li>
+</ol>
+<p> $$\begin{aligned}<br>               \hat{\boldsymbol{n}}\times (\boldsymbol{E}_1-\boldsymbol{E}_2)&amp;&#x3D;\boldsymbol{0}\<br>               \hat{\boldsymbol{n}}\times (\boldsymbol{H}_1-\boldsymbol{H}_2)&amp;&#x3D;\boldsymbol{J}_s<br>           \end{aligned} $$<br>   法向分量<br> $$\begin{aligned}<br>               \hat{\boldsymbol{n}}\cdot (\boldsymbol{D}_1-\boldsymbol{D}_2)&amp;&#x3D;\rho_s\<br>               \hat{\boldsymbol{n}}\cdot (\boldsymbol{B}_1-\boldsymbol{B}_2)&amp;&#x3D;0<br>           \end{aligned}$$</p>
+<ol start="7">
+<li><p>坡印廷定理——在任意时刻流入闭合面的总功率，等于由这个闭合面所包围的体积内电场储能和磁场储能的增加率与损耗的欧姆功率之和。<br> $$\begin{aligned}<br>        -\oint_{s}(\boldsymbol{E} \times \boldsymbol{H}) \cdot \mathrm{d} \boldsymbol{S} &amp;&#x3D;\int_{V}\left[\frac{\partial}{\partial t}\left(\frac{1}{2} \boldsymbol{B} \cdot \boldsymbol{H}\right)+\frac{\partial}{\partial t}\left(\frac{1}{2} \boldsymbol{D} \cdot \boldsymbol{E}\right)+\boldsymbol{J} \cdot \boldsymbol{E}\right] \mathrm{d} V \<br>        &amp;&#x3D;\frac{\partial}{\partial t} \int_{V}\left(\frac{1}{2} \boldsymbol{B} \cdot \boldsymbol{H}+\frac{1}{2} \boldsymbol{D} \cdot \boldsymbol{E}\right) \mathrm{d} V+\int_{V} \boldsymbol{J} \cdot \boldsymbol{E} \mathrm{d} V<br>        \end{aligned} $$<br> 一般介质的坡印廷定理<br> $$-\oint_{s}(\boldsymbol{E} \times \boldsymbol{H}) \cdot \mathrm{d} \boldsymbol{S} &#x3D;\int_V \left(\boldsymbol{H}\cdot\frac{\partial \boldsymbol{B}}{\partial t}+\boldsymbol{E}\cdot\frac{\partial \boldsymbol{D}}{\partial t}+\boldsymbol{J} \cdot \boldsymbol{E}\right)\mathrm{d}V $$<br> 对于电场和磁场能量不增加的系统，即<br> $$-\oint_s \boldsymbol{S}\cdot \mathrm{d}\boldsymbol{s}&#x3D;P&#x3D;I^2R$$</p>
+</li>
+<li><p>坡印廷矢量<br> $$\boldsymbol{S}&#x3D;\boldsymbol{E}\times \boldsymbol{H}$$</p>
+</li>
+<li><p>场量复数形式$\dot{\boldsymbol{E}}(x,y,z)$与瞬时值$\boldsymbol{E}(x,y,z,t)$的互转<br> $$\boldsymbol{E}(x,y,z,t)&#x3D;\Re\left[\dot{\boldsymbol{E}}(x,y,z)\mathrm{e}^{\mathrm{j}\omega t}\right]$$</p>
+</li>
+<li><p>时谐麦克斯韦方程组<br> $$\begin{aligned}<br>            &amp;\nabla \times \boldsymbol{E}&#x3D;-\mathrm{j} \omega \mu \boldsymbol{H} \<br>            &amp;\nabla \times \boldsymbol{H}&#x3D;\boldsymbol{J}+\mathrm{j} \omega \varepsilon \boldsymbol{E} \<br>            &amp;\nabla \cdot \boldsymbol{E}&#x3D;\frac{\rho}{\varepsilon} \<br>            &amp;\nabla \cdot \boldsymbol{H}&#x3D;0 \<br>            &amp;\nabla \cdot \boldsymbol{J}&#x3D;-\mathrm{j}\omega \rho<br>    \end{aligned}$$</p>
+</li>
+<li><p>亥姆霍兹方程（波数$k&#x3D;\omega\sqrt{\mu\varepsilon}$）<br> $$\nabla^2\boldsymbol{E}+\omega^2\mu\varepsilon\boldsymbol{E}&#x3D;0$$</p>
+</li>
+</ol>
+<h2 id="平面电磁波"><a href="#平面电磁波" class="headerlink" title="平面电磁波"></a>平面电磁波</h2><ol>
+<li><p>无源波动方程<br> $$\begin{aligned}<br>        &amp;\nabla^2\boldsymbol{E}-\mu\varepsilon\frac{\partial^2 \boldsymbol{E}}{\partial t^2}&#x3D;0\<br>        &amp;\nabla^2\boldsymbol{H}-\mu\varepsilon\frac{\partial^2 \boldsymbol{H}}{\partial t^2}&#x3D;0<br>    \end{aligned}$$</p>
+</li>
+<li><p>平面电磁波基本概念</p>
+<ul>
+<li><p>波阻抗：$\eta&#x3D;\sqrt{\frac{\mu}{\varepsilon}}&#x3D;\frac{\omega\mu}{k}&#x3D;\eta_0 \sqrt{\frac{\mu_r}{\varepsilon_r}}$（本征阻抗$\eta_0&#x3D;\sqrt{\frac{\mu_0}{\varepsilon_0}}&#x3D;120\pi$）</p>
+</li>
+<li><p>相速：$v_p&#x3D;\frac{\omega}{k}&#x3D;\frac{1}{\sqrt{\mu\varepsilon}}&#x3D;\lambda f$</p>
+</li>
+<li><p>波长：$\lambda&#x3D;\frac{2\pi}{k}$</p>
+</li>
+<li><p>波数：$k&#x3D;\omega\sqrt{\mu\varepsilon}&#x3D;\frac{2\pi}{\lambda}$</p>
+</li>
+<li><p>频率：$f&#x3D;\frac{1}{T}&#x3D;\frac{\omega}{2\pi}$</p>
+</li>
+</ul>
+</li>
+<li><p>复坡印廷矢量<br> $$ \boldsymbol{S}&#x3D;\dfrac{1}{2} \boldsymbol{E} !\times! \boldsymbol{H}^*   &#x3D;\dfrac{1}{2} \hat{\boldsymbol{x}} E_0 \text{e}^{-jkz}  !\times! \hat{\boldsymbol{y}} H_0^* \text{e}^{jkz}   &#x3D;\dfrac{1}{2} \hat{\boldsymbol{z}} \dfrac{|{E_0}|^2}{\eta}   &#x3D;\hat{\boldsymbol{z}} \dfrac{E_{0m}^2}{2\eta} $$</p>
+</li>
+</ol>
+<p> 对于无耗介质，它的实部为一周期内坡印廷矢量的平均值；如果媒质有损耗，复波印廷矢量将会是一个复数矢量，它的实部恰好等于电磁波在一个周期内的平均功率<br> $$\boldsymbol{S}_{av}&#x3D;\Re\left[\frac{1}{2}\boldsymbol{E}\times \boldsymbol{H}^*\right]$$<br>4. 任意方向传播的均匀电磁波<br> $$\begin{aligned}<br>               &amp;\boldsymbol{E}&#x3D;\boldsymbol{E}_0 \text{e}^{-j \boldsymbol{k}\cdot \boldsymbol{r}}\<br>               &amp;\boldsymbol{H}&#x3D;\dfrac{1}{\eta}\hat{\boldsymbol{k}}!\times!\boldsymbol{E} \<br>               &amp;\hat{\boldsymbol{k}}!\cdot!\boldsymbol{E}&#x3D;0\<br>               &amp;\hat{\boldsymbol{k}}!\cdot!\boldsymbol{H}&#x3D;0<br>           \end{aligned}$$</p>
+<ol start="5">
+<li><p>导电介质中平面电磁波的基本概念</p>
+<ul>
+<li><p>复介电常数：$\varepsilon_c&#x3D;\varepsilon-j\dfrac{\sigma}{\omega}&#x3D;\varepsilon(1-j\dfrac{\sigma}{\omega\varepsilon})$（损耗角正切：$\dfrac{\sigma}{\omega\varepsilon}$）</p>
+</li>
+<li><p>衰减常数：$\alpha&#x3D;\omega \sqrt{\dfrac{\mu\varepsilon}{2}\bigg(\sqrt{1+\Big(\dfrac{\sigma}{\omega\varepsilon}\Big)^2}-1\bigg)}$</p>
+</li>
+<li><p>相位常数：$\beta&#x3D; \omega \sqrt{\dfrac{\mu\varepsilon}{2}\bigg(\sqrt{1+\Big(\dfrac{\sigma}{\omega\varepsilon}\Big)^2}+1\bigg)}$</p>
+</li>
+<li><p>波阻抗：$\eta_c<br>        &#x3D; \sqrt{\dfrac{\mu}{\varepsilon_c}}<br>        &#x3D; \sqrt{\dfrac{\mu}{\varepsilon}}\bigg(1-j\dfrac{\sigma}{\omega\varepsilon}\bigg)^{-1&#x2F;2}<br>        &#x3D; |{\eta_c}| \text{e}^{j\theta}$</p>
+</li>
+</ul>
+</li>
+<li><p>介质及其常数</p>
+<table>
+<thead>
+<tr>
+<th>介质类型</th>
+<th>良电介质</th>
+<th>不良导体</th>
+<th>良导体</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>损耗角正切$\dfrac{\sigma}{\omega\varepsilon}$</td>
+<td>$\approx 0$</td>
+<td>$\approx 1$</td>
+<td>$\gg 1$</td>
+</tr>
+<tr>
+<td>衰减常数$\alpha$</td>
+<td>$\dfrac{\sigma}{2} \sqrt{\dfrac{\mu}{\varepsilon}}$</td>
+<td>$\alpha&#x3D;\omega \sqrt{\dfrac{\mu\varepsilon}{2}\bigg(\sqrt{1+\Big(\dfrac{\sigma}{\omega\varepsilon}\Big)^2}-1\bigg)}$</td>
+<td>$\sqrt{\dfrac{\omega \mu \sigma}{2}}$</td>
+</tr>
+<tr>
+<td>相位常数$\beta$</td>
+<td>$\omega \sqrt{\mu\varepsilon}$</td>
+<td>$\beta&#x3D; \omega \sqrt{\dfrac{\mu\varepsilon}{2}\bigg(\sqrt{1+\Big(\dfrac{\sigma}{\omega\varepsilon}\Big)^2}+1\bigg)}$</td>
+<td>$\sqrt{\dfrac{\omega \mu \sigma}{2}}$</td>
+</tr>
+<tr>
+<td>波阻抗$\eta$</td>
+<td>$\sqrt{\dfrac{\mu}{\varepsilon}}$</td>
+<td>$\eta_c     &#x3D; \sqrt{\dfrac{\mu}{\varepsilon_c}}$</td>
+<td>$\sqrt{\dfrac{\omega\mu}{\sigma}} \text{e}^{\text{j}\pi&#x2F;4}&#x3D;     \sqrt{\dfrac{\omega\mu}{2\sigma}} (1+\text{j})$</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>集肤深度（振幅衰减到表面处的$\frac{1}{e}$）<br> $$\delta &#x3D; \dfrac{1}{\alpha}&#x3D;\sqrt{\dfrac{2}{\omega\mu\sigma}}$$<br>  由振幅比例计算深度<br>  $$l&#x3D;\frac{1}{\alpha}\ln\frac{|E_0|}{|E|}$$</p>
+</li>
+<li><p>良导体中的复坡印廷矢量<br>$$\boldsymbol{S}<br>&#x3D;\dfrac{1}{2} \boldsymbol{E}!\times\boldsymbol{H}^{*}<br>&#x3D; \hat{\boldsymbol{z}} ,\dfrac{1}{2} |{E_0}|^2 \sqrt{\dfrac{\sigma}{\omega\mu}} ,\text{e}^{\text{j}\frac{\pi}{4}} ,\text{e}^{-2\alpha z} $$</p>
+</li>
+</ol>
+<p> $z&#x3D;0$此处的平均电磁功率密度，即导体内的传导电流造成的热损耗的时间平均值<br> $$\boldsymbol{S}<em>\text{av}|</em>{z&#x3D;0} &#x3D;P&#x3D; \hat{\boldsymbol{z}} ,\dfrac{1}{2} |{E_0}|^2 \sqrt{\dfrac{\sigma}{2\omega\mu}}$$</p>
+<ol start="9">
+<li><p>极化类型</p>
+<ul>
+<li><p>线极化：$\phi_x-\phi_y&#x3D;k\pi$</p>
+</li>
+<li><p>圆极化：$E_{xm}&#x3D;E_{ym}&#x3D;E_m,\ \phi_x-\phi_y&#x3D;\pm\frac{\pi}{2}$</p>
+</li>
+<li><p>椭圆极化：$E_x$和$E_y$及$\phi_x$和$\phi_y$为任意关系</p>
+</li>
+</ul>
+</li>
+<li><p>极化旋向（迎着来波方向用X手螺旋）</p>
+<ul>
+<li><p>$\phi_x-\phi_y&gt;0$：逆时针-右旋</p>
+</li>
+<li><p>$\phi_x-\phi_y&lt;0$：顺时针-左旋</p>
+</li>
+</ul>
+</li>
+<li><p>理想导体垂直入射——驻波</p>
+<p>入射波、反射波、合成波 </p>
+<p> $$\begin{gathered}<br>        \boldsymbol{E}<em>{i}&#x3D;\hat{\boldsymbol{x}}E</em>{io}\mathrm{e}^{-\mathrm{j}kz}\<br>        \boldsymbol{E}<em>{r}&#x3D;-\hat{\boldsymbol{x}}E</em>{io}\mathrm{e}^{\mathrm{j}kz}\<br>        \boldsymbol{E}<em>1&#x3D;-\hat{\boldsymbol{x}}2\mathrm{j}E</em>{io}\sin(k_1z)<br>    \end{gathered} $$<br>理想导体垂直入射参数与性质<br> $$\begin{gathered}<br>        E_{io}+E_{ro}&#x3D;0\<br>        \Gamma&#x3D;\frac{E_{ro}}{E_{io}}&#x3D;-1<br>    \end{gathered}$$</p>
+</li>
+<li><p>理想介质垂直入射——行驻波<br>入射波、反射波、透射波、合成波 </p>
+<p> $$\begin{gathered}<br>        \boldsymbol{E}<em>{i}&#x3D;\hat{\boldsymbol{x}}E</em>{io}\mathrm{e}^{-\mathrm{j}k_1z}\<br>        \boldsymbol{E}<em>{r}&#x3D;\hat{\boldsymbol{x}}\Gamma E</em>{io}\mathrm{e}^{\mathrm{j}k_1z}\<br>        \boldsymbol{E}<em>{t}&#x3D;\hat{\boldsymbol{x}}T E</em>{io}\mathrm{e}^{-\mathrm{j}k_2z}\<br>        \boldsymbol{E}<em>1&#x3D;\hat{\boldsymbol{x}} E</em>{io}(T\ \mathrm{e}^{-\mathrm{j}k_z}+\mathrm{j}2\Gamma\sin(k_1z))\<br>    \end{gathered} $$<br>理想介质垂直入射参数与性质 </p>
+<p> $$\begin{gathered}<br>        \Gamma&#x3D;\frac{E_{ro}}{E_{io}}&#x3D;\frac{\eta_2-\eta_1}{\eta_2+\eta_1}\<br>    T&#x3D;\frac{E_{to}}{E_{io}}&#x3D;\frac{2\eta_2}{\eta_2+\eta_1}<br>    \end{gathered} $$<br>驻波比<br> $$S&#x3D;\frac{E_{\max}}{E_{\min}}&#x3D;\frac{1+|\Gamma|}{1-|\Gamma|} $$ </p>
+<p>平均功率密度矢量<br> $$\begin{aligned}<br>    &amp;\boldsymbol{S}<em>{av,i}&#x3D;\hat{\boldsymbol{z}}\frac{E</em>{io}^2}{2\eta_1}\<br>        &amp;\boldsymbol{S}<em>{av,r}&#x3D;-|\Gamma|^2\cdot\boldsymbol{S}</em>{av,i}\<br>        &amp;\boldsymbol{S}<em>{av,1}&#x3D;(1-|\Gamma|^2)\cdot\boldsymbol{S}</em>{av,i}\<br>        &amp;\boldsymbol{S}<em>{av,t}&#x3D;\frac{\eta_1}{\eta_2}\cdot|T|^2\boldsymbol{S}</em>{av,i}<br>    \end{aligned}$$</p>
+</li>
+<li><p>平面电磁波的斜入射（暂略）</p>
+</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" rel="tag"># 电磁场与电磁波</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>电磁场与电磁波公式整理</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年07月30日 - 22:48:41</p>
+  <p><span>原始链接:</span><a href="/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/" title="电磁场与电磁波公式整理">https://levitate-qian.github.io/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【持续更新】论文常用LaTeX代码" href="/2020/08/30/latex-code/">
+            ← 【持续更新】论文常用LaTeX代码
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="如何优雅的书写LaTeX论文" href="/2020/07/21/latex-vscode/">
+            如何优雅的书写LaTeX论文 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#电磁场与电磁波公式整理"><span class="toc-text">电磁场与电磁波公式整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#场论与电磁模型"><span class="toc-text">场论与电磁模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静电场"><span class="toc-text">静电场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静电场问题的解"><span class="toc-text">静电场问题的解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳恒电流与静磁场"><span class="toc-text">稳恒电流与静磁场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时变电磁场"><span class="toc-text">时变电磁场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平面电磁波"><span class="toc-text">平面电磁波</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/" class="leancloud-visitors" data-flag-title="电磁场与电磁波公式整理">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">电磁场与电磁波公式整理</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

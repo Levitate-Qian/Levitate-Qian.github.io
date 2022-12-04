@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>电磁场实验 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="电磁场实验 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/">
+
+	
+	<meta property="article:published_time" content="2020-05-12T14:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-05-12T14:21:46.000Z">
+                    2020-05-12
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">电磁场实验</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ylXd.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="电磁场实验"><a href="#电磁场实验" class="headerlink" title="电磁场实验"></a>电磁场实验</h1><p>这是电磁场实验虚拟仿真的部分内容思路，后续应该有空的时候会更新完四个实验。</p>
+<blockquote>
+<p> <strong>实验四一开始左旋右旋判断错了，现在刚刚讲到。如果老师看到这里，能不能不算错啊🤣</strong></p>
+<p>——2020年6月2日</p>
+</blockquote>
+<h2 id="实验一-带电粒子在电磁场中的受力与运动特性研究实验"><a href="#实验一-带电粒子在电磁场中的受力与运动特性研究实验" class="headerlink" title="实验一　带电粒子在电磁场中的受力与运动特性研究实验"></a>实验一　带电粒子在电磁场中的受力与运动特性研究实验</h2><p>这个实验说实话像是物理实验，不是很像电磁场实验🤣。物理实验貌似真的做过这个类似的。</p>
+<h3 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h3><p>编写程序，用<code>MATLAB</code>数值模拟的方法，模拟带电粒子在均匀分布的正交电磁场中的螺旋运动，带电粒子进入磁场的方向与磁场方向之间的夹角为$\theta$，（$0&lt;\theta&lt;90°$）。</p>
+<p>设带电粒子的初始状态如下：<br>$$<br> \begin{aligned}<br>        \text{粒子带电量$q$: } &amp;\quad q&#x3D;1.6\times 10^{-2} C, \<br>        \text{粒子质量$m$: }&amp;\quad m&#x3D;0.02 g.<br>    \end{aligned}<br>$$</p>
+<p>根据题设，我们要模拟三种状态，分别设参数如下：</p>
+<ul>
+<li><p>电场强度和磁场强度都不为零，$B&#x3D;2,E&#x3D;2$;</p>
+</li>
+<li><p>电场强度为零，磁场强度不为零，$B&#x3D;2,E&#x3D;0$;</p>
+</li>
+<li><p>电场强度不为零，磁场强度为零，$B&#x3D;0,E&#x3D;2$。</p>
+</li>
+</ul>
+<p>利用上学期在<em>《计算方法》</em>中学到的Runge-Kutta算法即可求解该问题。</p>
+<p><strong>odefun1.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dwdt</span> = <span class="title">odefun1</span><span class="params">(t,w,q,B,m,E)</span></span></span><br><span class="line">dwdt = <span class="built_in">zeros</span>(<span class="number">6</span>,<span class="number">1</span>);</span><br><span class="line">dwdt(<span class="number">1</span>) = w(<span class="number">2</span>);</span><br><span class="line">dwdt(<span class="number">2</span>) = q.*B.*w(<span class="number">4</span>)./m;</span><br><span class="line">dwdt(<span class="number">3</span>) = w(<span class="number">4</span>);</span><br><span class="line">dwdt(<span class="number">4</span>) = q.*E./m-q.*B.*w(<span class="number">2</span>)./m;</span><br><span class="line">dwdt(<span class="number">5</span>) = w(<span class="number">6</span>);</span><br><span class="line">dwdt(<span class="number">6</span>) = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>针对微分方程组的初始条件<code>y0</code>，设初值条件$w_1&#x3D;0$,$w_2&#x3D;0.01$,$w_3&#x3D;0$,$w_4&#x3D;6$,$w_5&#x3D;0$,$w_6&#x3D;0.01$开始迭代，得到<code>[t,w]</code>的关系值。由于$w_1 &#x3D; x$，$w_3 &#x3D; y$，$w_5 &#x3D; z$，所以我们依据不同时刻带电粒子的位置利用三维绘图函数<code>plot3</code>绘制图像。选择不同的$i$值即可绘制三种不同情况的带电粒子运动轨迹。具体程序如下：</p>
+<p> <strong>lab011.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% The movement of charged particles in an electromagnetic field (full image)</span></span><br><span class="line"><span class="keyword">global</span> q m B E</span><br><span class="line">q=<span class="number">1.6e-2</span>;   <span class="comment">% Charge of particle</span></span><br><span class="line">m=<span class="number">0.02</span>;     <span class="comment">% Mass of particle</span></span><br><span class="line">B=[<span class="number">2</span>;<span class="number">2</span>;<span class="number">0</span>];  <span class="comment">% Magnetic flux density in orthogonal electromagnetic field, single magnetic field, single electric field</span></span><br><span class="line">E=[<span class="number">2</span>;<span class="number">0</span>;<span class="number">2</span>];  <span class="comment">% Electric field strength under orthogonal electromagnetic field, single magnetic field, single electric field</span></span><br><span class="line">fig&#123;<span class="number">1</span>&#125;=<span class="string">&#x27;$E\not= 0,B\not= 0$&#x27;</span>;</span><br><span class="line">fig&#123;<span class="number">2</span>&#125;=<span class="string">&#x27;$E=0,B\not= 0$&#x27;</span>;</span><br><span class="line">fig&#123;<span class="number">3</span>&#125;=<span class="string">&#x27;$E\not= 0, B=0$&#x27;</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">3</span>    <span class="comment">% Choose a different i, switch between &quot;orthogonal electromagnetic field&quot;, &quot;single magnetic field&quot;, &quot;single electric field&quot;</span></span><br><span class="line">[t,w]=ode23(@(t,w) odefun1(t,w,q,B(<span class="built_in">i</span>),m,E(<span class="built_in">i</span>)),[<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span>],[<span class="number">0</span>,<span class="number">0.01</span>,<span class="number">0</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">0.01</span>]);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="built_in">i</span>),<span class="built_in">plot3</span>(w(:,<span class="number">1</span>),w(:,<span class="number">3</span>),w(:,<span class="number">5</span>));</span><br><span class="line">grid on</span><br><span class="line">title(fig&#123;<span class="built_in">i</span>&#125;,<span class="string">&#x27;fontsize&#x27;</span>,<span class="number">12</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>); ylabel(<span class="string">&#x27;y&#x27;</span>); zlabel(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p><img alt="lab01-1" class="post-img b-lazy" data-img="/lab01-1.png" data-index="0" data-src="/lab01-1.png"></p>
+<h3 id="发挥部分"><a href="#发挥部分" class="headerlink" title="发挥部分"></a>发挥部分</h3><p>将$v$放到笛卡尔坐标系中讨论，则可得到带电粒子的位置方程</p>
+<p>$$<br>\left{\begin{aligned}<br>        x&amp;&#x3D;v_{&#x2F;&#x2F;}t&#x3D;vt\cos \theta ,\<br>        y&amp;&#x3D;v_{\bot}\cos{(\omega t)}&#x3D;v\sin \theta\cos(\omega t),\<br>        z&amp;&#x3D;v_{\bot}\sin{(\omega t)}&#x3D;v\sin \theta\sin(\omega t).<br>    \end{aligned}\right.<br>$$</p>
+<p>为了使所有点从同一位置发射出（$t&#x3D;0$时，$x&#x3D;y&#x3D;z&#x3D;0$），并简单化初始参数（令$v&#x3D;1,\omega&#x3D;1$），可以将方程改写为</p>
+<p>$$<br>\left{\begin{aligned}<br>        x&amp;&#x3D;t\cos \theta ,\<br>        y&amp;&#x3D;\sin \theta(1+\cos(t-\pi)),\<br>        z&amp;&#x3D;\sin \theta\sin(t-\pi).<br>    \end{aligned}\right.<br>$$</p>
+<p>$\theta$很小时，$v_{&#x2F;&#x2F;}\approx v,,v_{\bot}\approx v \theta$。发散角不太大的带电粒子束，经一个周期后重新会聚。这里我们取出射角度$\theta\in[-10^\circ,10^\circ]$。</p>
+<p>为了进一步观察每一个带电粒子束的运动轨迹，我们选用彗星图<code>comet3</code>函数。彗星图是动画图，其中一个圆（彗星头部）跟踪屏幕上的数据点。彗星主体是位于头部之后的尾部。尾巴是跟踪整个函数的实线。<code>comet3(x,y,z)</code> 显示经过点 $[x(i),y(i),z(i)]$ 曲线的彗星图。</p>
+<p><strong>lab012.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% Simulate magnetic focusing</span></span><br><span class="line">t=<span class="number">0</span>:<span class="number">0.01</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="keyword">for</span> theta=[<span class="number">-10</span>:<span class="number">2</span>:<span class="number">10</span>]*<span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line">grid on;</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="comment">%  comet3(cos(theta).*t,sin(theta).*(cos(t-pi)+1),sin(theta).*sin(t-pi));</span></span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">cos</span>(theta).*t,<span class="built_in">sin</span>(theta).*(<span class="built_in">cos</span>(t-<span class="built_in">pi</span>)+<span class="number">1</span>),<span class="built_in">sin</span>(theta).*<span class="built_in">sin</span>(t-<span class="built_in">pi</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>); ylabel(<span class="string">&#x27;y&#x27;</span>); zlabel(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;Simulate magnetic focusing&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img alt="lab01-2a" class="post-img b-lazy" data-img="/lab01-2a.png" data-index="1" data-src="/lab01-2a.png"></p>
+<p><img alt="lab01-2b" class="post-img b-lazy" data-img="/lab01-2b.png" data-index="2" data-src="/lab01-2b.png"></p>
+<h3 id="提高部分"><a href="#提高部分" class="headerlink" title="提高部分"></a>提高部分</h3><p>设带电粒子的初始状态如下：</p>
+<p> $$\begin{aligned}<br>        \text{粒子带电量$q$：} &amp;\quad q&#x3D;1.6\times 10^{-19} C, \<br>        \text{粒子质量$m$：}&amp;\quad m&#x3D;1.67\times 10^{-27} g,\<br>        \text{初速度$v_0$：}&amp;\quad v_0&#x3D;1\times 10^6 m&#x2F;s,\<br>        \text{初始磁场$B_0$：}&amp;\quad B_0&#x3D;1 T,\<br>        \text{磁场变化速率：}&amp;\quad \frac{\partial B_z}{\partial z}&#x3D;10 T&#x2F;m.<br>    \end{aligned}$$</p>
+<p>针对”磁镜效应”，可以被转化为</p>
+<p> $$\left{\begin{aligned}<br>        \frac{\mathrm{d}w_1}{\mathrm{d}t} &amp;&#x3D; w_2;\<br>        \frac{\mathrm{d}w_2}{\mathrm{d}t} &amp;&#x3D; \frac{qw_4}{m}(10w_5+1)-\frac{qw_6}{m}\left(-5\sqrt{w_1^2+w_3^2}\cos\left(\frac{\pi}{4}\right)\right);\<br>        \frac{\mathrm{d}w_3}{\mathrm{d}t} &amp;&#x3D; w_4;\<br>        \frac{\mathrm{d}w_4}{\mathrm{d}t} &amp;&#x3D; \frac{qw_6}{m}\left(-5\sqrt{w_1^2+w_3^2}\sin\left(\frac{\pi}{4}\right)\right);\<br>        \frac{\mathrm{d}w_5}{\mathrm{d}t} &amp;&#x3D; w_6;\<br>        \frac{\mathrm{d}w_6}{\mathrm{d}t} &amp;&#x3D; -\frac{qw_4}{m}\left(-5\sqrt{w_1^2+w_3^2}\sin\left(\frac{\pi}{4}\right)\right)<br>    \end{aligned}\right.$$</p>
+<p><strong>odefun2.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dwdt</span> = <span class="title">odefun2</span><span class="params">(t,w,q,m)</span></span></span><br><span class="line">dwdt = <span class="built_in">zeros</span>(<span class="number">6</span>,<span class="number">1</span>);</span><br><span class="line">dwdt(<span class="number">1</span>) = w(<span class="number">2</span>);</span><br><span class="line">dwdt(<span class="number">2</span>) = q*(<span class="number">10</span>*w(<span class="number">5</span>)+<span class="number">1</span>)*w(<span class="number">4</span>)/m-q*((<span class="number">-5</span>*<span class="built_in">sqrt</span>(w(<span class="number">1</span>).^<span class="number">2</span>+w(<span class="number">3</span>).^<span class="number">2</span>))*<span class="built_in">cos</span>(<span class="built_in">pi</span>/<span class="number">4</span>))*w(<span class="number">6</span>)/m;</span><br><span class="line">dwdt(<span class="number">3</span>) = w(<span class="number">4</span>);</span><br><span class="line">dwdt(<span class="number">4</span>) = q*((<span class="number">-5</span>*<span class="built_in">sqrt</span>(w(<span class="number">1</span>).^<span class="number">2</span>+w(<span class="number">3</span>).^<span class="number">2</span>))*<span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">4</span>))*w(<span class="number">6</span>)/m;</span><br><span class="line">dwdt(<span class="number">5</span>) = w(<span class="number">6</span>);</span><br><span class="line">dwdt(<span class="number">6</span>) = -q*((<span class="number">-5</span>*<span class="built_in">sqrt</span>(w(<span class="number">1</span>).^<span class="number">2</span>+w(<span class="number">3</span>).^<span class="number">2</span>))*<span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">4</span>))*w(<span class="number">4</span>)/m</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <strong>lab013.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% Magnetic mirror effect</span></span><br><span class="line">q=<span class="number">1.6e-19</span>;      <span class="comment">% Charge of particle</span></span><br><span class="line">m=<span class="number">1.67e-27</span>;     <span class="comment">% Mass of particle</span></span><br><span class="line">v0=<span class="number">1e6</span>;         <span class="comment">% Initial velocity</span></span><br><span class="line">theta=<span class="built_in">pi</span>/<span class="number">4</span>;     <span class="comment">% Shooting speed</span></span><br><span class="line">Vy=<span class="number">0</span>,Vz=v0*<span class="built_in">cos</span>(theta),Vx=v0*<span class="built_in">sin</span>(theta);</span><br><span class="line">[t,w]=ode45(@(t,w) odefun2(t,w,q,m),[<span class="number">0</span>:<span class="number">1e-7</span>:<span class="number">1.5e-6</span>],[<span class="number">0</span>,Vx,<span class="number">1.1</span>,Vy,<span class="number">0</span>,Vz]);</span><br><span class="line"><span class="built_in">plot3</span>(w(:,<span class="number">1</span>),w(:,<span class="number">3</span>),w(:,<span class="number">5</span>));    <span class="comment">%Three-dimensional trajectory of particles</span></span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>);ylabel(<span class="string">&#x27;y&#x27;</span>);zlabel(<span class="string">&#x27;z&#x27;</span>);</span><br><span class="line">grid on;title(<span class="string">&#x27;Magnetic mirror effect&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img alt="lab01-3" class="post-img b-lazy" data-img="/lab01-3.png" data-index="3" data-src="/lab01-3.png"></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li>孙志忠,吴宏伟,袁慰平等.计算方法与实习(第5版)[M].南京：东南大学出版社,2011. </li>
+<li>任海林.带电粒子在均匀稳定电磁场中的运动分析与编程演示[EB&#x2F;OL].<a href="https://wenku.baidu.com/view/066a56ee5ef7ba0d4a733bff.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/066a56ee5ef7ba0d4a733bff.html</a>,2011-02-06&#x2F;2020-04-07. </li>
+<li>方瑞银,戚海洋.<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFD2012&filename=ELEW201221060&v=MzEwOTk4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZll1ZG9GQ3ZtVmI3TklDSE9lYkc0SDlQT3JvOURaSVI=" target="_blank" rel="noopener">MATLAB仿真带电粒子在磁场中磁镜现象</a>[J]. 电子世界, 2012(21):94-95. </li>
+<li>代国红,李兴鳌,黄伟军,方利广.<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFD2010&filename=GKWL201003009&v=MTIwMjZZUzdEaDFUM3FUcldNMUZyQ1VSN3FmWXVkb0ZDdm1WYnpOSWliY1lyRzRIOUhNckk5RmJZUjhlWDFMdXg=" target="_blank" rel="noopener">带电粒子在磁镜场中运动时速度的演变</a>[J].物理与工程,2010(3):17-18,36.</li>
+</ol>
+<h2 id="实验二-静电场边值问题研究实验"><a href="#实验二-静电场边值问题研究实验" class="headerlink" title="实验二　静电场边值问题研究实验"></a>实验二　静电场边值问题研究实验</h2><p>这个实验说起来就比其他三个实验要平和很多</p>
+<h3 id="仿真设置参数"><a href="#仿真设置参数" class="headerlink" title="仿真设置参数"></a>仿真设置参数</h3><p>由于针对两个仿真的操作基本一致，所以仅在不同的地方加以标注。</p>
+<ol>
+<li><p>调出<code>pdemodeler</code>工具箱，设置网格。</p>
+</li>
+<li><p><em>区域设置</em>：选择工具栏的画矩形工具，确定计算范围。</p>
+</li>
+<li><p><em>应用模式</em>：在菜单栏中单击<code>Option</code>下拉列表框，选择<code>Applications</code>，再选择<code>Electrostatics</code>(静电学)应用模式。</p>
+</li>
+<li><p><em>边界条件</em>：进入<code>Boundary Mode</code>，再选择<code>Specify Boundary Conditions...</code></p>
+<ul>
+<li><p>对于平行板电容：</p>
+<ul>
+<li><p>在左边界，选择Neumann条件，$g&#x3D;0$，$q&#x3D;0$。</p>
+</li>
+<li><p>在右边界，选择Neumann条件，$g&#x3D;0$，$q&#x3D;0$。</p>
+</li>
+<li><p>在上边界，选择Diriehlet条件，$h&#x3D;1$，$r&#x3D;100$。</p>
+</li>
+<li><p>在下边界，选择Diriehlet条件，$h&#x3D;1$，$r&#x3D;-100$。</p>
+</li>
+</ul>
+</li>
+<li><p>对于加盖导电槽：</p>
+<ul>
+<li><p>在左边界，输入Diriehlet条件，$h&#x3D;1$，$r&#x3D;0$。</p>
+</li>
+<li><p>在右边界，输入Diriehlet条件，$h&#x3D;1$，$r&#x3D;0$。</p>
+</li>
+<li><p>在上边界，选择Diriehlet条件，$h&#x3D;1$，$r&#x3D;100$。</p>
+</li>
+<li><p>在下边界，选择Diriehlet条件，$h&#x3D;1$，$r&#x3D;0$。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>方程参数</em>：在菜单栏中单击<code>PDE</code>按钮打开<code>PDE Spacification</code>对话框，设介电常数$\varepsilon$为epsilon$&#x3D;1$，为体电荷密度$\rho$为rho$&#x3D;0$。</p>
+</li>
+<li><p><em>图形解显示参数设置1</em>：单击工具栏的<code>Plot Selection</code>(类似MATLAB线稿的一个图标)中选择Color、Height(3-D plot)、Plot in x-y grid和Show mesh四项．并在Contour plot levels中设置等位线条数，在Colormap中选择配色后，单击<code>plot</code>按钮，画出电位的三维曲面图。</p>
+</li>
+<li><p><em>图形解显示参数设置2</em>：单击工具栏的<code>Plot Selection</code>(类似MATLAB线稿的一个图标)中选择Color、Contour和Arrows三项．并在Contour plot levels中设置等位线条数，在Colormap中选择配色后，单击<code>plot</code>按钮，画出电位的$x-y$方向曲线图，图上的箭头是电力线方向。</p>
+</li>
+</ol>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><h4 id="虚拟仿真平行板电容器与加盖导体槽内的电位分布"><a href="#虚拟仿真平行板电容器与加盖导体槽内的电位分布" class="headerlink" title="虚拟仿真平行板电容器与加盖导体槽内的电位分布"></a>虚拟仿真平行板电容器与加盖导体槽内的电位分布</h4><img alt="lab02-1-3D" style="zoom:50%;" class="post-img b-lazy" data-img="/lab02-1-3D.png" data-index="4" data-src="/lab02-1-3D.png">
+<img alt="lab02-1-xy" style="zoom: 30%;" class="post-img b-lazy" data-img="/lab02-1-xy.png" data-index="5" data-src="/lab02-1-xy.png">
+
+
+
+
+
+<h4 id="虚拟仿真平行板电容器与加盖导体槽内的电位分布-1"><a href="#虚拟仿真平行板电容器与加盖导体槽内的电位分布-1" class="headerlink" title="虚拟仿真平行板电容器与加盖导体槽内的电位分布"></a>虚拟仿真平行板电容器与加盖导体槽内的电位分布</h4><img alt="lab02-2-3D" style="zoom: 50%;" class="post-img b-lazy" data-img="/lab02-2-3D.png" data-index="6" data-src="/lab02-2-3D.png">
+<img alt="lab02-2-xy" style="zoom:50%;" class="post-img b-lazy" data-img="/lab02-2-xy.png" data-index="7" data-src="/lab02-2-xy.png">
+
+
+
+
+
+
+<h3 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li>雷亚平, 肖洪祥, 匡晚成. <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFD2007&filename=WDZC200710006&v=MTU1MzNDdm1WNzdPTWluUmJiRzRIdGJOcjQ5RllvUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3FmWXVkb0Y=" target="_blank" rel="noopener">基于MATLAB的电磁场数值分析</a>[J]. 电子测试, 2007(10):17-19.</li>
+</ul>
+<h2 id="实验三-平面电磁波的反射和干涉实验"><a href="#实验三-平面电磁波的反射和干涉实验" class="headerlink" title="实验三　平面电磁波的反射和干涉实验"></a>实验三　平面电磁波的反射和干涉实验</h2><h3 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h3><h4 id="平面电磁波向理想导体垂直入射的仿真结果"><a href="#平面电磁波向理想导体垂直入射的仿真结果" class="headerlink" title="平面电磁波向理想导体垂直入射的仿真结果"></a>平面电磁波向理想导体垂直入射的仿真结果</h4><p>入射波垂直入射到$z &#x3D; 0$的无限大理想导电平面上，两区域的的本构参数分别取为：</p>
+<p>$$\begin{aligned}    z&lt;0:&amp;\quad \varepsilon_1&#x3D;1,\ \mu_1&#x3D;1,\ \sigma_1&#x3D;0.\<br>z&gt;0:&amp;\quad \varepsilon_2&#x3D;1,\ \mu_2&#x3D;1,\ \sigma_2&#x3D;\infty. \end{aligned}$$</p>
+<p><img alt="lab031" class="post-img b-lazy" data-img="/lab031.png" data-index="8" data-src="/lab031.png"></p>
+<p>取角频率$\omega&#x3D;\frac{\pi}{2}$，则 </p>
+<p>$$k_1&#x3D;\omega\sqrt{\mu_1\varepsilon_1}&#x3D;\frac{\pi}{2},\ \eta_1&#x3D;\sqrt{\frac{\mu_1}{\varepsilon_1}}&#x3D;1$$ </p>
+<p>$\varGamma&#x3D;-1$，故</p>
+<p> $$E_{i0}&#x3D;-E_{r0},$$ </p>
+<p>全部的入射波被反射形成反向传播的反射波，故不存在透射波。</p>
+<p>下图中，蓝色波形为入射波，橙色波形为反射波，绿色波形为合成的驻波。蓝绿色透明平面代表无耗介与理想导体的分界面。</p>
+<p><img alt="lab031" class="post-img b-lazy" data-img="/lab031.gif" data-index="9" data-src="/lab031.gif"></p>
+<p>令入射波振幅$E_{i0}&#x3D;1$。 入射波：</p>
+<p> $$\begin{aligned}<br>\text{电场：}&amp;\quad{\vec E_i}&#x3D;{\hat a_x}{E_{i0}}{e^{-j{k_1}z}}&#x3D;{\hat a_x}{e^{-j{\frac{\pi}{2}}z}}\<br>\text{磁场：}&amp;\quad{\vec H_i}&#x3D;{\hat a_y}\frac{1}{\eta_1}{E_{i0}}{e^{-j{k_1}z}}&#x3D;{\hat a_y}{e^{-j{\frac{\pi}{2}}z}}\<br>\text{电场随时间形式：}&amp;\quad{\vec E_i}(z,t)&#x3D;{\hat a_x}{E_{i0}}\cos(\omega t-k_1 z)&#x3D;{\hat a_x}\cos(\frac{\pi}{2}t-\frac{\pi}{2}z)\end{aligned}$$</p>
+<p>反射波：</p>
+<p> $$\begin{aligned}<br>        \text{电场：}&amp;\quad {\vec E_r} &#x3D;-{\hat a_x}{E_{i0}}{e^{  j{k_1}z}}&#x3D;-{\hat a_x}{e^{ j{\frac{\pi}{2}}z}}\<br>        \text{磁场：}&amp;\quad {\vec H_r} &#x3D;{\hat a_y}\frac{1}{\eta <em>1}{E</em>{i0}}{e^{ j{k_1}z}}&#x3D; {\hat a_y}{e^{ j{\frac{\pi}{2}}z}}\<br>        \text{电场随时间形式：}&amp;\quad {\vec E_r}(z,t)&#x3D;-{\hat a_x}{E_{i0}}\cos(\omega t+k_1 z)&#x3D;-{\hat a_x}\cos(\frac{\pi}{2} t+\frac{\pi}{2}z)\end{aligned}$$</p>
+<p>透射波：不存在</p>
+<p>合成波（驻波）：合成波为驻波，不发生能量传输过程，仅在两个波节间进行电场能量和磁场能的交换。</p>
+<h4 id="平面电磁波向理想介质垂直入射的仿真结果"><a href="#平面电磁波向理想介质垂直入射的仿真结果" class="headerlink" title="平面电磁波向理想介质垂直入射的仿真结果"></a>平面电磁波向理想介质垂直入射的仿真结果</h4><p>入射波垂直入射到$z &#x3D; 0$的无限大理想介质平面上，两区域的的本构参数分别为： </p>
+<p>$$\begin{aligned}    z&lt;0:&amp;\quad \varepsilon_1&#x3D;1,\ \mu_1&#x3D;1,\ \sigma_1&#x3D;0.\     z&gt;0:&amp;\quad \varepsilon_2&#x3D;4,\ \mu_2&#x3D;1,\ \sigma_2&#x3D;0.\end{aligned}$$</p>
+<p><img alt="lab032" class="post-img b-lazy" data-img="/lab032.png" data-index="10" data-src="/lab032.png"></p>
+<p>取角频率$\omega&#x3D;\frac{\pi}{2}$，则</p>
+<p> $$\begin{aligned}{2}    &amp;k_1&#x3D;\omega\sqrt{\mu_1\varepsilon_1}&#x3D;\frac{\pi}{2},&amp;\ \eta_1&#x3D;\sqrt{\frac{\mu_1}{\varepsilon_1}}&#x3D;1\    &amp;k_2&#x3D;\omega\sqrt{\mu_2\varepsilon_2}&#x3D;\pi,&amp;\eta_2&#x3D;\sqrt{\frac{\mu_2}{\varepsilon_2}}&#x3D;\frac{1}{2}<br>\end{aligned}$$ </p>
+<p>$$\varGamma&#x3D;\frac{E_{r0}}{E_{i0}}&#x3D;-\frac{1}{3}, T&#x3D;\frac{E_{t0}}{E_{i0}}&#x3D;\frac{2}{3}.$$ </p>
+<p>$$E_{r0}&#x3D;-\frac{1}{3}E_{i0},\ E_{t0}&#x3D;\frac{2}{3}E_{i0}$$ </p>
+<p><img alt="lab032" class="post-img b-lazy" data-img="/lab032.gif" data-index="11" data-src="/lab032.gif"></p>
+<p>令入射波振幅$E_{i0}&#x3D;1$。 入射波： </p>
+<p>$$\begin{aligned}        \text{电场：}&amp;\quad {\vec E_i} &#x3D;{\hat a_x}{E_{i0}}{e^{ - j{k_1}z}}&#x3D; {\hat a_x}{e^{ - j{\frac{\pi}{2}}z}}\        \text{磁场：}&amp;\quad {\vec H_i} &#x3D;{\hat a_y}\frac{1}{\eta <em>1}{E</em>{i0}}{e^{ - j{k_1}z}}&#x3D; {\hat a_y}{e^{ - j{\frac{\pi}{2}}z}}\        \text{电场随时间形式：}&amp;\quad {\vec E_i}(z,t)&#x3D;{\hat a_x}{E_{i0}}\cos(\omega t-k_1 z)&#x3D;{\hat a_x}\cos(\frac{\pi}{2} t-\frac{\pi}{2}z)\end{aligned}$$</p>
+<p>反射波： </p>
+<p>$$\begin{aligned}        \text{电场：}&amp;\quad {\vec E_r} &#x3D;-\frac{1}{3}{\hat a_x}{E_{i0}}{e^{  j{k_1}z}}&#x3D;-\frac{1}{3}{\hat a_x}{e^{ j{\frac{\pi}{2}}z}}\        \text{磁场：}&amp;\quad {\vec H_r} &#x3D;\frac{1}{3}{\hat a_y}\frac{1}{\eta <em>1}{E</em>{i0}}{e^{ j{k_1}z}}&#x3D;\frac{1}{3} {\hat a_y}{e^{ j{\frac{\pi}{2}}z}}\        \text{电场随时间形式：}&amp;\quad {\vec E_r}(z,t)&#x3D;-\frac{1}{3}{\hat a_x}{E_{i0}}\cos(\omega t+k_1 z)&#x3D;-\frac{1}{3}{\hat a_x}\cos(\frac{\pi}{2} t+\frac{\pi}{2}z)\end{aligned}$$</p>
+<p>透射波： </p>
+<p>$$\begin{aligned}    \text{电场：}&amp;\quad {\vec E_t} &#x3D;\frac{2}{3}{\hat a_x}{E_{i0}}{e^{-j{k_2}z}}&#x3D;\frac{2}{3}{\hat a_x}{e^{-j{\pi}z}}\    \text{磁场：}&amp;\quad {\vec H_t} &#x3D;\frac{2}{3}{\hat a_y}\frac{1}{\eta <em>2}{E</em>{i0}}{e^{-j{k_2}z}}&#x3D;\frac{4}{3} {\hat a_y}{e^{-j{\pi}z}}\    \text{电场随时间形式：}&amp;\quad {\vec E_t}(z,t)&#x3D;\frac{2}{3}{\hat a_x}{E_{i0}}\cos(\omega t-k_2 z)&#x3D;\frac{2}{3}{\hat a_x}\cos(\frac{\pi}{2} t-\pi z)\end{aligned}$$</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>lab031.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% Perpendicular incidence to an ideal conductor</span></span><br><span class="line">clear ,clc</span><br><span class="line">E0=<span class="number">1</span>; <span class="comment">% The amplitude of the incident wave at z = 0</span></span><br><span class="line">k1=<span class="built_in">pi</span>/<span class="number">2</span>; <span class="comment">% phase</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% Draw the interface between lossless medium and conductor</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">180</span></span><br><span class="line">    display(<span class="built_in">j</span>);</span><br><span class="line">    z = <span class="built_in">linspace</span>(<span class="number">-3</span>,<span class="number">3</span>,<span class="number">100</span>);</span><br><span class="line">    y = <span class="built_in">linspace</span>(<span class="number">-3</span>,<span class="number">3</span>,<span class="number">100</span>);</span><br><span class="line">    x = <span class="number">0.</span>*<span class="built_in">repmat</span>(z,<span class="number">100</span>,<span class="number">1</span>) + <span class="number">10000.</span>*<span class="built_in">repmat</span>(y,<span class="number">100</span>,<span class="number">1</span>);</span><br><span class="line">    surf(z,y,x);</span><br><span class="line">    alpha(<span class="number">.3</span>);</span><br><span class="line">    shading interp</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">-15</span> <span class="number">5</span>],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">-3</span> <span class="number">3</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">-3</span> <span class="number">3</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    xlabel(<span class="string">&#x27;$z$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);ylabel(<span class="string">&#x27;$y$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);zlabel(<span class="string">&#x27;$x$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    grid on</span><br><span class="line">    set(gca ,<span class="string">&#x27;XLim&#x27;</span> ,[<span class="number">-15</span> <span class="number">5</span>]);</span><br><span class="line">    set(gca ,<span class="string">&#x27;YLim&#x27;</span>,[<span class="number">-3</span> <span class="number">3</span>]);</span><br><span class="line">    set(gca ,<span class="string">&#x27;ZLim&#x27;</span>,[<span class="number">-3</span> <span class="number">3</span>]);</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">j</span>==<span class="number">1</span></span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,...</span><br><span class="line">            [<span class="number">0.433214285714286</span> <span class="number">0.278523812884377</span> <span class="number">0.17979066144921</span> <span class="number">0.0733333299727666</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$\varepsilon_1,\mu_1,\sigma_1=0$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">13</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,...</span><br><span class="line">            [<span class="number">0.651071428571428</span> <span class="number">0.393761908122476</span> <span class="number">0.195266855927426</span> <span class="number">0.0733333299727666</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$\varepsilon_2,\mu_2,\sigma_2=\infty$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">13</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.63</span> <span class="number">0.56</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.00</span>,<span class="number">0.45</span>,<span class="number">0.74</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$&#123;\vec E_i&#125;$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.50</span> <span class="number">0.65</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.47</span>,<span class="number">0.67</span>,<span class="number">0.19</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;$&#123;\vec E&#125;$&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.23</span> <span class="number">0.43</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.85</span>,<span class="number">0.33</span>,<span class="number">0.10</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;$&#123;\vec E_r&#125;$&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">% Preperation of gif</span></span><br><span class="line"><span class="comment">%         ax = gca;</span></span><br><span class="line"><span class="comment">%         ax.Units = &#x27;pixels&#x27;;</span></span><br><span class="line"><span class="comment">%         pos = ax.Position;</span></span><br><span class="line"><span class="comment">%         ti = ax.TightInset;</span></span><br><span class="line"><span class="comment">%         rect = [-ti(1), -ti(2), pos(3)+ti(1)+ti(3), pos(4)+ti(2)+ti(4)];</span></span><br><span class="line"><span class="comment">%         frame = getframe(ax,rect);</span></span><br><span class="line"><span class="comment">%         im=frame2im(frame);</span></span><br><span class="line"><span class="comment">%         k = 1;</span></span><br><span class="line"><span class="comment">%         [I&#123;k&#125;,map&#123;k&#125;]=rgb2ind(im,256);</span></span><br><span class="line"><span class="comment">%         imwrite(I&#123;k&#125;,map&#123;k,1&#125;,&#x27;lab031.gif&#x27;,&#x27;gif&#x27;,&#x27;Loopcount&#x27;,Inf,&#x27;DelayTime&#x27;,0.1);</span></span><br><span class="line"><span class="comment">%         k = k + 1;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Preperation of drawing</span></span><br><span class="line">    z=<span class="built_in">linspace</span> ( <span class="number">-15</span> ,<span class="number">0</span> ,<span class="number">1000</span>);</span><br><span class="line">    y=<span class="built_in">zeros</span> (<span class="number">1</span> ,<span class="number">1000</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of incident wave</span></span><br><span class="line">    Ei=E0.*<span class="built_in">cos</span>(-k1.*z+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z,y,Ei ,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.00</span>,<span class="number">0.45</span>,<span class="number">0.74</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1.5</span>);</span><br><span class="line">    grid on</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of reflected wave</span></span><br><span class="line">    Er=-E0.*<span class="built_in">cos</span>(k1.*z+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z,y,Er ,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.85</span>,<span class="number">0.33</span>,<span class="number">0.10</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of synthetic wave</span></span><br><span class="line">    E=E0.*<span class="built_in">cos</span>(-k1.*z+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>)+E0.*<span class="built_in">cos</span>(k1.*z+(<span class="built_in">j</span>./<span class="number">180</span>).*<span class="built_in">pi</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z,y,E,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.47</span>,<span class="number">0.67</span>,<span class="number">0.19</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    M(<span class="built_in">j</span>) = getframe;</span><br><span class="line">    <span class="built_in">hold</span> off</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Get GIF</span></span><br><span class="line"><span class="comment">%     ax = gca;</span></span><br><span class="line"><span class="comment">%     ax.Units = &#x27;pixels&#x27;;</span></span><br><span class="line"><span class="comment">%     pos = ax.Position;</span></span><br><span class="line"><span class="comment">%     ti = ax.TightInset;</span></span><br><span class="line"><span class="comment">%     rect = [-ti(1), -ti(2), pos(3)+ti(1)+ti(3), pos(4)+ti(2)+ti(4)];</span></span><br><span class="line"><span class="comment">%     frame = getframe(ax,rect);</span></span><br><span class="line"><span class="comment">%     im=frame2im(frame);</span></span><br><span class="line"><span class="comment">%     [I&#123;k&#125;,map&#123;k&#125;]=rgb2ind(im,256);</span></span><br><span class="line"><span class="comment">%     imwrite(I&#123;k&#125;,map&#123;k&#125;,&#x27;lab031.gif&#x27;,&#x27;gif&#x27;,&#x27;WriteMode&#x27;,&#x27;append&#x27;,&#x27;DelayTime&#x27;,0.1);</span></span><br><span class="line"><span class="comment">%     k = k + 1;</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Write the image to the GIF in reverse order</span></span><br><span class="line"><span class="comment">% for i = (k-1):-1:1</span></span><br><span class="line"><span class="comment">%     imwrite(I&#123;i&#125;,map&#123;i&#125;,&#x27;lab031.gif&#x27;,&#x27;gif&#x27;,&#x27;WriteMode&#x27;,&#x27;append&#x27;,&#x27;DelayTime&#x27;,0.1);</span></span><br><span class="line"><span class="comment">% end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Function to play animation</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">2</span></span><br><span class="line">    movie(M,<span class="number">1</span>,<span class="number">30</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>lab032.m</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% Normal incidence to ideal medium</span></span><br><span class="line">clear ,clc</span><br><span class="line">E0=<span class="number">1</span>; <span class="comment">% The amplitude of the incident wave at z = 0</span></span><br><span class="line">k1=<span class="built_in">pi</span>/<span class="number">2</span>;<span class="comment">% phase</span></span><br><span class="line">k2=<span class="built_in">pi</span>;<span class="comment">% phase</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Draw the interface between lossless medium and conductor</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">180</span></span><br><span class="line">    display(<span class="built_in">j</span>);</span><br><span class="line">    z = <span class="built_in">linspace</span>(<span class="number">-1.5</span>,<span class="number">1.5</span>,<span class="number">100</span>);</span><br><span class="line">    y = <span class="built_in">linspace</span>(<span class="number">-1.5</span>,<span class="number">1.5</span>,<span class="number">100</span>);</span><br><span class="line">    x = <span class="number">0.</span>*<span class="built_in">repmat</span>(z,<span class="number">100</span>,<span class="number">1</span>) + <span class="number">10000.</span>*<span class="built_in">repmat</span>(y,<span class="number">100</span>,<span class="number">1</span>);</span><br><span class="line">    surf(z,y,x);</span><br><span class="line">    alpha(<span class="number">.3</span>);</span><br><span class="line">    shading interp</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">-15</span> <span class="number">15</span>],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">-1.5</span> <span class="number">1.5</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">-1.5</span> <span class="number">1.5</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    xlabel(<span class="string">&#x27;$z$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);ylabel(<span class="string">&#x27;$y$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);zlabel(<span class="string">&#x27;$x$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    grid on</span><br><span class="line">    set(gca ,<span class="string">&#x27;XLim&#x27;</span> ,[<span class="number">-15</span> <span class="number">15</span>]);</span><br><span class="line">    set(gca ,<span class="string">&#x27;YLim&#x27;</span>,[<span class="number">-1.5</span> <span class="number">1.5</span>]);</span><br><span class="line">    set(gca ,<span class="string">&#x27;ZLim&#x27;</span>,[<span class="number">-1.5</span> <span class="number">1.5</span>]);</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">j</span>==<span class="number">1</span></span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,...</span><br><span class="line">            [<span class="number">0.433214285714286</span> <span class="number">0.278523812884377</span> <span class="number">0.17979066144921</span> <span class="number">0.0733333299727666</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$\varepsilon_1,\mu_1,\sigma_1=0$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">13</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,...</span><br><span class="line">            [<span class="number">0.70</span> <span class="number">0.393761908122476</span> <span class="number">0.195266855927426</span> <span class="number">0.0733333299727666</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$\varepsilon_2,\mu_2,\sigma_2=0$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">13</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.45</span> <span class="number">0.65</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.00</span>,<span class="number">0.45</span>,<span class="number">0.74</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,&#123;<span class="string">&#x27;$&#123;\vec E_i&#125;$&#x27;</span>&#125;,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.23</span> <span class="number">0.43</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.85</span>,<span class="number">0.33</span>,<span class="number">0.10</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;$&#123;\vec E_r&#125;$&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        annotation(<span class="string">&#x27;textbox&#x27;</span>,[<span class="number">0.73</span> <span class="number">0.45</span> <span class="number">0.07</span> <span class="number">0.09</span>],...</span><br><span class="line">            <span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.47</span>,<span class="number">0.67</span>,<span class="number">0.19</span>],...</span><br><span class="line">            <span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;$&#123;\vec E_t&#125;$&#x27;</span>,....</span><br><span class="line">            <span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>,...</span><br><span class="line">            <span class="string">&#x27;FitBoxToText&#x27;</span>,<span class="string">&#x27;off&#x27;</span>,...</span><br><span class="line">            <span class="string">&#x27;EdgeColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">% Preperation of gif</span></span><br><span class="line">        ax = gca;</span><br><span class="line">        ax.Units = <span class="string">&#x27;pixels&#x27;</span>;</span><br><span class="line">        pos = ax.Position;</span><br><span class="line">        ti = ax.TightInset;</span><br><span class="line">        rect = [-ti(<span class="number">1</span>), -ti(<span class="number">2</span>), pos(<span class="number">3</span>)+ti(<span class="number">1</span>)+ti(<span class="number">3</span>), pos(<span class="number">4</span>)+ti(<span class="number">2</span>)+ti(<span class="number">4</span>)];</span><br><span class="line">        frame = getframe(ax,rect);</span><br><span class="line">        im=frame2im(frame);</span><br><span class="line">        k = <span class="number">1</span>;</span><br><span class="line">        [I&#123;k&#125;,map&#123;k&#125;]=rgb2ind(im,<span class="number">256</span>);</span><br><span class="line">        imwrite(I&#123;k&#125;,map&#123;k,<span class="number">1</span>&#125;,<span class="string">&#x27;lab032.gif&#x27;</span>,<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;Loopcount&#x27;</span>,Inf,<span class="string">&#x27;DelayTime&#x27;</span>,<span class="number">0.1</span>);</span><br><span class="line">        k = k + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Preperation of drawing</span></span><br><span class="line">    z=<span class="built_in">linspace</span> ( <span class="number">-15</span> ,<span class="number">0</span> ,<span class="number">1000</span>);</span><br><span class="line">    zt=<span class="built_in">linspace</span> (<span class="number">0</span> ,<span class="number">15</span>,<span class="number">1000</span>);</span><br><span class="line">    y=<span class="built_in">zeros</span> (<span class="number">1</span> ,<span class="number">1000</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of incident wave</span></span><br><span class="line">    </span><br><span class="line">    Ei=E0.*<span class="built_in">cos</span>( -k1.*z+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z,y,Ei ,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.00</span>,<span class="number">0.45</span>,<span class="number">0.74</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1.5</span>);</span><br><span class="line">    grid on</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of reflected waves</span></span><br><span class="line">    Er=-E0.*<span class="built_in">cos</span>(k1.*z+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>)./<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">plot3</span>(z,y,Er ,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.85</span>,<span class="number">0.33</span>,<span class="number">0.10</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Electric field of transmitted waves</span></span><br><span class="line">    Et=<span class="number">2</span>*E0.*<span class="built_in">cos</span>( -k2.*zt+(<span class="built_in">j</span>./<span class="number">90</span>).*<span class="built_in">pi</span>)./<span class="number">3</span>;;</span><br><span class="line">    <span class="built_in">plot3</span>(zt ,y,Et ,<span class="string">&#x27;Color&#x27;</span> ,[<span class="number">0.47</span>,<span class="number">0.67</span>,<span class="number">0.19</span>],<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">hold</span> off</span><br><span class="line"><span class="comment">%     N(j) = getframe;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Get GIF</span></span><br><span class="line">    ax = gca;</span><br><span class="line">    ax.Units = <span class="string">&#x27;pixels&#x27;</span>;</span><br><span class="line">    pos = ax.Position;</span><br><span class="line">    ti = ax.TightInset;</span><br><span class="line">    rect = [-ti(<span class="number">1</span>), -ti(<span class="number">2</span>), pos(<span class="number">3</span>)+ti(<span class="number">1</span>)+ti(<span class="number">3</span>), pos(<span class="number">4</span>)+ti(<span class="number">2</span>)+ti(<span class="number">4</span>)];</span><br><span class="line">    frame = getframe(ax,rect);</span><br><span class="line">    im=frame2im(frame);</span><br><span class="line">    [I&#123;k&#125;,map&#123;k&#125;]=rgb2ind(im,<span class="number">256</span>);</span><br><span class="line">    imwrite(I&#123;k&#125;,map&#123;k&#125;,<span class="string">&#x27;lab032.gif&#x27;</span>,<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;WriteMode&#x27;</span>,<span class="string">&#x27;append&#x27;</span>,<span class="string">&#x27;DelayTime&#x27;</span>,<span class="number">0.1</span>);</span><br><span class="line">    k = k + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Write the image to the GIF in reverse order</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = (k<span class="number">-1</span>):<span class="number">-1</span>:<span class="number">1</span></span><br><span class="line">    imwrite(I&#123;<span class="built_in">i</span>&#125;,map&#123;<span class="built_in">i</span>&#125;,<span class="string">&#x27;lab032.gif&#x27;</span>,<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;WriteMode&#x27;</span>,<span class="string">&#x27;append&#x27;</span>,<span class="string">&#x27;DelayTime&#x27;</span>,<span class="number">0.1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Function to play animation</span></span><br><span class="line"><span class="comment">% for i=1:2</span></span><br><span class="line"><span class="comment">%     movie(N,1,30);</span></span><br><span class="line"><span class="comment">% end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考文献-2"><a href="#参考文献-2" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li>李丽芬,张秋菊,李扬.<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFDHIS2&filename=XDDJ201321039&v=MjQ2MThSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZdWRxRkNybFZyM0xQU25QWkxHNEg5TE9ybzlHYlk=" target="_blank" rel="noopener">基于Matlab的均匀平面电磁波的仿真</a>[J].现代电子技术,2013,36(21):136-137+140.</li>
+<li>火星十一郎.Matlab绘制透明平面（二元函数）[EB&#x2F;OL].<a href="https://www.cnblogs.com/hxsyl/p/4824884.html" target="_blank" rel="noopener">https://www.cnblogs.com/hxsyl/p/4824884.html</a>.2015-09-21&#x2F;2020-05-11.</li>
+<li>吕秀丽,牟海维,李贤丽.<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFD2010&filename=SYSY201002037&v=MDExNjR1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZdWRxRkNybFVidklOalRZZDdHNEg5SE1yWTlHWTRSOGVYMUw=" target="_blank" rel="noopener">Matlab在电磁场与电磁波实验教学中之应用</a>[J].实验室研究与探索,2010,29(02):110-112+195. </li>
+<li>木子识时务.Matlab绘制动态 .gif 图[EB&#x2F;OL].<a href="https://www.jianshu.com/p/cd9501bc810a" target="_blank" rel="noopener">https://www.jianshu.com/p/cd9501bc810a</a>.2017-08-20&#x2F;2020-05-12. </li>
+<li>林特斯9527.LaTeX 中插入GIF图片[EB&#x2F;OL].<a href="https://www.cnblogs.com/LinTeX9527/p/11122268.html" target="_blank" rel="noopener">https://www.cnblogs.com/LinTeX9527/p/11122268.html</a>.2019-07-02&#x2F;2020-05-12 .</li>
+<li>始终.LaTeX 黑魔法（四）：插入动画（animate 宏包教程）[EB&#x2F;OL].<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">https://liam.page/2017/08/10/importing-animate-in-LaTeX/</a>.2017-08-10&#x2F;2020-05-12.</li>
+</ol>
+<h3 id="主要心得"><a href="#主要心得" class="headerlink" title="主要心得"></a>主要心得</h3><ol>
+<li><p>用<code>MATLAB</code>做GIF动画的感觉还是很奇妙的，以后应该会出一次博客。主要看的就是<a href="https://www.jianshu.com/p/cd9501bc810a" target="_blank" rel="noopener">参考文献4</a>这篇，里面的代码不用管为什么，基本上都没什么问题的，就是美中不足的是我<em>多手八只脚</em>（这个词多半没人听得懂），把他最后有一段反向添加进GIF的代码也贴过来了，就变成了入射波先进后出，有点怪异，但懒得在输出一次了，毕竟挺慢的。</p>
+<blockquote>
+<p>绘制上述两个图的程序<code>lab031.m</code>是一个运动的过程。其中一部份运用到了<code>getframe</code>和<code>moive</code>两个函数，使动画延续多次。具体用法这里从略，有兴趣的话，可以运行程序尝试。</p>
+<p>另一部分用于生成GIF动图，转化后的结果如图所示。主要的函数好像是<code>frame2im</code>和<code>imwrite</code>，需要先创建，后进行添加，所以这个应该有两次。</p>
+</blockquote>
+</li>
+<li><p>第二个“第一次”呢，就是成功在PDF文件中利用$\LaTeX$的<code>animate</code>宏包插入了GIF（其实说不上，就只是PNG序列而已）。比较关键性的方法就是看的参考文献5、6。<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">参考文献6</a>很详尽的叙述了GIP转PNG图像序列的转化方式，这里用到的是一个叫<code>ImageMagick</code>的工具，很好用啊，但是他是命令行指令，我有点头秃。<a href="https://www.cnblogs.com/LinTeX9527/p/11122268.html" target="_blank" rel="noopener">参考文献5</a>主要侧重于$\LaTeX$内部到底怎么引用怎么安排，也是拿来就能用的代码，就很好。</p>
+</li>
+<li><p>但是这个PDF嵌入动画效果吧，就有一个局限，该动效需要使用具备JavaScript的PDF阅读器才能观看，如Adobe Acrobat等。网上有的说福昕阅读器能开，有的说不能，还有的说很卡，我不得而知。所以我在交作业的地方留了这边的链接防止GIF放不出，也不知道老师有没有看到这里啊！</p>
+</li>
+<li><p>至于说实验中遇到的问题嘛，倒也不是没有，就是被一篇论文坑了。说的就是你，<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFDHIS2&filename=XDDJ201321039&v=MjQ2MThSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZdWRxRkNybFZyM0xQU25QWkxHNEg5TE9ybzlHYlk=" target="_blank" rel="noopener">参考文献1</a>！他透射波的公式${\vec E_t}(z,t)&#x3D;\frac{2}{3}{\hat a_x}{E_{i0}}\cos(\omega t-k_2 z)&#x3D;\frac{2}{3}{\hat a_x}\cos(\frac{\pi}{2} t-\pi z)$中$k_2$带的还是 $\frac{\pi}{2}$，这就不对了啊，这个波数不是$k&#x3D;\omega\sqrt{\varepsilon\mu}$嘛，$k_2$显然是$k_1$的两倍啊，所以平面电磁波向理想介质垂直入射透射波被压缩了啊。</p>
+</li>
+</ol>
+<h2 id="实验四-电磁波的极化实验"><a href="#实验四-电磁波的极化实验" class="headerlink" title="实验四　电磁波的极化实验"></a>实验四　电磁波的极化实验</h2><h3 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h3><p>平面电磁波沿轴线前进没有 $E_z$ 分量，一般情况下，存在 分量和 $E_y$ 分量，如果$E_y$分量为零，只有$E_x$分量我们称其为X方向线极化。如果只有$E_y$分量而没有$E_x$分量我们称其为Y方向线极化。</p>
+<p>在一般情况下，$E_x$和$E_y$都存在，在接收此电磁波时，将得到包含水平与垂直两个分量的电磁波。如果此两个分量的电磁波的振幅和相位不同时，可以得到各种不同极化形式的电磁波。</p>
+<ol>
+<li>如果电磁波场强的$X$和$Y$分量为：</li>
+</ol>
+<p> $$\begin{aligned}    {E_x}&amp;&#x3D;{E_{xm}}\cos \left( \omega t+\varphi_1-kz \right)\    {E_y}&amp;&#x3D;{E_{ym}}\cos \left( \omega t+{\varphi _2}-kz \right)\end{aligned}$$ </p>
+<p>其中$\varphi_1$、${\varphi _2}$为初相位，$\displaystyle k&#x3D;\frac{2\pi }{\lambda }$。</p>
+<p>若$\varphi_1$等于$\varphi_2$，或${\varphi _1}$与$\varphi_2$相位差为$2n\pi$时，其合成电场为线极化波，其幅度为：</p>
+<p>电场分量与$X$轴的夹角为： </p>
+<p>$$\alpha &#x3D;\arctan \frac{E_y}{E_x}&#x3D;\arctan \frac{E_{ym}}{E_{xm}}&#x3D;\text{常数}$$</p>
+<ol start="2">
+<li>如果$\varphi_1$与$\varphi_2$相位差90°或270°，则：</li>
+</ol>
+<p> $$\begin{aligned}    {E_x}&#x3D;&amp;{E_{xm}}\cos \left( \omega t-kz+\varphi_1 \right)\     {E_y}&#x3D;&amp;{E_{ym}}\cos \left( \omega t-kz+\varphi_2 \right)\end{aligned}$$</p>
+<p>合成电磁场为：</p>
+<p> $$E&#x3D;\sqrt{E_x^{2}+E_y^{2}}&#x3D;\sqrt{E_{xm}^{2}+E_{ym}^{2}}&#x3D;\text{常数}$$</p>
+<p>它的方向是：</p>
+<p> $$\begin{gathered}    \tan \alpha &#x3D;\frac{E_y}{E_x}&#x3D;\tan \left( \omega t-kz+\varphi_1 \right)\     \alpha &#x3D;\omega t-kz+\varphi_1\end{gathered}$$ </p>
+<p>表示合成场振幅不随时间变化，其方向是随时间而旋转的圆极化波。</p>
+<ol start="3">
+<li>如果其相位不为0°，180°也不是90°、270°时，合成波为椭圆极化波。</li>
+</ol>
+<h3 id="仿真程序介绍"><a href="#仿真程序介绍" class="headerlink" title="仿真程序介绍"></a>仿真程序介绍</h3><p>针对<strong>电磁波的极化实验</strong>，我利用<code>MATLAB</code>制作了GUI界面。 如图所示，该GUI可执行程序有四部分组成：<em>学号尾数（生成$E_m$）、仪表盘、坐标区、按钮区</em>。</p>
+<p><img alt="电磁波的极化实验GUI界面介绍" class="post-img b-lazy" data-img="/lab04.png" data-index="12" data-src="/lab04.png"></p>
+<p>制作GUI界面的主要步骤介绍见附录。其中三维空间中电场强度矢端轨迹为上图中右图蓝色线。图中红色带圆圈的矢量线为 $z&#x3D;0$ 平面的电场强度矢量$\boldsymbol{E}$。同时程序设置中设置了可以判断360°以内的极化方式，直接生成。</p>
+<p>GUI界面主要参考台湾大学郭彦甫老师的<code>MATLAB</code>视频和《Matlab GUI在电磁波极化特性教学中的应用》进行设计。设计过程中主要包含两个文件：代码文件<code>GUI4.m</code>、图像界面文件<code>GUI4.fig</code>。主要过程如下：</p>
+<ol>
+<li>在<code>MATLAB</code>的<code>Command Window</code>中输入指令<code>guide</code>，选择<code>Blank GUI</code>，创建页面。</li>
+<li>在左侧拖动控件到页面，我主要使用的是坐标区(axes), 静态文本框(Static text)，可编辑文本框(Edit)。</li>
+<li>点击绿色运行按钮（三角符号），生成<code>GUI4.m</code>文件，在其中编写各按键的功能。</li>
+<li><code>Command Window</code>中输入指令<code>GUI4</code>，可运行程序。</li>
+<li><code>Command Window</code>中输入指令<code>deploytool</code>，可打包程序为exe可执行文件，名称为<code>Polarization_of_electromagnetic_waves.exe</code>，文件在一般电脑上即可运行，完整的可执行exe文件看👉<a href="https://levitate.lanzous.com/iWzRAd95m3c" target="_blank" rel="noopener">这里的链接</a>。若仍有问题，具体可能需要安装MATLAB Runtime。</li>
+</ol>
+<h3 id="实验结果-2"><a href="#实验结果-2" class="headerlink" title="实验结果"></a>实验结果</h3><h4 id="设置的部分初始参数："><a href="#设置的部分初始参数：" class="headerlink" title="设置的部分初始参数："></a>设置的部分初始参数：</h4><ul>
+<li>角频率：$\omega&#x3D;10$</li>
+<li>波数：$k&#x3D;\frac{\pi}{4}$</li>
+<li>最大振幅：$E_m &#x3D;5+0.1\times N$（$N$为学号尾数后两位<code>16</code>，即$E_m&#x3D;6.6$）</li>
+</ul>
+<p>其他参数基本上都体现在图里了。</p>
+<h4 id="线极化波"><a href="#线极化波" class="headerlink" title="线极化波"></a>线极化波</h4><p>-　波的传播方向：沿$z$轴正方向</p>
+<p><img alt="lab041" class="post-img b-lazy" data-img="/%E7%BA%BF.gif" data-index="13" data-src="/%E7%BA%BF.gif"></p>
+<h4 id="圆极化波"><a href="#圆极化波" class="headerlink" title="圆极化波"></a>圆极化波</h4><ul>
+<li><p>波的传播方向：沿$z$轴正方向</p>
+</li>
+<li><p>圆极化旋向：顺时针，<strong>左旋</strong>圆极化波</p>
+</li>
+</ul>
+<p><img alt="lab042" class="post-img b-lazy" data-img="/%E5%9C%86.gif" data-index="14" data-src="/%E5%9C%86.gif"></p>
+<h4 id="椭圆极化波"><a href="#椭圆极化波" class="headerlink" title="椭圆极化波"></a>椭圆极化波</h4><ul>
+<li><p>波的传播方向：沿$z$轴正方向</p>
+</li>
+<li><p>椭圆极化旋向：顺时针，<strong>左旋</strong>椭圆极化波</p>
+</li>
+</ul>
+<p><img alt="lab043" class="post-img b-lazy" data-img="/%E6%A4%AD%E5%9C%86.gif" data-index="15" data-src="/%E6%A4%AD%E5%9C%86.gif"></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>这里只列出了其中最主要的回调函数，即按下<code>Stimulate</code>(仿真键)时的回调函数:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% --- Executes on button press in stimulate.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stimulate_Callback</span><span class="params">(hObject, eventdata, handles)</span></span></span><br><span class="line"><span class="comment">% hObject    handle to stimulate (see GCBO)</span></span><br><span class="line"><span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span></span><br><span class="line"><span class="comment">% handles    structure with handles and user data (see GUIDATA)</span></span><br><span class="line">clc;</span><br><span class="line"><span class="comment">% frequency and Time</span></span><br><span class="line">omega=<span class="number">10</span>;</span><br><span class="line">T=<span class="number">2</span>*<span class="built_in">pi</span>/omega;</span><br><span class="line"><span class="comment">% wave speed k</span></span><br><span class="line">k=<span class="built_in">pi</span>/<span class="number">4</span>;</span><br><span class="line"><span class="comment">% E_m: maximum of E</span></span><br><span class="line">N=str2double(get(handles.N,<span class="string">&#x27;String&#x27;</span>));</span><br><span class="line">E_m=<span class="number">5</span>+<span class="number">0.1</span>*N;</span><br><span class="line"><span class="built_in">angle</span>=str2double(get(handles.<span class="built_in">angle</span>,<span class="string">&#x27;String&#x27;</span>));</span><br><span class="line">angle_rad=<span class="built_in">angle</span>./<span class="number">180.</span>*<span class="built_in">pi</span>;</span><br><span class="line">Em_x=E_m.*<span class="built_in">cos</span>(angle_rad);</span><br><span class="line">Em_y=E_m.*<span class="built_in">sin</span>(angle_rad);</span><br><span class="line">set(handles.Em_x,<span class="string">&#x27;String&#x27;</span>,num2str(Em_x));</span><br><span class="line">set(handles.Em_y,<span class="string">&#x27;String&#x27;</span>,num2str(Em_y));</span><br><span class="line">E_x=[ ];E_y=[ ];</span><br><span class="line">E_max=<span class="built_in">max</span>(Em_x,Em_y);</span><br><span class="line"><span class="comment">% phi: phase</span></span><br><span class="line">phi_x=str2double(get(handles.phi_x,<span class="string">&#x27;String&#x27;</span>))*<span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line">phi_y=str2double(get(handles.phi_y,<span class="string">&#x27;String&#x27;</span>))*<span class="built_in">pi</span>/<span class="number">180</span>;</span><br><span class="line">delta_phi=phi_y-phi_x;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">mod</span>(delta_phi,<span class="built_in">pi</span>)==<span class="number">0</span>) </span><br><span class="line">    set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;线极化&#x27;</span>);</span><br><span class="line"><span class="keyword">elseif</span> (<span class="built_in">mod</span>(delta_phi,<span class="number">2</span>*<span class="built_in">pi</span>)==<span class="number">3</span>*<span class="built_in">pi</span>/<span class="number">2</span>) </span><br><span class="line">    set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;右旋圆极化&#x27;</span>);</span><br><span class="line"><span class="keyword">elseif</span> (<span class="built_in">mod</span>(delta_phi,<span class="number">2</span>*<span class="built_in">pi</span>)==<span class="built_in">pi</span>/<span class="number">2</span>) </span><br><span class="line">    set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;左旋圆极化&#x27;</span>);</span><br><span class="line"><span class="keyword">elseif</span>(delta_phi&lt;<span class="number">0</span>) </span><br><span class="line">    set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;右旋椭圆极化&#x27;</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;左旋椭圆极化&#x27;</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% other intinal settings</span></span><br><span class="line">zmin=<span class="number">0</span>;</span><br><span class="line">zmax=<span class="number">10.</span>*<span class="built_in">pi</span>;        <span class="comment">% Range of z coordinate</span></span><br><span class="line">z=zmin:<span class="built_in">pi</span>/<span class="number">9</span>:zmax;</span><br><span class="line">n=<span class="built_in">length</span>(z);</span><br><span class="line"></span><br><span class="line"><span class="comment">% Calculation of drawing the outline of z = 0 plane</span></span><br><span class="line"><span class="keyword">for</span> t1=<span class="number">0</span>:<span class="number">0.01</span>*T:<span class="number">1</span>*T</span><br><span class="line">    Ex=Em_x*<span class="built_in">cos</span>(omega*t1-k.*z+phi_x);</span><br><span class="line">    Ey=Em_y*<span class="built_in">cos</span>(omega*t1-k.*z+phi_y);</span><br><span class="line">    E_x=[E_x Ex(<span class="number">1</span>)];E_y=[E_y Ey(<span class="number">1</span>)];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">z1=<span class="built_in">zeros</span>(<span class="built_in">length</span>(E_x));</span><br><span class="line"></span><br><span class="line"><span class="comment">% Calculation of drawing dynamic simulation diagram</span></span><br><span class="line"><span class="keyword">for</span> t=<span class="number">0</span>:<span class="number">0.01</span>*T:<span class="number">1</span>*T</span><br><span class="line">    <span class="comment">% Calculate the magnitude of the x and y components of the electric field strength at each point</span></span><br><span class="line">    Ex=Em_x*<span class="built_in">cos</span>(omega*t-k.*z+phi_x);</span><br><span class="line">    Ey=Em_y*<span class="built_in">cos</span>(omega*t-k.*z+phi_y);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">%Plot the contour of the z = 0 plane and the electric field vector at time t</span></span><br><span class="line">    axes(handles.axes1);cla(handles.axes1);</span><br><span class="line">    <span class="built_in">plot</span>(E_x,E_y,<span class="string">&#x27;k-&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">plot</span>(Ex(<span class="number">1</span>),Ey(<span class="number">1</span>),<span class="string">&#x27;ro&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">plot</span> ([-Em_x Em_x],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">plot</span> (Em_x,<span class="number">0</span>,<span class="string">&#x27;k&gt;&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line">    <span class="built_in">plot</span> ([<span class="number">0</span> <span class="number">0</span>],[-Em_y Em_y],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">plot</span> (<span class="number">0</span>,Em_y,<span class="string">&#x27;k^&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line">    line([<span class="number">0</span> Ex(<span class="number">1</span>)],[<span class="number">0</span> Ey(<span class="number">1</span>)],<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    xlabel(<span class="string">&#x27;$x$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    ylabel(<span class="string">&#x27;$y$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    grid on;</span><br><span class="line">    axis equal;</span><br><span class="line">    axis([-Em_x,Em_x,-Em_y,Em_y]);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Plot the outline of the z = 0 plane and the three-dimensional map of the electric field vector at time t and the dynamic map of the electric field propagation</span></span><br><span class="line">    axes(handles.axes2);cla(handles.axes2);</span><br><span class="line">    <span class="built_in">plot3</span>(z1,E_x,E_y,<span class="string">&#x27;k-&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z,Ex,Ey,<span class="string">&#x27;b.-&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    line([<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> Ex(<span class="number">1</span>)],[<span class="number">0</span> Ey(<span class="number">1</span>)],<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">plot3</span>(z(<span class="number">1</span>),Ex(<span class="number">1</span>),Ey(<span class="number">1</span>),<span class="string">&#x27;ro&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">plot3</span> ([zmin zmax],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">plot3</span> (zmax,<span class="number">0</span>,<span class="number">0</span>,<span class="string">&#x27;k&gt;&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[-E_max E_max],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">plot3</span> (<span class="number">0</span>,E_max,<span class="number">0</span>,<span class="string">&#x27;k&lt;&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line">    <span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],[-E_max E_max],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">plot3</span> (<span class="number">0</span>,<span class="number">0</span>,E_max,<span class="string">&#x27;k^&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line">    <span class="keyword">for</span> m=<span class="number">1</span>:<span class="number">1</span>:n</span><br><span class="line">        line([z(m) z(m)],[<span class="number">0</span> Ex(m)],[<span class="number">0</span> Ey(m)],<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">0.5</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    grid on;</span><br><span class="line">    box on;</span><br><span class="line">    axis([zmin,zmax,-E_max,E_max,-E_max,E_max]);</span><br><span class="line">    axis equal;</span><br><span class="line">    xlabel(<span class="string">&#x27;$z$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    ylabel(<span class="string">&#x27;$x$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    zlabel(<span class="string">&#x27;$y$&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;Interpreter&#x27;</span>,<span class="string">&#x27;latex&#x27;</span>);</span><br><span class="line">    view(<span class="number">-30</span>,<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">hold</span> on</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>具体的代码等5月20号电磁场实验结束以后再放。</p>
+<h3 id="参考文献-3"><a href="#参考文献-3" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li>bilibili.MATLAB教程_台大郭彦甫（14课）原视频补档[V&#x2F;OL].<a href="https://www.bilibili.com/video/BV1GJ41137UH?t=3177&amp;p=7" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1GJ41137UH?t=3177&amp;p=7</a>.2019-09-19&#x2F;2020-05-16. </li>
+<li>余建立.<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFDLAST2018&filename=ZXDB201816130&v=MjU5Nzdiek1QelhQYkxHNEg5bk5xWTVHWklSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZZdWRxRkN2Z1Y=" target="_blank" rel="noopener">Matlab GUI在电磁波极化特性教学中的应用</a>[J].科技创新导报,2018,15(16):244-246.</li>
+</ol>
+<h3 id="主要心得-1"><a href="#主要心得-1" class="headerlink" title="主要心得"></a>主要心得</h3><ol>
+<li>GUI界面初步入门<u>（后续或许会写一篇博客吧）</u></li>
+<li>MATLAB中的GUI不支持<em>异步</em>，所以按下按钮差不多要等一个周期走完才行。中途试过全局变量，但是还是不行啊，如果有知道怎么<em>异步</em>的一定告诉我！</li>
+<li>一开始想的是通过确定的$E_m$和待定的$E_{mx}$来控制即可，但发现这样不可能调出正圆来（6.6太坑爹了），就只好用$\alpha&#x3D;\arctan\frac{E_y}{E_x}$咯！</li>
+<li>坐标轴的一个不错的画法，再也不用<code>annotation</code>去凑了，其中坐标轴的箭头其实是用的数据标记的左右上下小三角实现的。</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">plot3</span> ([zmin zmax],[<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot3</span> (zmax,<span class="number">0</span>,<span class="number">0</span>,<span class="string">&#x27;k&gt;&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line"><span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[-E_max E_max],[<span class="number">0</span> <span class="number">0</span>],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot3</span> (<span class="number">0</span>,E_max,<span class="number">0</span>,<span class="string">&#x27;k&lt;&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br><span class="line"><span class="built_in">plot3</span> ([<span class="number">0</span> <span class="number">0</span>],[<span class="number">0</span> <span class="number">0</span>],[-E_max E_max],<span class="string">&#x27;k&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot3</span> (<span class="number">0</span>,<span class="number">0</span>,E_max,<span class="string">&#x27;k^&#x27;</span>,<span class="string">&#x27;LineWidth&#x27;</span> ,<span class="number">1</span>,<span class="string">&#x27;MarkerFaceColor&#x27;</span>,<span class="string">&#x27;k&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>关闭<code>Exit</code>按钮的代码其实就一句<code>close</code>，清空坐标区和字符串的代码也很简单</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 重置清空图片 </span></span><br><span class="line">cla(handles.axes1,<span class="string">&#x27;reset&#x27;</span>);</span><br><span class="line">cla(handles.axes2,<span class="string">&#x27;reset&#x27;</span>);</span><br><span class="line"><span class="comment">% 重置清空动态txt的文字 </span></span><br><span class="line">set(handles.yanshi,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;演示&#x27;</span>)</span><br><span class="line">set(handles.<span class="built_in">angle</span>,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">set(handles.Em_x,<span class="string">&#x27;string&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>这次是GUI，所以不是<code>MATLAB</code>自动导出的GIF，而是将GUI界面的exe可执行程序运行过程录屏后，通过Premiere转换为PNG图片序列（但为什么Premiere导出来的图这么大呢，还不清楚，100K的图还不如上次实验直出的20K的图得质量好）。</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" rel="tag"># 电磁场与电磁波</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>电磁场实验</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年05月12日 - 14:21:46</p>
+  <p><span>原始链接:</span><a href="/2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/" title="电磁场实验">https://levitate-qian.github.io/2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="模拟电子线路实验" href="/2020/05/16/AC-experiment/">
+            ← 模拟电子线路实验
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="10类案例带你了解论文插图制作" href="/2020/05/04/10%E7%B1%BB%E6%A1%88%E4%BE%8B%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3%E8%AE%BA%E6%96%87%E6%8F%92%E5%9B%BE%E5%88%B6%E4%BD%9C/">
+            10类案例带你了解论文插图制作 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#电磁场实验"><span class="toc-text">电磁场实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验一-带电粒子在电磁场中的受力与运动特性研究实验"><span class="toc-text">实验一　带电粒子在电磁场中的受力与运动特性研究实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础部分"><span class="toc-text">基础部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发挥部分"><span class="toc-text">发挥部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提高部分"><span class="toc-text">提高部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验二-静电场边值问题研究实验"><span class="toc-text">实验二　静电场边值问题研究实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真设置参数"><span class="toc-text">仿真设置参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验结果"><span class="toc-text">实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟仿真平行板电容器与加盖导体槽内的电位分布"><span class="toc-text">虚拟仿真平行板电容器与加盖导体槽内的电位分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟仿真平行板电容器与加盖导体槽内的电位分布-1"><span class="toc-text">虚拟仿真平行板电容器与加盖导体槽内的电位分布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献-1"><span class="toc-text">参考文献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验三-平面电磁波的反射和干涉实验"><span class="toc-text">实验三　平面电磁波的反射和干涉实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验结果-1"><span class="toc-text">实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平面电磁波向理想导体垂直入射的仿真结果"><span class="toc-text">平面电磁波向理想导体垂直入射的仿真结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平面电磁波向理想介质垂直入射的仿真结果"><span class="toc-text">平面电磁波向理想介质垂直入射的仿真结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献-2"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要心得"><span class="toc-text">主要心得</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验四-电磁波的极化实验"><span class="toc-text">实验四　电磁波的极化实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实验原理"><span class="toc-text">实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真程序介绍"><span class="toc-text">仿真程序介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实验结果-2"><span class="toc-text">实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置的部分初始参数："><span class="toc-text">设置的部分初始参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线极化波"><span class="toc-text">线极化波</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆极化波"><span class="toc-text">圆极化波</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#椭圆极化波"><span class="toc-text">椭圆极化波</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-1"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献-3"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要心得-1"><span class="toc-text">主要心得</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/05/12/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%AE%9E%E9%AA%8C/" class="leancloud-visitors" data-flag-title="电磁场实验">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">电磁场实验</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

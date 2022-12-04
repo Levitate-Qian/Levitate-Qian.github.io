@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【MIMO通信学习笔记】Foundations of MIMO Communication | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【MIMO通信学习笔记】Foundations of MIMO Communication | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2022/05/26/mimo-communication/">
+
+	
+	<meta property="article:published_time" content="2022-05-26T15:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2022/05/26/mimo-communication/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2022-05-26T15:18:23.000Z">
+                    2022-05-26
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【MIMO通信学习笔记】Foundations of MIMO Communication</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2022/05/26/XVKONd.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="【MIMO通信学习笔记】Foundations-of-MIMO-Communication"><a href="#【MIMO通信学习笔记】Foundations-of-MIMO-Communication" class="headerlink" title="【MIMO通信学习笔记】Foundations of MIMO Communication"></a>【MIMO通信学习笔记】Foundations of MIMO Communication</h1><blockquote>
+<p>本文是<em>Foundations of MIMO Communication</em>(Robert W. Heath Jr. and Angel Lozano, 2018)笔记的总结帖。总算是在答辩完后三天看完了，没拖到研究生，</p>
+<p>之前想过看好几本无线通信、MIMO的书，但都没能看完。。</p>
+<ul>
+<li><em>Wireless communications</em> (Andrea Goldsmith, 2005)</li>
+<li><em>Fundamentals of wireless communication</em> (David Tse and Pramod Viswanath)</li>
+</ul>
+</blockquote>
+<p>先甩出笔记的链接：<a href="https://levitate.lanzouq.com/b0dg6sdli" target="_blank" rel="noopener">https://levitate.lanzouq.com/b0dg6sdli</a>	密码:levitate</p>
+<blockquote>
+<p>看的不算特别仔细，错误肯定很多，欢迎批评指正。</p>
+<p>一些材料可以在这边下：<a href="https://www.cambridge.org/core/books/foundations-of-mimo-communication/D1D999D61E48C62C44240EF2341A29A1" target="_blank" rel="noopener">Foundations of MIMO Communication (cambridge.org)</a>，<a href="https://www.cambridge.org/us/academic/subjects/engineering/wireless-communications/foundations-mimo-communication?format=HB" target="_blank" rel="noopener">Foundations mimo communication | Wireless communications | Cambridge University Press</a></p>
+</blockquote>
+<p>目录：</p>
+<p><strong>Part I: Wireless Communication Theory（第一部分：无线通信原理）	1</strong><br>1 A primer on information theory and MMSE estimation（信息论与MMSE估计初步）	3<br>    1.1 Introduction	3<br>    1.2 Signal distributions	4<br>    1.3 Information content	6<br>    1.4 Information dependence	11<br>    1.5 Reliable communication	17<br>    1.6 MMSE estimation	39<br>    1.7 LMMSE estimation	47<br>    1.8 Summary	51<br>    Problems	51<br>2 A signal processing perspective（信号处理的角度）	57<br>    2.1 Introduction	57<br>    2.2 Signal, channel, and noise representations	58<br>    2.3 Signal, channel, and noise representations: extension to MIMO	77<br>    2.4 Linear channel equalization	87<br>    2.5 Single-carrier frequency-domain equalization	98<br>    2.6 OFDM	104<br>    2.7 Channel estimation	110<br>    2.8 Summary and outlook	122<br>    Problems	124<br>3 Channel modeling（信道建模）	131<br>    3.1 Introduction	131<br>    3.2 Preliminaries	132<br>    3.3 Large-scale phenomena	135<br>    3.4 Small-scale fading	143<br>    3.5 Interlude: essential notions of antenna arrays	170<br>    3.6 Modeling of MIMO channels	175<br>    3.7 Channel estimation revisited	192<br>    3.8 MIMO channel models in standards	199<br>    3.9 Summary and outlook	202<br>    Problems	205<br>4 Single-user SISO（单用户SISO）	209<br>    4.1 Introduction	209<br>    4.2 Interplay of bit rate, power, and bandwidth	209<br>    4.3 AWGN channel	220<br>    4.4 Frequency-selective channel	228<br>    4.5 Frequency-flat fading channel	244<br>    4.6 Frequency-selective fading channel	267<br>    4.7 Which fading setting applies?	268<br>    4.8 Pilot-assisted communication	271<br>    4.9 Channels with interference	279<br>    4.10 Summary and outlook	284<br>    Problems	287</p>
+<p><strong>Part II: Single-user MIMO（单用户MIMO系统）	295</strong><br>5 SU-MIMO with optimum receivers（最佳接收机的单用户MIMO系统）	297<br>    5.1 Introduction	297<br>    5.2 Initial considerations	298<br>    5.3 CSIR and CSIT	301<br>    5.4 No CSIT	311<br>    5.5 No CSI	338<br>    5.6 Pilot-assisted communication	341<br>    5.7 Channels with interference	345<br>    5.8 Optimum transmitter and receiver structures	348<br>    5.9 Link adaptation	358<br>    5.10 Reciprocity and CSI feedback	361<br>    5.11 Summary and outlook	374<br>    Problems	378<br>6 SU-MIMO with linear receivers（线性接收机的单用户MIMO系统）	386<br>    6.1 Introduction	386<br>    6.2 General characteristics of linear MIMO receivers	387<br>    6.3 Linear ZF receiver	388<br>    6.4 LMMSE receiver	396<br>    6.5 Relationship between the LMMSE and the optimum receiver	407<br>    6.6 Summary and outlook	408<br>    Problems	410</p>
+<p><strong>Part III: Multiuser MIMO（多用户MIMO系统）	413</strong><br>7 Multiuser communication prelude（多用户通信序曲）	415<br>    7.1 Introduction	415<br>    7.2 Spectral efficiency region	416<br>    7.3 Orthogonal channel sharing	418<br>    7.4 Non-orthogonal channel sharing	420<br>    7.5 Scalar metrics	422<br>    7.6 User selection and resource allocation	426<br>    7.7 Low-SNR regime	429<br>    7.8 Summary and outlook	431<br>    Problems	433<br>8 MU-MIMO with optimum transceivers（最佳收发信机的多用户MIMO系统）	436<br>    8.1 Introduction	436<br>    8.2 The multiple-access channel	437<br>    8.3 Multiple-access channel with CSIR and CSIT	440<br>    8.4 Multiple-access channel with no CSIT	457<br>    8.5 Multiple-access channel with no CSI	460<br>    8.6 Pilot-assisted multiple-access channel	461<br>    8.7 Duality between the multiple access and broadcast channels	462<br>    8.8 The broadcast channel	467<br>    8.9 Broadcast channel with CSIR and CSIT	469<br>    8.10 Broadcast channel with no CSIT	487<br>    8.11 Summary and outlook	490<br>    Problems	490<br>9 MU-MIMO with linear transceivers（线性收发信机的多用户MIMO系统）	497<br>    9.1 Introduction	497<br>    9.2 Linear receivers for the multiple-access channel	498<br>    9.3 Linear ZF receiver for the multiple-access channel	500<br>    9.4 LMMSE receiver for the multiple-access channel	507<br>    9.5 Duality with linear transceivers	514<br>    9.6 Linear transmitters for the broadcast channel	516<br>    9.7 Linear ZF transmitter for the MU-MISO broadcast channel	517<br>    9.8 Block-diagonalization for the broadcast channel	554<br>    9.9 Regularized ZF transmitter for the broadcast channel	562<br>    9.10 Summary and outlook	571<br>    Problems	574<br>10 Massive MIMO（大规模MIMO系统）	578<br>    10.1 Introduction	578<br>    10.2 Going massive	579<br>    10.3 Reverse-link channel estimation	582<br>    10.4 Reverse-link data transmission	587<br>    10.5 Forward-link data transmission	615<br>    10.6 Mitigation of pilot contamination	623<br>    10.7 Practical considerations	628<br>    10.8 Summary and outlook	631<br>    Problems	636<br>11 Afterword	643<br>    11.1 Beyond cellular	643<br>    11.2 Beyond wireless	644</p>
+<p><strong>Appendices	647</strong><br>Appendix A: Transforms	649<br>Appendix B: Matrix algebra	653<br>Appendix C: Random variables and processes	661<br>Appendix D: Gradient operator	674<br>Appendix E: Special functions	676<br>Appendix F: Landau symbols	680<br>Appendix G: Convex optimization	681<br>References	685<br>Index	752</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/MIMO/" rel="tag"># MIMO</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【MIMO通信学习笔记】Foundations of MIMO Communication</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2022年05月26日 - 15:18:23</p>
+  <p><span>原始链接:</span><a href="/2022/05/26/mimo-communication/" title="【MIMO通信学习笔记】Foundations of MIMO Communication">https://levitate-qian.github.io/2022/05/26/mimo-communication/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2022/05/26/mimo-communication/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【总结】聊聊“电子信息工程”" href="/2022/07/08/EE-map/">
+            ← 【总结】聊聊“电子信息工程”
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="LaTeX札记（五）：毕设相关" href="/2022/05/10/latex-note-05/">
+            LaTeX札记（五）：毕设相关 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【MIMO通信学习笔记】Foundations-of-MIMO-Communication"><span class="toc-text">【MIMO通信学习笔记】Foundations of MIMO Communication</span></a></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2022/05/26/mimo-communication/" class="leancloud-visitors" data-flag-title="【MIMO通信学习笔记】Foundations of MIMO Communication">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【MIMO通信学习笔记】Foundations of MIMO Communication</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

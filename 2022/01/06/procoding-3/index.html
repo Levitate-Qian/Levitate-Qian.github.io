@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【预编码论文阅读（三）】深度学习(二) | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【预编码论文阅读（三）】深度学习(二) | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2022/01/06/procoding-3/">
+
+	
+	<meta property="article:published_time" content="2022-01-06T10:01:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2022/01/06/procoding-3/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2022-01-06T10:56:40.000Z">
+                    2022-01-06
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【预编码论文阅读（三）】深度学习(二)</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s4.ax1x.com/2021/12/07/ogFShD.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="预编码论文阅读（三）——深度学习（二）"><a href="#预编码论文阅读（三）——深度学习（二）" class="headerlink" title="预编码论文阅读（三）——深度学习（二）"></a>预编码论文阅读（三）——深度学习（二）</h1><blockquote>
+<p>由于没有非常系统地看完MIMO的相关内容，整理中必定有很多的问题，欢迎在评论区批评指正。</p>
+<p>整理很乱。。。</p>
+<p>由于网页公式渲染器KaTeX不支持公式交叉引用，我的前端水平就不足以把我这个模板加入mathjax。故将所有公式交叉引用均删除了，有的是在显示不出来的建议贴到markdown里面去吧</p>
+</blockquote>
+<hr>
+<h2 id="Transfer-learning-x2F-Meta-Learning-online-learning【迁移学习、元学习】——2021-TWC"><a href="#Transfer-learning-x2F-Meta-Learning-online-learning【迁移学习、元学习】——2021-TWC" class="headerlink" title="Transfer learning&#x2F;Meta Learning+online learning【迁移学习、元学习】——2021-TWC"></a>Transfer learning&#x2F;Meta Learning+online learning【迁移学习、元学习】——2021-TWC</h2><p><em>Transfer Learning and Meta Learning-Based Fast Downlink Beamforming Adaptation</em></p>
+<p>提出背景——传统深度学习方法无法很好处理训练集和测试集的mismatch</p>
+<ul>
+<li>Transfer learning is a promising technique to deal with the task mismatch issue experienced in the practical wireless communication systems due to its ability to transfer the useful prior knowledge to a new scenario [27].</li>
+<li>Another efficient way to deal with the task mismatch issue is meta-learning, which aims to improve the learning ability by leveraging<br>  the different but related training and testing data [30].Meta Learning中希望把超参数，如网络结构，参数初始化，优化器等由机器自行设计（注：此处区别于AutoML，迁移学习（Transfer Learning）和终身学习（Life Long Learning） ），使网络有更强的学习能力和表现。</li>
+</ul>
+<p>解决的任务——SINR balancing problem under a total power constraint</p>
+<p>通过上行链路-下行链路对偶性，可以先求上行链路的功率分配矢量$\mathbf q$</p>
+<p>Loss采用MSE<br>$$<br>Loss_{\mathbb{D}}(\theta)&#x3D;\frac 1N\sum_{i&#x3D;1}^N\left|\hat{\mathbf q}^{(i)}(\theta)-{\mathbf q}^{(i)} \right|_2^2<br>$$</p>
+<h3 id="离线训练算法"><a href="#离线训练算法" class="headerlink" title="离线训练算法"></a>离线训练算法</h3><ul>
+<li>joint training</li>
+</ul>
+<h4 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h4><p>先在分布不同的训练集下训练，再固定前$L-1$层，在有限样本的优化集下训练第$L$层<br>    <img alt="image-20211130154718588" class="post-img b-lazy" data-img="/image-20211130154718588.png" data-index="0" data-src="/image-20211130154718588.png"></p>
+<h4 id="Meta-learning"><a href="#Meta-learning" class="headerlink" title="Meta learning"></a>Meta learning</h4><p><a href="https://zhuanlan.zhihu.com/p/136975128" target="_blank" rel="noopener">一文入门元学习（Meta-Learning）（附代码） - 知乎 (zhihu.com)</a></p>
+<ul>
+<li><p>构建很多N-ways，K-shot的任务，每个任务中有训练集support set，验证集query set。</p>
+</li>
+<li><p>MAML的目的是获取一组更好的模型初始化参数（即让模型自己学会初始化）。-&gt;使得模型学习到“先验知识”（初始化的参数）。这个“先验知识”在新的N-ways，K-shot任务上可以表现的更好。</p>
+</li>
+</ul>
+<p>训练阶段</p>
+<ul>
+<li><p><img alt="image-20211130165712424" class="post-img b-lazy" data-img="/image-20211130165712424.png" data-index="1" data-src="/image-20211130165712424.png"></p>
+</li>
+<li><p>inner-task——在每个任务中计算support set的Loss，并更新任务参数:<br>  $$<br>  \phi_k^{(i)}&#x3D;\phi_k^{(i-1)}-\beta\nabla_{\phi_k^{(i-1)}}Loss_{\mathbb{D}_{mts}(k)}\left(\phi_k^{(i-1)}\right)<br>  $$<br>  ​    第一轮为$\theta$更新至$\phi_k^{(0)}$</p>
+</li>
+<li><p>cross-task——计算各任务query set的Loss的和，更新全局的参数：<br>  $$<br>  \theta\leftarrow\theta- \alpha\nabla_\theta \sum_{k&#x3D;1}^{N_b}Loss_{\mathbb{D}_{mtq}(k)}\left(\phi_k\right)<br>  $$</p>
+</li>
+</ul>
+<p>适应阶段</p>
+<ul>
+<li>在adaptation set $\mathbb{D}<em>{Ap}$上训练<br>  $$<br>  \phi</em>{Ap}^{(j+1)}\leftarrow\phi_{Ap}^{(j)}-\beta\nabla_{\phi_{Ap}^{(j)}}Loss_{\mathbb{D}<em>{Ap}}\left(\phi</em>{Ap}^{(j)}\right)<br>  $$</li>
+</ul>
+<p><img alt="image-20211130172502018" class="post-img b-lazy" data-img="/image-20211130172502018.png" data-index="2" data-src="/image-20211130172502018.png"></p>
+<p><em>Comparison of Transfer Learning and Meta Leaning</em>: Transfer learning and meta learning both have the training and adaption stages. Although they have the same objective of achieving fast adaption, the strategies used in the training and adaption stages are different. Hence, transfer learning is not a special case of meta learning. Meta learning uses two iterative procedures to train the model, which means that it needs two backward passes in the training stage. However, transfer learning uses one backward pass to train the model in the training stage. In the adaption stage, meta learning re-trains all parameters on the new task whereas transfer learning only re-trains the parameter of the last layer while retaining the rest parameters.</p>
+<h3 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h3><ul>
+<li>在线学习——解决串行数据</li>
+<li>在线meta learning：不重新学习了，从第一个时刻前开始就是通过前面的时间的数据来进行元学习，再通过每次更新的步长计算这一次的</li>
+</ul>
+<p><img alt="image-20211201132759864" class="post-img b-lazy" data-img="/image-20211201132759864.png" data-index="3" data-src="/image-20211201132759864.png"></p>
+<ul>
+<li><p>inner-task：——task-specific(16)、(17)，第一次通过$\theta_t$迭代<br>  $$<br>  \phi_k^{(j)}&#x3D;\phi_k^{(j-1)}-\beta\nabla_{\phi_k^{(j-1)}}Loss_{\mathcal{D}_{k}^{train}}\left(\phi_k^{(j-1)}\right)<br>  $$</p>
+</li>
+<li><p>cross-task：——shared network(18)<br>  $$<br>  \theta_t\leftarrow\theta_t- \alpha\nabla_\theta \sum_{k&#x3D;1}^{t-1}Z_kLoss_{\mathcal{D}<em>{k}^{validation}}\left(\phi_k^{N</em>{in}}\right)<br>  $$<br>  $Z_k$是task$\mathcal{T}<em>k$发生的次数，$N</em>{in}$是迭代步数</p>
+</li>
+<li><p>通过线下学习到的网络参数作为线上学习的初始值</p>
+</li>
+</ul>
+<blockquote>
+<p>既然要算监督学习的Loss，那么标签也就是真实的上行链路功率分配矢量$\mathbf q$在哪里呢？莫非是到下一个time shot，上一次的标签就计算出来了？</p>
+<p>————online learning是监督学习！！！是有标签的！</p>
+</blockquote>
+<p>the offline algorithm heavily relies on the stationary environment.</p>
+<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><ol>
+<li>DTL(先在分布不同的训练集下训练，再固定普遍特征的层在有限样本的优化集训练全连接层)</li>
+<li>MAML(①meta-learning，②fine-tuning)</li>
+<li>FTL(解决序列形式的实时系统)、meta-learning(快速自适应)</li>
+<li>不需要大量数据和训练，达到near optimal</li>
+</ol>
+<h2 id="Meta-Learning-Embedding-model【元学习】——2021-TWC"><a href="#Meta-Learning-Embedding-model【元学习】——2021-TWC" class="headerlink" title="Meta Learning+Embedding model【元学习】——2021-TWC"></a>Meta Learning+Embedding model【元学习】——2021-TWC</h2><p><em>Embedding Model Based Fast Meta Learning for Downlink Beamforming Adaptation</em></p>
+<p>general utility maximization problem under the total power constraint<br>$$<br>\begin{aligned}<br>\max_\mathbf W \quad&amp;U(\gamma_1,\cdots,\gamma_K)\<br>s.t.\quad&amp;\sum_{k&#x3D;1}^K\left|\mathbf w_k\right|_2^2\le P<br>\end{aligned}<br>$$</p>
+<h3 id="fast-meta-learning-with-embedding-model"><a href="#fast-meta-learning-with-embedding-model" class="headerlink" title="fast meta learning with embedding model"></a>fast meta learning with embedding model</h3><p>只关注提取特征，<br><img alt="image-20211202095207396" class="post-img b-lazy" data-img="/image-20211202095207396.png" data-index="4" data-src="/image-20211202095207396.png"></p>
+<ul>
+<li><p>先将所有meta learning的support set和query set构成训练集$\mathcal{D}<em>{fast}$，训练参数$\theta$——embedding model training-&gt;$f_\theta$<br>  $$<br>  \theta&#x3D;\arg\min_\theta Loss</em>{\mathcal{D}_{fast}}(\theta)<br>  $$</p>
+</li>
+<li><p>在$\mathbb{D}<em>{adapt}$上训练参数$\varphi$，拟合$\mathbb{D}</em>{adapt}$的标签$\mathbb{D}<em>{adapt}(y)$和embedding model输出值$y</em>{out}&#x3D;f_\theta(\mathbb{D}<em>{adapt})$——adaptation-&gt;$f</em>{\varphi^*}$<br>  $$<br>  \varphi^*&#x3D;\arg\min_\varphi Loss_{\mathbb{D}<em>{adapt}(y)}(Wy</em>{out}+b,\mathbb{D}_{adapt}(y))<br>  $$</p>
+</li>
+<li><p>再通过训练得到的$f_\theta$和$f_{\varphi^*}$进行测试</p>
+</li>
+</ul>
+<p><img alt="image-20211202094544360" class="post-img b-lazy" data-img="/image-20211202094544360.png" data-index="5" data-src="/image-20211202094544360.png"></p>
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
+<li><p>SINR balancing problem<br>  $$<br>  \begin{aligned}<br>  \max_{\mathbf W}\min_{1\le k\le K}\quad&amp;\gamma_k\<br>  s.t.\quad&amp;\sum_{k&#x3D;1}^K\left|\mathbf w_k\right|_2^2\le P<br>  \end{aligned}<br>  $$</p>
+<ul>
+<li>由上行链路-下行链路对偶性，将上行链路的功率分配矢量$\mathbf q$作为网络输出</li>
+<li>embedding model training阶段和adaptation、testing阶段的数据产生一致，（只是来源分布不同？）</li>
+</ul>
+</li>
+<li><p>SR Maximization peoblem</p>
+<ul>
+<li><p>embedding model：由无监督学习产生，Loss为SR<br>  $$<br>  Loss&#x3D;-\frac{1}{2KL}\sum_{l&#x3D;1}^L\sum_{k&#x3D;1}^K\log_2\left(1+\gamma_k^{(l)}\right)<br>  $$</p>
+</li>
+<li><p>adaptation阶段：用WMMSE的作为标签<br>  $$<br>  Loss&#x3D;\frac{1}{2LK}\sum_{l&#x3D;1}^L\left(\left|\underline{\mathbf q}^{(l)}-\hat{\mathbf q}^{<em>(l)} \right|_2^2\right)<br>  $$<br>  $\underline{\mathbf q}^{(l)}$是WWMSE的功率分配矢量，$\hat{\mathbf q}^{</em>(l)}$是adaptation预测阶段的输出结果</p>
+</li>
+<li><p><img alt="image-20211202111717068" class="post-img b-lazy" data-img="/image-20211202111717068.png" data-index="6" data-src="/image-20211202111717068.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Online-learning"><a href="#Online-learning" class="headerlink" title="Online learning"></a>Online learning</h3><p>extracting features from adaptation data of the current time slot; $\mathcal{B}_t$是缓冲区用来存放适应数据(adaptation data)</p>
+<p>在time shot $t$，提取的特征是：<br>$$<br>\hat{\mathbf q}_t^*&#x3D;f_\theta(\mathcal{B}_t(\mathbf h_t))<br>$$<br>将提取到的特征$\hat{\mathbf q}_t^*$和$\mathcal{B}<em>t$中现有的输出$\mathbf q_t$通过SVR计算loss：<br>$$<br>\phi_t&#x3D;\arg\min</em>{\phi_t}Loss(\mathbf W_t\hat{\mathbf q}_t^*+\mathbf{b_t},\mathcal{B}_t(\mathbf q_t))<br>$$</p>
+<blockquote>
+<p>online learning是监督学习！</p>
+</blockquote>
+<h2 id="Knowledge-Distillation【知识蒸馏】——2021-TVT"><a href="#Knowledge-Distillation【知识蒸馏】——2021-TVT" class="headerlink" title="Knowledge Distillation【知识蒸馏】——2021-TVT"></a>Knowledge Distillation【知识蒸馏】——2021-TVT</h2><p><em>Knowledge Distillation-Aided End-to-End Learning for Linear Precoding in Multiuser MIMO Downlink Systems With Finite-Rate Feedback</em>——思路类似【ai5】</p>
+<p>在一般的方法中，类似【ai5】都采用了Straight-through estimator。但是伪梯度可能会导致不在正确的方向上更新参数。</p>
+<p>本文提出了一种与知识蒸馏(KD)相结合的训练方法，在辅助教师网络的帮助下，<strong>通过使用附加的“无损梯度”来有效地训练接收方DNN</strong>。随后，联合执行端到端学习以确定最大化下行链路和速率的预编码矩阵。提出的数据驱动方案优于传统的基于码本的线性预编码方法。</p>
+<p>优化问题：最大化速率(下面这个公式感觉有点问题)<br>$$<br>R_k\triangleq \mathbb{E}\left[\log_2\left|\mathbf{I}<em>N+\frac PM\sum</em>{l&#x3D;1}^{K}\mathbf H_k^H\mathbf V_l\mathbf V_l^H\mathbf H_k \right|\right]-\mathbb{E}\left[\log_2\left|\mathbf{I}<em>N+\frac PM\sum</em>{l&#x3D;1,l\neq k}^{K}\mathbf H_k^H\mathbf V_l\mathbf V_l^H\mathbf H_k \right|\right]<br>$$</p>
+<p>导频估计：</p>
+<ul>
+<li><p>训练导频$\mathbf p_l\in \mathbb{C}^{M\times 1}$</p>
+</li>
+<li><p>接收信号$\mathbf y_{l,k}^{train}&#x3D;\sqrt{P_{train}}\mathbf H_k^H\mathbf p_l+\mathbf n_k$来估计信道矩阵$\bar{\mathbf H}$</p>
+</li>
+<li><p>将信道矩阵进行紧凑形奇异值分解<br>  $$<br>  \underbrace{\bar{\mathbf H}<em>k}</em>{M\times N}&#x3D;\underbrace{\tilde{\mathbf H}<em>k}</em>{M\times N}\underbrace{\boldsymbol{\Sigma}^{\frac12}<em>k}</em>{N\times N}\underbrace{\mathbf{U}<em>k^H}</em>{N\times N}<br>  $$<br>  $\tilde{\mathbf H}$中含有方向信息，需要量化反馈酉阵$\tilde{\mathbf H}$，但是注意到$\tilde{\mathbf H}_k$丢失了部分数量上的细节$\boldsymbol{\Sigma}_k$</p>
+</li>
+<li><p>第$k$用户侧利用$B$位的码本$\mathcal{C}<em>k&#x3D;{\mathbf A</em>{k,1},\cdots,\mathbf A_{k,2^B}}$，通过一定的距离度量$d(\bullet,\bullet)$进行量化，将索引$q_k$反馈<br>  $$<br>  q_k&#x3D;\arg\min_{j\in{1,\cdots,2^B}}d\left(\mathbf A_{k,j},\tilde{\mathbf H}_k\right)<br>  $$</p>
+</li>
+<li><p>基站侧通过码本$\mathcal{C}_k$得到量化的信道矩阵$\hat {\mathbf H}<em>k&#x3D;\mathbf A</em>{k,q_k}$</p>
+</li>
+</ul>
+<p><img alt="image-20211208150213090" class="post-img b-lazy" data-img="/image-20211208150213090.png" data-index="7" data-src="/image-20211208150213090.png"></p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p><img alt="image-20211208150301854" class="post-img b-lazy" data-img="/image-20211208150301854.png" data-index="8" data-src="/image-20211208150301854.png"></p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ul>
+<li><p>接收机DNN：——全连接网络的激活函数采用ReLU<br>  $$<br>  \begin{aligned}<br>  \hat{\mathbf{q}}<em>{k} &amp;&#x3D;f</em>{k}^{\mathrm{Rx}}\left(\mathbf{Y}<em>{k}^{\mathrm{train}}, \boldsymbol\Theta</em>{k}^{\mathrm{Rx}}\right)&#x3D;\operatorname{sign}\left(\tanh \left(\mathrm{FC}<em>{k}^{\mathrm{Rx}}\left(\mathbf{r}</em>{k}^{\mathrm{Re}}, \boldsymbol\Theta_{k}^{\mathrm{Rx}}\right)\right)\right) \<br>  &amp;&#x3D;\left[\operatorname{sign}\left(\tanh \left(\left[\mathbf{u}<em>{k}\right]</em>{1}\right)\right), \ldots, \operatorname{sign}\left(\tanh \left(\left[\mathbf{u}<em>{k}\right]</em>{B}\right)\right)\right]<br>  \end{aligned}<br>  $$<br>  其中，</p>
+<ul>
+<li>$\mathbf r_k^{Re}$是将训练数据$\mathbf Y_k^{train}$实部虚部组合而成的列向量；</li>
+<li>$\boldsymbol{\Theta}_k^{Rx}$是接收机DNN需要训练的所有参数；</li>
+<li>$\mathbf u_k$是全连接网络输出的$B$维实值矢量后通过tanh压缩，sign量化</li>
+</ul>
+</li>
+<li><p>发射机DNN：<br>  $$<br>  \begin{aligned}<br>  \mathbf V&#x3D;[\mathbf V_1,\cdots,\mathbf V_K]&amp;&#x3D;f^{Tx}(\hat{\mathbf q}_1,\cdots,\hat{\mathbf q}_K,P;\boldsymbol{\Theta}^{Tx})\<br>  &amp;&#x3D;h(FC^{Tx}(\hat{\mathbf q_1},\cdots,\hat{\mathbf q_K},P;\boldsymbol{\Theta}^{Tx}))<br>  \end{aligned}<br>  $$<br>  其中，$h$是将$2MNK$维的实列向量重组为$M\times NK$的波束成型矩阵</p>
+</li>
+<li><p>Loss：<br>  $$<br>  \begin{aligned}</p>
+<p>  &amp;L_{\operatorname{main}}\left(\left{\boldsymbol\Theta_{k}^{\mathrm{Rx}}\right}<em>{k&#x3D;1}^{K}, \boldsymbol\Theta^{\mathrm{Tx}}\right) \<br>  &amp;\quad&#x3D;-\sum</em>{k&#x3D;1}^{K} R_{k}\left(f^{\mathrm{Tx}}\left(\left{f_{k}^{\mathrm{Rx}}\left(\mathbf{Y}<em>{k}^{\mathrm{train}} ; \boldsymbol\Theta</em>{k}^{\mathrm{Rx}}\right)\right}<em>{k&#x3D;1}^{K}, P ; \boldsymbol\Theta^{\mathrm{Tx}}\right)\right) .<br>  \end{aligned}<br>  $$<br>  优化目标：<br>  $$<br>  \min <em>{\boldsymbol\Theta^{\mathrm{Tx}}, \boldsymbol\Theta</em>{1}^{\mathrm{Rx}}, \ldots, \boldsymbol\Theta</em>{K}^{\mathrm{Rx}}} L_{\operatorname{main}}\left(\left{\boldsymbol\Theta_{k}^{\mathrm{Rx}}\right}_{k&#x3D;1}^{K}, \boldsymbol\Theta^{\mathrm{Tx}}\right)<br>  $$</p>
+</li>
+</ul>
+<h3 id="KD"><a href="#KD" class="headerlink" title="KD"></a>KD</h3><p><strong>反向传播：注意到二值化无法反向传播，常见的方法是采用直通（STE）</strong>，本文中类似【KD-14】考虑到双曲正切函数的性质<br>$$<br>    \nabla_{\Theta_k^R}\ \mathrm{sign}(\tanh(z))\approx\nabla_{\Theta_k^R}\tanh(z)<br>$$</p>
+<p>但是上述方法的噪声积累仍会导致DNN参数梯度下降方向不正确，表现变差，故<strong>最好的方式是将“损失更小的梯度”反向传播给接收机DNN，于是就引出了KD</strong>。The best solution to overcome the noisy gradient problems is to provide “lossless gradients” to receiver DNNs. To achieve this, we propose a novel joint training method using KD.</p>
+<p>因为有一个二值化，所以要用STE才能反向传播，但这样就会累计误差，所以把辅助发射机DNN在还没有二值化的地方，先训练“接收机DNN+辅助发射机DNN”再训练“接收机DNN+发射机DNN”</p>
+<p><img alt="image-20211208170425951" class="post-img b-lazy" data-img="/image-20211208170425951.png" data-index="9" data-src="/image-20211208170425951.png"></p>
+<p>在接收机DNNs的末端只有一个瓶颈(二进制层)。换言之，浅层学生网络(原始发射机DNN)和深层教师网络(辅助发射机DNN)具有相同的结构，除了tanh函数和二值化层(tanh层和二值化层都不用于深层教师网络，因为它们导致梯度消失问题)。</p>
+<h2 id="Model-Driven-Beamforming-Neural-Networks——2020-MWC"><a href="#Model-Driven-Beamforming-Neural-Networks——2020-MWC" class="headerlink" title="Model-Driven Beamforming Neural Networks——2020-MWC"></a>Model-Driven Beamforming Neural Networks——2020-MWC</h2><p>可以看作是【ai2】【ai3】的介绍</p>
+<ul>
+<li>两类BNN网络框架(architecture)：<ul>
+<li>data-based：看称黑箱（black-box） <em>blind to any specialized signal structures</em>, does not have the same computational efficiency, and the performance is often <em>inferior to that of traditional SP methods</em>.</li>
+<li>model-based： Inside the SP module are the functional layers that are designed according to <em>prior expert knowledge of beamforming problems</em>, which is <strong>problem-specific</strong> and has no unified form. It is also possible to replace one or more layers in the ordinary NN module by the SP module to achieve better feature extraction ability.——【ai2】<br>  <img alt="image-20211209102042438" class="post-img b-lazy" data-img="/image-20211209102042438.png" data-index="10" data-src="/image-20211209102042438.png"></li>
+</ul>
+</li>
+<li>监督学习&#x2F;无监督学习<ul>
+<li>监督学习：适应于存在最优解算法、易于获得标签的问题，常采用MSE&#x2F;MAE Loss——【ai2】中的P1（功率约束下SINR balancing）、P2（Qos下功率最小）</li>
+<li>无监督学习：不存在最优解算法，采用目标函数作为Loss——【ai2】中的P3（功率约束下SR最大）、【ai3】中的单天线约束下SINR balancing</li>
+<li>混合(Hybrid)：类似【ai2】中对于P3的训练方式，两阶段，先监督逼近WMMSE，后无监督用SR作为Loss</li>
+</ul>
+</li>
+<li>复杂度<ul>
+<li>优化问题复杂度：【ai2】通过model-based的引入，不直接输出波束形成矩阵，而先输出一些关键特征，如上行&#x2F;下行链路的功率分配矢量</li>
+<li>NN模块的复杂度：冗余的神经元——为了降低神经网络模块的复杂度，我们可以首先使用边缘检测来剪除所有权值在一定阈值以下的连接和那些具有零激活神经元的连接。然后，我们通过压缩技术减少用于表示每个权重的比特数，并在不同的连接之间实施权重分担以减少权重的数量。最后，可以采用霍夫曼编码来使用具有更少比特的符号来表示更多的公共权重[11]。</li>
+</ul>
+</li>
+<li>泛化能力——【ai3】中提及<ul>
+<li>training-set augmentation：难以获取大量的数据</li>
+<li>transfer learning：fine-tuning<br>  <img alt="image-20211209110800360" class="post-img b-lazy" data-img="/image-20211209110800360.png" data-index="11" data-src="/image-20211209110800360.png"></li>
+</ul>
+</li>
+<li>open issue<ul>
+<li>现实环境的数据集</li>
+<li>对可能导致BNN训练不一致和失败的损坏数据具有鲁棒性</li>
+</ul>
+</li>
+</ul>
+<h2 id="Deep-Learning-for-SVD-and-Hybrid-Beamforming——2020-TWC"><a href="#Deep-Learning-for-SVD-and-Hybrid-Beamforming——2020-TWC" class="headerlink" title="Deep Learning for SVD and Hybrid Beamforming——2020-TWC"></a>Deep Learning for SVD and Hybrid Beamforming——2020-TWC</h2><p>SU-MIMO</p>
+<ul>
+<li><p>unconstrained SVD<br>  $$<br>  \mathbf y&#x3D;\mathbf R^H\mathbf{HTs}+\mathbf R^H\mathbf n<br>  $$<br>  achieved rate:<br>  $$<br>  R&#x3D;\log_2\left(\left|\mathbf I+\frac PL\mathbf C_n^{-1}\mathbf R_{opt}^H\mathbf {HT}<em>{opt}\mathbf T</em>{opt}^H \mathbf H^H\mathbf R_{opt}\right|\right)<br>  $$<br>  其中，$\mathbf T_{opt}&#x3D;\mathbf V_L\in\mathbb C^{N_T\times L},\mathbf R_{opt}&#x3D;\mathbf U_L\in\mathbb C^{N_R\times L},$为右奇异值矩阵和左奇异值矩阵$\mathbf C&#x3D;\mathbf R_{opt}^H\mathbf R_{opt}$</p>
+</li>
+<li><p>constrained SVD<br>  $$<br>  \mathbf y&#x3D;\mathbf R_{BB}^H\mathbf R_{RF}^H\mathbf{HT}<em>{RF}\mathbf T</em>{BB}\mathbf{s}+\mathbf R_{BB}^H\mathbf R_{RF}^H\mathbf n<br>  $$<br>  约束条件：</p>
+<ul>
+<li>发射信号假设：$\mathbb{E}[\mathbf {ss}^H]&#x3D;\frac PL\mathbf I_L$</li>
+<li>恒模约束：$\left|[\mathbf T_{RF}]<em>{i,j}\right|^2&#x3D;N_T^{-1},\left|[\mathbf R</em>{RF}]_{i,j}\right|^2&#x3D;N_R^{-1},$</li>
+<li>移相量化：第$n$根发射天线(第$m$根接收天线)用$N_q$位移相器$e^{\frac{j2\pi nk_q}{N_q}}(e^{\frac{j2\pi mk_q}{N_q}})$，其中$k_q&#x3D;0,1,\cdots,2^{N_q}-1$</li>
+<li>功率约束：$\left|\mathbf{T}<em>{RF}\mathbf{T}</em>{BB}\right|^2_F&#x3D;L,\left|\mathbf{R}<em>{RF}\mathbf{R}</em>{BB}\right|^2_F&#x3D;L$</li>
+</ul>
+</li>
+</ul>
+<h3 id="SVD近似"><a href="#SVD近似" class="headerlink" title="SVD近似"></a>SVD近似</h3><p>$$<br>\mathbf H_k&#x3D;\mathbf U_k\mathbf \Sigma_k\mathbf V_k^H<br>$$</p>
+<p>写成秩1近似的和<br>$$<br>\mathbf H_k&#x3D;\sum_{i&#x3D;1}^k\sigma_i\mathbf u_i\mathbf v_i<br>$$</p>
+<h4 id="for-Rank-k-Matrix-Approximation"><a href="#for-Rank-k-Matrix-Approximation" class="headerlink" title="for Rank-k Matrix Approximation"></a>for Rank-<em>k</em> Matrix Approximation</h4><p><img alt="image-20211213110603767" class="post-img b-lazy" data-img="/image-20211213110603767.png" data-index="12" data-src="/image-20211213110603767.png"></p>
+<p>Loss函数：<br>$$<br>\mathcal{L}(\theta)&#x3D;\frac{\left|\mathbf{H}<em>{k}-\tilde{\mathbf{H}}</em>{k}\right|<em>{F}}{\left|\mathbf{H}</em>{k}\right|<em>{F}}+\lambda</em>{1} \sum_{i \neq j}\left|\tilde{\mathbf{u}}<em>{i}^{*} \tilde{\mathbf{u}}</em>{j}\right|<em>{2}+\lambda</em>{2} \sum_{i \neq j}\left|\tilde{\mathbf{v}}<em>{i}^{*} \tilde{\mathbf{v}}</em>{j}\right|_{2}<br>$$<br>（信道矩阵$\mathbf H$尽可能接近，左右奇异矩阵为酉阵且列正交）</p>
+<h4 id="低复杂度——for-Rank-k-Matrix-Approximation"><a href="#低复杂度——for-Rank-k-Matrix-Approximation" class="headerlink" title="低复杂度——for Rank-k Matrix Approximation"></a>低复杂度——for Rank-<em>k</em> Matrix Approximation</h4><p>每次求当前最大的奇异值、奇异矩阵，下一次减掉它</p>
+<p><img alt="image-20211214084539548" class="post-img b-lazy" data-img="/image-20211214084539548.png" data-index="13" data-src="/image-20211214084539548.png"></p>
+<ul>
+<li><p>trained jointly<br>  $$<br>  \mathcal{L}(\theta_1,\theta_2,\cdots,\theta_k)&#x3D;\frac{\left|\mathbf{H}<em>{k}-\tilde{\mathbf{H}}</em>{k}\right|<em>{F}}{\left|\mathbf{H}</em>{k}\right|<em>{F}}+\lambda</em>{1} \sum_{i \neq j}\left|\tilde{\mathbf{u}}<em>{i}^{*} \tilde{\mathbf{u}}</em>{j}\right|<em>{2}+\lambda</em>{2} \sum_{i \neq j}\left|\tilde{\mathbf{v}}<em>{i}^{*} \tilde{\mathbf{v}}</em>{j}\right|_{2}<br>  $$</p>
+</li>
+<li><p>sequence（$\theta_1$不需要考虑正交性）<br>  $$<br>  \mathcal{L}\left(\theta_{i}\right)&#x3D;\frac{\left|\sigma_{i} \mathbf{u}<em>{i} \mathbf{v}</em>{i}^{<em>}-\tilde{\sigma}<em>{i} \tilde{\mathbf{u}}</em>{i} \tilde{\mathbf{v}}_{i}^{</em>}\right|<em>{F}}{\left|\sigma</em>{i} \mathbf{u}<em>{i} \mathbf{v}</em>{i}^{<em>}\right|<em>{F}}+\lambda</em>{1} \sum_{i, j&lt;i}\left|\tilde{\mathbf{u}}_{i}^{</em>} \tilde{\mathbf{u}}<em>{j}\right|</em>{2} +\lambda_{2} \sum_{i, j&lt;i}\left|\tilde{\mathbf{v}}<em>{i}^{*} \tilde{\mathbf{v}}</em>{j}\right|_{2}<br>  $$</p>
+</li>
+</ul>
+<p>采用梯度下降更新参数</p>
+<h4 id="Rank-1-Matrix-Approximation"><a href="#Rank-1-Matrix-Approximation" class="headerlink" title="Rank-1 Matrix Approximation"></a>Rank-1 Matrix Approximation</h4><p>将低复杂度Rank-<em>k</em>的$k$个神经网络变成1个。它使用单个DNN递归地估计$k$个奇异值和奇异向量。</p>
+<p><img alt="image-20211214085038717" class="post-img b-lazy" data-img="/image-20211214085038717.png" data-index="14" data-src="/image-20211214085038717.png"></p>
+<p>Loss函数：<br>$$<br>\mathcal{L}(\theta)&#x3D;\frac{\left|\mathbf{H}<em>{k}-\tilde{\mathbf{H}}</em>{k}\right|<em>{F}}{\left|\mathbf{H}</em>{k}\right|<em>{F}}+\lambda</em>{1} \sum_{i \neq j}\left|\tilde{\mathbf{u}}<em>{i}^{*} \tilde{\mathbf{u}}</em>{j}\right|<em>{2}+\lambda</em>{2} \sum_{i \neq j}\left|\tilde{\mathbf{v}}<em>{i}^{*} \tilde{\mathbf{v}}</em>{j}\right|_{2}<br>$$</p>
+<h3 id="混合预编码"><a href="#混合预编码" class="headerlink" title="混合预编码"></a>混合预编码</h3><p><img alt="image-20211214103300159" class="post-img b-lazy" data-img="/image-20211214103300159.png" data-index="15" data-src="/image-20211214103300159.png"></p>
+<p>在该方法中，我们不是直接最大化速率，而是最小化无约束波束形成器和混合波束形成器获得的<u>秩-k近似</u>之间的Frobenius距离（？）。</p>
+<blockquote>
+<p>【理解】<br>$$<br>\mathbf y&#x3D;\mathbf R_{BB}^H\mathbf R_{RF}^H\mathbf{HT}<em>{RF}\mathbf T</em>{BB}\mathbf{s}+\mathbf R_{BB}^H\mathbf R_{RF}^H\mathbf n\<br>$$<br><img alt="image-20211214104710646" class="post-img b-lazy" data-img="/image-20211214104710646.png" data-index="16" data-src="/image-20211214104710646.png"></p>
+<p>对信道矩阵作SVD，<br>$$<br>\mathbf H&#x3D;\mathbf{U\Sigma V^H}<br>$$<br>只要让<br>$$<br>\mathbf R_{BB}^H\mathbf R_{RF}^H&#x3D;\mathbf U^H,<br>\mathbf{T}<em>{RF}\mathbf T</em>{BB}&#x3D;\mathbf V\label{eq:123}<br>$$<br>因为$\mathbf \Sigma$是对角阵，就可以转化为并行信道<br>$$<br>\mathbf y&#x3D;\mathbf \Sigma \mathbf s+\mathbf U^H \mathbf n<br>$$<br>即上述网络想实现$\eqref{eq:123}$的近似相等，以保证实现并行信道。同时接近的$\mathbf{U,V}$不是实际值，而是上述三种SVD近似得到的结果</p>
+</blockquote>
+<p><strong>RF预编码恒模约束的四种方法</strong></p>
+<ol>
+<li><p>训练阶段，使用分段线性函数的组合来近似均匀量化。<br> <img alt="image-20211214135127640" class="post-img b-lazy" data-img="/image-20211214135127640.png" data-index="17" data-src="/image-20211214135127640.png"><br> 测试阶段直接量化。<br> $$<br> \tilde\alpha_i&#x3D;\frac{2\pi n}{2^{N_q}}<br> $$<br> $\gamma&#x3D;0$时，训练和测试阶段一致</p>
+<p> <img alt="image-20211214135323497" class="post-img b-lazy" data-img="/image-20211214135323497.png" data-index="18" data-src="/image-20211214135323497.png"></p>
+</li>
+<li><p>法一存在间断点，不平滑-&gt;利用sigmoid函数<br> $$<br> \tilde\alpha_i&#x3D;\frac{1}{1&#x3D;\exp(\beta(\alpha_i-b_n))}+o_n<br> $$<br> 其中，$n&#x3D;1,\cdots,2^{N_q}$，$b_n$时第n个量化阶的bias（偏差），$o_n$是其offset（偏置）。</p>
+<p> <img alt="image-20211214135802275" class="post-img b-lazy" data-img="/image-20211214135802275.png" data-index="19" data-src="/image-20211214135802275.png"></p>
+</li>
+<li><p>在前向传播中，我们使用阶跃函数来应用均匀量化。在反向传播过程中，我们使用Sigmoid函数的线性组合。</p>
+</li>
+<li><p>在前向传播期间实现随机量化方法，<br> $$<br> \tilde{\alpha}<em>{i}&#x3D;\frac{\left\lfloor 2^{N</em>{q}} \alpha_{i}\right\rfloor}{2^{N_{q}}}+\frac{r_{i}}{2^{N_{q}}}<br> $$<br> 而在反向传播期间用直通估计器替换。<br> $$<br> \frac{\partial Q(\alpha)_i}{\tilde\alpha_j}&#x3D;\left{\begin{array}{ll}1,&amp;\alpha_i\text{被量化到$\tilde \alpha_j$}\<br> 0,&amp;otherwise\end{array}\right.<br> $$</p>
+</li>
+</ol>
+<p><strong>功率约束</strong></p>
+<p>用未归一的$\hat{\mathbf T}<em>{BB},\hat{\mathbf R}</em>{BB}$和量化后的$\tilde{\mathbf T}<em>{RF},\tilde{\mathbf R}</em>{RF}$归一化<br>$$<br>\begin{aligned}<br>\tilde{\mathbf T}<em>{BB}&#x3D;\sqrt{L}\frac{\hat{\mathbf T}</em>{BB}}{\left|\tilde{\mathbf T}<em>{RF}\hat{\mathbf T}</em>{BB}\right|<em>F}\<br>\tilde{\mathbf R}</em>{BB}&#x3D;\sqrt{L}\frac{\hat{\mathbf T}<em>{BB}}{\left|\tilde{\mathbf R}</em>{RF}\hat{\mathbf R}<em>{BB}\right|<em>F}<br>\end{aligned}<br>$$<br><strong>Loss函数：</strong>——$L$ for rank-$L$<br>$$<br>\mathcal{L}(\theta)&#x3D;\frac{\left|\mathbf{H}</em>{L}-\tilde{\mathbf{H}}</em>{L}\right|<em>{F}}{\left|\mathbf{H}</em>{L}\right|<em>{F}}+\lambda</em>{1} \sum_{i \neq j}\left|\tilde{\mathbf{r}}<em>{i}^{*} \tilde{\mathbf{r}}</em>{j}\right|<em>{2}+\lambda</em>{2} \sum_{i \neq j}\left|\tilde{\mathbf{t}}<em>{i}^{*} \tilde{\mathbf{t}}</em>{j}\right|_{2}<br>$$<br>$\tilde{\mathbf r}<em>i$是$\tilde{\mathbf R}</em>{opt}$的列向量，$\tilde{\mathbf t}<em>i$是$\tilde{\mathbf T}</em>{opt}$的列向量</p>
+<h3 id="仿真"><a href="#仿真" class="headerlink" title="仿真"></a>仿真</h3><ul>
+<li><p>对于不同规模的毫米波系统，基于DNN的混合BF方法用于秩-k矩阵近似的性能优于基于低复杂度DNN的混合BF方法(用于秩k近似)和基于DNN的混合BF方法(用于秩1近似)。——低复杂度秩-k和秩-1的方法在估计后续奇异值、奇异向量时用了之前预测的结果，会带来积累误差。由于在这些仿真中我们考虑满秩信道矩阵，发射和接收天线的数目等于信道的秩，这导致天线数目越多，性能差距越大。</p>
+</li>
+<li><p>图18-a显示了基于DNN的混合BF用于秩-k矩阵近似时的实现速率，我们观察到当使用DNN用于秩-k矩阵近似时，第一和第二量化方法获得了相似的速率并且优于其他量化方法。在18-b中表明，第三种量化方法以用于秩-k矩阵近似的低复杂度DNN获得了最高的数据速率。我们在18-c中观察到，当使用秩1矩阵的DNN近似时，第四量化方法优于其他方法。<img alt="image-20211214150104362" class="post-img b-lazy" data-img="/image-20211214150104362.png" data-index="20" data-src="/image-20211214150104362.png"></p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="Contributions-1"><a href="#Contributions-1" class="headerlink" title="Contributions"></a>Contributions</h3><ul>
+<li><p>三种DNN结构</p>
+<ul>
+<li>第一种体系结构使用单个DNN的矩阵预测给定的k个最重要的奇异值和奇异向量。利用奇异值分解(SVD)的结构，提出了一种低复杂度的秩-k矩阵逼近DNN结构。</li>
+<li>第二种结构由k个低复杂度DNN组成，每个DNN被训练来估计给定矩阵的最大奇异值和相应的右、左奇异向量。</li>
+<li>为了进一步简化奇异值分解运算，我们提出了秩1矩阵逼近的第三种结构，它使用单个DNN递归地估计k个奇异值和奇异向量。</li>
+<li>我们引入了定制的损失函数来训练三种DNN结构，原则上训练DNN的目的是最小化矩阵的真实值和估计秩-k近似之间的Frobenius距离，同时强制奇异向量正交。</li>
+</ul>
+</li>
+<li><p>四种量化方法</p>
+<ul>
+<li>在第一种方法中，我们使用步长和分段线性函数的组合来近似相位量化操作，这在训练过程中提供了非零梯度。</li>
+<li>在第二种方法中，我们考虑在前向和后向传播过程中使用几个具有不同参数的Sigmoid函数的组合来进行软量子化。</li>
+<li>在第三种方法中，我们在前向传播中使用阶跃函数，而在后向传播中结合不同参数的Sigmoid函数。</li>
+<li>在第四种方法中，我们在前向传播期间实现随机量化方法[37]，而在反向传播期间用直通估计器[38]替换。</li>
+<li>最后，在所提出的DNN体系结构中，我们通过归一化层满足功率约束。</li>
+</ul>
+</li>
+</ul>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/MIMO/" rel="tag"># MIMO</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" rel="tag"># 预编码</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【预编码论文阅读（三）】深度学习(二)</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2022年01月06日 - 10:56:40</p>
+  <p><span>原始链接:</span><a href="/2022/01/06/procoding-3/" title="【预编码论文阅读（三）】深度学习(二)">https://levitate-qian.github.io/2022/01/06/procoding-3/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2022/01/06/procoding-3/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="LaTeX札记（四）：字体" href="/2022/04/14/latex-note-04/">
+            ← LaTeX札记（四）：字体
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【预编码论文阅读（二）】深度学习(一)" href="/2021/12/08/precoding-2/">
+            【预编码论文阅读（二）】深度学习(一) →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#预编码论文阅读（三）——深度学习（二）"><span class="toc-text">预编码论文阅读（三）——深度学习（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Transfer-learning-x2F-Meta-Learning-online-learning【迁移学习、元学习】——2021-TWC"><span class="toc-text">Transfer learning&#x2F;Meta Learning+online learning【迁移学习、元学习】——2021-TWC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#离线训练算法"><span class="toc-text">离线训练算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Transfer-Learning"><span class="toc-text">Transfer Learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Meta-learning"><span class="toc-text">Meta learning</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线学习"><span class="toc-text">在线学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contributions"><span class="toc-text">Contributions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Meta-Learning-Embedding-model【元学习】——2021-TWC"><span class="toc-text">Meta Learning+Embedding model【元学习】——2021-TWC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fast-meta-learning-with-embedding-model"><span class="toc-text">fast meta learning with embedding model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applications"><span class="toc-text">Applications</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Online-learning"><span class="toc-text">Online learning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Knowledge-Distillation【知识蒸馏】——2021-TVT"><span class="toc-text">Knowledge Distillation【知识蒸馏】——2021-TVT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络结构"><span class="toc-text">网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程"><span class="toc-text">流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KD"><span class="toc-text">KD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-Driven-Beamforming-Neural-Networks——2020-MWC"><span class="toc-text">Model-Driven Beamforming Neural Networks——2020-MWC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-Learning-for-SVD-and-Hybrid-Beamforming——2020-TWC"><span class="toc-text">Deep Learning for SVD and Hybrid Beamforming——2020-TWC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVD近似"><span class="toc-text">SVD近似</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for-Rank-k-Matrix-Approximation"><span class="toc-text">for Rank-k Matrix Approximation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#低复杂度——for-Rank-k-Matrix-Approximation"><span class="toc-text">低复杂度——for Rank-k Matrix Approximation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rank-1-Matrix-Approximation"><span class="toc-text">Rank-1 Matrix Approximation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合预编码"><span class="toc-text">混合预编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真"><span class="toc-text">仿真</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contributions-1"><span class="toc-text">Contributions</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2022/01/06/procoding-3/" class="leancloud-visitors" data-flag-title="【预编码论文阅读（三）】深度学习(二)">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【预编码论文阅读（三）】深度学习(二)</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

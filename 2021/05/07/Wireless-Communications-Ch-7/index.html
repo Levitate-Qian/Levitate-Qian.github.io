@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无线通信学习笔记（五）】分集 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无线通信学习笔记（五）】分集 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/05/07/Wireless-Communications-Ch-7/">
+
+	
+	<meta property="article:published_time" content="2021-05-06T20:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/05/07/Wireless-Communications-Ch-7/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-05-06T20:00:00.000Z">
+                    2021-05-06
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无线通信学习笔记（五）】分集</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/05/05/guHLrD.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p><em>Wireless Communications</em> (Andrea Goldsmith)学习笔记。</p>
+</blockquote>
+<h1 id="Diversity"><a href="#Diversity" class="headerlink" title="Diversity"></a>Diversity</h1><p>在“衰落信道中数字带通传输系统的性能分析”中，我们注意到瑞利衰落（多径衰落）和对数正态分布（阴影衰落）会对数字带通传输系统造成很大的影响，减轻衰落的最有力的方法就是分集-合并（diversity-combining）技术。</p>
+<ul>
+<li>理论依据：<ul>
+<li>分：独立信号路径经由很小概率会同一时刻经历深衰落（deep fades）</li>
+<li>集：经过合并接收信号的衰落就会很小。例如选择信号最强的那根天线就是selection combining</li>
+</ul>
+</li>
+<li>微分集（microdiversity）：减弱多径衰落（multipath）影响</li>
+<li>宏分集（macrodiversity）：减弱来自建筑、物体的阴影衰落（shadowing）<ul>
+<li>做法：combining signals received by several base stations or access points</li>
+</ul>
+</li>
+</ul>
+<h2 id="独立衰落信道（Independent-Fading-Paths）"><a href="#独立衰落信道（Independent-Fading-Paths）" class="headerlink" title="独立衰落信道（Independent Fading Paths）"></a>独立衰落信道（Independent Fading Paths）</h2><ul>
+<li><strong>space diversity（空间分集）</strong>：<ul>
+<li>单侧阵列天线（antenna array）——多发射天线<strong>或</strong>多接收天线</li>
+<li>不增加发射功率或带宽</li>
+<li>阵列增益：相干合并可以提高信噪比，降低检测因子的要求</li>
+<li>空间分集还需要有足够大的天线间距以保证衰落幅度近似独立<ul>
+<li>对于全向天线，衰落独立需要半波长</li>
+<li>对于方向性天线需要更大的天线间距</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>polarization diversity（极化分集）：<ul>
+<li>两接收天线或两发射天线（水平极化和垂直极化）</li>
+<li>极化分集最有只有两个分集分支</li>
+<li>极化分集有3 dB的功率损耗</li>
+</ul>
+</li>
+<li>方向性天线（Directional antennas）：<ul>
+<li>对于方向性天线，波束对准某一角度</li>
+<li>要求有足够多天线以覆盖到所有可能的来波方向，或者一个天线恰好对准来波方向。</li>
+<li>当未对准时，信噪比将会降低</li>
+</ul>
+</li>
+<li>Frequency diversity（频率分集）：通过不同载波频率传输同一窄带信号。需要额外的发射功率</li>
+<li>Time diversity（时间分集）：在不同时间传输同一信号。时间差要大于信道相干时间。</li>
+</ul>
+<h2 id="接收机分集（Receiver-Diversity）"><a href="#接收机分集（Receiver-Diversity）" class="headerlink" title="接收机分集（Receiver Diversity）"></a>接收机分集（Receiver Diversity）</h2><p>在接收机分集中，多个接收天线的独立衰落路径被结合起来，得到一个结果信号，然后通过一个标准解调器。</p>
+<p><img alt="线性合并器" class="post-img b-lazy" data-img="/linear_combining.png" data-index="0" data-src="/linear_combining.png"></p>
+<ul>
+<li><p>combiner的输出时不同衰落路径（分支）的<strong>加权求和</strong>，一般是线性的。</p>
+</li>
+<li><p>co-phaseing（共相位）：当合并超过一条支路是需要co-phaseing，加权时乘$\alpha_i&#x3D;a_ie^{-j\theta_i}$来消除相位，确保实现相干合并。一般采用先检测后合并的相干合并策略，这样可以确定合适的$\alpha_i$。</p>
+</li>
+<li><p>分集的目的：对独立衰落信道相干合并，以减弱衰落的影响。<br>  $$<br>  \alpha_\Sigma&#x3D;\sum_ia_ir_i<br>  $$</p>
+</li>
+<li><p>阵列增益（array gain）：对多路信号的相干合并（不必在衰落条件下）。<br>  $$<br>  A_g&#x3D;\frac{\bar\gamma_\Sigma}{\bar \gamma}<br>  $$<br>  对于MRC（最大比合并）：<br>  $$<br>  \gamma_\Sigma&#x3D;\frac{ME_s}{N_0}<br>  $$<br>  相比于未合并提高了M倍。</p>
+<blockquote>
+<p>其实这边的概念可以用《雷达原理与系统》中的相干积累来理解，也是比较类似的。</p>
+<p><img alt="相干积累" class="post-img b-lazy" data-img="/integration.png" data-index="1" data-src="/integration.png"><br>只需要相干积累前的$\frac{1}{M}$，即<br>$$<br>D_0(M)&#x3D;\frac 1MD_0(1)<br>$$<br>在相同检测条件下，相干积累增加了SNR，就可以减小对于单个脉冲串的SNR要求。对于同样作用距离，雷达可以减小发射峰值功率。</p>
+<p>同理对于无线通信系统来说，这里的相干合并提高了总体的信噪比，也就降低了对于每一分支SNR要求有，但是在这里我们不是为了降低发射功率，而是为了减小衰落带来的影响。</p>
+<p>在雷达中还有一种非相干积累，即视频积累。他在检波后进行积累就不需要相干载波，但是非相干对于无线通信来说是不可能的，因为非相干合并并没有消除相位的影响，也就没有不能消除衰落的影响。</p>
+</blockquote>
+<ul>
+<li>所有分集合并都有阵列增益，MRC的阵列增益最大</li>
+</ul>
+</li>
+<li><p>分集增益（diversity gain）：分集带来了$\gamma_\Sigma$更好的分布，从而降低了平均误码率$\bar P_s$和中断率$P_\text{out}$。</p>
+<ul>
+<li>分集阶数（diversity order）：误码率表示为$\bar P_s&#x3D;c\bar\gamma^{-M}$中的$c$，取决于具体调制方式。The diversity order indicates how the slope of the average probability of error as a function of average SNR changes with diversity.</li>
+<li>The maximum diversity order of a system with $M$ antennas is $M$, and when the diversity order equalsM the system is said to achieve <strong>full diversity order</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="SC-选择合并"><a href="#SC-选择合并" class="headerlink" title="SC(选择合并)"></a>SC(选择合并)</h3><ul>
+<li><p>选择合并（selection combining，SC）：合并器在具有最高信噪比$\frac{r_i^2}{N_i}$的分支上输出信号。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>如果所有分支上的噪声功率$N_i &#x3D; N$相同，这就相当于选择具有最高$r^2_i + N_i$的分支。</li>
+<li>只需要一个接收机，时分复用</li>
+<li>不需要co-phasing，可以应用于相干解调和差分解调</li>
+</ul>
+</li>
+<li><p>i.i.d Rayleigh衰落合并输出的平均信噪比：<br>  $$<br>  \bar\gamma_\Sigma&#x3D;\bar\gamma\sum_{i&#x3D;1}^M\frac{1}{i}<br>  $$</p>
+<ul>
+<li>平均信噪比增益随$M$增加而增加，但<strong>非线性</strong>。</li>
+<li>随着$M$的进一步增大，阵列增益趋于0.</li>
+</ul>
+</li>
+<li><p>性能分析</p>
+<ul>
+<li><p>给定中断率$P_{out}$时检测因子（单支路接收信噪比）的改善(设所有支路信噪比一致)<br> $$<br> P_{out}&#x3D;p(\gamma_\Sigma&lt;\gamma_0)&#x3D;\left[1-e^{-\frac{\gamma_0}{\bar \gamma}}\right]^M<br>  $$<br>  <img alt="SC" class="post-img b-lazy" data-img="/SC.png" data-index="2" data-src="/SC.png"></p>
+</li>
+<li><p>给定平均误比特率$\bar P_b$时的检测因子（一般无闭式解）<br> $$<br> p_{\gamma_{\Sigma}}(\gamma)&#x3D;\frac{M}{\bar{\gamma}}\left[1-e^{-\gamma &#x2F; \bar{\gamma}}\right]^{M-1} e^{-\gamma &#x2F; \bar{\gamma}}<br>$$<br> <img alt="SC_Pb" class="post-img b-lazy" data-img="/SC_Pb.png" data-index="3" data-src="/SC_Pb.png"><br>  由于组合器的阵列增益，$M\ge 8$的分集系统的误比特率低于相同信噪比的AWGN信道。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Threshold-Combining（门限合并）和SSC"><a href="#Threshold-Combining（门限合并）和SSC" class="headerlink" title="Threshold Combining（门限合并）和SSC"></a>Threshold Combining（门限合并）和SSC</h3><ul>
+<li>门限合并（Threshold Combining）：合并器按顺序扫描每个分支，输出信噪比高于给定阈值$\gamma_T$的第一个信号。</li>
+<li>SSC（切停合并，switch and stay combining）：在只有两个分支的情况下，相当于在活动分支的信噪比低于$\gamma_T$时切换到另一个分支。性能介于无分集和SC之间。</li>
+<li>性能分析：<ul>
+<li>在任意衰落分布下，对于最佳门限的SSC和SC有相同的<strong>中断率</strong>。</li>
+<li>采用SSC的相干解调，平均误比特率一般没有闭式解</li>
+</ul>
+</li>
+</ul>
+<h3 id="MRC（最大比合并）"><a href="#MRC（最大比合并）" class="headerlink" title="MRC（最大比合并）"></a>MRC（最大比合并）</h3><ul>
+<li><p>最大比合并（Maximal Ratio Combining，MRC）：合并器输出各分支信号的加权求和。</p>
+</li>
+<li><p>合并输出信噪比：<br>  $$<br>  \max_{a_i} \gamma_{\Sigma}&#x3D;\frac{r^{2}}{N_{t o t}}&#x3D;\frac{1}{N_{0}} \frac{\left(\sum_{i&#x3D;1}^{M} a_{i} r_{i}\right)^{2}}{\sum_{i&#x3D;1}^{M} a_{i}^{2}}<br>  $$<br>  最佳加权值为$a_i^2&#x3D;\frac{r_i^2}{N_0}$，合并输出信噪比为<br>  $$<br>  r_{\Sigma}&#x3D;\sum_{i&#x3D;1}^M\frac{r^2_i}{N_0}&#x3D;\sum_{i&#x3D;1}^M\gamma_i<br>  $$<br>  可见，合并输出的平均信噪比随分集分支$M$增加而<strong>线性增加</strong>。</p>
+</li>
+<li><p>性能分析</p>
+<ul>
+<li><p>中断率：</p>
+<p>  $$<br>  P_{\text {out }}&#x3D;p\left(\gamma_{\Sigma}&lt;\gamma_{0}\right)&#x3D;\int_{0}^{\gamma_{0}} p_{\gamma_{\Sigma}}(\gamma) d \gamma&#x3D;1-e^{-\gamma_{0} &#x2F; \bar{\gamma}} \sum_{k&#x3D;1}^{M} \frac{\left(\gamma_{0} &#x2F; \bar{\gamma}\right)^{k-1}}{(k-1) !}<br>  $$<br>  <img alt="MRC" class="post-img b-lazy" data-img="/MRC.png" data-index="4" data-src="/MRC.png"></p>
+</li>
+<li><p>平均误码率可由合并输出信噪比的分布求得：<br>  $$<br>  p_{\gamma_{\Sigma}}(\gamma)&#x3D;\frac{\gamma^{M-1} e^{-\gamma &#x2F; \bar{\gamma}}}{\bar{\gamma}^{M}(M-1) !}, \quad \gamma \geq 0<br>  $$<br>  <img alt="MRC_Pb" class="post-img b-lazy" data-img="/MRC_Pb.png" data-index="5" data-src="/MRC_Pb.png"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>MRC的性能远好于SC</strong></p>
+</li>
+<li><p>用MGF求MRC分集的平均误码率</p>
+<ul>
+<li><p>平均误码率通式：<br>  $$<br>  \bar{P}<em>{s}&#x3D;\int</em>{0}^{\infty} c_{1} \exp \left[-c_{2} \gamma\right] p_{\gamma_{\Sigma}}(\gamma) d \gamma<br>  $$<br>  用MGF表示<br>  $$<br>  \bar{P}<em>{s}&#x3D;c</em>{1} \int_{A}^{B} \prod_{i&#x3D;1}^{M} \int_{0}^{\infty} \exp \left[-c_{2}(x) \gamma_{i}\right] p_{\gamma_{i}}\left(\gamma_{i}\right) d \gamma_{i}&#x3D;c_{1} \int_{A}^{B} \prod_{i&#x3D;1}^{M} M_{\gamma_{i}}\left(-c_{2}(x)\right) d x<br>  $$<br>  适用于任意分集分支和任意支路衰落分布</p>
+</li>
+<li><p>具体调制与衰落分布的平均误码率这里不抄了</p>
+</li>
+</ul>
+</li>
+<li><p>$\gamma_i$分布相同，高信噪比时的平均误码率<br>  $$<br>  \bar P_s\approx\alpha_M\left(\frac{\beta_M\bar \gamma}{2}\right)^{-M}<br>  $$<br>  分集阶数为M，为满分集阶数</p>
+</li>
+</ul>
+<h3 id="EGC（等增益合并）"><a href="#EGC（等增益合并）" class="headerlink" title="EGC（等增益合并）"></a>EGC（等增益合并）</h3><ul>
+<li><p>等增益合并（Equal-Gain Combining，EGC）：以相同权重$\alpha_i&#x3D;e^{-j\theta_i}$对所有分支加权求和。</p>
+<blockquote>
+<p>基本上就是相干解调的意思了。</p>
+</blockquote>
+</li>
+<li><p>合并输出信噪比<br>  $$<br>  \gamma_{\Sigma}&#x3D;\frac{1}{N_{0} M}\left(\sum_{i&#x3D;1}^{M} r_{i}\right)^{2}<br>  $$</p>
+</li>
+<li><p>性能分析：</p>
+<ul>
+<li><p>中断率：<br>  $$<br>  P_{\text {out }}\left(\gamma_{0}\right)&#x3D;1-e^{-2 {\frac{\gamma_0}{\bar\gamma}}}-\sqrt{\pi \frac{\gamma_0}{\bar\gamma}} e^{-\frac{\gamma_0}{\bar\gamma}}\left(1-2 Q\left(\sqrt{2 \frac{\gamma_0}{\bar\gamma}}\right)\right)<br>  $$</p>
+</li>
+<li><p>平均误码率可由输出信噪比的分布求得<br>  $$<br>  p_{\gamma_{\Sigma}}(\gamma)&#x3D;\frac{1}{\bar{\gamma}} e^{-2 \gamma &#x2F; \bar{\gamma}}+\sqrt{\pi} e^{-\gamma &#x2F; \bar{\gamma}}\left(\frac{1}{\sqrt{4 \gamma \bar{\gamma}}}-\frac{1}{\bar{\gamma}} \sqrt{\frac{\gamma}{\bar{\gamma}}}\right)(1-2 Q(\sqrt{2 \gamma &#x2F; \bar{\gamma}}))<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>EGC的性能非常接近MRC，功率损耗不超过1 dB，但是复杂度更低。</p>
+</li>
+<li><p>用MGF求EGC分集的平均误码率</p>
+<ul>
+<li>MGFs are less useful in the analysis of EGC and SC than in MRC.</li>
+<li>working with the MGF of $\gamma_\Sigma$ can sometimes lead to simpler results than working directly with its pdf. 比如将$s$变为$j2\pi f$就将MGF变为特征函数，可以求得EGC分集MPSK的误码率的精确式。</li>
+</ul>
+</li>
+</ul>
+<h2 id="发射机分集（Transmitter-Diversity）"><a href="#发射机分集（Transmitter-Diversity）" class="headerlink" title="发射机分集（Transmitter Diversity）"></a>发射机分集（Transmitter Diversity）</h2><p>发射机分集一般被用在有充足的空间、功率和处理能力的地方。假设CSIR（Receiver CSI）讨论接收机是否知道CSI。</p>
+<h3 id="CSIR和CSIT"><a href="#CSIR和CSIT" class="headerlink" title="CSIR和CSIT"></a>CSIR和CSIT</h3><ul>
+<li><p>CSIT：发射机已知第$i$根天线上的路径增益$r_ie^{j\theta_i}$</p>
+</li>
+<li><p>最大化接收信噪比<br>  $$<br>  \gamma_{\Sigma}&#x3D;\frac{E_{s}}{N_{0}} \sum_{i&#x3D;1}^{M} r_{i}^{2}&#x3D;\sum_{i&#x3D;1}^{M} \gamma_{i}<br>  $$<br>  此时的加权值<br>  $$<br>  a_i&#x3D;\frac{r_i}{\sqrt{\sum_{i&#x3D;1}^Mr_i^2}}<br>  $$<br>  当CSIT，发射机分集与MRC分集类似。接受信噪比为各支路信噪比之和</p>
+</li>
+<li><p>$\gamma_i$分布相同，高信噪比时的平均误码率<br>  $$<br>  \bar P_s\approx\alpha_M\left(\frac{\beta_M\bar \gamma}{2}\right)^{-M}<br>  $$<br>  分集阶数为M，为满分集阶数</p>
+</li>
+<li><p>发射机分集的问题：发射机获取信道相位和幅度信息</p>
+<ul>
+<li>导频（pilot technique）</li>
+<li>利用时分（time-division）的互易性（reciprocal）</li>
+</ul>
+</li>
+</ul>
+<h3 id="仅CSIR——The-Alamouti-Scheme"><a href="#仅CSIR——The-Alamouti-Scheme" class="headerlink" title="仅CSIR——The Alamouti Scheme"></a>仅CSIR——The Alamouti Scheme</h3><p>该方案在两个符号周期内工作，假定信道增益在这段时间内是不变的。在第一个码元间隔，两个不同的码元$s_1$和$s_2$分别从天线1和2同时传输，每个码元的能量为$\frac{E_s}{2}$。在下一个码元间隔，符号$s^∗_2$从天线1发射，符号$s^∗_1$从天线2发射，每个码元能量为$ \frac{E_s}{2}$。</p>
+<p>接收信号<br>$$<br>\mathbf{y}&#x3D;\left[\begin{array}{cc}<br>h_{1} &amp; h_{2} \<br>h_{2}^{<em>} &amp; -h_{1}^{</em>}<br>\end{array}\right]\left[\begin{array}{l}<br>s_{1} \<br>s_{2}<br>\end{array}\right]+\left[\begin{array}{c}<br>n_{1} \<br>n_{2}^{*}<br>\end{array}\right]&#x3D;\mathbf{H}<em>{A} \mathbf{s}+\mathbf{n}<br>$$<br>接收信噪比<br>$$<br>\gamma</em>{i}&#x3D;\frac{\left(\left|h_{1}^{2}\right|+\left|h_{2}^{2}\right|\right) E_{s}}{2 N_{0}}<br>$$<br>分集阶数为2，但阵列增益只有1.</p>
+<blockquote>
+<p>这章内容和《雷达原理与系统》里面的雷达信号检测部分有异曲同工之妙，但是雷达往往发射重频信号，可以采用积累的方法来降低降低因子。而在无线通信中，我们不太可能反反复复发射一样的信号，所以就采用分集-合并的方式来降低对于检测因子的要求。但是有一些思路是一致的。</p>
+</blockquote>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>ANDREA GOLDSMITH.<em>WIRELESS COMMUNICATIONS</em>.2005.</li>
+<li>（美）Andrea Goldsmith著；杨鸿文，李卫东，郭文彬等译. 无线通信. 北京：人民邮电出版社, 2007.06.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无线通信学习笔记（五）】分集</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年05月06日 - 20:00:00</p>
+  <p><span>原始链接:</span><a href="/2021/05/07/Wireless-Communications-Ch-7/" title="【无线通信学习笔记（五）】分集">https://levitate-qian.github.io/2021/05/07/Wireless-Communications-Ch-7/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/05/07/Wireless-Communications-Ch-7/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【深度学习笔记（四）】卷积神经网络" href="/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/">
+            ← 【深度学习笔记（四）】卷积神经网络
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【无线通信学习笔记（四）】数字调制及其性能" href="/2021/05/05/Wireless-Communications-Ch-5-6/">
+            【无线通信学习笔记（四）】数字调制及其性能 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Diversity"><span class="toc-text">Diversity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#独立衰落信道（Independent-Fading-Paths）"><span class="toc-text">独立衰落信道（Independent Fading Paths）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接收机分集（Receiver-Diversity）"><span class="toc-text">接收机分集（Receiver Diversity）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SC-选择合并"><span class="toc-text">SC(选择合并)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Threshold-Combining（门限合并）和SSC"><span class="toc-text">Threshold Combining（门限合并）和SSC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MRC（最大比合并）"><span class="toc-text">MRC（最大比合并）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EGC（等增益合并）"><span class="toc-text">EGC（等增益合并）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发射机分集（Transmitter-Diversity）"><span class="toc-text">发射机分集（Transmitter Diversity）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSIR和CSIT"><span class="toc-text">CSIR和CSIT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仅CSIR——The-Alamouti-Scheme"><span class="toc-text">仅CSIR——The Alamouti Scheme</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/05/07/Wireless-Communications-Ch-7/" class="leancloud-visitors" data-flag-title="【无线通信学习笔记（五）】分集">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无线通信学习笔记（五）】分集</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【深度学习笔记（一）】神经网络与深度学习 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【深度学习笔记（一）】神经网络与深度学习 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">
+
+	
+	<meta property="article:published_time" content="2021-03-25T23:03:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-03-25T23:58:22.000Z">
+                    2021-03-25
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【深度学习笔记（一）】神经网络与深度学习</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/03/26/6XIFLn.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p>如果没有意外的话，我应该有学上了！</p>
+<p>所以我又准备开始更新博客了。</p>
+<p>这个深度学习专项是杨神推荐的，链接为<a href="https://www.coursera.org/specializations/deep-learning%EF%BC%88%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E6%8C%82%E6%A2%AF%E5%AD%90%EF%BC%89%E3%80%82%E5%90%B4%E6%81%A9%E8%BE%BE%E8%80%81%E5%B8%88%E7%9A%84%E8%8B%B1%E8%AF%AD%E9%9D%9E%E5%B8%B8%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E5%95%8A%EF%BC%8C%E5%9F%BA%E6%9C%AC%E4%B8%8A%E5%BC%80%E7%9D%80%E8%8B%B1%E6%96%87%E5%AD%97%E5%B9%95%E5%B0%B1%E8%83%BD%E5%90%AC%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E4%B8%AD%E6%96%87%E5%AD%97%E5%B9%95%F0%9F%98%9C%E3%80%82" target="_blank" rel="noopener">https://www.coursera.org/specializations/deep-learning（可能需要挂梯子）。吴恩达老师的英语非常通俗易懂啊，基本上开着英文字幕就能听，不需要中文字幕😜。</a></p>
+<p>这个专项课程一共五门，包括</p>
+<ul>
+<li>Neural Networks and Deep Learning（神经网络与深度学习）</li>
+<li>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization（改进深度神经网络：超参数、正则化和优化）</li>
+<li>Structuring Machine Learning Projects（构建机器学习项目）</li>
+<li>Convolution Neural Networks（卷积神经网络）</li>
+<li>Sequence Model（序列模型）</li>
+</ul>
+<p>目前我还在学第四门，我准备把每门课的内容在博客上梳理一下。</p>
+<p>——3月25日</p>
+<p>第四门学完啦，第五门第一周也学完啦。又来更新了！</p>
+<p>——4月5日</p>
+</blockquote>
+<h1 id="Neural-Networks-and-Deep-Learning-学习笔记"><a href="#Neural-Networks-and-Deep-Learning-学习笔记" class="headerlink" title="Neural Networks and Deep Learning 学习笔记"></a>Neural Networks and Deep Learning 学习笔记</h1><p>第一门课的主体框架</p>
+<ul>
+<li>Week 1: Introduction</li>
+<li>Week 2: Programming</li>
+<li>Week 3: Singal hidden layer NN</li>
+<li>Week 4: Deep NN</li>
+</ul>
+<h2 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h2><p><em>Welcome to the Deep learning Specilization</em>主要就是五门课程的总体介绍，这里就不放了。</p>
+<h3 id="Introduction-to-Deep-Learning"><a href="#Introduction-to-Deep-Learning" class="headerlink" title="Introduction to Deep Learning"></a>Introduction to Deep Learning</h3><p>这个section主要介绍了神经网络和深度学习最基础的内容，并分析了为何深度学习会在当今take-off。</p>
+<h4 id="1-Neural-Network"><a href="#1-Neural-Network" class="headerlink" title="1. Neural Network"></a>1. Neural Network</h4><p><img alt="neural" class="post-img b-lazy" data-img="/neural.png" data-index="0" data-src="/neural.png"></p>
+<h4 id="2-Supervised-learning-with-neural-network"><a href="#2-Supervised-learning-with-neural-network" class="headerlink" title="2. Supervised learning with neural network"></a>2. Supervised learning with neural network</h4><ul>
+<li>监督学习：输入为x，输出为y。（即有标签）</li>
+<li>分不同类型神经网络的应用范围<ul>
+<li>标准神经网络(Standard NN)：房地产，网上广告</li>
+<li>卷积神经网络(Convolution NN, CNN)：图像标语</li>
+<li>循环神经网络(Recurrent NN，RNN)：语音识别，翻译</li>
+<li>Hybrid：自动驾驶</li>
+</ul>
+</li>
+<li>监督学习的对象主要有两种<ul>
+<li>Structured Data：类似于数据表</li>
+<li>Unstructured Data：如音频、图像、文本</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Why-DL-take-off-Why-now"><a href="#3-Why-DL-take-off-Why-now" class="headerlink" title="3. Why DL take-off? (Why now?)"></a>3. Why DL take-off? (Why now?)</h4><blockquote>
+<p>Scale drives deep learning progress. (规模驱动深度学习的发展)</p>
+</blockquote>
+<ul>
+<li>Data（近几年来数据收集量越来越大）<ul>
+<li>Large NN 需要大的网络、大量的数据</li>
+</ul>
+</li>
+<li>Computation</li>
+<li>Algorithm</li>
+</ul>
+<p>重要的循环</p>
+<img alt="循环" style="zoom:33%;" class="post-img b-lazy" data-img="/循环.png" data-index="1" data-src="/循环.png">
+
+
+
+<hr>
+<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h3 id="Logistic-Regression-as-a-NN"><a href="#Logistic-Regression-as-a-NN" class="headerlink" title="Logistic Regression as a NN"></a>Logistic Regression as a NN</h3><p>在这个section中，讲述的是Logistic回归的相关内容，主要包括Logistic回归的正向（cost function）和反向传播（梯度下降最小化cost function），并对Python、numpy、jupyter notebook的使用做了讲解。</p>
+<h4 id="1-Binary-Classification"><a href="#1-Binary-Classification" class="headerlink" title="1. Binary Classification"></a>1. Binary Classification</h4><ul>
+<li>二元分类(Binary Classification)： $x\to y$<ul>
+<li>例如处理一幅64×64像素猫的图像时，先将其分成RGB三个通道，再将其unroll成一个列向量，其维数为$64 \times 64\times 3&#x3D;12288$。此时该图像即Binary Classification中的输入$x$。标记(label)用于分类是否为猫，即为$y$。</li>
+</ul>
+</li>
+<li>符号说明：<ul>
+<li>One training example: $(x,y),\ x\in\mathbb{R}^{n_x},y\in{0,1}$</li>
+<li>$m$ training example: ${(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\cdots,(x^{(m)},y^{(m)})}$<ul>
+<li>其中$m$可以取为$m_{\text{train}},m_{\text{test}}$分别表示训练样本的个数和测试样本的数量</li>
+</ul>
+</li>
+<li>训练集：$X&#x3D;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  x^{(1)}&amp;x^{(2)}&amp;\cdots&amp;x^{(m)}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}, X\in\mathbb{R}^{n_x\times m}$，是一个$(n_x,m)$维的矩阵。</li>
+<li>标签：$Y&#x3D;[y^{(1)},y^{(2)},\cdots,y^{(m)}], Y\in \mathbb{R}^{1\times m}$，是一个$(1,m)$维的矩阵。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Logistic-Regression-amp-cost-function"><a href="#2-Logistic-Regression-amp-cost-function" class="headerlink" title="2. Logistic Regression &amp; cost function"></a>2. Logistic Regression &amp; cost function</h4><ol>
+<li><p>单个样本Logistic Regression的主要流程</p>
+<p> Given $x\in\mathbb{R}^{n_x}$, want $\hat y&#x3D;P(y&#x3D;1|x),0\le \hat y \le 1$（即希望$\hat y$是$y&#x3D;1$的一个良好估计）</p>
+<p> Parameter: $w\in \mathbb{R}^{n_x},b\in\mathbb{R}$</p>
+<p> Output: $\hat y&#x3D;w^T+b$ (linear regression)</p>
+<p> ​			  $\hat y&#x3D;\sigma[w^T+b]$(logistic regression，其中$\sigma[\bullet]$是sigmoid function)</p>
+<blockquote>
+<p>此外也可以表示为$\hat y&#x3D;\Theta^Tx\quad(x_0&#x3D;1, x\in\mathbb{R}^{n_x+1})$</p>
+<p>其中$\Theta^T&#x3D;\begin{bmatrix}\theta_0\ \theta_1\ \vdots\ \theta_{n_x}\end{bmatrix}\begin{matrix}\to b\\rmoustache\quad\ \to w\\lmoustache\quad \end{matrix}$</p>
+</blockquote>
+</li>
+<li><p>sigmoid function</p>
+<p> <img alt="sigmoid_function" class="post-img b-lazy" data-img="/sigmoid.png" data-index="2" data-src="/sigmoid.png"></p>
+<p> $$<br> \sigma(z)&#x3D;\frac{1}{1-e^{-z}}<br> $$</p>
+<p> 其中，当$z\to -\infty$时，$\frac{1}{1+\infty}&#x3D;0$；当$z\to \infty$时，$\frac{1}{1+0}&#x3D;1$</p>
+</li>
+<li><p><strong>对于m个样本的Logistic regression</strong></p>
+<p> $\hat y&#x3D;\sigma(w^Tx+b)$, where $\sigma(z^{(i)})&#x3D;\frac{1}{1+e^{-z^{(i)}}}$</p>
+<p> Given ${(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\cdots,(x^{(m)},y^{(m)})}$, want $\hat y^{(i)}&#x3D;y^{(i)}$</p>
+<p> 其中，上标$^{(i)}$表示第$i$个training example。</p>
+</li>
+<li><p>Loss Function(损失函数，针对单个样本来说)<br> $$<br> \mathscr{L}(\hat y, y)&#x3D;-(y\log \hat y+ (1-y)\log(1-\hat y))<br> $$</p>
+<ul>
+<li>当$y&#x3D;1$时，希望$\hat y$越大越好</li>
+<li>当$y&#x3D;0$时，希望$\hat y$越小越好</li>
+</ul>
+</li>
+<li><p><strong>Cost function</strong>(代价函数，针对全体样本来说，是cost of parameter)<br> $$<br> \begin{aligned}<br> J(w,b)&#x3D;&amp;\frac 1m\sum_{i&#x3D;1}^m\mathscr{L}(\hat y^{(i)}, y^{(i)})\<br> &#x3D;&amp;-\frac 1m\sum_{i&#x3D;1}^m(y^{(i)}\log \hat y^{(i)}+ (1-y^{(i)})\log(1-\hat y^{(i)}))<br> \end{aligned}<br> $$</p>
+</li>
+</ol>
+<h4 id="3-Gradient-Descent"><a href="#3-Gradient-Descent" class="headerlink" title="3. Gradient Descent"></a>3. Gradient Descent</h4><ol>
+<li><p>Gradient Descent基础</p>
+<p> <img alt="gradient_descent" class="post-img b-lazy" data-img="/gradient_descent.png" data-index="3" data-src="/gradient_descent.png"></p>
+<ul>
+<li>梯度下降实际上就是沿着$w,b$梯度(简记作$\frac{\partial J(w,b)}{\partial w}&#x3D;dw,\frac{\partial J(w,b)}{\partial b}&#x3D;db$)下降方向，即<br>  Repeat{<br>  　　$w:&#x3D;w-\alpha dw$<br>  　　$b:&#x3D;b-\alpha db$<br>  }<ul>
+<li>其中$\alpha$是learning rate。</li>
+</ul>
+</li>
+<li>计算$\frac{\partial J(w,b)}{\partial w}&#x3D;dw,\frac{\partial J(w,b)}{\partial b}&#x3D;db$的方式是利用计算图(Computation Graph)，其实就是多元微分的内容，即“连线相乘，分线相加，一元全导，多元偏导”。但吴恩达也说在实际应用中，我们只需要考虑正向传播，而不需要考虑反向传播，框架可以自己处理反向传播。</li>
+</ul>
+</li>
+<li><p>Logistic Regression Gradient descent on one example</p>
+<p> LogisticL Regression的步骤主要包括以下三步：</p>
+<ul>
+<li>$z&#x3D;w^Tx+b$</li>
+<li>$\hat y&#x3D;a&#x3D;\sigma(z)$</li>
+<li>$\mathscr{L}(a,y)&#x3D;-(y\log a+(1-y)\log (1-a))$</li>
+</ul>
+<p> <img alt="Logistic Regression Gradient descent" class="post-img b-lazy" data-img="/logistic_gradient_descent.png" data-index="4" data-src="/logistic_gradient_descent.png"></p>
+<p> 计算得<br> $$<br> \left{\begin{aligned}<br> \frac{\partial \mathscr{L}}{\partial w_1}&#x3D;&amp;\frac{\partial \mathscr{L}}{\partial a}\cdot\frac az\cdot\frac{\partial z}{\partial w_1}\left(-\frac ya+\frac{1-y}{1-a}\right)\cdot a(1-a)\cdot x_1&#x3D;(a-y)x_1\<br> \frac{\partial \mathscr{L}}{\partial w_2}&#x3D;&amp;(a-y)x_2\<br> \frac{\partial \mathscr{L}}{\partial b}&#x3D;&amp;a-y<br> \end{aligned}\right.<br> $$</p>
+<p> $$<br> \Rightarrow<br> \left{\begin{aligned}<br> w_1:&#x3D;&amp;w_1-\alpha \frac{\partial \mathscr{L}}{\partial w_1}\<br> w_2:&#x3D;&amp;w_2-\alpha \frac{\partial \mathscr{L}}{\partial w_2}\<br> b:&#x3D;&amp;b-\alpha \frac{\partial \mathscr{L}}{\partial b}<br> \end{aligned}\right.<br> $$</p>
+<blockquote>
+<p>其中$\sigma(z)&#x3D;\frac{1}{1+e^{-z}}$的导数推导如下<br>$$<br>\begin{aligned}<br>    \left(\frac{1}{1+e^{-z}}\right)’&amp;&#x3D;\left(1+e^{-z}\right)^{-2}e^{-z}\<br>    &amp;&#x3D;\frac{e^{-z}}{(1+e^{-z})^2}\<br>    &amp;&#x3D;\frac{e^{-z}+1-1}{1+e^{-z}}\cdot \frac{1}{1+e^{-z}}\<br>    &amp;&#x3D;\left(1-\frac{1}{1+e^{-z}}\right)\cdot\frac{1}{1+e^{-z}}\<br>    &amp;&#x3D;(1-\sigma(z))\sigma(z)<br>\end{aligned}<br>$$</p>
+</blockquote>
+</li>
+<li><p>Gradient descent on $m$ example</p>
+<ul>
+<li><p>Cost function<br>  $$<br>  \begin{gathered}<br>  J(\omega, b)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} \mathcal{L}\left(a^{i}, y\right)\<br>  a^{(i)}&#x3D;\hat{y}^{(i)}&#x3D;\sigma(z)&#x3D;\sigma\left(\omega^{\top} x^{(i)}+b\right)\<br>  \frac{\partial}{\partial w_{1}} J(w, b)&#x3D; \frac{1}{m} \sum_{i&#x3D;1}^{m} \frac{\partial}{\partial w_{1}} \mathcal{L}\left(a^{(i)}, y\right)\end{gathered}<br>  $$</p>
+</li>
+<li><p>算法</p>
+<p>  <img alt="Gradient_descent_on_m_example" class="post-img b-lazy" data-img="/gradient_descent_m.png" data-index="5" data-src="/gradient_descent_m.png"></p>
+<p>  可以注意到在上述算法中存在两个显式的for-loop，这对于加快运算是非常不利的。</p>
+</li>
+<li><p>解决显式for-loop的方法：Vectorization（向量化）</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Python-and-Vectorization"><a href="#Python-and-Vectorization" class="headerlink" title="Python and Vectorization"></a>Python and Vectorization</h3><h4 id="1-Vectorization"><a href="#1-Vectorization" class="headerlink" title="1. Vectorization"></a>1. Vectorization</h4><blockquote>
+<p>Whenever possible, avoid explicit for-loops.</p>
+</blockquote>
+<ol>
+<li><p>举例</p>
+<ul>
+<li><p>【Example·01】$z&#x3D;w^Tx+b$，其中$w$是一个列向量，$x$也是一个列向量。</p>
+<p>  ​	Vectorization：<code>z = np.dot(w, x) + b</code></p>
+</li>
+<li><p>【Example·02】$u&#x3D;Av$</p>
+<p>  ​	non-Vectorization: $u_i&#x3D;\sum_jA_{ij}v_j$（存在两重for-loop）</p>
+<p>  ​	Vectorization: <code>u = np.dot(A, v)</code></p>
+</li>
+<li><p>【Example·03】<br>  $$<br>  v&#x3D;\begin{bmatrix}v_1\ v_2\ \vdots\ v_n\end{bmatrix}\Rightarrow u&#x3D;\begin{bmatrix}e^{v_1}\ e^{v_2}\ \vdots\ e^{v_n}\end{bmatrix}<br>  $$<br>  Vectorization: <code>u = np.exp(v)</code></p>
+</li>
+<li><p>另外还可以使用<code>np.log(v)</code>, <code>np.abs(v)</code>, <code>np.maximum(v, 0)</code>, <code>v ** 2</code>, <code>1 / v</code>。</p>
+</li>
+</ul>
+</li>
+<li><p>针对logistic regression derivatives的改进（改进第二个for-loop）</p>
+<p> $J &#x3D; 0$, $\boldsymbol{dw &#x3D; \mathtt{np.zeros([n_x, 1])}}$, $db &#x3D; 0$<br> For $i&#x3D;0$ to $m$<br> 　　$z^{(i)}&#x3D;w^Tx^{(i)}+b$<br> 　　$a^{i}&#x3D;\sigma(z^{(i)})$<br> 　　$J_+&#x3D;-[y^{(i)}\log a^{(i)}+ (1-y^{(i)})\log(1-a^{(i)})]$<br> 　　$dz^{(i)}&#x3D;a^{(i)}-y^{(i)}$<br> 　　$\boldsymbol{dw+&#x3D;x^{(i)}dz^{(i)}}$<br> 　　$db+&#x3D;dz^{(i)}$<br> $J&#x2F;&#x3D;m$; $\boldsymbol{dw&#x2F;&#x3D;m}$; $db&#x2F;&#x3D;m$;</p>
+<p> 注意其中加粗部分即为利用vectorization的部分。</p>
+<p> ​</p>
+</li>
+</ol>
+<p>	</p>
+<h4 id="2-Vectorizing-Logistic-Regression"><a href="#2-Vectorizing-Logistic-Regression" class="headerlink" title="2. Vectorizing Logistic Regression"></a>2. Vectorizing Logistic Regression</h4><ul>
+<li><p>各参数的矩阵表示：<br>  $$<br>  \begin{aligned}<br>  X&#x3D;&amp;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  x^{(1)}&amp;x^{(2)}&amp;\cdots&amp;x^{(m)}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}, X\in\mathbb{R}^{n_x\times m}\<br>  Z&#x3D;&amp;[z^{(1)},z^{(2)},\cdots, z^{(m)}]<em>{1\times m}\<br>  &#x3D;&amp;w^TX+[b, b, \cdots, b]</em>{1\times m}&#x3D;[w^Tx^{(1)}+b, w^Tx^{(2)}+b, \cdots, w^Tx^{(m)}+b]<em>{1\times m}\<br>  &#x3D;&amp; \mathtt{np.dot(w.T,X)+b}\<br>  dZ&#x3D;&amp;[dz^{(1)},dz^{(2)},\cdots, dz^{(m)}]</em>{1\times m}&#x3D;[a^{(1)}-z^{(1)},a^{(2)}-z^{(2)},\cdots, a^{(m)}-z^{(m)}]<em>{1\times m}\<br>  &#x3D;&amp;A-Y\<br>  db&#x3D;&amp; \frac 1m\sum</em>{i&#x3D;1}^mdz^{(i)}&#x3D;\mathtt{np.sum(dZ)}\<br>  dw&#x3D;&amp; \frac 1m XdZ^{T}&#x3D;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  x^{(1)}&amp;x^{(2)}&amp;\cdots&amp;x^{(m)}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}\begin{bmatrix}dz^{(1)}\\vdots\dz^{(m)}\end{bmatrix}<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>算法：<br>  $$<br>  \begin{aligned}<br>  Z&#x3D;&amp;w^TX+b\<br>  &#x3D;&amp;\mathtt{np.dot(w.T,X)+b}\<br>  A&#x3D;&amp;\sigma(Z)\<br>  dZ&#x3D;&amp;A-Y\<br>  dw&#x3D;&amp;\frac 1m XdZ^T\<br>  db&#x3D;&amp;\frac 1m \mathtt{np.sum(dZ)}\<br>  w&#x3D;&amp; w-\alpha dw\<br>  b&#x3D;&amp; b-\alpha db<br>  \end{aligned}<br>  $$<br>  即使对参数进行了vectorization，for-loop仍然是需要的。</p>
+</li>
+</ul>
+<h4 id="3-Broadcasting-in-Python"><a href="#3-Broadcasting-in-Python" class="headerlink" title="3. Broadcasting in Python"></a>3. Broadcasting in Python</h4><p><img alt="Broadcasting" class="post-img b-lazy" data-img="/broadcasting.png" data-index="6" data-src="/broadcasting.png"></p>
+<h4 id="4-Notes-amp-Tips-on-Python-x2F-numpy"><a href="#4-Notes-amp-Tips-on-Python-x2F-numpy" class="headerlink" title="4. Notes &amp; Tips on Python&#x2F;numpy"></a>4. Notes &amp; Tips on Python&#x2F;numpy</h4><p><img alt="note" class="post-img b-lazy" data-img="/note.png" data-index="7" data-src="/note.png"></p>
+<hr>
+<h2 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h2><h3 id="Shallow-NN"><a href="#Shallow-NN" class="headerlink" title="Shallow NN"></a>Shallow NN</h3><p><em>NN short for Neural Network.</em></p>
+<p>本section主要介绍单层的神经网络（Shallow NN），介绍了Shallow NN的正向传播(forward prop)和反向传播(Back prop)过程，并讲解了常见的激活函数(Activation Function)和随机初始化(Random Initialization)的相关内容。</p>
+<h4 id="1-NN-overview"><a href="#1-NN-overview" class="headerlink" title="1. NN overview"></a>1. NN overview</h4><ol>
+<li><p>NN的计算</p>
+<p> <img alt="Shallow_NN_overview" class="post-img b-lazy" data-img="/shallow_nn_overview.png" data-index="8" data-src="/shallow_nn_overview.png"></p>
+</li>
+<li><p>NN的表示</p>
+ <img alt="NN_representation" style="zoom: 67%;" class="post-img b-lazy" data-img="/nn_representation.png" data-index="9" data-src="/nn_representation.png">
+
+<p> 如图所示是一个2层的神经网络，因为输入层不计入。</p>
+<ul>
+<li>用上标$^{[i]}$表示第$i$层</li>
+<li>每个矩阵的维数见图中。</li>
+<li>注意到我们把输入层$x$也表示为$a^{[0]}$</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-Computing-a-NN’s-Output-amp-Vectorizing"><a href="#2-Computing-a-NN’s-Output-amp-Vectorizing" class="headerlink" title="2. Computing a NN’s Output &amp; Vectorizing"></a>2. Computing a NN’s Output &amp; Vectorizing</h4><ol>
+<li><p>取其中一个unit计算结果，左图显示了只有一个hidden layer，且只有一个unit的情况。</p>
+<p> <img alt="Logistic_nn" class="post-img b-lazy" data-img="/logistic_nn.png" data-index="10" data-src="/logistic_nn.png"></p>
+<p> 如左图所示，在神经元中的计算主要包括线性的$z&#x3D;w^Tx+b$和非线性激活函数$a&#x3D;\sigma(z)$两部分，最后输出的预测结果$\hat y &#x3D;a$。从右图可以看到hidden layer的每一个都是这unit样两步。</p>
+<ul>
+<li><p>矩阵表示<br>  $$<br>  \begin{aligned}<br>  \sigma(z^{[1]})&#x3D;&amp;\sigma\left(\begin{bmatrix}-&amp; w_1^{[1]T}&amp;-\-&amp; w_2^{[1]T}&amp;-\-&amp; w_3^{[1]T}&amp;-\-&amp; w_4^{[1]T}&amp;-\\end{bmatrix}<em>{4\times 3}\begin{bmatrix}x_1\ x_2\ x_3\end{bmatrix}</em>{3\times 1}+\begin{bmatrix} b_1^{[1]}\ b_2^{[1]}\ b_3^{[1]}\ b_4^{[1]}\\end{bmatrix}<em>{4\times 1}\right)\<br>  &#x3D;&amp;\sigma\left(\begin{bmatrix} w_1^{[1]T}x+b_1^{[1]}\w_2^{[1]T}x+b_2^{[1]}\w_3^{[1]T}x+b_3^{[1]}\w_4^{[1]T}x+b_4^{[1]}\\end{bmatrix}</em>{4\times 1}\right)&#x3D;\sigma\left(\begin{bmatrix} z_1^{[1]}\ z_2^{[1]}\ z_3^{[1]}\ z_4^{[1]}\\end{bmatrix}\right)<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>对于1个样本的算法：(右下角标注的是维数)<br>  Given input $x$:<br>  $$<br>  \begin{gathered}<br>  \left.\begin{array}{l}z^{[1]}<em>{4\times 1}&#x3D;W^{[1]}</em>{4\times 3} a^{[0]}<em>{3\times 1}+b^{[1]}</em>{4\times1}\ a^{[1]}<em>{4\times1}&#x3D;\sigma\left(z^{[1]}</em>{4\times1}\right) \end{array}\right} &amp;\text{layer 1}\<br>   \left.\begin{array}{l}z^{[2]}<em>{1\times 1}&#x3D;W^{[2]}</em>{1\times 4} a^{[1]}<em>{4\times 1}+b^{[2]}</em>{1\times1}\ a^{[2]}<em>{1\times1}&#x3D;\sigma\left(z^{[2]}</em>{1\times1}\right) \end{array}\right} &amp;\text{layer 2}<br>   \end{gathered}<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>Vectorizing across multiple examples（多个样本进行Vectorization）</p>
+<ul>
+<li><p>对于$a^{<a href="i">2</a>}$</p>
+<ul>
+<li>[2]表示Layer 2(第二层)</li>
+<li>(i)表示第i个training example</li>
+</ul>
+</li>
+<li><p>对于$m$个样本的算法：<br>  for $i&#x3D;0$ to $m$:<br>  $$<br>  \begin{aligned}<br>  z^{<a href="i">1</a>}&#x3D;&amp;W^{[1]} x^{(i)}+b^{[1]}\<br>  a^{<a href="i">1</a>}&#x3D;&amp;\sigma\left(z^{<a href="i">1</a>}\right) \<br>  z^{<a href="i">2</a>}&#x3D;&amp;W^{[2]} a^{<a href="i">1</a>}+b^{[2]}\<br>  a^{<a href="i">2</a>}&#x3D;&amp;\sigma\left(z^{<a href="i">2</a>}\right)<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>Vectorization<br>  $$<br>  \begin{aligned}<br>  Z^{[1]}&#x3D;&amp;W^{[1]} X+b^{[1]}\<br>  A^{[1]}&#x3D;&amp;\sigma\left(Z^{[1]}\right) \<br>  Z^{[2]}&#x3D;&amp;W^{[2]} A^{[1]}+b^{[2]}\<br>  A^{[2]}&#x3D;&amp;\sigma\left(Z^{[2]}\right)<br>  \end{aligned}<br>  $$<br>  其中，$X&#x3D;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  x^{(1)}&amp;x^{(2)}&amp;\cdots&amp;x^{(m)}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}_{n_x\times m}$, $Z^{[1]}&#x3D;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  z^{<a href="1">1</a>}&amp;z^{<a href="2">1</a>}&amp;\cdots&amp;z^{<a href="m">1</a>}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}$, $A^{[1]}&#x3D;\begin{bmatrix}|&amp;|&amp;\vdots&amp;|\<br>  a^{<a href="1">1</a>}&amp;a^{<a href="2">1</a>}&amp;\cdots&amp;a^{<a href="m">1</a>}\<br>  |&amp;|&amp;\vdots&amp;|\end{bmatrix}$，其水平方向是training examples的数量，垂直方向是hidden unit的数量。</p>
+</li>
+<li><p>Explanation for vectorized Implementation</p>
+</li>
+</ul>
+<p> <img alt="Explanation_for_vectorized_Implementation" class="post-img b-lazy" data-img="/vectorized_implementation.png" data-index="11" data-src="/vectorized_implementation.png"></p>
+</li>
+</ol>
+<h4 id="3-Activation-Function"><a href="#3-Activation-Function" class="headerlink" title="3. Activation Function"></a>3. Activation Function</h4><ol>
+<li><p>常用的activation function</p>
+<p> <img alt="activation_function" class="post-img b-lazy" data-img="/activation_function.png" data-index="12" data-src="/activation_function.png"></p>
+</li>
+<li><p>Why non-linear activation function?</p>
+<p> 如果使用线性激活函数，则在重复进行线性计算。根据线性运算的齐次性和叠加性，易知该情况和无hidden layer的情况没有区别。即无法构建Deeper NN。</p>
+</li>
+<li><p>Derivatives of activation function</p>
+<ul>
+<li><p>sigmoid function<br>  $$<br>  \begin{gathered}g(z)&#x3D;\frac{1}{1+e^{-z}}\<br>  g’(z)&#x3D;g(z)(1-g(z))\end{gathered}<br>  $$</p>
+<ul>
+<li>$z\to \infty(10)$: $g’(z)&#x3D;0$</li>
+<li>$z\to-\infty(10)$: $g’(z)&#x3D;0$</li>
+<li>$z\to 0$: $g’(z)&#x3D;\frac 14$</li>
+</ul>
+</li>
+<li><p>tanh function<br>  $$<br>      \begin{gathered}<br>        g(z)&#x3D;\frac{e^{z}-z^{-z}}{e^{z}+e^{-z}}\<br>       g’(z)&#x3D;1-\tanh^2(z)<br>       \end{gathered}<br>  $$</p>
+<ul>
+<li>$z\to \infty(10)$: $g’(z)&#x3D;0$</li>
+<li>$z\to-\infty(10)$: $g’(z)&#x3D;0$</li>
+<li>$z\to 0$: $g’(z)&#x3D;1$</li>
+</ul>
+</li>
+<li><p>ReLU &amp; leaky ReLU</p>
+<ul>
+<li><p>ReLU:<br>  $$<br>  \begin{gathered}<br>  g(z)&#x3D;\max (0, z)\<br>  g^{\prime}(z)&#x3D;\left{\begin{array}{ll}0, &amp; \text { if } z&lt;0 \ 1, &amp; \text { if } z&gt;0\end{array}\right.<br>  \end{gathered}<br>  $$</p>
+</li>
+<li><p>leaky ReLU:<br>  $$<br>  \begin{gathered}<br>  g(z)&#x3D;\max (0.01 z, z)\<br>  g^{\prime}(z)&#x3D;\left{\begin{array}{ll}0.01, &amp; \text { if } z&lt;0 \ 1, &amp; \text { if } z&gt;0\end{array}\right.<br>  \end{gathered}<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-Gradient-Descent-amp-Back-propagation"><a href="#4-Gradient-Descent-amp-Back-propagation" class="headerlink" title="4. Gradient Descent &amp; Back propagation"></a>4. Gradient Descent &amp; Back propagation</h4><ol>
+<li><p>Gradient Descent for NN</p>
+<ul>
+<li><p>参数： $w^{[1]}<em>{n^{[1]}\times n^{[0]}},b^{[1]}</em>{n^{[1]}\times 1},w^{[2]}<em>{n^{[2]}\times n^{[1]}},w^{[2]}</em>{n^{[2]}\times 1},n_x&#x3D;n^{[0]},n^{[1]},n^{[2]}&#x3D;1$</p>
+</li>
+<li><p>Cost function: $J(w^{[1]},b^{[1]},w^{[2]},w^{[2]})&#x3D;\frac 1m\sum_{i&#x3D;1}^m\mathscr{L}(\hat y, y)$</p>
+</li>
+<li><p>Gradient descent:<br>  Repeat{<br>  　　Compute predictions ($\hat y^{(i)},i&#x3D;1,2,\cdots,m$)<br>  　　$dw^{[1]}&#x3D;\frac{\partial J}{\partial w^{[1]}},db^{[1]}&#x3D;\frac{\partial J}{\partial b^{[1]}},\cdots$<br>  　　$w^{[1]}:&#x3D;w^{[1]}-\alpha dw^{[1]}$<br>  　　$b^{[1]}:&#x3D;b^{[1]}-\alpha db^{[1]}$<br>  　　同理计算$w^{[2]},b^{[2]}$}</p>
+</li>
+<li><p>Formula for computing derivatives</p>
+<table>
+<thead>
+<tr>
+<th>Forward propagation</th>
+<th>Back propagation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$Z^{[1]}&#x3D;W^{[1]} X+b^{[1]}\ A^{[1]}&#x3D;g^{[1]}\left(Z^{[1]}\right) \Z^{[2]}&#x3D;W^{[2]} A^{[1]}+b^{[2]}\ A^{[2]}&#x3D;g^{[2]}\left(Z^{[2]}\right)$</td>
+<td>$dZ^{[2]}&#x3D;A^{[2]}-Y\dW^{[2]}&#x3D;\frac 1m dZ^{[2]}A^{[1]T}\db^{[2]}&#x3D;\frac 1m \mathtt{np.sum(dZ^{[2]}, axis &#x3D; 1, keepdims &#x3D; True)}\ dZ^{[1]}&#x3D;W^{[2]T}dZ^{[2]}*g^{[1]\prime}(z^{[1]})\dW^{[1]}&#x3D;\frac 1m dZ^{[1]}X^T\ db^{[1]}&#x3D;\frac 1m \mathtt{np.sum(dZ^{[1]}, axis &#x3D; 1, keepdims &#x3D; True)}$</td>
+</tr>
+</tbody></table>
+<ul>
+<li>其中<code>axis = 1</code>表示按行加</li>
+<li>$W^{[2]T}dZ^{[2]}$和$g^{[1]\prime}$都是$n^{[1]}\times m$维的。<code>*</code>表示element wise</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Back propagation</p>
+<p> <img alt="back_prop" class="post-img b-lazy" data-img="/Back_prop.png" data-index="13" data-src="/Back_prop.png"></p>
+<p> 对于$m$个examples，<br> $$<br> \begin{gathered}<br> dZ^{[2]}&#x3D;A^{[2]}-Y\dW^{[2]}&#x3D;\frac 1m dZ^{[2]}A^{[1]T}\db^{[2]}&#x3D;\frac 1m \mathtt{np.sum(dZ^{[2]}, axis &#x3D; 1, keepdims &#x3D; True)}\ dZ^{[1]}&#x3D;W^{[2]T}dZ^{[2]}*g^{[1]\prime}(z^{[1]})\dW^{[1]}&#x3D;\frac 1m dZ^{[1]}X^T\ db^{[1]}&#x3D;\frac 1m \mathtt{np.sum(dZ^{[1]}, axis &#x3D; 1, keepdims &#x3D; True)}<br> \end{gathered}<br> $$</p>
+</li>
+</ol>
+<h4 id="5-Random-Initialization"><a href="#5-Random-Initialization" class="headerlink" title="5. Random Initialization"></a>5. Random Initialization</h4><img alt="random_initialization" style="zoom:60%;" class="post-img b-lazy" data-img="/random_initialization.png" data-index="14" data-src="/random_initialization.png">
+
+<ul>
+<li><p>为什么不能将初始的weight初始化为0？</p>
+<p>  若$W^{[1]}&#x3D;\begin{bmatrix}0&amp;0\0&amp;0\end{bmatrix}$，则两个unit算的结果是相同的，每一个hidden layer的unit多少就没有意义了。同时对其求gradient，$dW^{[1]}&#x3D;\begin{bmatrix}u&amp;v\u&amp;v\end{bmatrix}$</p>
+</li>
+<li><p>恰当的初始化方式为：<br>  $W^{[1]}&#x3D;\mathtt{np.random.randn((2,2))*0.01}$(这步<code>*0.01</code>主要是为了获得一个比较小的靠近0的初始值，这是考虑到sigmoid function只在0附近的取值存在一定的线性，而过大趋于1，过小趋于0)<br>  $b^{[1]}&#x3D;\mathtt{np.zeros((2,1))}$（由于对于weight的取值已经随机了，bias是否随机不再重要）<br>  对于$W^{[2]},b^{[2]}$的取值和上述类似。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h2><h3 id="Deep-NN"><a href="#Deep-NN" class="headerlink" title="Deep NN"></a>Deep NN</h3><h4 id="1-DNN-Overview"><a href="#1-DNN-Overview" class="headerlink" title="1. DNN Overview"></a>1. DNN Overview</h4><ol>
+<li><p>在week 3主要介绍的是Shallow NN，随着hidden layer越来越多，也就越来越deeper了。</p>
+<p> <img alt="shallow-to-deep" class="post-img b-lazy" data-img="/dnn_class.png" data-index="15" data-src="/dnn_class.png"></p>
+</li>
+<li><p>notations</p>
+ <img alt="dnn_noatations" style="zoom:50%;" class="post-img b-lazy" data-img="/dnn_notation.png" data-index="16" data-src="/dnn_notation.png">
+
+<p> 根据上图介绍notations：</p>
+<ul>
+<li>number of layer(#layer): $L&#x3D;4$</li>
+<li>number of units of layer $l$: $n^{[l]}$</li>
+<li>activations of layer $l$: $a^{[l]}&#x3D;g^{[l]}(z^{[l]})$</li>
+<li>weight for $z^{[l]}$: $w^{[l]}$</li>
+<li>bias for $z^{[l]}$: $b^{[l]}$</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-Forward-Propagation-in-a-Deep-Network"><a href="#2-Forward-Propagation-in-a-Deep-Network" class="headerlink" title="2. Forward Propagation in a Deep Network"></a>2. Forward Propagation in a Deep Network</h4><ul>
+<li><p>和Shallow NN类似，计算forward propagation的过程，如下表左侧。若对其进行vectorized，则变为右侧形式。</p>
+<table>
+<thead>
+<tr>
+<th>Elements</th>
+<th>Vectorization</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\begin{gathered}z^{[1]}&#x3D;w^{[1]}x+b^{[1]}\a^{[1]}&#x3D;g^{[1]}(z^{[1]})\z^{[2]}&#x3D;w^{[2]}a^{[1]}+b^{[2]}\a^{[2]}&#x3D;g^{[2]}(z^{[2]})\\cdots\ z^{[4]}&#x3D;w^{[4]}a^{[3]}+b^{[4]}\a^{[4]}&#x3D;g^{[4]}(z^{[4]})\end{gathered}$</td>
+<td>$\begin{gathered}Z^{[1]}&#x3D;W^{[1]} X+b^{[1]}\ A^{[1]}&#x3D;g^{[1]}\left(Z^{[1]}\right) \Z^{[2]}&#x3D;W^{[2]} A^{[1]}+b^{[2]}\ A^{[2]}&#x3D;g^{[2]}\left(Z^{[2]}\right)\\cdots\ Z^{[4]}&#x3D;W^{[4]} A^{[3]}+b^{[4]}\ A^{[4]}&#x3D;g^{[4]}\left(Z^{[4]}\right) \end{gathered}$</td>
+</tr>
+</tbody></table>
+<p>  更一般的可以写作<br>  $$<br>  \begin{gathered}<br>  Z^{[l]}&#x3D;W^{[l]}A^{[l-1]}+b^{[l]}\<br>  A^{[l]}&#x3D;g^{[l]}\left(Z^{[l]}\right)<br>  \end{gathered}<br>  $$</p>
+</li>
+<li><p>在处理DNN的forward propagation时需要注意矩阵的维数是否正确。下面是一个例子</p>
+<p>  <img alt="dnn_demension" class="post-img b-lazy" data-img="/dnn_dimension.png" data-index="17" data-src="/dnn_dimension.png"></p>
+<p>  下面归纳单个样本Deep NN中出现的各个参数的维度：</p>
+<ul>
+<li>$w^{[l]},dw^{[l]}:(n^{[l]},n^{[n-1]} )$</li>
+<li>$b^{[l]},db^{[l]}:\left(n^{[l]},1 \right)$</li>
+<li>$z^{[l]},a^{[l]}:(n^{[l]},1)$</li>
+</ul>
+<p>  针对$m$个样本来说：</p>
+<ul>
+<li>$Z^{[l]},A^{[l]}:(n^{[l]},m)$（特别地，当$l&#x3D;0$时，$A^{[0]}&#x3D;X:(n^{[0]},m)$）</li>
+<li>$dZ^{[l]},dA^{[l]}:(n^{[l]},m)$</li>
+</ul>
+</li>
+<li><p>Why deep representation？为何“深度”的NN表现更好？</p>
+<ul>
+<li>在early layer，网络主要实现一些简单功能，例如边缘的检测；在对其进行组合后，即到了later layer时，网络将实现一些复杂的功能，例如分类器。</li>
+<li>类似于数字电路理论中的与、或、非门和与非门，层数越多可以减少每个隐层的units的数量</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Backward-Propagation"><a href="#3-Backward-Propagation" class="headerlink" title="3. Backward Propagation"></a>3. Backward Propagation</h4><ol>
+<li><p>Building blocks of DNN</p>
+<p> blocks可以表明在前向传播的过程中需要对应传递那些参数用于反向传播。</p>
+<ul>
+<li><p>假设针对NN中的layer $l$构建如下图的block进行分析</p>
+  <img alt="dnn_single_block" style="zoom:40%;" class="post-img b-lazy" data-img="/dnn_single_block.png" data-index="18" data-src="/dnn_single_block.png">
+
+<ul>
+<li><p>第$l$层的参数：$w^{[l]},b^{[l]}$</p>
+</li>
+<li><p>在forward prop中，输入$a^{[l-1]}$，输出$a^{[l]}$</p>
+<p>  $z^{[l]}&#x3D;w^{[l]}a^{[l-1]}+b^{[l]}$（**cache $z^{[l]}$**）</p>
+<p>  $a^{[l]}&#x3D;g^{[l]}(z^{[l]})$</p>
+</li>
+<li><p>在backward prop中，输入$da^{[l]}$和先前cache的$z^{[l]}$，需要输出$da^{[l-1]},dw^{[l]},db^{[l]}$</p>
+</li>
+</ul>
+</li>
+<li><p>假设NN有L层，将上述block组合起来，有</p>
+<p><img alt="dnn_blocks" class="post-img b-lazy" data-img="/dnn_blocks.png" data-index="19" data-src="/dnn_blocks.png"></p>
+</li>
+</ul>
+</li>
+<li><p>Forward &amp; Backward Propagation</p>
+<p>上面构建了block用于分析前向传播的过程中需要对应传递那些参数用于反向传播，下面利用传递的参数构建DNN的反向传播公式。DNN的正、反向传播公式如下：</p>
+<ul>
+<li><p>FORWARD</p>
+<ul>
+<li>输入：$a^{[l-1]}$</li>
+<li>输出：$a^{[l]},\text{cache}(z^{[l]})$</li>
+<li>$Z^{[l]}&#x3D;W^{[l]}A^{[l-1]}+b^{[l]}$<br>  $A^{[l]}&#x3D;g^{[l]}(Z^[l])$</li>
+</ul>
+</li>
+<li><p>BACKWARD</p>
+<ul>
+<li><p>输入：$da^{[l]}$和先前cache的$z^{[l]}$</p>
+</li>
+<li><p>输出$da^{[l-1]},dw^{[l]},db^{[l]}$</p>
+<table>
+<thead>
+<tr>
+<th>one example</th>
+<th>$m$ examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\begin{aligned}dz^{[l]}&#x3D;&amp;da^{[l]}*g^{[l]\prime}(z^{[l]})\dw^{[l]}&#x3D;&amp;dz^{[l]}\cdot a^{[l-1]T}\ db^{[l]}&#x3D;&amp;dz^{[l]}\da^{[l-1]}&#x3D;&amp;w^{[l]T}\cdot dz^{[l]}\dz^{l}&#x3D;&amp;w^{[l+1]T}\cdot dz^{[l+a]}*g^{[l]\prime}(z^{[l]}) \end{aligned}$</td>
+<td>$\begin{aligned}dZ^{[l]}&#x3D;&amp;dA^{[l]}*g^{[l]\prime}(z^{[l]})\dW^{[l]}&#x3D;&amp;\frac 1m dZ^{[l]}A^{[l-1]T}\ db^{[l]}&#x3D;&amp;\frac 1m \mathtt{np.sum(dZ^{[l]}, axis &#x3D; 1, keepdims &#x3D; True)}\dA^{[l-1]}&#x3D;&amp;W^{[l]T}\cdot dZ^{[l]} \end{aligned}$</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>其结构如图<br>  <img alt="dnn_prop" class="post-img b-lazy" data-img="/dnn_prop_blocks.png" data-index="20" data-src="/dnn_prop_blocks.png"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-Parameters-amp-Hyperparameters"><a href="#4-Parameters-amp-Hyperparameters" class="headerlink" title="4. Parameters &amp; Hyperparameters"></a>4. Parameters &amp; Hyperparameters</h4><p>Hyperparameters其实是Course 2主要研究的问题，在这里只是提了一下什么是超参数(Hyperparameters)。</p>
+<ul>
+<li>参数：$W^{[1]},b^{[1]},W^{[2]},b^{[2]},\cdots$</li>
+<li>超参数：(吴恩达用<code>#</code>表示number of …)<ul>
+<li>learning rate $\alpha$</li>
+<li>#iterations</li>
+<li>#hidden layer $L$</li>
+<li>#hidden units $n^{[1]},n^{[2]},\cdots$</li>
+<li>choice of activation function</li>
+<li>包括Course 2中将涉及的momentum, mini-batch, regulations, …</li>
+</ul>
+</li>
+<li>参数根据超参数的改变是会有很大的变化的，即<em>Hyperparameters control parameters</em>.</li>
+</ul>
+<blockquote>
+<p>Applied deep learning is a very empirical process.</p>
+</blockquote>
+<h4 id="5-Deep-learning-and-brain"><a href="#5-Deep-learning-and-brain" class="headerlink" title="5. Deep learning and brain"></a>5. Deep learning and brain</h4><p><img alt="brain" class="post-img b-lazy" data-img="/brain.png" data-index="21" data-src="/brain.png"></p>
+<blockquote>
+<ul>
+<li>这个笔记主要是我看coursera课程是笔记的整理，所以文章里面肯定是很多疏漏，也存在很多错误的，欢迎在评论区批评指正。（求轻喷</li>
+<li>由于整理打公式还是非常麻烦的，也很容易出错，所以会有一些写的不太规范的地方，大家见谅。</li>
+<li>不知道为什么好好的表格到网页框线就没了，大家将就看吧。&#x2F;(ㄒoㄒ)&#x2F;~~</li>
+</ul>
+</blockquote>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 神经网络</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【深度学习笔记（一）】神经网络与深度学习</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年03月25日 - 23:58:22</p>
+  <p><span>原始链接:</span><a href="/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/" title="【深度学习笔记（一）】神经网络与深度学习">https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【无线通信学习笔记（一）】路径损耗与阴影衰落" href="/2021/04/16/Wireless-Communications-Ch-2/">
+            ← 【无线通信学习笔记（一）】路径损耗与阴影衰落
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Vscode配置LaTeX代码片段" href="/2021/02/06/latex-snippests/">
+            Vscode配置LaTeX代码片段 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Neural-Networks-and-Deep-Learning-学习笔记"><span class="toc-text">Neural Networks and Deep Learning 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-1"><span class="toc-text">Week 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction-to-Deep-Learning"><span class="toc-text">Introduction to Deep Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Neural-Network"><span class="toc-text">1. Neural Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Supervised-learning-with-neural-network"><span class="toc-text">2. Supervised learning with neural network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Why-DL-take-off-Why-now"><span class="toc-text">3. Why DL take-off? (Why now?)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-2"><span class="toc-text">Week 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Logistic-Regression-as-a-NN"><span class="toc-text">Logistic Regression as a NN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Binary-Classification"><span class="toc-text">1. Binary Classification</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Logistic-Regression-amp-cost-function"><span class="toc-text">2. Logistic Regression &amp; cost function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Gradient-Descent"><span class="toc-text">3. Gradient Descent</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-and-Vectorization"><span class="toc-text">Python and Vectorization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vectorization"><span class="toc-text">1. Vectorization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vectorizing-Logistic-Regression"><span class="toc-text">2. Vectorizing Logistic Regression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Broadcasting-in-Python"><span class="toc-text">3. Broadcasting in Python</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Notes-amp-Tips-on-Python-x2F-numpy"><span class="toc-text">4. Notes &amp; Tips on Python&#x2F;numpy</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-3"><span class="toc-text">Week 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shallow-NN"><span class="toc-text">Shallow NN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-NN-overview"><span class="toc-text">1. NN overview</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Computing-a-NN’s-Output-amp-Vectorizing"><span class="toc-text">2. Computing a NN’s Output &amp; Vectorizing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Activation-Function"><span class="toc-text">3. Activation Function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Gradient-Descent-amp-Back-propagation"><span class="toc-text">4. Gradient Descent &amp; Back propagation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Random-Initialization"><span class="toc-text">5. Random Initialization</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-4"><span class="toc-text">Week 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-NN"><span class="toc-text">Deep NN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-DNN-Overview"><span class="toc-text">1. DNN Overview</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Forward-Propagation-in-a-Deep-Network"><span class="toc-text">2. Forward Propagation in a Deep Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Backward-Propagation"><span class="toc-text">3. Backward Propagation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Parameters-amp-Hyperparameters"><span class="toc-text">4. Parameters &amp; Hyperparameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Deep-learning-and-brain"><span class="toc-text">5. Deep learning and brain</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/" class="leancloud-visitors" data-flag-title="【深度学习笔记（一）】神经网络与深度学习">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【深度学习笔记（一）】神经网络与深度学习</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

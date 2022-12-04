@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无线通信学习笔记（四）】数字调制及其性能 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无线通信学习笔记（四）】数字调制及其性能 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/05/05/Wireless-Communications-Ch-5-6/">
+
+	
+	<meta property="article:published_time" content="2021-05-05T13:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/05/05/Wireless-Communications-Ch-5-6/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-05-05T13:38:07.000Z">
+                    2021-05-05
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无线通信学习笔记（四）】数字调制及其性能</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/05/05/guHvad.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p> <em>Wireless Communications</em> (Andrea Goldsmith)学习笔记。</p>
+</blockquote>
+<h1 id="Digital-Modulation-and-Performance"><a href="#Digital-Modulation-and-Performance" class="headerlink" title="Digital Modulation and Performance"></a>Digital Modulation and Performance</h1><p>本书第五、六章主要介绍数字调制及其性能和同步原理的部分内容。</p>
+<ul>
+<li>数字调制的优势：传输速率高，纠错能力强，抗信道失真，高效的多址接入和更好的安全和隐私性。</li>
+<li>选择数字调制的考虑因素：<ul>
+<li>高传输速率</li>
+<li>高频带利用率（最小化带宽占用）</li>
+<li>高功率利用率（最小化发射功率）</li>
+<li>对信道失真的稳健性（最小化误比特率&#x2F;误信率）</li>
+<li>低功耗，低成本</li>
+</ul>
+</li>
+<li>数字调制的分类：<ul>
+<li>linear modulation（线性调制）：调幅，调相<ul>
+<li>有更好的频谱特性</li>
+<li>易受到衰落和干扰的影响</li>
+<li>需要昂贵功率利用率差的线性放大器</li>
+</ul>
+</li>
+<li>constant envelope modulation (nonlinear modulation，恒包络调制，非线性调制)：调频</li>
+<li>trade-off of linear or nonlinear modulation<ul>
+<li>线性调制：频带利用率更佳</li>
+<li>非线性调制：功率利用率更佳，抗信道失真的干扰更强</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其它数字调制需要考虑的方面：<ul>
+<li>星座大小（constellations）：星座越大，给定带宽传输速率越高，对噪声、衰落和硬件干扰性能变差。</li>
+<li>是否需要相干载波（coherent reference）：实现困难</li>
+</ul>
+</li>
+<li>数字调制的主要性能指标：<ul>
+<li>错误率（可靠性指标）：误码率和误比特率（误信率）</li>
+<li>中断率：瞬时SNR低于门限的概率</li>
+</ul>
+</li>
+<li>无线信道传输过程中各种损耗带来的影响：<ul>
+<li>频率选择性衰落带来ISI，ISI又会造成error floor</li>
+<li>多普勒频移会带来频谱扩展，频谱扩展会造成adjacent channel interference（邻信道干扰）。还会给差分编码造成不可避免的error floor</li>
+</ul>
+</li>
+</ul>
+<h2 id="信号空间分析"><a href="#信号空间分析" class="headerlink" title="信号空间分析"></a>信号空间分析</h2><p>数字调制与解调直观来说就是接收机将<code>接收信号</code>和<code>所有可能出现的发射信号</code>比较，选择<code>最接近</code>的作为检测结果，从而使得<code>错误率最低</code>。信号空间就是将信号embed到一个向量空间中，从而可以比较他们的接近程度。</p>
+<ul>
+<li>符号说明：<ul>
+<li>系统以$T$间隔，发射$K&#x3D;\log_2M$ bits</li>
+<li>在时间间隔$[kT,(k+1)T)$内，$K$ bits长的发射消息序列$m_i&#x3D;{b_1,\cdots,b_K}$</li>
+<li>数字域所有可能发射消息所构成的集合$\mathcal{M}$，$m_i\in\mathcal{M}(i&#x3D;1,2,\cdots, M&#x3D;2^K)$，即发送消息序列每一个码元可以取0或者1</li>
+<li>模拟域所有发射消息所构成的集合$\mathcal{S}$，$s_i(t)\in\mathcal{S}(i&#x3D;1,2,\cdots, M&#x3D;2^K)$</li>
+</ul>
+</li>
+</ul>
+<p>一段时间内发射的消息是模拟域发射消息的组合<br>$$<br>s(t)&#x3D;\sum_ks_i(t-kT)<br>$$<br>接收信号为$r(t)&#x3D;s(t)+n(t)$。在时间间隔$[kT,(k+1)T)$用接收信号$r(t)$作$s_i(t),m_i$的估计，最佳估计消息序列记作$\hat m$.</p>
+<p><strong>接收机的目标——错误率最小</strong><br>$$<br>P_e&#x3D;\sum_{i&#x3D;1}^Mp(\hat m \ne m_i|\text{发射序列为}m_i)p(\text{发射序列为}m_i)&#x3D;\frac{N_{error}}{N}<br>$$</p>
+<h3 id="信道的几何表示"><a href="#信道的几何表示" class="headerlink" title="信道的几何表示"></a>信道的几何表示</h3><ul>
+<li><p>将$M$个实信号构成的集合$\mathcal{S}&#x3D;{s_1(t), s_2(t),\cdots, s_M(t) }$表示为$N(\le M)$个实正交基函数${\phi_1(t), \phi_2(t),\cdots,\phi_N(t) }$的线性组合。<br>  $$<br>  s_i(t)&#x3D;\sum_{j&#x3D;1}^Ms_{ij}\phi_{j}(t)<br>  $$</p>
+<ul>
+<li>the minimum number $N$ of basis functions needed to represent any signal $s_i(t)$ of duration $T$ and bandwidth $B$ is roughly $2BT$.</li>
+<li>For linear passband modulation techniques, the basis set consists of the sine and cosine function with $\sqrt{\frac{2}{T}}$ factor.</li>
+<li>The simplest pulse shape that satisfies the orthonormal properties is the rectangular pulse shape $g(t) &#x3D;\sqrt{\frac{2}{T}}(0\le t&lt;T)$.</li>
+</ul>
+</li>
+<li><p><strong>信号的星座点与星座图</strong></p>
+<ul>
+<li><strong>信号的星座点（signal constellation point）</strong>：将$s_i(t)$的系数矩阵${s_{ij}}$的每一行表示成向量$\mathbf{s}<em>i&#x3D;(s</em>{i1},s_{i2},\cdots.s_{iN})\in\mathbb{R}^N$</li>
+<li><strong>星座图（signal constellation）</strong>：所有星座点构成的集合${\mathbf{s}_1,\mathbf{s}_2 ,\cdots,\mathbf{s}_M}$.</li>
+<li>信号$s_i(t)$和星座点$\mathbf{s}_i$是一一的，将信号用星座点表示称为<strong>信号空间表示（signal space representation）</strong></li>
+<li>包含所有星座点的向量空间称为<strong>信号空间（signal space）</strong></li>
+</ul>
+</li>
+<li><p>向量的长度与距离</p>
+<ul>
+<li><p>向量的长度（length）：<br>  $$<br>  ||\mathbf{s}<em>i||&#x3D;\sqrt{\sum</em>{j&#x3D;1}^Ns_{ij}^2}<br>  $$</p>
+</li>
+<li><p>向量之间的距离（distance）：<br>  $$<br>  ||\mathbf{s}<em>i-\mathbf{s}<em>k ||&#x3D;\sqrt{\sum</em>{j&#x3D;1}^N(s</em>{ij}-s_{kj})^2}&#x3D;\sqrt{\int_0^T(s_{i}(t)-s_{k}(t))^2\mathrm{d}t}<br>  $$<br>  第二个等号通过正交基底的正交性获得</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="充分统计量、判决域与接收机结构"><a href="#充分统计量、判决域与接收机结构" class="headerlink" title="充分统计量、判决域与接收机结构"></a>充分统计量、判决域与接收机结构</h3><ul>
+<li><p>使用正交基底，将接收信号$r(t)$转化为向量。</p>
+<ul>
+<li><p>使用最大似然接收机</p>
+</li>
+<li><p>接收信号:<br>  $$<br>r(t)&#x3D;\sum_{j&#x3D;1}^N(s_{ij}+n_j)\phi_j(t)+n_r(t)&#x3D;\sum_{j&#x3D;1}^Nr_j\phi_j(t)+n_r(t)<br>$$<br>  $n_r(t)$是不在与向量空间正交的噪声分量。</p>
+</li>
+</ul>
+</li>
+<li><p>充分统计量（sufficient statistic）：对$\mathbf{s}_i$进行估计时，给定$r(t)$的最佳检测不会用到$n_r(t)$，那么最佳估计$\hat m$只是$\mathbf{r}&#x3D;(r_1,r_2,\cdots,r_N)$的函数，称$\mathbf{r}$是最佳检测$r(t)$的充分统计量。</p>
+<ul>
+<li><p>直观上可以看到$n_r(t)$在信号空间上的投影为0</p>
+</li>
+<li><p>数学上可以证明发射信号与噪声是相互独立的，故$s_{ij}$与$n_r(t)$也是相互独立的。接收机设计准则<br> $$<br> \max p(\hat m&#x3D;m_i|r(t))\Leftrightarrow\max p(\text{发射星座点为}\mathbf{s}<em>i|r(t))<br> $$<br> 可以证明上式等于$p(\text{发射信号为}(s</em>{i1},s_{i2},\cdots,s_{iN})|(r_1,r_2,\cdots,r_N))$，即在检测发射信息时不需要$n_r(t)$，只需要用$\mathbf{r}$即可检测就可以使得错判概率最小。</p>
+</li>
+</ul>
+</li>
+<li><p>由于$\mathbf{r}$是接收信号$r(t)$的充分统计量，$\mathbf{r}$对应于$r(t)$的接收向量。</p>
+</li>
+<li><p>判决域（decisions regions）——信号空间的子集<br>  $$<br>  Z_i&#x3D;{\mathbf{r}:p(\text{发射星座点为}\mathbf{s}_i|\mathbf{r})&gt;p(\text{发射星座点为}\mathbf{s}_j|\mathbf{r})\forall j\ne i}<br>  $$<br>  即在已知接收向量时，发射星座点为$\mathbf{s}_i$比其余任何星座点的可能都大，则称为发射星座点$\mathbf{s}_i$的判决域。</p>
+</li>
+<li><p>最大似然接收机</p>
+<p>  <img alt="最大似然接收机" class="post-img b-lazy" data-img="/Receiver_Structure.png" data-index="0" data-src="/Receiver_Structure.png">有贝叶斯公式和等概率条件可以推出，要使错误率最低应满足<br>  $$<br>  \arg\max_{\mathbf{s}_i}p(\mathbf{r}|\mathbf{s}_i)(i&#x3D;1,\cdots, M)<br>  $$<br>  最大化似然函数$L(\mathbf{s}<em>i)&#x3D;p(\mathbf{r}|\mathbf{s}<em>i)$，应该在星座图中扎到与$\mathbf{r}$最近的星座点$\mathbf{s}<em>i$。这个星座点由判决域决定：<br>  $$<br>  Z</em>{i}&#x3D;\left(\mathbf{r}:\left|\mathbf{r}-\mathbf{s}</em>{i}\right|&lt;\left|\mathbf{r}-\mathbf{s}</em>{j}\right| \forall j&#x3D;1, \ldots, M, j \neq i\right) \quad i&#x3D;1, \ldots, M<br>  $$</p>
+<ul>
+<li>非等概时，要对判决域进行修正</li>
+</ul>
+</li>
+<li><p>匹配滤波器是另一种接收机结构，两种接收机是等价的。<br>  <img alt="匹配滤波器接收机" class="post-img b-lazy" data-img="/matched_filter.png" data-index="1" data-src="/matched_filter.png"></p>
+</li>
+</ul>
+<h2 id="数字带通调制信号"><a href="#数字带通调制信号" class="headerlink" title="数字带通调制信号"></a>数字带通调制信号</h2><h3 id="带通调制原理"><a href="#带通调制原理" class="headerlink" title="带通调制原理"></a>带通调制原理</h3><p>数字带通调制就是利用载波携带消息信号在信道中传输。调制的目的就是以更高速率传输的同时最下滑数据损失的概率。</p>
+<ul>
+<li><p>已调信号的表示形式：<br>  $$<br>  s(t)&#x3D;\alpha(t) \cos \left[2 \pi\left(f_{c}+f(t)\right) t+\theta(t)+\phi_{0}\right]&#x3D;\alpha(t) \cos \left(2 \pi f_{c} t+\phi(t)+\phi_{0}\right)<br>  $$<br>  其中，$\alpha(t)$表示调幅项，$f(t)$表示调频项，$\theta(t)$表示调相项，而把调频调相合并也就是调角项$\phi(t)&#x3D;2\pi f(t)+\theta(t)$，$\phi_0$是初相。</p>
+</li>
+<li><p>已调信号的正交表示和复包络表示<br>  $$<br>  \begin{aligned}<br>  s(t)&#x3D;&amp;\alpha(t) \cos \phi(t) \cos \left(2 \pi f_{c} t\right)-\alpha(t) \sin \phi(t) \sin \left(2 \pi f_{c} t\right)\&#x3D;&amp;s_{I}(t) \cos \left(2 \pi f_{c} t\right)-s_{Q}(t) \sin \left(2 \pi f_{c} t\right)\<br>  &#x3D;&amp;\Re{u(t)e^{j2\pi f_ct} }<br>  \end{aligned}<br>  $$<br>  其中，$u(t)&#x3D;s_I(t)+js_Q(t)$。这种表示方式使用正交检波比较方便。</p>
+</li>
+</ul>
+<h3 id="线性调制——调幅-x2F-调相-Amplitude-and-Phase-Modulation"><a href="#线性调制——调幅-x2F-调相-Amplitude-and-Phase-Modulation" class="headerlink" title="线性调制——调幅&#x2F;调相(Amplitude and Phase Modulation)"></a>线性调制——调幅&#x2F;调相(Amplitude and Phase Modulation)</h3><ul>
+<li><p>AM&#x2F;PM信号的信号空间表示<br>  $$<br>  s(t)&#x3D;s_{i1}\phi_1(t)+s_{i2}\phi_2(t)<br>  $$<br>  其中，$\phi_1(t)&#x3D;g(t)\cos(2\pi f_c t+\phi_0)$,$\phi_1(t)&#x3D;-g(t)\sin(2\pi f_c t+\phi_0)$.</p>
+</li>
+<li><p>AM&#x2F;PM信号的复包络表示<br>  $$<br>  s(t)&#x3D;\Re{x(t)e^{j\phi_0}e^{j2\pi f_c t} }<br>  $$<br>  其中，$x(t)&#x3D;(s_{i1}+js_{i2})g(t)$，$\mathbf{s}<em>i&#x3D;{s</em>{i1},s_{i2}}$被称为$\log_2 M$ bits对应的符号(symbol)，$T_s$被称为码长(symbol time)，比特率是<br>  $$<br>  R&#x3D;\frac{\log_2M}{T_s}(bps)<br>  $$</p>
+</li>
+<li><p>AM&#x2F;PM的分类</p>
+<ul>
+<li><em>M进制</em>脉幅调制(Pulse Amplitude Modulation, MPAM): information encoded in amplitude only.</li>
+<li><em>M进制</em>相移键控(Phase Shift Keying, MPSK): information encoded in phase only.</li>
+<li>正交振幅调制(Quadrature Amplitude Modulation, MQAM): information encoded in both amplitude and phase.</li>
+</ul>
+</li>
+<li><p>AM&#x2F;PM调制与解调<br>  <img alt="调幅调相的调制与解调" class="post-img b-lazy" data-img="/AM_PM_modulate.png" data-index="2" data-src="/AM_PM_modulate.png"></p>
+<ul>
+<li>载波相位恢复（carrier phase recovery）→相干解调（coherent detection）</li>
+<li>码元同步（synchronization）</li>
+</ul>
+</li>
+</ul>
+<h3 id="MPAM（脉幅调制）"><a href="#MPAM（脉幅调制）" class="headerlink" title="MPAM（脉幅调制）"></a>MPAM（脉幅调制）</h3><ul>
+<li><p>发射信号<br>  $$<br>  s_{i}(t)&#x3D;\Re\left{A_{i} g(t) e^{j 2 \pi f_{c} t}\right}&#x3D;A_{i} g(t) \cos \left(2 \pi f_{c} t\right), \quad 0 \leq t \leq T_{s}\gg1 &#x2F; f_{c}<br>  $$</p>
+<ul>
+<li><p>脉幅$A_i&#x3D;(2i-1-M)d$（等间隔分布）</p>
+</li>
+<li><p>距离$d$是能量的函数，星座图最小距离$d_{\min}&#x3D;2d$</p>
+</li>
+<li><p>第$i$个星座点对应的MPAM信号的能量<br>  $$<br>  E_{\mathbf{s}<em>i}&#x3D;A_i^2<br>  $$<br>  平均能量为<br>  $$<br>  \bar E_s&#x3D;\frac 1M\sum</em>{i&#x3D;1}^MA_i^2<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>星座图——MPAM星座映射通常采用格雷码（Gray Coding），当判决错误为临近星座点时，$K$ bits中只错1 bit。<br>  <img alt="MPAM" class="post-img b-lazy" data-img="/MPAM.png" data-index="3" data-src="/MPAM.png"></p>
+</li>
+<li><p>判决域<br>  $$<br>  Z_{i}&#x3D;\left{\begin{array}{ll}\left(-\infty, A_{i}+d\right) &amp; i&#x3D;1 \ {\left[A_{i}-d, A_{i}+d\right)} &amp; 2 \leq i \leq M-1 \ {\left[A_{i}-d, \infty\right)} &amp; i&#x3D;M\end{array}\right.<br>  $$<br>  MPAM只有一个基函数$\phi_1(t)&#x3D;g(t)\cos(2\pi f_ct+\phi_0)$<br>  <img alt="MPAM判决域" class="post-img b-lazy" data-img="/MPAM_DR.png" data-index="4" data-src="/MPAM_DR.png"></p>
+</li>
+<li><p>MPAM的相干解调器<br>  <img alt="MPAM解调" class="post-img b-lazy" data-img="/MPAM_dm.png" data-index="5" data-src="/MPAM_dm.png"></p>
+</li>
+</ul>
+<h3 id="MPSK（相移键控）"><a href="#MPSK（相移键控）" class="headerlink" title="MPSK（相移键控）"></a>MPSK（相移键控）</h3><ul>
+<li><p>发射信号(圆上等间隔分布)<br>  $$<br>  \begin{aligned}<br>  s_{i}(t) &amp;&#x3D;\Re\left{A g(t) e^{j 2 \pi(i-1) &#x2F; M} e^{j 2 \pi f_{c} t}\right}, \quad 0 \leq t \leq T_{s} \<br>  &amp;&#x3D;A g(t) \cos \left[2 \pi f_{c} t+\frac{2 \pi(i-1)}{M}\right] \<br>  &amp;&#x3D;A g(t) \cos \left[\frac{2 \pi(i-1)}{M}\right] \cos 2 \pi f_{c} t-A g(t) \sin \left[\frac{2 \pi(i-1)}{M}\right] \sin 2 \pi f_{c} t .<br>  \end{aligned}<br>  $$</p>
+<ul>
+<li>星座点由$s_{i 1}&#x3D;A \cos \left[\frac{2 \pi(i-1)}{M}\right]$ , $s_{i 2}&#x3D;A \sin \left[\frac{2 \pi(i-1)}{M}\right]$给定，在圆上等间隔分布</li>
+<li>相移$\theta_i&#x3D;\frac{2\pi(i-1)}{M}$</li>
+<li>星座图最小距离$d_{\min}&#x3D;2A\sin\left(\frac{\pi}{M}\right)$</li>
+<li>第$i$个星座点对应的MPAM信号的能量，且平均分布<br>  $$<br>  E_{\mathbf{s}_i}&#x3D;A_i^2<br>  $$</li>
+</ul>
+</li>
+<li><p>星座图——格雷码映射<br>  <img alt="MPSK" class="post-img b-lazy" data-img="/MPSK.png" data-index="6" data-src="/MPSK.png"></p>
+</li>
+<li><p>判决域<br>  $$<br>  Z_i&#x3D;\left{re^{j\theta}:\frac{2\pi(i-0.5)}{M}\le\theta&lt;\frac{2\pi(i+0.5)}{M} \right}<br>  $$<br>  MPSK含有同相分量和正交分量<img alt="MPSK_DR" class="post-img b-lazy" data-img="/MPSK_DR.png" data-index="7" data-src="/MPSK_DR.png"></p>
+</li>
+<li><p>2PSK的相干解调</p>
+<p>  2PSK只有一个基函数$\phi_{1}(t)&#x3D;g(t) \cos \left(2 \pi f_{c} t\right)$<img alt="2PSK解调" class="post-img b-lazy" data-img="/MPSK_dm.png" data-index="8" data-src="/MPSK_dm.png"></p>
+</li>
+</ul>
+<h3 id="MQAM（正交振幅调制）"><a href="#MQAM（正交振幅调制）" class="headerlink" title="MQAM（正交振幅调制）"></a>MQAM（正交振幅调制）</h3><p>MQAM有两个自由度，幅度和相位均携带信息，故有更高的频谱利用率。</p>
+<ul>
+<li><p>发射信号（下述对正方形星座分析）<br>  $$<br>  s_{i}(t)&#x3D;\Re\left{A_{i} e^{j \theta_{i}} g(t) e^{j 2 \pi f_{c} t}\right}&#x3D;A_{i} \cos \left(\theta_{i}\right) g(t) \cos \left(2 \pi f_{c} t\right)-A_{i} \sin \left(\theta_{i}\right) g(t) \sin \left(2 \pi f_{c} t\right), \quad 0 \leq t \leq T_{s}<br>  $$</p>
+<ul>
+<li>任意两个星座点的距离$d_{i j}&#x3D;\left|\mathbf{s}<em>{i}-\mathbf{s}</em>{j}\right|&#x3D;\sqrt{\left(s_{i 1}-s_{j 1}\right)^{2}+\left(s_{i 2}-s_{j 2}\right)^{2}}$，星座图最小距离$d_{\min}&#x3D;2d$</li>
+<li>星座点由$s_{i 1},s_{i2}$在$(2i-1-L)d,i&#x3D;1,2,\cdots,L&#x3D;2^l$上取值</li>
+</ul>
+</li>
+<li><p>星座图——正方形星座<br>  <img alt="MQAM" class="post-img b-lazy" data-img="/MQAM.png" data-index="9" data-src="/MQAM.png"></p>
+<ul>
+<li>有$M&#x3D;L^2&#x3D;2^{2l}$个星座点</li>
+<li>$2l$ bits&#x2F;symbol</li>
+<li>每维度多传1 bit，即每symbol多传2 bits，需要增加6 dB能量来保持星座图最小距离不变</li>
+</ul>
+</li>
+<li><p>判决域<br>  <img alt="MQAM_DR" class="post-img b-lazy" data-img="/MQAM_DR.png" data-index="10" data-src="/MQAM_DR.png"></p>
+</li>
+</ul>
+<h3 id="调幅-x2F-调相时其它方法"><a href="#调幅-x2F-调相时其它方法" class="headerlink" title="调幅&#x2F;调相时其它方法"></a>调幅&#x2F;调相时其它方法</h3><ol>
+<li>差分调制（Differential Modulation）<ul>
+<li>差分调制属于更普遍的带记忆的调制类别，在时间$[kT_s, (k + 1)T_s)$上传输的符号取决于与当前要传输的信息和在先前符号时间上的比特。</li>
+<li>差分调制的基本原理是将先前的符号作为当前符号的相位参考，从而避免了在接收端需要相干相位参考。</li>
+<li>差分相干解调<br>  <img alt="差分相干解调" class="post-img b-lazy" data-img="/DPSK_dm.png" data-index="11" data-src="/DPSK_dm.png"></li>
+<li>差分编码对随机相位漂移不敏感，单对系统性的多普勒频移敏感，多普勒频移会造成error floor。</li>
+</ul>
+</li>
+<li>星座成形（Constellation Shaping）<ul>
+<li>if a complex channel code is already being used and little further improvement can be obtained by a more complex code, constellation shaping may obtain around 1 dB of additional gain.</li>
+</ul>
+</li>
+<li>正交偏移（Quadrature Offset）<ul>
+<li>为防止信号倒相引起180度相移，将正交分量$g(t)$偏移半个码长，可消除突变，其目的是降低非线性失真的灵敏度<br>  <img alt="OMPSK" class="post-img b-lazy" data-img="/OMPSK.png" data-index="12" data-src="/OMPSK.png"></li>
+<li>Phase modulation with phase offset is usually abbreviated as O-MPSK, 例如$\frac{\pi}{4}$-QPSK</li>
+</ul>
+</li>
+</ol>
+<h3 id="调频"><a href="#调频" class="headerlink" title="调频"></a>调频</h3><ul>
+<li><p>FM信号的空间表示<br>  $$<br>  s_i(t)&#x3D;\sum_js_{ij}\phi_j(t)&#x3D;A\phi_i(t)<br>  $$<br>  其中，$s_{ij}&#x3D;A\delta(i-j)$，$\phi_j(t)&#x3D;\cos(2\pi f_jt +\phi_j)$。当$\phi_i&#x3D;\phi_j$，则正交基函数的最小载波频率间隔为$\frac{1}{2T_s}$。</p>
+</li>
+<li><p>调频信号的特点</p>
+<ul>
+<li>恒包络，对幅度失真不敏感</li>
+<li>频谱利用率低</li>
+</ul>
+</li>
+<li><p>FM信号的调制与解调<br>  <img alt="FM信号的调制与解调" class="post-img b-lazy" data-img="/FM_modulate.png" data-index="13" data-src="/FM_modulate.png"></p>
+<ul>
+<li>解调器要求第$j$个载波相位域发射机第$j$个载波相位一致</li>
+<li>载波相位不一致$\phi_i\ne \phi_j$，或造成发射信号不连续，增大信号带宽</li>
+</ul>
+</li>
+</ul>
+<h3 id="FSK（频移键控）-amp-MSK（最小频移键控）"><a href="#FSK（频移键控）-amp-MSK（最小频移键控）" class="headerlink" title="FSK（频移键控）&amp;MSK（最小频移键控）"></a>FSK（频移键控）&amp;MSK（最小频移键控）</h3><ul>
+<li><p>FSK（Frequency Shift Keying）发射信号<br>  $$<br>  s_{i}(t)&#x3D;A \cos \left[2 \pi f_{c} t+2 \pi \alpha_{i} \Delta f_{c} t+\phi_{i}\right], \quad 0 \leq t&lt;T_{s}<br>  $$</p>
+<ul>
+<li>频移项系数$\alpha_i&#x3D;({2i-1-M}).i&#x3D;1,2,\cdots,M&#x3D;2^K$，圆上等间隔分布</li>
+<li>基函数$\phi_{i}(t)&#x3D;\sqrt{\frac 2{T_{s}}} \cos \left[2 \pi f_{c} t+2 \pi \alpha_{i} \Delta f_{c} t+\phi_{i}\right]$</li>
+<li>最小频率间隔$2\Delta f_c$</li>
+</ul>
+</li>
+<li><p>2FSK：只有两种频率变化</p>
+</li>
+<li><p>MSK（Minimum Shift Keying）：对于2FSK，当$\phi_1&#x3D;\phi_2$且频率间隔为$2\Delta f&#x3D;\frac{1}{2T_s}$，此时有最小带宽</p>
+</li>
+</ul>
+<h3 id="CPFSK（连续相位频移键控）"><a href="#CPFSK（连续相位频移键控）" class="headerlink" title="CPFSK（连续相位频移键控）"></a>CPFSK（连续相位频移键控）</h3><ul>
+<li><p>用数字基带信号调制单音载波，构成Continuous-Phase FSK（CPFSK）信号<br>  $$<br>  s_{i}(t)&#x3D;A \cos \left[2 \pi f_{c} t+2 \pi \beta \int_{-\infty}^{t} u(\tau) d \tau\right]&#x3D;A \cos \left[2 \pi f_{c} t+\theta(t)\right]<br>  $$</p>
+<ul>
+<li>$u(t)$时MPAM信号</li>
+</ul>
+</li>
+<li><p>卡森带宽（Carson）：$B_s\approx M\Delta f_c+B_g$，$B_g$是MPAM脉冲成形信号的带宽</p>
+</li>
+<li><p>The spectral efficiency penalty of CPFSK increases with data rate.</p>
+</li>
+<li><p>Coherent detection of CPFSK can be done symbol-by-symbol or over a sequence of symbols.</p>
+</li>
+</ul>
+<h3 id="FSK的非相干检波"><a href="#FSK的非相干检波" class="headerlink" title="FSK的非相干检波"></a>FSK的非相干检波</h3><p>当第$i$个分支（branch）的能量是所有分支中最高的，那么接收机就会输出信息$m_i$。<br><img alt="FSK非相干解调" class="post-img b-lazy" data-img="/FSK_dm.png" data-index="14" data-src="/FSK_dm.png"></p>
+<h2 id="脉冲成形、同步与载波恢复"><a href="#脉冲成形、同步与载波恢复" class="headerlink" title="脉冲成形、同步与载波恢复"></a>脉冲成形、同步与载波恢复</h2><h3 id="脉冲成形"><a href="#脉冲成形" class="headerlink" title="脉冲成形"></a>脉冲成形</h3><ul>
+<li><p>Nyquist准则：</p>
+<ul>
+<li>时域：$p\left(k T_{s}\right)&#x3D;\left{\begin{array}{ll}<br>  p_{0}&#x3D;p(0) &amp; k&#x3D;0 \<br>  0 &amp; k \neq 0<br>  \end{array}\right.$</li>
+<li>频域：$\sum_{l&#x3D;-\infty}^{\infty}P(f+\frac{l}{T_s})&#x3D;p_0T_s$</li>
+</ul>
+</li>
+<li><p>几种脉冲：</p>
+<ul>
+<li><p>Rectangular pulses(矩形脉冲)<br>  $$<br>  g(t)&#x3D;\sqrt{\frac 2{T_s}}<br>  $$<br>  等效三角脉冲：<br>  $$<br>  p(t)&#x3D;\left{\begin{array}{ll}2+2 t &#x2F; T_{s} &amp; -T_{s} \leq t&lt;0 \ 2-2 t &#x2F; T_{s} &amp; 0 \leq t&lt;T_{s} \ 0 &amp; \text { else }\end{array}\right.<br>  $$<br>  旁瓣较高</p>
+</li>
+<li><p>Cosine pulses(余弦脉冲)<br>  $$<br>  p(t)&#x3D;\sin\frac{\pi t}{T_s}<br>  $$<br>  旁瓣比矩形脉冲低10 dB</p>
+</li>
+<li><p>Raised Cosine Pulses（升余弦脉冲）</p>
+<ul>
+<li><p>频域<br>  $$<br>  P(f)&#x3D;\left{\begin{array}{ll}T_{s} &amp; 0 \leq|f| \leq(1-\beta) &#x2F; 2 T_{s} \ \frac{T_{s}}{2}\left[1-\sin \frac{\pi T_{s}}{\beta}\left(f-\frac{1}{2 T_{s}}\right)\right] &amp; (1-\beta) &#x2F; 2 T_{s} \leq|f| \leq(1+\beta) &#x2F; 2 T_{s}\end{array}\right.<br>  $$</p>
+</li>
+<li><p>时域<br>  $$<br>  p(t)&#x3D;\frac{\sin \pi t &#x2F; T_s}{\pi t &#x2F; T_s} \frac{\cos \beta \pi t &#x2F; T_s}{1-4 \beta^2 t^2 &#x2F; T_s^2}<br>  $$</p>
+</li>
+<li><p>升余弦序列拖尾衰减很快，ISI小</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="码元同步、载波同步"><a href="#码元同步、载波同步" class="headerlink" title="码元同步、载波同步"></a>码元同步、载波同步</h3><ul>
+<li><p>码元同步（Symbol Synchronization）：需要通过码元同步来划定与特定符号相关的接收信号。</p>
+</li>
+<li><p>载波同步（Carrier Phase Recovery）：得到相位信息。</p>
+</li>
+<li><p>接收机形式<br>  <img alt="接收机形式" class="post-img b-lazy" data-img="/receiver.png" data-index="15" data-src="/receiver.png"></p>
+<ul>
+<li><p>接收信号<br>  $$<br>  r(t)&#x3D;\Re\left{\left(x(t-\tau) e^{j \phi}+z(t)\right) e^{j 2 \pi f_{c} t}\right}<br>  $$<br>  码元同步需要估计$\tau$，载波同步需要估计$\phi$，表示成向量$\theta&#x3D;(\phi,\tau)$，则<br>  $$<br>  r(t)&#x3D;s(t;\theta)+n(t)<br>  $$</p>
+</li>
+<li><p>最大似然估计（the maximum-likelhood criterion, ML）<br>  $$<br>  \max p(\mathbf{r} \mid \theta)&#x3D;\left(\frac{1}{\sqrt{\pi N_{0}} \sigma}\right)^{K} \exp \left[-\sum_{k&#x3D;1}^{K} \frac{\left(r_{k}-s_{k}(\theta)\right)^{2}}{N_{0}}\right]<br>  $$<br>  似然函数（likelihood function）<br>  $$<br>  \Lambda(\theta)&#x3D;\exp \left[-\frac{1}{N_{0}} \int_{T_{0}}[r(t)-s(t ; \theta)]^{2}\right] d t<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>最大似然相位估计（Maximum Likelihood Phase Estimation）<br>  假设时钟已知，可得<br>  $$<br>  \hat{\phi}&#x3D;-\arctan \left[\frac{\int_{T_{0}} r(t) \sin \left(2 \pi f_{c} t\right) d t}{\int_{T_{0}} r(t) \cos \left(2 \pi f_{c} t\right) d t}\right]<br>  $$</p>
+<ul>
+<li>实现方法——锁相环（phase lock loop）<br>  <img alt="PLL" class="post-img b-lazy" data-img="/PLL.png" data-index="16" data-src="/PLL.png"></li>
+</ul>
+</li>
+<li><p>最大似然定时估计（Maximum Likelihood Timing Estimation）<br>  假设载波已知，可得<br>  $$<br>  \sum_{k} s_{I}(k) \frac{\partial}{\partial \tau} z_{k}(\tau)&#x3D;0<br>  $$</p>
+<ul>
+<li>decision-directed estimation(非盲估计)： voltage-controlled clock (VCC)<br>  <img alt="decision-directed" class="post-img b-lazy" data-img="/feimang.png" data-index="17" data-src="/feimang.png"></li>
+<li>non decision-directed timing estimation(盲估计)：early-late gate synchronizer（超前滞后门）<br>  <img alt="超前滞后门" class="post-img b-lazy" data-img="/Early-Late_gate.png" data-index="18" data-src="/Early-Late_gate.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="数字带通传输系统的性能指标"><a href="#数字带通传输系统的性能指标" class="headerlink" title="数字带通传输系统的性能指标"></a>数字带通传输系统的性能指标</h2><h3 id="信噪比"><a href="#信噪比" class="headerlink" title="信噪比"></a>信噪比</h3><ul>
+<li><p>接收信噪比（received SNR）<br>  $$<br>  \mathrm{SNR}&#x3D;\frac{P_r}{N_0B}<br>  $$</p>
+<ul>
+<li>接收功率$P_r$取决于发射功率$P_t$，路径损耗（path loss），阴影衰落（shadowing），多径衰落（multipath）。</li>
+<li>噪声功率取决于$s(t)$的带宽和噪声频谱特性。$s(t)$基带的带宽为$B$，传入带通传输系统时候的带宽$2B$，白噪声双边噪声功率谱密度$\frac{N_0}{2}$，噪声功率$N&#x3D;\frac{N_0}{2}2B&#x3D;N_0B$</li>
+</ul>
+</li>
+<li><p>接收信-干-噪比（received signal-to-interference-plus-noise power ratio, SINR）<br>  $$<br>  \mathrm{SINR}&#x3D;\frac{P_r}{N_0+P_I}<br>  $$</p>
+</li>
+<li><p>信噪比的能量表示<br>  $$<br>  \mathrm{SNR}&#x3D;\frac{P_r}{N_0B}&#x3D;\frac{E_s}{N_0BT_s}&#x3D;\frac{E_b}{N_0BT_b}<br>  $$<br>  其中，$T_s$是码长（码元间隔），$T_b$是比特间隔</p>
+</li>
+<li><p>符号信噪比（SNR per symbol）与比特信噪比（SNR per bit）</p>
+<ul>
+<li><p>符号信噪比<br>  $$<br>  \gamma_s&#x3D;\frac{E_s}{N_0}<br>  $$</p>
+</li>
+<li><p>比特信噪比<br>  $$<br>  \gamma_b&#x3D;\frac{E_b}{N_0}<br>  $$</p>
+</li>
+<li><p>对于任意成形脉冲满足$T_s&#x3D;\frac{k}{B}$，有<br>  $$<br>  k\times \mathrm{SNR}&#x3D;\frac{E_s}{N_0}&#x3D;\gamma_s<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="误码率和Q函数"><a href="#误码率和Q函数" class="headerlink" title="误码率和Q函数"></a>误码率和Q函数</h3><ul>
+<li><p>误码率：<br>  $$<br>  \begin{aligned}<br>  P_e&#x3D;&amp;\sum_{i&#x3D;1}^Mp(\mathbf{r}\notin Z_i|\text{发射序列为}m_i)p(\text{发射序列为}m_i)\<br>  &#x3D;&amp;1-\frac 1M\sum_{i&#x3D;1}^M\int_{Z_i-\mathbf{s}_i}p(\mathbf{n})d\mathbf{n}<br>  \end{aligned}<br>  $$</p>
+<ul>
+<li>形象地理解错误率就是星座点$\mathbf{s}_i$加上噪声后变成$\mathbf{s}_i+\mathbf{n}$后不在判决域$Z_i$中概率。</li>
+<li>错误率积分具有平移不变性和旋转不变性</li>
+</ul>
+</li>
+<li><p>利用联合界（Union bound）描述错误概率：</p>
+<ul>
+<li><p>用联合界表示发射序列为$m_i$的错误概率<br>  $$<br>  P_{e}\left( \text {发射序列为 }m_{i}\right)&#x3D;p\left(\bigcup_{k&#x3D;1 \atop k \neq i}^{M} A_{i k}\right) \leq \sum_{k&#x3D;1 \atop k \neq i}^{M} p\left(A_{i k}\right)<br>  $$<br>  其中，$A_{ik}$表示发射星座点$\mathbf{s}<em>i$时，$\left|\mathbf{r}-\mathbf{s}</em>{k}\right|&lt;\left|\mathbf{r}-\mathbf{s}_{i}\right|$</p>
+</li>
+<li><p>经过化简可以发现错判概率等于噪声向量$\mathbf{n}$离矢量$\mathbf{s}_i-\mathbf{s}_k$比离原点跟近的概率</p>
+</li>
+</ul>
+</li>
+<li><p>误码率的界：</p>
+<ul>
+<li><p><strong>联合界估计的界</strong>：<br>  $$<br>  P_{e}&#x3D;\sum_{i&#x3D;1}^{M} p\left(m_{i}\right) P_{e}(\text {发射序列为 }m_{i}) \leq \frac{1}{M} \sum_{i&#x3D;1}^{M} \sum_{k&#x3D;1 \atop k \neq i}^{M} Q\left(\frac{d_{i k}}{\sqrt{2 N_{0}}}\right)<br>  $$<br>  其中，Q函数为<br>  $$<br>  Q(z)&#x3D;\int_z^\infty \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\mathrm{d}x&#x3D;\frac 12\mathrm{erfc}\left(\frac{z}{\sqrt{2}}\right)<br>  $$</p>
+</li>
+<li><p>利用<strong>最小距离估计的界</strong>：<br>  $$<br>  P_{e} \leq(M-1) Q\left(\frac{d_{\min }}{\sqrt{2 N_{0}}}\right)&#x3D; \frac{M-1}{\sqrt{\pi}} \exp \left[\frac{-d_{\min }^{2}}{4 N_{0}}\right]<br>  $$<br>  其中，最小距离（minimum distance）为$d_{\min}&#x3D;\min_{i,k}d_{ik}&#x3D;\min_{i,k}||\mathbf{s}_i-\mathbf{s}_k||$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>最近邻近似(the nearest neighbor approximation)</strong><br>  $$<br>  P_{e} \approx M_{d_{\min }} Q\left(\frac{d_{\min }}{\sqrt{2 N_{0}}}\right)<br>  $$<br>  其中，$M_{d_{\min}}$是相邻为$d_{\min}$的星座点的个数。</p>
+<ul>
+<li><p>最近邻近似小于最小距离估计的界，略小于联合界估计的界</p>
+</li>
+<li><p>在高信噪比情况下，最近邻近似解接近误码率的准确值</p>
+</li>
+<li><p>最近邻近似仅取决于<strong>最小距离$d_{\min}$和相邻星座点个数$M_{d_{\min}}$</strong></p>
+</li>
+<li><p>对于$M&#x3D;2$的二元调制，误信率为<br>  $$<br>  P_b&#x3D;P_s&#x3D;Q\left(\frac{d_{\min}}{\sqrt{2N_0}}\right)<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>误码率与误信率</p>
+<ul>
+<li>误码率（误符号率，symbol error probability，$P_e,P_s$）</li>
+<li>误信率（误比特率，bit error probability，$P_b$）</li>
+<li>对于Gray encoding，高信噪比时可以认为一码元错误对应一比特错误，则</li>
+</ul>
+<p>  $$<br>  P_b\approx\frac{P_s}{\log_2M}<br>  $$
+  </p>
+</li>
+<li><p>Q函数表现形式</p>
+<ul>
+<li><p>形式一：<br>  $$<br>  Q(z)&#x3D;\int_z^\infty \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\mathrm{d}x&#x3D;\frac 12\mathrm{erfc}\left(\frac{z}{\sqrt{2}}\right)<br>  $$</p>
+</li>
+<li><p>形式二：<br>  $$<br>  Q(z)&#x3D;\frac{1}{\pi} \int_{0}^{\pi &#x2F; 2} \exp \left[\frac{-z^{2}}{2 \sin ^{2} \phi}\right] d \phi \quad (z&gt;0)<br>  $$</p>
+</li>
+<li><p>注意到形式一积分区间为无穷，函数变量$z$出现在积分限上，而形式二的积分区间是和$z$无关的有限区间。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="AWGN信道中数字带通传输系统的性能"><a href="#AWGN信道中数字带通传输系统的性能" class="headerlink" title="AWGN信道中数字带通传输系统的性能"></a>AWGN信道中数字带通传输系统的性能</h2><h3 id="MPSK的错误率"><a href="#MPSK的错误率" class="headerlink" title="MPSK的错误率"></a>MPSK的错误率</h3><ul>
+<li><p>2PSK的误比特率（注意对于$M&#x3D;2$的调制，最近邻近似是精确答案）<br>  $$<br>  P_b&#x3D;Q\left(\frac{d_{\min}}{\sqrt{2N_0}}\right)&#x3D;Q\left(\frac{2\sqrt{E_b}}{\sqrt{2N_0}}\right)&#x3D;Q\left(\sqrt{2\gamma_b}\right)<br>  $$</p>
+</li>
+<li><p>QPSK的误码率与误比特率</p>
+<ul>
+<li><p>QPSK的同相和正交分量都是2PSK</p>
+</li>
+<li><p>误码率<br>  $$<br>  P_s&#x3D;1-\left[1-Q\left(\sqrt{2\gamma_b}\right)\right]^2&#x3D;1-\left[1-Q\left(\sqrt{\gamma_s}\right)\right]^2<br>  $$</p>
+</li>
+<li><p>误码率的最近邻近似<br>  $$<br>  P_s&#x3D;2Q\left(\frac{A^2}{N_0}\right)&#x3D;2Q\left(\sqrt{\frac{\gamma_s}{2}}\right)<br>  $$<br>  根据格雷码映射，误比特率为<br>  $$<br>  P_b\approx \frac{P_s}{2}&#x3D;Q\left(\sqrt{\frac{\gamma_s}{2}}\right)<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>MPSK的误码率</p>
+<ul>
+<li><p>误码率的最近邻近似——近邻$d_{\min}&#x3D;2A\sin\left(\frac{\pi}{M}\right)$<br>  $$<br>  P_s\approx2Q\left(\frac{2A\sin\left(\frac{\pi}{M}\right)}{\sqrt{2N_0}}\right)&#x3D;2Q\left(\sqrt{2\gamma_s}\sin\left(\frac{\pi}{M}\right)\right)<br>  $$</p>
+</li>
+<li><p>通过同相和正交支路噪声的联合分布得到$\gamma,\theta$的联合分布，考虑误码率与$\gamma$无关，且具有对称性，得到积分:<br>  $$<br>  P_{s}&#x3D;1-\int_{-\pi &#x2F; M}^{\pi &#x2F; M} \frac{1}{\pi} e^{-2 \gamma_{s} \sin ^{2}(\theta)} \int_{0}^{\infty} z \exp \left[-\left(z-\sqrt{2 \gamma_{s}} \cos (\theta)\right)^{2}\right] d z<br>  $$<br>  但$M&gt;4$时无闭式解</p>
+</li>
+</ul>
+</li>
+<li><p>MPSK对于相位误差敏感，但相位误差很大是会带来error floor</p>
+</li>
+</ul>
+<h3 id="MPAM和MQAM的错误率"><a href="#MPAM和MQAM的错误率" class="headerlink" title="MPAM和MQAM的错误率"></a>MPAM和MQAM的错误率</h3><ul>
+<li><p>MPAM的误码率<br>  $$<br>  P_{s}&#x3D;\frac{2(M-1)}{M} Q\left(\sqrt{\frac{6 \bar{\gamma}_{s}}{M^{2}-1}}\right)<br>  $$</p>
+</li>
+<li><p>MQAM的误码率</p>
+<ul>
+<li><p>$M&#x3D;L^2$的正方形星座，同相和正交支路都是MPAM，有MPAM推出的误码率<br>  $$<br>  P_{s}&#x3D;1-\left(1-\frac{2(\sqrt{M}-1)}{\sqrt{M}} Q\left(\sqrt{\frac{3 \bar{\gamma}_{s}}{M-1}}\right)\right)^{2}P<br>  $$</p>
+</li>
+<li><p>最近邻近似（正方形星座）</p>
+<ul>
+<li><p>英文原版——用两支路MPAM来近似（偏小）<br>  $$<br>  P_s&#x3D;\frac{2(\sqrt{M}-1)}{\sqrt{M}} Q\left(\sqrt{\frac{3 \bar{\gamma}_{s}}{M-1}}\right)<br>  $$</p>
+</li>
+<li><p>中文翻译版——假设内点外点都有4个距离为$2d$的近邻(偏大)<br>  $$<br>  P_s&#x3D;4 Q\left(\sqrt{\frac{3 \bar{\gamma}_{s}}{M-1}}\right)<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>最近邻近似（非正方形星座）<br>  $$<br>  P_{s} \approx M_{d_{\min }} Q\left(\frac{d_{\min }}{\sqrt{2 N_{0}}}\right)<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>For the same energy per symbol or bit, MQAM makes more efficient use of energy and thus has better performance.</p>
+</li>
+<li><p>MQAM解调需要对幅度和相位两方面进行估计</p>
+<ul>
+<li>相位估计与MPSK类似</li>
+<li>幅度估计可以使用AGC（自动增益控制）</li>
+</ul>
+</li>
+</ul>
+<h3 id="MFSK和CPFSK的错误率"><a href="#MFSK和CPFSK的错误率" class="headerlink" title="MFSK和CPFSK的错误率"></a>MFSK和CPFSK的错误率</h3><ul>
+<li><p>2FSK的误比特率：<br>  $$<br>  P_b&#x3D;P_s&#x3D;Q\left(\frac{A}{\sqrt{N_0}}\right)&#x3D;Q\left(\sqrt{\gamma_b}\right)<br>  $$</p>
+</li>
+<li><p>MFSK的误码率：<br>  $$<br>  P_{s}&#x3D;\sum_{m&#x3D;1}^{M}(-1)^{m+1}\mathbf{C}<em>{M-1}^{m} \frac{1}{m+1} \exp \left[\frac{-m \gamma</em>{s}}{m+1}\right]<br>  $$</p>
+</li>
+<li><p>CPFSK的错误率取决于检波器是相干的还是非相干的，也取决于它是使用逐码元检测还是序列估计。</p>
+</li>
+</ul>
+<h3 id="相干解调的错误率近似"><a href="#相干解调的错误率近似" class="headerlink" title="相干解调的错误率近似"></a>相干解调的错误率近似</h3><ul>
+<li><p>误码率的近似<br>  $$<br>  P_s(\gamma_s)\approx\alpha_MQ\left(\sqrt{\beta_M\gamma_s}\right)<br>  $$<br>  对于最近邻近似，$\alpha_M&#x3D;M_{d_{\min}}$，$\beta_M$反映$d_{\min}$和平均码元能量有关。</p>
+</li>
+<li><p>误比特率的近似<br>  $$<br>  P_b(\gamma_b)&#x3D;\frac{\alpha_M}{\log_2M}Q\left(\sqrt{\frac{\log_2M}{\beta_M}\gamma_b}\right)<br>  $$</p>
+</li>
+</ul>
+<p>$$<br>\begin{array}{|c|c|c|}<br>\hline \text { Modulation } &amp; P_{s}\left(\gamma_{s}\right) &amp; P_{b}\left(\gamma_{b}\right) \<br>\hline \text { 2FSK: } &amp; &amp; P_{b}&#x3D;Q\left(\sqrt{\gamma_{b}}\right) \<br>\hline \text { 2PSK: } &amp; &amp; P_{b}&#x3D;Q\left(\sqrt{2 \gamma_{b}}\right) \<br>\hline \text { QPSK,4QAM: } &amp; P_{s} \approx 2 Q\left(\sqrt{\gamma_{s}}\right) &amp; P_{b} \approx Q\left(\sqrt{2 \gamma_{b}}\right) \<br>\hline \text { MPAM: } &amp; P_{s} \approx \frac{2(M-1)}{M} Q\left(\sqrt{\frac{6 \bar{\gamma}<em>{s}}{M^{2}-1}}\right) &amp; P</em>{b} \approx \frac{2(M-1)}{M \log <em>{2} M} Q\left(\sqrt{\frac{6 \bar{\gamma}</em>{b} \log <em>{2} M}{M^{2}-1}}\right) \<br>\hline \text { MPSK: } &amp; P</em>{s} \approx 2 Q\left(\sqrt{2 \gamma_{s}} \sin \left(\frac {\pi}{M}\right)\right) &amp; P_{b} \approx \frac{2}{\log <em>{2} M} Q\left(\sqrt{2 \gamma</em>{b} \log <em>{2} M} \sin \left(\frac {\pi}{M}\right)\right) \<br>\hline \text { Rectangular MQAM: } &amp; P</em>{s} \approx \frac{4(\sqrt{M}-1)}{\sqrt{M}} Q\left(\sqrt{\frac{3 \bar{\gamma}<em>{s}}{M-1}}\right) &amp; P</em>{b} \approx \frac{4(\sqrt{M}-1)}{\sqrt{M} \log <em>{2} M} Q\left(\sqrt{\frac{3 \bar{\gamma}</em>{b} \log <em>{2} M}{(M-1)}}\right) \<br>\hline \text { Nonrectangular MQAM: } &amp; P</em>{s} \approx 4 Q\left(\sqrt{\frac{3 \bar{\gamma}<em>{s}}{M-1}}\right) &amp; P</em>{b} \approx \frac{4}{\log <em>{2} M} Q\left(\sqrt{\frac{3 \bar{\gamma}</em>{b} \log _{2} M}{(M-1)}}\right) \<br>\hline<br>\end{array}<br>$$</p>
+<p>中文版在矩形MQAM中有一些区别，没有$\frac{4(\sqrt{M}-1)}{\sqrt{M}}$项。具体原因见上</p>
+<h3 id="差分译码的错误率"><a href="#差分译码的错误率" class="headerlink" title="差分译码的错误率"></a>差分译码的错误率</h3><ul>
+<li><p>差分解调利用相位比较器求得相位，进行抽样判决。</p>
+</li>
+<li><p>Performance of differential modulation that is roughly 3 dB worse than that of coherent modulation.</p>
+</li>
+<li><p>DPSK的误比特率：<br>  $$<br>  P_b&#x3D;\frac 12 e^{-\gamma_b}<br>  $$</p>
+</li>
+<li><p>DQPSK的误比特率：<br>  $$<br>  P_{b} \approx \int_{b}^{\infty} x \exp \left(\frac{-\left(a^{2}+x^{2}\right)}{2}\right) \mathrm{I}<em>{0}(a x) d x-\frac{1}{2} \exp \left(\frac{-\left(a^{2}+b^{2}\right)}{2}\right) \mathrm{I}</em>{0}(a b)<br>  $$<br>  其中， $a \approx 0.765 \sqrt{\gamma_{b}}$ ， $b \approx 1.85 \sqrt{\gamma_{b}}$, $I_0(x)$是修正的零阶第一类贝塞尔函数</p>
+</li>
+</ul>
+<h2 id="衰落信道中数字带通传输系统的性能"><a href="#衰落信道中数字带通传输系统的性能" class="headerlink" title="衰落信道中数字带通传输系统的性能"></a>衰落信道中数字带通传输系统的性能</h2><p>性能指标的选取取决于衰落信道变换快慢：</p>
+<ul>
+<li>中断率$P_{out}$：信道衰落很慢($T_c\gg T_s$)</li>
+<li>平均错误率$\bar P_s$：衰落的相干时间和码长可比拟（$T_c\approx T_s$）.码元间隔内的衰落近似不变</li>
+<li>中断率和平均错误率的结合：信道衰落快慢结合，例如慢变对数正态分布的shadowing和快变Rayleigh衰落。</li>
+<li>信道衰落非常快（$T_c\ll T_s$），近似AWGN信道。</li>
+</ul>
+<h3 id="（慢变）中断率（Outage-Probability）"><a href="#（慢变）中断率（Outage-Probability）" class="headerlink" title="（慢变）中断率（Outage Probability）"></a>（慢变）中断率（Outage Probability）</h3><ul>
+<li><p>中断率（Outage Probability）的定义<br>  $$<br>  P_{out}&#x3D;p(\gamma&lt;\gamma_0)&#x3D;\int_0^{\gamma_0}p_{\gamma_s}(\gamma)\ \mathrm{d}\gamma<br>  $$<br>  其中，$\gamma_0$是可以接受的最小信噪比。</p>
+</li>
+<li><p>瑞利信道的中断率</p>
+<ul>
+<li><p>中断率<br>  $$<br>  P_{out}&#x3D;\int_0^{\gamma_0}\frac{1}{\bar \gamma_s}e^{-\frac{\gamma_s}{\bar \gamma_s}}d\gamma_s&#x3D;1-e^{-\frac{\gamma_0}{\bar\gamma_s}}<br>  $$</p>
+</li>
+<li><p>对应所需的平均信噪比<br>  $$<br>  \bar \gamma_s&#x3D;\frac{\gamma_0}{-\ln(1-P_{out})}<br>  $$</p>
+</li>
+<li><p>dB fade margin（分贝衰落余量）：<br>  $$<br>  F_d&#x3D;-\log[-\ln(1-P_{out})]<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（可比拟）平均误码率（Average-Probability-of-Error）"><a href="#（可比拟）平均误码率（Average-Probability-of-Error）" class="headerlink" title="（可比拟）平均误码率（Average Probability of Error）"></a>（可比拟）平均误码率（Average Probability of Error）</h3><ul>
+<li><p>平均误码率：根据衰落的分布对AWGN信道的误码率积分。<br>  $$<br>  \bar P_s&#x3D;\int_0^\infty P_s(\gamma)p_{\gamma_s}(\gamma)\mathrm{d}\gamma<br>  $$</p>
+<ul>
+<li><p>$p_{\gamma_s}(\gamma)$的求解——变量代换<br>  $$<br>  p_{\gamma_s}(\gamma)d\gamma&#x3D;p(r)dr<br>  $$</p>
+</li>
+<li><p>瑞利衰落的分布<br>  $$<br>  p_{\gamma_s}(\gamma)&#x3D;\frac{1}{\bar{\gamma_s}}\exp\left(-\frac{\gamma}{\bar \gamma_s}\right)<br>  $$<br>  其中，$\bar \gamma_s&#x3D;\frac{\sigma^2T}{\sigma_n^2}$</p>
+</li>
+</ul>
+</li>
+<li><p>瑞利信道中二元调制的平均误码率</p>
+<ul>
+<li><p>2PSK<br>  $$<br>  \bar{P}<em>{b}&#x3D;\frac{1}{2}\left[1-\sqrt{\frac{\bar{\gamma}</em>{b}}{1+\bar{\gamma}<em>{b}}}\right] \approx \frac{1}{4 \bar{\gamma}</em>{b}}<br>  $$</p>
+</li>
+<li><p>2FSK<br>  $$<br>  \bar{P}<em>{b}&#x3D;\frac{1}{2}\left[1-\sqrt{\frac{\bar{\gamma}</em>{b}}{2+\bar{\gamma}<em>{b}}}\right] \approx \frac{1}{4 \bar{\gamma}</em>{b}}<br>  $$</p>
+</li>
+<li><p>2DPSK<br>  $$<br>  \bar{P}<em>{b}&#x3D;\frac{1}{2\left(1+\bar{\gamma}</em>{b}\right)} \approx \frac{1}{2 \bar{\gamma}_{b}}<br>  $$<br>  约等号仅当$\bar\gamma_b$较大时取。</p>
+</li>
+<li><p>通用近似式$P_s(\gamma_s)\approx\alpha_MQ\left(\sqrt{\beta_M\gamma_s}\right)$<br>  $$<br>  \bar{P}<em>{s} \approx \int</em>{0}^{\infty} \alpha_{M} Q\left(\sqrt{\beta_{M} \gamma}\right) \cdot \frac{1}{\bar{\gamma}<em>{s}} e^{-\gamma &#x2F; \bar{\gamma}</em>{s}} d \gamma_{s}&#x3D;\frac{\alpha_{m}}{2}\left[1-\sqrt{\frac{0.5 \beta_{M} \bar{\gamma}<em>{s}}{1+0.5 \beta</em>{M} \bar{\gamma}<em>{s}}}\right] \approx \frac{\alpha</em>{M}}{2 \beta_{M} \bar{\gamma}_{s}}<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>AWGN信道与衰落信道中调制方式的比较</p>
+<ul>
+<li>在AWGN信道中，误比特率随着$\gamma_b$的增加呈<strong>指数级下降</strong>。在衰落信道中，所有调制类型的误比特率随着$\gamma_b$的增加而<strong>线性下降</strong>。同样误码率条件下，衰落信道中需要更高的信噪比。</li>
+<li>瑞利衰落是最差的衰落情况。Nakagami fading随$m$的增大，衰落减小，趋于AWGN。</li>
+</ul>
+</li>
+<li><p>Moment Generating Function（矩函数产生函数，矩母函数）<br>  $$<br>  \mathcal{M}<em>{\gamma}(s)&#x3D;\int</em>{0}^{\infty} p_{\gamma}(\gamma) e^{s \gamma} d \gamma<br>  $$</p>
+<ul>
+<li><p>求矩函数：<br>  $$<br>  E[\gamma^n]&#x3D;\frac{\partial^n}{\partial s^n}[\mathcal{M}<em>{\gamma_s}(s)]</em>{s&#x3D;0}<br>  $$</p>
+</li>
+<li><p>常见信道的Moment Generating Function</p>
+<ul>
+<li>Rayleigh:<br>  $$<br>  \mathcal{M}<em>{\gamma</em>{s}}(s)&#x3D;\left(1-s \bar{\gamma}_{s}\right)^{-1}<br>  $$</li>
+<li>Ricean with factor $K$ :<br>  $$<br>  \mathcal{M}<em>{\gamma</em>{s}}(s)&#x3D;\frac{1+K}{1+K-s \bar{\gamma}<em>{s}} \exp \left[\frac{K s \bar{\gamma}</em>{s}}{1+K-s \bar{\gamma}_{s}}\right]<br>  $$</li>
+<li>Nakagami- $m$ :<br>  $$<br>  \mathcal{M}<em>{\gamma</em>{s}}(s)&#x3D;\left(1-\frac{s \bar{\gamma}_{s}}{m}\right)^{-m}<br>  $$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其实这里的矩母函数类似于《随机信号分析》中的特征函数，其实在第七章分集中也谈到了用$j\lambda$来替代$s$可以表示一些复数。</p>
+<ul>
+<li><p>特征函数<br>  $$<br>  \varphi_x(\lambda,t )&#x3D;\int_{-\infty}^{\infty}p(x,t)e^{j\lambda x}\mathrm{d}x<br>  $$</p>
+</li>
+<li><p>用特征函数求各阶矩<br>  $$<br>  E[X^n(t)]&#x3D;(-j)^n\left.\frac{\partial^n}{\partial \lambda^n}\varphi_x(\lambda,t)\right|_{\lambda&#x3D;0}<br>  $$</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>用Moment Generating Function求平均误码率</p>
+<ul>
+<li><p>相关解调误码率的近似($\alpha&#x3D;\alpha_M,g&#x3D;\frac{\beta_M}{2}$，用Q函数形式二)<br>  $$<br>  \begin{aligned}<br>  P_s(\gamma_s)\approx&amp;\alpha Q\left(\sqrt{2g\gamma_s}\right)\<br>  &#x3D;&amp;\frac{\alpha}{\pi}\int_0^{\frac \pi2}\exp\left(\frac{-g\gamma}{\sin^2\phi}\right)\mathrm{d}\phi<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>衰落信道的平均误码率<br>  $$<br>  \bar P_s&#x3D;\frac{\alpha}{\pi} \int_{0}^{\frac \pi 2} \mathcal{M}<em>{\gamma</em>{s}}\left(\frac{-g}{\sin ^{2} \phi}\right) d \phi<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="（快慢结合）中断率和平均误码率结合"><a href="#（快慢结合）中断率和平均误码率结合" class="headerlink" title="（快慢结合）中断率和平均误码率结合"></a>（快慢结合）中断率和平均误码率结合</h3><ul>
+<li>Let $\bar{\bar {\gamma_s}}$ denote the average SNR per symbol for a fixed path loss with averaging over fast fading and shadowing.</li>
+<li>Let $\bar \gamma_s$ denote the (random) SNR per symbol for a fixed path loss and random shadowing but averaged overf ast fading. Its average value is $\bar{\bar {\gamma_s}}$.</li>
+<li>Let $\gamma_s$ denote the random SNR due to fixed path loss, shadowing, and multipath.</li>
+</ul>
+<p>$$<br>\bar{P}<em>{s}&#x3D;\int</em>{0}^{\infty} P_{s}\left(\gamma_{s}\right) p\left(\gamma_{s} \mid \bar{\gamma}<em>{s}\right) d \gamma</em>{s}<br>$$</p>
+<h2 id="无线信道传输过程中各种损耗带来的影响"><a href="#无线信道传输过程中各种损耗带来的影响" class="headerlink" title="无线信道传输过程中各种损耗带来的影响"></a>无线信道传输过程中各种损耗带来的影响</h2><h3 id="多普勒扩展"><a href="#多普勒扩展" class="headerlink" title="多普勒扩展"></a>多普勒扩展</h3><p>多普勒频移扩展会使得差分编码在解调时出现不可避免地error floor。码元之间的相位相关性以及因此而产生的性能下降是多普勒频率$f_D&#x3D;\frac{v}{\lambda}$和码长$T_s$的函数。</p>
+<ul>
+<li><p>2DPSK的error floor<br>  $$<br>  \bar{P}<em>{\text {floor }}&#x3D;\frac{\left(1-\rho</em>{C}\right) e^{-K}}{2}<br>  $$</p>
+</li>
+<li><p>DQPSK的error floor<br>  $$<br>  \bar{P}<em>{\text {floor }}&#x3D;\frac{1}{2}\left[1-\sqrt{\frac{\left(\rho</em>{C} &#x2F; \sqrt{2}\right)^{2}}{1-\left(\rho_{C} &#x2F; \sqrt{2}\right)^{2}}}\right] \exp \left[-\frac{(2-\sqrt{2})(K &#x2F; 2)}{1-\rho_{C} &#x2F; \sqrt{2}}\right]<br>  $$</p>
+</li>
+</ul>
+<p>$$<br>\begin{array}{|c|c|c|}<br>\hline \text { Type } &amp; \text { Doppler Power Spectrum } S_{C}(f) &amp; \rho_{C}&#x3D;A_{C}(T) &#x2F; A_{C}(0) \<br>\hline \text { Rectangular } &amp; \frac{S_{0}}{2 B_{D}},|f|&lt;B_{D} &amp; \operatorname{sinc}\left(2 B_{D} T\right) \<br>\hline \text { Gaussian } &amp; \frac{S_{0}}{\sqrt{\pi} B_{D}} e^{-f^{2} &#x2F; B_{D}^{2}} &amp; e^{-\left(\pi B_{D} T\right)^{2}} \<br>\hline \text { Uniform Scattering } &amp; \frac{S_{0}}{\pi \sqrt{B_{D}^{2}-f^{2}}},|f|&lt;B_{D} &amp; J_{0}\left(2 \pi B_{D} T\right) \<br>\hline \text { 1st Order Butterworth } &amp; \frac{S_{0} B_{D}}{\pi\left(f^{2}+B_{D}^{2}\right)} &amp; e^{-2 \pi B_{D} T} \<br>\hline<br>\end{array}<br>$$</p>
+<ul>
+<li>the error floor decreases with data rate $R &#x3D; \frac{1}{T_b}$.</li>
+<li>increasing the data rate  $R &#x3D; \frac{1}{T_b}$ by an order of magnitude decreases the error floor by roughly two orders of magnitude.</li>
+</ul>
+<h3 id="ISI-码间串扰"><a href="#ISI-码间串扰" class="headerlink" title="ISI(码间串扰)"></a>ISI(码间串扰)</h3><p>频率选择性衰减会产生ISI，即在给定的码元间隔内，接收到的码元会受到其他被多径延迟的码元的干扰。</p>
+<ul>
+<li><p>error floor取决于ISI特性和调制格式，而ISI特性取决于信道的特性和传输符号的序列。</p>
+</li>
+<li><p>通过将ISI视为不相关的白高斯噪声，可得到有ISI的符号错误概率的近似值。<br>  $$<br>  \hat \gamma_s&#x3D;\frac{P_r}{N_0B+I}<br>  $$<br>  其中$I$是与ISI相关的功率。</p>
+</li>
+<li><p>由于ISI引起的error floor可以通过仿真得到的。Chuang的结果表明，error floor对信道的均方根时延扩展比功率时延谱的形状更敏感。此外，脉冲成形可以极大地影响error floor：在升余弦脉冲中，将$\beta$从0增加到1可以将error floor降低一个数量级以上。</p>
+<p>  <img alt="ISI" class="post-img b-lazy" data-img="/ISI.png" data-index="19" data-src="/ISI.png"></p>
+</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>ANDREA GOLDSMITH.<em>WIRELESS COMMUNICATIONS</em>.2005.</li>
+<li>（美）Andrea Goldsmith著；杨鸿文，李卫东，郭文彬等译. 无线通信. 北京：人民邮电出版社, 2007.06.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" rel="tag"># 通信原理</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无线通信学习笔记（四）】数字调制及其性能</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年05月05日 - 13:38:07</p>
+  <p><span>原始链接:</span><a href="/2021/05/05/Wireless-Communications-Ch-5-6/" title="【无线通信学习笔记（四）】数字调制及其性能">https://levitate-qian.github.io/2021/05/05/Wireless-Communications-Ch-5-6/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/05/05/Wireless-Communications-Ch-5-6/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【无线通信学习笔记（五）】分集" href="/2021/05/07/Wireless-Communications-Ch-7/">
+            ← 【无线通信学习笔记（五）】分集
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【深度学习笔记（三）】构建机器学习模型" href="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/">
+            【深度学习笔记（三）】构建机器学习模型 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Digital-Modulation-and-Performance"><span class="toc-text">Digital Modulation and Performance</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#信号空间分析"><span class="toc-text">信号空间分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信道的几何表示"><span class="toc-text">信道的几何表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#充分统计量、判决域与接收机结构"><span class="toc-text">充分统计量、判决域与接收机结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字带通调制信号"><span class="toc-text">数字带通调制信号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带通调制原理"><span class="toc-text">带通调制原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性调制——调幅-x2F-调相-Amplitude-and-Phase-Modulation"><span class="toc-text">线性调制——调幅&#x2F;调相(Amplitude and Phase Modulation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MPAM（脉幅调制）"><span class="toc-text">MPAM（脉幅调制）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MPSK（相移键控）"><span class="toc-text">MPSK（相移键控）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQAM（正交振幅调制）"><span class="toc-text">MQAM（正交振幅调制）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调幅-x2F-调相时其它方法"><span class="toc-text">调幅&#x2F;调相时其它方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调频"><span class="toc-text">调频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FSK（频移键控）-amp-MSK（最小频移键控）"><span class="toc-text">FSK（频移键控）&amp;MSK（最小频移键控）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPFSK（连续相位频移键控）"><span class="toc-text">CPFSK（连续相位频移键控）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FSK的非相干检波"><span class="toc-text">FSK的非相干检波</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脉冲成形、同步与载波恢复"><span class="toc-text">脉冲成形、同步与载波恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#脉冲成形"><span class="toc-text">脉冲成形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码元同步、载波同步"><span class="toc-text">码元同步、载波同步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字带通传输系统的性能指标"><span class="toc-text">数字带通传输系统的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信噪比"><span class="toc-text">信噪比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#误码率和Q函数"><span class="toc-text">误码率和Q函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWGN信道中数字带通传输系统的性能"><span class="toc-text">AWGN信道中数字带通传输系统的性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MPSK的错误率"><span class="toc-text">MPSK的错误率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MPAM和MQAM的错误率"><span class="toc-text">MPAM和MQAM的错误率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MFSK和CPFSK的错误率"><span class="toc-text">MFSK和CPFSK的错误率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相干解调的错误率近似"><span class="toc-text">相干解调的错误率近似</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差分译码的错误率"><span class="toc-text">差分译码的错误率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#衰落信道中数字带通传输系统的性能"><span class="toc-text">衰落信道中数字带通传输系统的性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（慢变）中断率（Outage-Probability）"><span class="toc-text">（慢变）中断率（Outage Probability）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（可比拟）平均误码率（Average-Probability-of-Error）"><span class="toc-text">（可比拟）平均误码率（Average Probability of Error）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（快慢结合）中断率和平均误码率结合"><span class="toc-text">（快慢结合）中断率和平均误码率结合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无线信道传输过程中各种损耗带来的影响"><span class="toc-text">无线信道传输过程中各种损耗带来的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多普勒扩展"><span class="toc-text">多普勒扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISI-码间串扰"><span class="toc-text">ISI(码间串扰)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/05/05/Wireless-Communications-Ch-5-6/" class="leancloud-visitors" data-flag-title="【无线通信学习笔记（四）】数字调制及其性能">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无线通信学习笔记（四）】数字调制及其性能</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

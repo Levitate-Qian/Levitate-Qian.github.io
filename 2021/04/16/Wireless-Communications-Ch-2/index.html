@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无线通信学习笔记（一）】路径损耗与阴影衰落 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无线通信学习笔记（一）】路径损耗与阴影衰落 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/04/16/Wireless-Communications-Ch-2/">
+
+	
+	<meta property="article:published_time" content="2021-04-15T22:04:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/04/16/Wireless-Communications-Ch-2/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-04-15T22:05:31.000Z">
+                    2021-04-15
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无线通信学习笔记（一）】路径损耗与阴影衰落</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/15/cRUmPs.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p><em>Wireless Communications</em> (Andrea Goldsmith)学习笔记。</p>
+</blockquote>
+<h1 id="Path-Loss-and-Shadowing"><a href="#Path-Loss-and-Shadowing" class="headerlink" title="Path Loss and Shadowing"></a>Path Loss and Shadowing</h1><ol>
+<li><p>主要讲述 <strong>path loss</strong>（路径损耗） and <strong>shadowing</strong>（阴影衰弱）相对于距离对接收信号功率的影响。并考虑这两方面的影响建立信道模型。</p>
+<ul>
+<li><strong>Path loss</strong> is caused by <strong>dissipation of the power</strong> radiated by the transmitter as well as effects of the propagation channel. (be the same at a given transmit-receive distance)</li>
+<li><strong>Shadowing</strong> is caused by <strong>obstacles between the transmitter and receiver</strong> that attenuate signal power through absorption, reflection, scattering, and diffraction. (When the attenuation is very strong, the signal is blocked)</li>
+</ul>
+</li>
+<li><p>大尺度传播效应和小尺度传播效应</p>
+<ul>
+<li>large-scale propagation effects: occur over relatively large distances. e.g. variations due to path loss and shadowing</li>
+<li>small-scale propagation effects: occurs over very short distances, <strong>on the order of the signal wavelength</strong></li>
+</ul>
+</li>
+<li><p>开发了一些近似方法来描述信号传播的特点，而不需要借助麦克斯韦方程。最常见的近似方法是使用 <strong>ray-tracing techniques</strong>（射线跟踪技术）。</p>
+</li>
+</ol>
+<h2 id="Transmit-and-Receive-Signal-Models"><a href="#Transmit-and-Receive-Signal-Models" class="headerlink" title="Transmit and Receive Signal Models"></a>Transmit and Receive Signal Models</h2><ul>
+<li><p>transmitted signal:<br>  $$<br>  s(t)&#x3D;\Re\left{u(t)e^{2\pi f_c t}\right}&#x3D;x(t)\cos(2\pi f_ct)-y(t)\sin(2\pi f_c t)<br>  $$<br>  其中，信号 $u(t)&#x3D;x(t)+jy(t)$ 是复包络，带宽为 $B_u$,，功率为 $P_u$. 发射机发射功率为 $P(t)&#x3D;\frac{ P_u}{2}$</p>
+</li>
+<li><p>received signal:<br>  $$<br>  r(t)&#x3D;\Re{\left{v(t)e^{j2\pi f_c t}\right}}&#x3D;\Re{\left{u(t)*c(t)\cdot e^{j2\pi f_c t}\right}}<br>  $$<br>  其中，$c(t)$是等效低通信道的脉冲响应。接收信号可能会存在多普勒频移(Doppler shift)$f_D&#x3D;\frac{v\cos\theta}{\lambda}$.</p>
+</li>
+</ul>
+<h2 id="Path-Loss-Models"><a href="#Path-Loss-Models" class="headerlink" title="Path Loss Models"></a>Path Loss Models</h2><p>由free-space path loss出发建立最基础的模型。由于处理RCS过于复杂，在本章中都是从ray tracing的角度来建立复杂模型分析问题的，包括two-ray model, 10-ray model进而推广到一般的general ray tracing。</p>
+<h3 id="路径损耗的定义"><a href="#路径损耗的定义" class="headerlink" title="路径损耗的定义"></a>路径损耗的定义</h3><ul>
+<li>路径损耗（Path Loss）</li>
+</ul>
+<p>$$<br>P_L&#x3D;\frac{P_t}{P_r}<br>$$</p>
+<ul>
+<li>路径增益（Path gain）<br>  $$<br>  P_G \text{ dB}&#x3D;-P_L \text{ dB}<br>  $$</li>
+</ul>
+<h3 id="自由空间路径损耗"><a href="#自由空间路径损耗" class="headerlink" title="自由空间路径损耗"></a>自由空间路径损耗</h3><ul>
+<li><p>视距信道（LOS，line-of-sight）</p>
+<ul>
+<li>没有障碍物</li>
+<li>信号沿直线传播</li>
+</ul>
+</li>
+<li><p>接收信号<br>  $$<br>  r(t)&#x3D;\Re\left{\frac{\lambda \sqrt{G_{l}} e^{-j 2 \pi d &#x2F; \lambda}}{4 \pi d} u(t) e^{j 2 \pi f_{c} t}\right}<br>  $$<br>  其中，$\sqrt{G_l}$是发射天线和接收天线增益的乘积。$e^{-j 2 \pi d &#x2F; \lambda}$是距离$d$带来的相移。<em>功率是信号的平方。</em></p>
+<blockquote>
+<p>注：这里$\sqrt{G_l}$是发射天线和接收天线的增益乘积，而非原书的field radiation(直译为场强方向图$F(\theta,\phi)$)，也并非方向系数$D$（在一定意义上可以认为是方向系数）。具体可以看到下面路径增益的表达式实际上就是《天线原理》中的<strong>Friis传输方程</strong>：<br>$$<br>P_R&#x3D;P_i\left(\frac{\lambda}{4\pi r}\right)^2D_iD_r<br>$$<br>上式是在满足极化匹配、共轭匹配和收发最大辐射方向对准时的表达式。在天线原理书后习题中也被写作<br>$$<br>P_R&#x3D;P_i\left(\frac{\lambda}{4\pi r}\right)^2G_iG_r<br>$$<br>显然这是在考虑天线效率情况下的Friis传输方程。注意到下面路径增益中将收发天线的增益看作是一样的也就是$G_l$。</p>
+</blockquote>
+</li>
+<li><p>路径增益<br>  $$<br>  \frac {P_r}{P_t}&#x3D;\left[\frac{\sqrt{G_l}\lambda}{4\pi d}\right]^2<br>  $$</p>
+<ul>
+<li>接收机接收功率随着收发天线之间距离$d$平方成反比。</li>
+<li>当载波频率增加，接收功率下降。</li>
+</ul>
+</li>
+<li><p>自由空间路径损耗<br>  $$<br>  P_L\text{ dB}&#x3D;10 \lg\frac{P_t}{P_r}&#x3D;-10\lg\left[\frac{\sqrt{G_l}\lambda}{4\pi d}\right]^2<br>  $$</p>
+</li>
+</ul>
+<h3 id="射线跟踪-Ray-tracing"><a href="#射线跟踪-Ray-tracing" class="headerlink" title="射线跟踪(Ray tracing)"></a>射线跟踪(Ray tracing)</h3><ul>
+<li>multipath signal components：additional copies of the transmitted signal</li>
+<li>multipath signal components相对于LOS信道的接收信号有功率衰减，延时，相移和&#x2F;或频移。</li>
+<li>射线追踪技术通过将波面表示为简单的粒子来逼近电磁波的传播。</li>
+<li><strong>smallest</strong> when the receiver is many wavelengths from the nearest scatterer, and all the scatterers are large relative to a wavelength and fairly smooth. </li>
+<li>射线跟踪不能很好的反映多径时延扩展(delay spread)</li>
+</ul>
+<h3 id="Two-Ray-Model"><a href="#Two-Ray-Model" class="headerlink" title="Two-Ray Model"></a>Two-Ray Model</h3><p>当单一地面反射主导多径效应时，采用Two-Ray Model。<br><img alt="Two-Ray Model" style="zoom:67%;" class="post-img b-lazy" data-img="Two-Ray Model.png" data-index="0" data-src="Two-Ray Model.png"></p>
+<ul>
+<li><p>由LOS路径的接受的直射信号和经过$x,x’$反射信号的叠加，忽略反射面衰减，有<br>  $$<br>  r_{2 \text {ray }}(t)&#x3D;\Re\left{\frac{\lambda}{4 \pi}\left[\frac{\sqrt{G_{l}} u(t) e^{-j 2 \pi l &#x2F; \lambda}}{l}+\frac{R \sqrt{G_{r}} u(t-\tau) e^{-j 2 \pi\left(x+x^{\prime}\right) &#x2F; \lambda}}{x+x^{\prime}}\right] e^{j 2 \pi f_{c} t}\right}<br>  $$</p>
+</li>
+<li><p>进一步假设接收信号相对于delay spread($\tau$)是窄带的，即$\tau\ll B_u^{-1}$，有$u(t)\approx u(t-\tau)$，有<br>  $$<br>  P_{r}&#x3D;P_{t}\left[\frac{\lambda}{4 \pi}\right]^{2}\left|\frac{\sqrt{G_{l}}}{l}+\frac{R \sqrt{G_{r}} e^{-j \Delta \phi}}{x+x^{\prime}}\right|^{2}<br>  $$<br> 其中，$\Delta\phi&#x3D;2\pi (x+x’-l)&#x2F;\lambda$是接收到的两个信号的相位差。</p>
+</li>
+<li><p>当$d$相当大时，$x+x^{\prime} \approx l \approx d, \theta \approx 0, G_{l} \approx G_{r},R&#x3D;-1$，有<br>  $$<br>  P_{r} \approx\left[\frac{\lambda \sqrt{G_{l}}}{4 \pi d}\right]^{2}\left[\frac{4 \pi h_{t} h_{r}}{\lambda d}\right]^{2} P_{t}&#x3D;\left[\frac{\sqrt{G_{l}} h_{t} h_{r}}{d^{2}}\right]^{2} P_{t}<br>  $$</p>
+</li>
+<li><p>一些说明：</p>
+<ul>
+<li><p>接收功率与$\lambda$无关。</p>
+</li>
+<li><p>近距离($d&lt;h_t$)：两路径分量正向相加，路径损耗粗略的是平坦的，接收功率近似与$\frac {1}{d^2+h_t^2}$成正比。</p>
+</li>
+<li><p>远距离($h_t&lt;d&lt;d_c$)：两路径分量相加此消彼长，造成一系列极大极小值，接收功率近似于$d^{-4}$成正比。</p>
+</li>
+<li><p>$d&gt;d_c$：critical distance($d_c$)时到达了最后一个极大值。超过$d_c$后，接收功率急剧下降。$d_c$可由$\Delta \phi&#x3D;\pi$估计，即$d_c&#x3D;\frac{4h_th_r}{\lambda}$。</p>
+</li>
+<li><p>蜂窝系统(cellular systems)中传播很少符合two-ray model。</p>
+  <img alt="Received Power versus Distance for Two-Ray Model" style="zoom:67%;" class="post-img b-lazy" data-img="/Received Power versus Distance for Two-Ray Model.png" data-index="1" data-src="/Received Power versus Distance for Two-Ray Model.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Ten-Ray-Model-Dielectric-Canyon"><a href="#Ten-Ray-Model-Dielectric-Canyon" class="headerlink" title="Ten-Ray Model (Dielectric Canyon)"></a>Ten-Ray Model (Dielectric Canyon)</h3><p>当单一路径反射超过三次可以被忽略。后向反射也可以被忽略。</p>
+<img alt="Overhead View of the Ten-Ray Model" style="zoom:99%;" class="post-img b-lazy" data-img="Overhead View of the Ten-Ray Model.png" data-index="2" data-src="Overhead View of the Ten-Ray Model.png">
+
+<ul>
+<li><p>Ten-Ray Model下的接收信号为<br>  $$<br>  r_{10 \text {ray }}(t)&#x3D;\Re\left{\frac{\lambda}{4 \pi}\left[\frac{\sqrt{G_{l}} u(t) e^{-j 2 \pi l &#x2F; \lambda}}{l}+\sum_{i&#x3D;1}^{9} \frac{R_{i} \sqrt{G_{x_{i}}} u\left(t-\tau_{i}\right) e^{-j 2 \pi x_{i} &#x2F; \lambda}}{x_{i}}\right] e^{j 2 \pi f_{c} t}\right}<br>  $$</p>
+</li>
+<li><p>进一步假设接收信号相对于delay spread($\tau$)是窄带的，有$u(t)\approx u(t-\tau)$，有Ten-Ray Model的接收功率<br>  $$<br>  P_{r}&#x3D;P_{t}\left[\frac{\lambda}{4 \pi}\right]^{2}\left|\frac{\sqrt{G_{l}}}{l}+\sum_{i&#x3D;1}^{9} \frac{R_{i} \sqrt{G_{x_{i}}} e^{-j \Delta \phi_{i}}}{x_{i}}\right|^{2}<br>  $$</p>
+</li>
+<li><p>Ten-Ray Model的接收功率随$d^{2}$下降</p>
+</li>
+</ul>
+<h3 id="General-Ray-Tracing-GRT"><a href="#General-Ray-Tracing-GRT" class="headerlink" title="General Ray Tracing(GRT)"></a>General Ray Tracing(GRT)</h3><ul>
+<li><p>对于GRT模型，建筑物参数（高度、位置和介电性质）以及发射机和接收机相对于建筑物的位置必须准确确定。</p>
+</li>
+<li><p>一般来说，由于绕射(diffraction)和散射(scattering)的损耗很大，所以在接收信号中起主导作用的十LOS信号和反射信号。</p>
+</li>
+<li><p>diffraction（绕射）分量可由Fresnel knife edge diffraction model求得，接收信号为<br>  $$<br>  r(t)&#x3D;\Re\left{L(v) \sqrt{G_{d}} u(t-\tau) e^{-j 2 \pi\left(d+d^{\prime}\right) &#x2F; \lambda} e^{j 2 \pi f_{c} t}\right}<br>  $$<br>  其中，$\sqrt{G_d}$是天线增益，$\tau&#x3D;\frac{\Delta d}{c}$绕射分量相对于直射分量的时延</p>
+</li>
+<li><p>scattered ray（散射）分量可有双基地雷达方程（bistatic radar equation）获得，接收信号为<br>  $$<br>  r(t)&#x3D;\Re\left{u(t-\tau) \frac{\lambda \sqrt{G_{s} \sigma} e^{-j 2 \pi\left(s+s^{\prime}\right) &#x2F; \lambda}}{(4 \pi)^{3 &#x2F; 2} s s^{\prime}} e^{j 2 \pi f_{c} t}\right}<br>  $$</p>
+<p>  其中，$\tau&#x3D;\frac{s+s’-l}{c}$是散射分量相对于直射分量的时延，$\sigma$是雷达散射截面积(RCS)，$\sqrt{G_s}$是天线增益。</p>
+</li>
+<li><p>结合上述各种分量的影响，假设有一个LOS路径，$N_r$个反射路径，$N_d$个绕射路径，$N_s$个散射路径，则总的接收信号为<br>$$<br>\begin{aligned}<br>r_{\text {total }}(t) &amp;&#x3D;\Re\left{\left[ \frac { \lambda } { 4 \pi } \right] \left[\frac{\sqrt{G_{l}} u(t) e^{j 2 \pi l &#x2F; \lambda}}{l}+\sum_{i&#x3D;1}^{N_{r}} \frac{R_{x_{i}} \sqrt{G_{x_{i}}} u\left(t-\tau_{i}\right) e^{-j 2 \pi x_{i} &#x2F; \lambda}}{x_{i}}\right.\right.\<br>&amp;+\sum_{j&#x3D;1}^{N_{d}} L_{j}(v) \sqrt{G_{d_{j}}} u\left(t-\tau_{j}\right) e^{-j 2 \pi\left(d_{j}+d_{j}^{\prime}\right) &#x2F; \lambda} \<br>&amp;\left.\left.+\sum_{k&#x3D;1}^{N_{s}} \frac{\sqrt{G_{s_{k}} \sigma_{k}} u\left(t-\tau_{k}\right) e^{j 2 \pi\left(s_{k}+s_{k}^{\prime}\right) &#x2F; \lambda}}{s_{k} s_{k}^{\prime}}\right] e^{j 2 \pi f_{c} t}\right}<br>\end{aligned}<br>$$</p>
+<p>如果其传播路径被建筑物或其他物体阻挡，任何一个多径分量都可能有一个额外的衰减系数。</p>
+</li>
+<li><p>local mean received power($\bar P_r$，本地平均接收功率)：射线跟踪中所有路径的幅度平方和，可以较好地反映link quality（链路质量）。</p>
+</li>
+</ul>
+<h3 id="Empirical-Path-Loss-Model"><a href="#Empirical-Path-Loss-Model" class="headerlink" title="Empirical Path Loss Model"></a>Empirical Path Loss Model</h3><p>为了消除多径效应，路径损耗的经验测量通常将其接收功率测量值和相应的路径损耗在给定距离上的几个波长上求平均值。这个平均路径损耗称为距离$d$处的**本地平均衰减(LMA)**，由于自由空间的路径损耗和信号障碍物的影响，一般会随着$d$的增大而减小。</p>
+<ul>
+<li><p>The Okumura Model: One of the most common models for signal prediction in large urban macrocells is the Okumura model . This model is applicable over <strong>distances of 1-100 km and frequency ranges of 150-1500 MHz.</strong> The base station heights<br>  for these measurements were <strong>30-100 m</strong>, the upper end of which is higher than typical base stations today<br>  $$<br>  P_{L}(d) \mathrm{dB}&#x3D;L\left(f_{c}, d\right)+A_{m u}\left(f_{c}, d\right)-G\left(h_{t}\right)-G\left(h_{r}\right)-G_{A R E A}<br>  $$</p>
+</li>
+<li><p>Hata Model: This empirical model <strong>simplifies calculation of path loss</strong> since it is a closed-form formula and is not based on empirical curves for the different parameters. the same range of frequencies, 150-1500 MHz.<br>  $$<br>  P_{L, u r b a n}(d) \mathrm{dB}&#x3D;69.55+26.16 \log <em>{10}\left(f</em>{c}\right)-13.82 \log <em>{10}\left(h</em>{t}\right)-a\left(h_{r}\right)+\left(44.9-6.55 \log <em>{10}\left(h</em>{t}\right)\right) \log _{10}(d)<br>  $$</p>
+</li>
+<li><p>COST 231 Extension to Hata Model: The Hata model was extended  to 2 GHz .<br>  $$<br>  P_{L, u r b a n}(d) \mathrm{dB}&#x3D;46.3+33.9 \log <em>{10}\left(f</em>{c}\right)-13.82 \log <em>{10}\left(h</em>{t}\right)-a\left(h_{r}\right)+\left(44.9-6.55 \log <em>{10}\left(h</em>{t}\right)\right) \log <em>{10}(d)+C</em>{M}<br>  $$<br>  This model is referred to as the COST 231 extension to the Hata model, and is restricted<br>  to the following range of parameters: 1.5GHz &lt; $f_c$ &lt; 2 GHz, 30m &lt; $h_t$ &lt; 200 m, 1m &lt; $h_r$ &lt; 10 m, and 1km &lt; $d$ &lt; 20 km.</p>
+</li>
+<li><p>Piecewise Linear (Multi-Slope) Model</p>
+</li>
+<li><p>Indoor Attenuation Factors: it is difficult to find generic models that can be accurately applied to determine empirical path loss in a specific indoor setting.</p>
+</li>
+</ul>
+<h3 id="Simplified-Path-Loss-Model"><a href="#Simplified-Path-Loss-Model" class="headerlink" title="Simplified Path Loss Model"></a>Simplified Path Loss Model</h3><ul>
+<li><p>对于一般的衰减分析，可以使用路径损耗的简化模型：<br>  $$<br>  P_r&#x3D;P_tK\left[\frac{d_0}{d}\right]^\gamma<br>  $$<br>  用分贝表示<br>  $$<br>  P_{r} \mathrm{dBm}&#x3D;P_{t} \mathrm{dBm}+K \mathrm{~dB}-10 \gamma \log <em>{10}\left[\frac{d}{d</em>{0}}\right]<br>  $$<br>  其中，$K$是一个无量纲常数，由天线特性和平均信道特性决定，$d_0$是天线远场的参考距离，$\gamma$是路径衰落指数。</p>
+</li>
+<li><p>$K$的取值：为了简化计算，将$K&lt;1$取为全向天线自由空间内在$d_0$处的路径增益：<br>  $$<br>  K \mathrm{~dB}&#x3D;20 \log <em>{10} \frac{\lambda}{4 \pi d</em>{0}}<br>  $$</p>
+<blockquote>
+<p>这里假设天线效率$\eta_A$为1，则天线增益$G&#x3D;\eta_A D$与天线方向系数$D$就是一致的。</p>
+<p>对于全向辐射的假想元：<br>$$<br>D&#x3D;\frac{4\pi}{\int_o^{2\pi}\int_{0}^{\pi}\sin \theta \mathrm{d}\theta\mathrm{d}\phi}&#x3D;1&#x3D;0\text{ dBi}<br>$$<br>代入路径增益的表达式即为上式。</p>
+</blockquote>
+</li>
+<li><p>$\gamma$的取值：$\gamma$在自用空间一般取2，在Two-Ray model中取4，对于更复杂的环境可通过对实测数据进行MMSE(minimum mean square error)拟合。<br>  $$<br>  F(\gamma)&#x3D;\sum_{i&#x3D;1}^{n}\left[M_\text{measured}-M_\text{model}\right]^2<br>  $$<br>  其中$M_\text{measured}$是实测的$10\lg\frac{P_r}{P_t}  \text{ dB}$，而$M_\text{model}$是上述路径损耗的简化模型计算得到的$10\lg\frac{P_r}{P_t}  \text{ dB}&#x3D;K \mathrm{~dB}-10 \gamma \log <em>{10}\left[\frac{d}{d</em>{0}}\right]$。对$F(\gamma)$求极值点：<br>  $$<br>  \frac{\partial F(\gamma)}{\gamma}&#x3D;0\to\gamma<br>  $$<br>  也可以通过经验数据获得：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>γ range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Urban macrocells</td>
+<td>3.7-6.5</td>
+</tr>
+<tr>
+<td>Urban microcells</td>
+<td>2.7-3.5</td>
+</tr>
+<tr>
+<td>Office Building (same floor)</td>
+<td>1.6-3.5</td>
+</tr>
+<tr>
+<td>Office Building (multiple floors)</td>
+<td>2-6</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>1.8-2.2</td>
+</tr>
+<tr>
+<td>Factory</td>
+<td>1.6-3.3</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 id="Shadow-Fading"><a href="#Shadow-Fading" class="headerlink" title="Shadow Fading"></a>Shadow Fading</h2><p>通过无线信道传输的信号通常会因为信号路径中物体的阻挡而发生随机变化，从而引起给定距离内接收功率的随机变化。由于参数是未知的，所以只能通过统计模型来表征这种随机变化。</p>
+<h3 id="log-normal-shadowing-model"><a href="#log-normal-shadowing-model" class="headerlink" title="log-normal shadowing model"></a>log-normal shadowing model</h3><ul>
+<li><p>最常用来描述这种加性衰减的模型是log-normal shadowing。</p>
+</li>
+<li><p>在log-normal shadowing model中，发射接收功率比$\psi&#x3D;\frac{P_t}{P_r}$是服从对数正态分布的<br>  $$<br>  p(\psi)&#x3D;\frac{\xi}{\sqrt{2 \pi} \sigma_{\psi_\text{dB}} \psi} \exp \left[-\frac{\left(10 \log <em>{10} \psi-\mu</em>{\psi_\text{dB}}\right)^{2}}{2 \sigma_{\psi_\text{dB}}^{2}}\right], \psi&gt;0<br>  $$<br>  其中，$\xi&#x3D;\frac{10}{\ln 10}$，$\psi_\text{dB}&#x3D;10\lg\psi$。同时，$\mu_{\psi_\text{dB}},\sigma_{\psi_\text{dB}}$都是$\psi_\text{dB}$按分贝计算的均值和方差。</p>
+</li>
+<li><p>$\psi&#x3D;\frac{P_t}{P_r}$服从对数正态分布，则接收功率和接收信噪比都服从对数正态分布。</p>
+</li>
+<li><p>注意：在经验路径损耗模型中，由于无法拆分，$\mu_{\psi_\text{dB}}$已经包含Shadowing的影响。而对于理论分析，必须单独考虑Shadowing的影响。</p>
+</li>
+<li><p>通常我们对测量值的分贝值取平均来确定平均的路径损耗和方差。</p>
+</li>
+</ul>
+<h3 id="correlation-of-shadowing-over-distance"><a href="#correlation-of-shadowing-over-distance" class="headerlink" title="correlation of shadowing over distance"></a>correlation of shadowing over distance</h3><ul>
+<li><p>假设Shadowing $\psi(d)$是一个一阶自回归过程，相距$\delta$两点Shadowing fading(阴影衰落)的协方差为<br>  $$<br>  A(\delta)&#x3D;\mathrm{E}\left[\left(\psi_{d B}(d)-\mu_{\psi_{d B}}\right)\left(\psi_{d B}(d+\delta)-\mu_{\psi_{d B}}\right)\right]&#x3D;\sigma_{\psi_{d B}}^{2} \rho_{D}^{\delta &#x2F; D}<br>  $$<br>  其中，$\rho_D$是相距为$D$时的归一化协方差，且必须通过测量得到。</p>
+</li>
+<li><p>假设固定$D&#x3D;X_c$时，$\rho_D&#x3D;\frac 1e$，则模型可简化为<br>  $$<br>  A(\delta)&#x3D;\sigma^2_{\psi_\text{dB}}e^{-\delta&#x2F;X_c}<br>  $$<br>  其中，$X_c$是decorrelation distance（去相关距离），指信号自相关等于其最大值的$\frac 1e$时的距离，并且与障碍物或障碍物群的大小成正比。</p>
+</li>
+<li><p>当用户以速度$v$运动，$\delta&#x3D;v\tau$代入上式可求得在$\tau$时刻的阴影-去相关关系。</p>
+</li>
+</ul>
+<h2 id="Combined-Path-Loss-and-Shadowing"><a href="#Combined-Path-Loss-and-Shadowing" class="headerlink" title="Combined Path Loss and Shadowing"></a>Combined Path Loss and Shadowing</h2><h3 id="the-ratio-of-received-to-transmitted-power"><a href="#the-ratio-of-received-to-transmitted-power" class="headerlink" title="the ratio of received to transmitted power"></a>the ratio of received to transmitted power</h3><p>综合上述路径损耗的简化模型和对数正态分布的阴影衰减模型，可得接收发射功率比为<br>$$<br>\frac{P_{r}}{P_{t}}\text{(dB)}&#x3D;10 \log <em>{10} K-10 \gamma \log <em>{10} \frac{d}{d</em>{0}}-\psi</em>{d B}<br>$$</p>
+<ul>
+<li>$\psi_\text{dB}\sim N(0,\sigma^2_{\psi_\text{dB}})$</li>
+<li>路径损耗随着$\lg d$以 $10\gamma\text{ dB&#x2F;decade}$的斜率线性递减</li>
+<li>阴影衰减导致的变化非常快，和去相关距离$X_c$在同一数量级</li>
+</ul>
+<h3 id="Outage-Probability"><a href="#Outage-Probability" class="headerlink" title="Outage Probability"></a>Outage Probability</h3><p>无线通信中有目标允许最小接收功率$P_{\min}$。</p>
+<ul>
+<li><p>中断概率（Outage Probability）：在距离$d$上，接收功率$P_r(d)$衰减到小于一个服务质量不可接受的临界值$P_{\min}$的概率：<br>  $$<br>  p_\text{out}(P_{\min},d)&#x3D;p\left(P_r(d)&lt;P_{\min}\right)<br>  $$</p>
+</li>
+<li><p>对于路径损耗的简化模型和对数正态分布的阴影衰减模型，上式可写为<br>  $$<br>  p\left(P_{r}(d) \leq P_{\min }\right)&#x3D;1-Q\left(\frac{P_{\min }-\left(P_{t}+10 \log <em>{10} K-10 \gamma \log <em>{10}\left(d &#x2F; d</em>{0}\right)\right)}{\sigma</em>{\psi_\text{dB}}}\right)<br>  $$<br>  其中，<br>  $$<br>  Q(z) \triangleq p(x&gt;z)&#x3D;\int_{z}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-y^{2} &#x2F; 2} d y&#x3D;\frac 12\mathrm{erfc}\left(\frac{z}{\sqrt{2}}\right)<br>  $$</p>
+</li>
+</ul>
+<h3 id="Cell-Coverage-Area"><a href="#Cell-Coverage-Area" class="headerlink" title="Cell Coverage Area"></a>Cell Coverage Area</h3><img alt="Contours of Constant Received Power" style="zoom:60%;" class="post-img b-lazy" data-img="Contours of Constant Received Power.png" data-index="3" data-src="Contours of Constant Received Power.png">
+
+<ul>
+<li><p>考虑路径损耗和平均的阴影衰减，等功率线是以基站(Base station, BS)为圆心的圆。而考虑路径损耗和随机的阴影损耗，等功率线就变成一个不规则图形。</p>
+</li>
+<li><p>不能保证在cell的边界上的人接收相同的功率量级，两种解决方式</p>
+<ul>
+<li>transmit extra power to insure users affected by shadowing receive their minimum required power$P_{\min}$（会影响邻近的cell）</li>
+<li>some users within the cell will not meet their minimum received power requirement.</li>
+</ul>
+</li>
+<li><p>outage probability of the cell（小区中的中断概率）：小区内未达到最低功率要求的面积百分比<br>  $$<br>  p_\text{out}^\text{cell}&#x3D;1-C<br>  $$</p>
+<p>  $$<br>  C&#x3D;\frac{1}{\pi R^{2}} \int_{\text {cell area }} P_{A} d A&#x3D;\frac{1}{\pi R^{2}} \int_{0}^{2 \pi} \int_{0}^{R} P_{A} r d r d \theta<br>  $$</p>
+<p>  其中，$P_A$表示在元$\mathrm{d}A$内接收功率达到最小接收功率的概率，即$P_{A}&#x3D;\mathrm{E}\left[1\left[P_{r}(r)&gt;P_{\min } \text { in } d A\right]\right]$，$1[\bullet]$是示性函数。</p>
+</li>
+<li><p>对于路径损耗的简化模型和对数正态分布的阴影衰减模型，有<br>  $$<br>  p(P_{r}(r)&gt;P_{\min })&#x3D;1-p_\text{out}(P_{\min},r)<br>  $$<br>  小区中接收功率低于$P_{\min}$的位置被称为outage location（中断位置）。</p>
+</li>
+<li><p>若目标最小接收功率$P_{\min}$等于小区边界处的接收功率$\bar P_r$，再次假设下小区边界上的中断概率为0.5.</p>
+</li>
+</ul>
+<blockquote>
+<p>在整理的时候，真的发现好多和《天线原理》和《雷达原理与系统》交叉的内容。</p>
+</blockquote>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>ANDREA GOLDSMITH.<em>WIRELESS COMMUNICATIONS</em>.2005.</li>
+<li>（美）Andrea Goldsmith著；杨鸿文，李卫东，郭文彬等译. 无线通信. 北京：人民邮电出版社, 2007.06.</li>
+<li>魏文元等编. 天线原理. 北京：国防工业出版社, 1985.06.</li>
+<li>无线通信学习笔记(二) 大尺度路径损耗.<a href="https://www.jianshu.com/p/5e9141e6cd76" target="_blank" rel="noopener">https://www.jianshu.com/p/5e9141e6cd76</a></li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无线通信学习笔记（一）】路径损耗与阴影衰落</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年04月15日 - 22:05:31</p>
+  <p><span>原始链接:</span><a href="/2021/04/16/Wireless-Communications-Ch-2/" title="【无线通信学习笔记（一）】路径损耗与阴影衰落">https://levitate-qian.github.io/2021/04/16/Wireless-Communications-Ch-2/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/04/16/Wireless-Communications-Ch-2/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化" href="/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">
+            ← 【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【深度学习笔记（一）】神经网络与深度学习" href="/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">
+            【深度学习笔记（一）】神经网络与深度学习 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Path-Loss-and-Shadowing"><span class="toc-text">Path Loss and Shadowing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Transmit-and-Receive-Signal-Models"><span class="toc-text">Transmit and Receive Signal Models</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-Loss-Models"><span class="toc-text">Path Loss Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路径损耗的定义"><span class="toc-text">路径损耗的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自由空间路径损耗"><span class="toc-text">自由空间路径损耗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#射线跟踪-Ray-tracing"><span class="toc-text">射线跟踪(Ray tracing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Two-Ray-Model"><span class="toc-text">Two-Ray Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ten-Ray-Model-Dielectric-Canyon"><span class="toc-text">Ten-Ray Model (Dielectric Canyon)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#General-Ray-Tracing-GRT"><span class="toc-text">General Ray Tracing(GRT)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Empirical-Path-Loss-Model"><span class="toc-text">Empirical Path Loss Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simplified-Path-Loss-Model"><span class="toc-text">Simplified Path Loss Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadow-Fading"><span class="toc-text">Shadow Fading</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#log-normal-shadowing-model"><span class="toc-text">log-normal shadowing model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#correlation-of-shadowing-over-distance"><span class="toc-text">correlation of shadowing over distance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Combined-Path-Loss-and-Shadowing"><span class="toc-text">Combined Path Loss and Shadowing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#the-ratio-of-received-to-transmitted-power"><span class="toc-text">the ratio of received to transmitted power</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Outage-Probability"><span class="toc-text">Outage Probability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cell-Coverage-Area"><span class="toc-text">Cell Coverage Area</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/04/16/Wireless-Communications-Ch-2/" class="leancloud-visitors" data-flag-title="【无线通信学习笔记（一）】路径损耗与阴影衰落">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无线通信学习笔记（一）】路径损耗与阴影衰落</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

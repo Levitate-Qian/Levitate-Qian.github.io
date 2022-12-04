@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【持续更新】论文常用LaTeX代码 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content="在数学建模美赛中常用的LaTeX代码">
+
+	
+	<meta name="keywords" content="“学习”">
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【持续更新】论文常用LaTeX代码 | Levitate_">
+	<meta property="og:description" content="在数学建模美赛中常用的LaTeX代码">
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/08/30/latex-code/">
+
+	
+	<meta property="article:published_time" content="2020-08-30T09:08:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/08/30/latex-code/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-08-30T09:42:10.000Z">
+                    2020-08-30
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/LaTeX/">LaTeX</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【持续更新】论文常用LaTeX代码</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7yKpD.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="论文常用LaTeX代码"><a href="#论文常用LaTeX代码" class="headerlink" title="论文常用LaTeX代码"></a>论文常用LaTeX代码</h1><p>这个代码不局限于数模论文里用的了，但说用在数模里面是一点问题都没有的啊。</p>
+<p>由于我现在各类作业、实验报告、大作业均有$\LaTeX$书写，所以这里面的代码类别就会比较丰富，我也会持续更新的（只要我还在用$\LaTeX$）。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><ul>
+<li><p>导言区代码</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125; <span class="comment">%插入图片的宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;float&#125; <span class="comment">%设置图片浮动位置的宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;subfigure&#125; <span class="comment">%插入多图时用子图显示的宏包</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li><p>单图</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=.9<span class="keyword">\textwidth</span>]&#123;XXX.pdf&#125; 	<span class="comment">% 图片相对位置</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;Electric Vehicles: January 2020&#125;		<span class="comment">% 图片标题 </span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:American&#125;							<span class="comment">% 图片标签</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[H]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=.4<span class="keyword">\textwidth</span>]&#123;ex2-3jie.pdf&#125; 	<span class="comment">% 图片相对位置</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;习题2.3解图&#125;		<span class="comment">% 图片标题 </span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:ex4-9&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多图并列放置（子图格式）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">    <span class="keyword">\centering</span>    </span><br><span class="line">    <span class="keyword">\subfigure</span>[Hot Map of one Room]&#123;				<span class="comment">% 图片1([]内为子图标题)</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:sub.roomhot&#125;							<span class="comment">% 子图1的标签</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.45<span class="keyword">\textwidth</span>]&#123;XXX.jpg&#125;&#125;<span class="comment">% 子图1的相对位置</span></span><br><span class="line">    <span class="keyword">\subfigure</span>[Hot Map of one Floor]&#123;				<span class="comment">% 图片2</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:sub.floorhot&#125;						<span class="comment">% 子图2的标签</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.45<span class="keyword">\textwidth</span>]&#123;XXX.jpg&#125;&#125;<span class="comment">% 子图2的相对位置</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;Hot Map of one Room and one Floor&#125;		<span class="comment">% 总图标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:hot&#125;									<span class="comment">% 总图标签</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多图并列放置（全图格式）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">	<span class="keyword">\centering</span> 									<span class="comment">%图片全局居中</span></span><br><span class="line"><span class="comment">%并排几个图，就要写几个minipage</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;0.45<span class="keyword">\textwidth</span>&#125; 		<span class="comment">%所有minipage宽度之和小于1</span></span><br><span class="line">		<span class="keyword">\centering</span> 								<span class="comment">%图片局部居中</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=0.8<span class="keyword">\textwidth</span>]&#123;DV<span class="built_in">_</span>demand&#125; </span><br><span class="line">							<span class="comment">%此时的图片宽度比例是相对于这个minipage的，不是全局</span></span><br><span class="line">		<span class="keyword">\caption</span>&#123;name 1&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;fig:1&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;0.45<span class="keyword">\textwidth</span>&#125; </span><br><span class="line">		<span class="keyword">\centering</span> 									<span class="comment">%图片局部居中</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=0.8<span class="keyword">\textwidth</span>]&#123;P+R<span class="built_in">_</span>demand&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;name 2&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;fig:2&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>放置图片过程中，调整图片尺寸</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includegraphics</span>[width=0.45<span class="keyword">\textwidth</span>,trim=85 80 80 85,clip]&#123;room<span class="built_in">_</span>pic<span class="built_in">_</span>guidance<span class="built_in">_</span>new/step179.jpg&#125;&#125;</span><br><span class="line"><span class="comment">% 从左到右依次为左、下、右、上</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Visio画图有多余边框</p>
+<p><a href="http://www.mamicode.com/info-detail-2181323.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-2181323.html</a></p>
+</li>
+<li><p>图片环绕文字</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% \usepackage&#123;wrapfig&#125; 				%环绕文字需要引用的宏包</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;wrapfigure&#125;&#123;r&#125;&#123;8cm&#125;			<span class="comment">%靠文字内容的左侧</span></span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=.45<span class="keyword">\textwidth</span>]&#123;01.jpg&#125; 	<span class="comment">% 图片相对位置</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;程控放大器设计框图&#125;		  <span class="comment">% 图片标题 </span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:01&#125;					<span class="comment">% 图片标签</span></span><br><span class="line"><span class="keyword">\end</span>&#123;wrapfigure&#125;</span><br><span class="line">    </span><br><span class="line">    1. 放大器采用同相比例放大器，如图 <span class="keyword">\ref</span>&#123;fig:01&#125; 所示。设<span class="built_in">$</span>R<span class="built_in">_</span>1=1<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="built_in">$</span>，则分别选<span class="built_in">$</span>R<span class="built_in">_</span>&#123;f4&#125;=1<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="built_in">$</span>,<span class="built_in">$</span>R<span class="built_in">_</span>&#123;f3&#125;=3<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="built_in">$</span>，<span class="built_in">$</span>R<span class="built_in">_</span>&#123;f2&#125;=5<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="built_in">$</span>，<span class="built_in">$</span>R<span class="built_in">_</span>&#123;f1&#125;=7<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="built_in">$</span>，即可实现增益在2、4、6、8倍之间可控。其中<span class="built_in">$</span>R<span class="built_in">_</span>&#123;F0&#125;=300<span class="keyword">\ </span>k<span class="keyword">\Omega</span><span class="keyword">\gg</span> R<span class="built_in">_</span>&#123;Fi&#125;<span class="built_in">$</span>，主要是避免开关切换瞬间运放开环工作。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><ol>
+<li><p>局部对齐不标序号</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation*&#125; </span><br><span class="line">    <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">		<span class="keyword">\text</span>&#123;the initial temperature: &#125; <span class="built_in">&amp;</span><span class="keyword">\quad</span> T<span class="built_in">_</span>0=1, <span class="keyword">\\</span></span><br><span class="line">		<span class="keyword">\text</span>&#123;the terminal temperature: &#125;<span class="built_in">&amp;</span><span class="keyword">\quad</span> e = 10<span class="built_in">^</span>&#123;-30&#125;,<span class="keyword">\\</span></span><br><span class="line">		<span class="keyword">\text</span>&#123;attenuation coefficient: &#125;<span class="built_in">&amp;</span><span class="keyword">\quad</span> <span class="keyword">\alpha</span> =0.999, <span class="keyword">\\</span></span><br><span class="line">		<span class="keyword">\text</span>&#123;the solution domain: &#125;<span class="built_in">&amp;</span><span class="keyword">\quad</span> <span class="keyword">\mathbb</span>&#123;S&#125;=<span class="keyword">\left</span><span class="keyword">\&#123;</span>p <span class="keyword">\in</span>(0, <span class="keyword">\infty</span>), t <span class="keyword">\in</span><span class="keyword">\left</span>(0, t<span class="built_in">_</span>&#123;<span class="keyword">\max</span> &#125;<span class="keyword">\right</span>]<span class="keyword">\right</span><span class="keyword">\&#125;</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation*&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$\begin{aligned}	\text{the initial temperature: } &amp;\quad T_0&#x3D;1, \<br>        \text{the terminal temperature: }&amp;\quad e &#x3D; 10^{-30},\<br>        \text{attenuation coefficient: }&amp;\quad \alpha &#x3D;0.999, \<br>        \text{the solution domain: }&amp;\quad \mathbb{S}&#x3D;\left{p \in(0, \infty), t \in\left(0, t_{\max }\right]\right}<br>     \end{aligned}$$<br>2. 一个优化模型的示例</p>
+   <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">	<span class="keyword">\min</span> <span class="built_in">&amp;</span><span class="keyword">\,</span>Z=<span class="keyword">\sum</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;j&#125; <span class="keyword">\in</span> B(j)<span class="keyword">\\</span></span><br><span class="line">	<span class="keyword">\mathrm</span>&#123;s.t.&#125; <span class="built_in">&amp;</span><span class="keyword">\left</span><span class="keyword">\&#123;</span><span class="keyword">\begin</span>&#123;array&#125;&#123;llll&#125;</span><br><span class="line">    	<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> A(i)&#125; V<span class="built_in">_</span>i y<span class="built_in">_</span>&#123;ij&#125; <span class="keyword">\le</span> <span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;j <span class="keyword">\in</span> A(i)&#125; E<span class="built_in">_</span>j x<span class="built_in">_</span>j,<span class="keyword">\\</span></span><br><span class="line">    	<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;j <span class="keyword">\in</span> B(i)&#125; y<span class="built_in">_</span>&#123;ij&#125; <span class="keyword">\ge</span> 1, <span class="keyword">\forall</span> i<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, <span class="keyword">\forall</span> j <span class="keyword">\in</span> B(j), <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> A(i)&#125; x<span class="built_in">_</span>j <span class="keyword">\ge</span> 1, <span class="keyword">\forall</span> i <span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, <span class="keyword">\\</span></span><br><span class="line">        y<span class="built_in">_</span>&#123;ij&#125;<span class="keyword">\le</span> x<span class="built_in">_</span>j, <span class="keyword">\forall</span> i<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, j<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;J&#125;. <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;array&#125;<span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{aligned}<br>    \min &amp;,Z&#x3D;\sum_{i \in \mathbb{I}} \sum_{j} \in B(j)\<br>    \mathrm{s.t.} &amp;\left{\begin{array}{llll}<br>        \sum\limits_{i \in A(i)} V_i y_{ij} \le \sum\limits_{j \in A(i)} E_j x_j,\<br>        \sum\limits_{j \in B(i)} y_{ij} \ge 1, \forall i\in \mathbb{I}, \forall j \in B(j), \<br>        \sum\limits_{i \in A(i)} x_j \ge 1, \forall i \in \mathbb{I}, \<br>        y_{ij}\le x_j, \forall i\in \mathbb{I}, j\in \mathbb{J}. \<br>    \end{array}\right.<br>\end{aligned}$$<br>3. 添加行属性、列属性的矩阵</p>
+   <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;<span class="keyword">\label</span>&#123;Eq:matrix1&#125;</span><br><span class="line"><span class="keyword">\bordermatrix</span>&#123;<span class="comment">%</span></span><br><span class="line">       <span class="built_in">&amp;</span> t<span class="built_in">_</span>1       <span class="built_in">&amp;</span> t<span class="built_in">_</span>2     <span class="built_in">&amp;</span><span class="keyword">\cdots</span>     <span class="built_in">&amp;</span>t<span class="built_in">_</span>n<span class="keyword">\cr</span></span><br><span class="line">u<span class="built_in">_</span>1    <span class="built_in">&amp;</span> ?         <span class="built_in">&amp;</span> ?       <span class="built_in">&amp;</span><span class="keyword">\cdots</span>     <span class="built_in">&amp;</span> ?<span class="keyword">\cr</span></span><br><span class="line">u<span class="built_in">_</span>2    <span class="built_in">&amp;</span> ?         <span class="built_in">&amp;</span> ?       <span class="built_in">&amp;</span><span class="keyword">\cdots</span>     <span class="built_in">&amp;</span> ?<span class="keyword">\cr</span></span><br><span class="line"><span class="keyword">\vdots</span> <span class="built_in">&amp;</span> <span class="keyword">\vdots</span>    <span class="built_in">&amp;</span><span class="keyword">\vdots</span>   <span class="built_in">&amp;</span><span class="keyword">\cdots</span>     <span class="built_in">&amp;</span><span class="keyword">\vdots</span><span class="keyword">\cr</span></span><br><span class="line">u<span class="built_in">_</span>m    <span class="built_in">&amp;</span> ?         <span class="built_in">&amp;</span> ?       <span class="built_in">&amp;</span><span class="keyword">\cdots</span>     <span class="built_in">&amp;</span>?</span><br><span class="line">&#125;,</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li><p>cases示例</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;<span class="keyword">\label</span>&#123;eq:food<span class="built_in">_</span>reqiure<span class="built_in">_</span>fin1&#125;</span><br><span class="line">    W<span class="built_in">_</span>t=<span class="keyword">\left</span><span class="keyword">\&#123;</span><span class="keyword">\begin</span>&#123;array&#125;&#123;ll&#125;</span><br><span class="line">        <span class="keyword">\ln</span> (Ft)<span class="keyword">\cdot</span><span class="keyword">\left</span>[1-<span class="keyword">\mathrm</span>&#123;exp&#125;(-k<span class="built_in">_</span>&#123;<span class="keyword">\max</span>&#125;t)<span class="keyword">\right</span>]<span class="built_in">^</span>3, <span class="built_in">&amp;</span><span class="keyword">\text</span>&#123;if &#125;F&gt;F<span class="built_in">_</span>w,<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\ln</span> (Ft)<span class="keyword">\cdot</span><span class="keyword">\left</span>[1-<span class="keyword">\mathrm</span>&#123;exp&#125;(-(1-<span class="keyword">\mathrm</span>&#123;e&#125;<span class="built_in">^</span>&#123;-<span class="keyword">\lambda</span> F&#125;)k<span class="built_in">_</span>&#123;<span class="keyword">\max</span>&#125;t)<span class="keyword">\right</span>]<span class="built_in">^</span>3, <span class="built_in">&amp;</span><span class="keyword">\text</span>&#123;if &#125;0<span class="keyword">\le</span> F<span class="keyword">\le</span> F<span class="built_in">_</span>w.<span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;array&#125;<span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>$$<br>    W_t&#x3D;\left{\begin{array}{ll}<br>        \ln (Ft)\cdot\left[1-\mathrm{exp}(-k_{\max}t)\right]^3, &amp;\text{if }F&gt;F_w,\<br>        \ln (Ft)\cdot\left[1-\mathrm{exp}(-(1-\mathrm{e}^{-\lambda F})k_{\max}t)\right]^3, &amp;\text{if }0\le F\le F_w.\<br>    \end{array}\right.<br>$$</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ul>
+<li>由Excel和Markdown中生成LaTeX表格：<a href="http://www.tablesgenerator.com/tex_tables" target="_blank" rel="noopener">http://www.tablesgenerator.com/tex_tables</a></li>
+</ul>
+<ol>
+<li><p>符号说明(基础三线表)</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[!htbp]</span><br><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Notations&#125;							<span class="comment">% 表格标题</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;c|l&#125;			<span class="comment">% 三线表格式(&#x27;c&#x27;居中，&#x27;l&#x27;左对齐，&#x27;|&#x27;表示竖框线)</span></span><br><span class="line">	<span class="keyword">\toprule</span>								<span class="comment">% 上框线</span></span><br><span class="line">	<span class="keyword">\multicolumn</span>&#123;1&#125;&#123;m&#123;3cm&#125;&#125;&#123;<span class="keyword">\centering</span> Symbol&#125;</span><br><span class="line">	<span class="built_in">&amp;</span><span class="keyword">\multicolumn</span>&#123;1&#125;&#123;m&#123;8cm&#125;&#125;&#123;<span class="keyword">\centering</span> Definition&#125;<span class="keyword">\\</span></span><br><span class="line">	<span class="keyword">\midrule</span>								<span class="comment">% 中框线</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\rho</span><span class="built_in">$</span>      <span class="built_in">&amp;</span>   the people density<span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\mathit</span>&#123;SD<span class="built_in">_</span>i&#125;<span class="built_in">$</span> <span class="built_in">&amp;</span> the spatial danger of the <span class="built_in">$</span>i<span class="built_in">^</span>&#123;th&#125;<span class="built_in">$</span> cellular<span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span>v<span class="built_in">_</span>i<span class="built_in">$</span>       <span class="built_in">&amp;</span>   the velocity of the <span class="built_in">$</span>i<span class="built_in">^</span>&#123;th&#125;<span class="built_in">$</span> visitor<span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\overrightarrow</span>&#123;F<span class="built_in">_</span>&#123;Mi&#125;&#125;<span class="built_in">$</span>   <span class="built_in">&amp;</span>   the attractive force (spatial danger and velocity) on the <span class="built_in">$</span>i<span class="built_in">^</span>&#123;th&#125;<span class="built_in">$</span> visitor<span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\overrightarrow</span>&#123;F<span class="built_in">_</span>&#123;ppi&#125;&#125;<span class="built_in">$</span>  <span class="built_in">&amp;</span>   the people-to-people interaction force on the <span class="built_in">$</span>i<span class="built_in">^</span>&#123;th&#125;<span class="built_in">$</span> visitor<span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\overrightarrow</span>&#123;d<span class="built_in">_</span>i&#125;<span class="built_in">$</span>  <span class="built_in">&amp;</span>   the expected movement direction the <span class="built_in">$</span>i<span class="built_in">^</span>&#123;th&#125;<span class="built_in">$</span> visitor<span class="keyword">\\</span></span><br><span class="line">	<span class="built_in">$</span><span class="keyword">\alpha</span><span class="built_in">$</span> <span class="built_in">&amp;</span>the weight of the spatial danger and visitors’ velocity in <span class="built_in">$</span><span class="keyword">\overrightarrow</span>&#123;d<span class="built_in">_</span>i&#125;<span class="built_in">$</span><span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span><span class="keyword">\beta</span><span class="built_in">$</span> <span class="built_in">&amp;</span>the weight of interaction force between people in <span class="built_in">$</span><span class="keyword">\overrightarrow</span>&#123;d<span class="built_in">_</span>i&#125;<span class="built_in">$</span><span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">$</span>p<span class="built_in">$</span> <span class="built_in">&amp;</span>   the ratio of the crowd decentralization<span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\bottomrule</span>								<span class="comment">%底框线</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;<span class="keyword">\label</span>&#123;tb:notation&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>基础表格</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[!htbp]</span><br><span class="line">    <span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Grey prediction accuracy registration&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;tabular&#125;&#123;c|ccccccc&#125;</span><br><span class="line">        <span class="keyword">\toprule</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;Year&#125;   <span class="built_in">&amp;</span>2011 <span class="built_in">&amp;</span>2012 <span class="built_in">&amp;</span>2013 <span class="built_in">&amp;</span>2014 <span class="built_in">&amp;</span>2015 <span class="built_in">&amp;</span>2016 <span class="built_in">&amp;</span>2017<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\midrule</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;EV Amount&#125; <span class="built_in">&amp;</span> 1000<span class="built_in">&amp;</span> 1800<span class="built_in">&amp;</span> 3000<span class="built_in">&amp;</span>5000<span class="built_in">&amp;</span>8000<span class="built_in">&amp;</span>15000<span class="built_in">&amp;</span>20000 <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\bottomrule</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;tabular&#125;<span class="keyword">\label</span>&#123;tb:Gray<span class="built_in">_</span>Prediction&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>固定列宽表格</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[!htbp]</span><br><span class="line">    <span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Normalized results of raw data for each indicator&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;tabularx&#125;&#123;32em&#125;						<span class="comment">% 控制固定总列宽32em</span></span><br><span class="line">    &#123;*&#123;8&#125;&#123;&gt;&#123;<span class="keyword">\centering</span><span class="keyword">\arraybackslash</span>&#125;X&#125;&#125;		<span class="comment">% 8栏每栏表格居中</span></span><br><span class="line">        <span class="keyword">\toprule</span></span><br><span class="line">        <span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;1&#125;  <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;2&#125; <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;3&#125;  <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;4&#125; <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;5&#125; <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;6&#125; <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;7&#125; <span class="built_in">&amp;</span><span class="keyword">\textit</span>&#123;C&#125;<span class="keyword">\textsubscript</span>&#123;8&#125;<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\midrule</span></span><br><span class="line">        0.0833<span class="built_in">&amp;</span> 1.0<span class="built_in">&amp;</span> 0 <span class="built_in">&amp;</span>0.375<span class="built_in">&amp;</span> 1 <span class="built_in">&amp;</span>0.9326 <span class="built_in">&amp;</span>0.9067 <span class="built_in">&amp;</span>0 <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\bottomrule</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;tabularx&#125;<span class="keyword">\label</span>&#123;tb:Normalized<span class="built_in">_</span>results&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标题行分两类的表格</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[!htbp]</span><br><span class="line">    <span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Metabolic rate of different Flying creatures in Static and Dynamic&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;tabular&#125;&#123;cccc&#125;</span><br><span class="line">        <span class="keyword">\toprule</span></span><br><span class="line">         <span class="keyword">\multirow</span>&#123;2&#125;&#123;*&#125;&#123;Flying creatures&#125; <span class="built_in">&amp;</span> <span class="keyword">\multirow</span>&#123;2&#125;&#123;*&#125;&#123;Body weight (g)&#125; <span class="built_in">&amp;</span><span class="keyword">\multicolumn</span>&#123;2&#125;&#123;c&#125;&#123;Metabolic rate (cal<span class="built_in">$</span><span class="keyword">\cdot</span><span class="keyword">\text</span>&#123;g&#125;<span class="built_in">^</span>&#123;-1&#125;<span class="keyword">\cdot</span><span class="keyword">\text</span>&#123;hr&#125;<span class="built_in">^</span>&#123;-1&#125;<span class="built_in">$</span>)&#125;<span class="keyword">\\</span></span><br><span class="line">         <span class="keyword">\cmidrule</span>&#123;3-4&#125;</span><br><span class="line">            <span class="built_in">&amp;</span> <span class="built_in">&amp;</span> Dynamic <span class="built_in">&amp;</span> Static<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\midrule</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;Parrot&#125;    <span class="built_in">&amp;</span>    42<span class="built_in">&amp;</span>     106 <span class="built_in">&amp;</span>       15.4<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;Gull&#125; <span class="built_in">&amp;</span>         345     <span class="built_in">&amp;</span>56      <span class="built_in">&amp;</span>  7.2<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;Bat&#125; <span class="built_in">&amp;</span>          512<span class="built_in">&amp;</span>    60 <span class="built_in">&amp;</span>        6.9<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\textbf</span>&#123;Eagle&#125; <span class="built_in">&amp;</span>        2117<span class="built_in">&amp;</span>   36 <span class="built_in">&amp;</span>        4.5<span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\bottomrule</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;tabular&#125;<span class="keyword">\label</span>&#123;tb:Metabolic<span class="built_in">_</span>rate&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="信件"><a href="#信件" class="headerlink" title="信件"></a>信件</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 以下为信件/备忘录部分，不需要可自行去掉</span></span><br><span class="line"><span class="comment">% 如有需要可将整个 letter 环境移动到文章开头或中间</span></span><br><span class="line"><span class="comment">% 请在后一个花括号内填写信件（Letter）或备忘录（Memorandum）标题</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;letter&#125;&#123;Memorandum&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;flushleft&#125;  <span class="comment">% 左对齐环境，无首行缩进</span></span><br><span class="line"><span class="keyword">\textbf</span>&#123;To:&#125; Heishan Yan<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\textbf</span>&#123;From:&#125; Team XXXXXXX<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\textbf</span>&#123;Date:&#125; October 1st, 2019<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\textbf</span>&#123;Subject:&#125; A better choice than MS Word: <span class="keyword">\LaTeX</span></span><br><span class="line"><span class="keyword">\end</span>&#123;flushleft&#125;</span><br><span class="line"></span><br><span class="line">In the memo, we want to introduce you an alternate typesetting program to the prevailing MS Word: <span class="keyword">\textbf</span>&#123;<span class="keyword">\LaTeX</span>&#125;. In fact, the history of <span class="keyword">\LaTeX</span><span class="keyword">\ </span>is even longer than that of MS Word. In 1970s, the famous computer scientist Donald Knuth first came out with a typesetting program, which named <span class="keyword">\TeX</span><span class="keyword">\ </span><span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line">Firstly, <span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line">Secondly, <span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line">Lastly, <span class="keyword">\ldots</span></span><br><span class="line"></span><br><span class="line">According to all those mentioned above, it is really worth to have a try on <span class="keyword">\LaTeX</span>! </span><br><span class="line"><span class="keyword">\end</span>&#123;letter&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="参考文献（MLA）"><a href="#参考文献（MLA）" class="headerlink" title="参考文献（MLA）"></a>参考文献（MLA）</h2><ol>
+<li><p>普通书籍</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\bibitem</span>&#123;1&#125; Venuti, Fiammetta, and Luca Bruno. &quot;Crowd-structure interaction in lively footbridges under synchronous lateral excitation: A literature review.&quot; <span class="keyword">\emph</span>&#123;Physics of life reviews&#125; 6.3 (2009): 176-206.</span><br><span class="line"><span class="keyword">\bibitem</span>&#123;6&#125; Yuan, Weifeng, and Kang Hai Tan. &quot;An evacuation model using cellular automata.&quot; <span class="keyword">\emph</span>&#123;Physica A: Statistical Mechanics and its Applications&#125; 384.2 (2007): 549-566.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>博士论文</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\bibitem</span>&#123;4&#125; Kongjin Zhu. <span class="keyword">\emph</span>&#123;Study on Evacuation Characteristics and Evacuation Strategy in Typical Rigions of buildings&#125;. Diss. Hefei: University of Science and Technology of China, 2013.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网站</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\bibitem</span>&#123;3&#125; <span class="keyword">\emph</span>&#123;Charging Station&#125;. (2019). Retrieved January 1, 2020, from<span class="keyword">\url</span>&#123;<span class="link">https://en.wikipedia.org/wiki/Charging_station</span>&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\noindent</span><span class="keyword">\textsc</span>&#123;Part A&#125; - <span class="keyword">\textbf</span>&#123;lab021.m&#125;</span><br><span class="line"><span class="keyword">\lstinputlisting</span>[language=matlab]&#123;./code/lab021.m&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;[language=vhdl]</span><br><span class="line">process(sel3) --根据音调编码，分配分频系数</span><br><span class="line">begin</span><br><span class="line">    case sel3 is</span><br><span class="line">        when&quot;000&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0111011101110&quot;; --3822    -- 1(中音do!)</span><br><span class="line">        when&quot;001&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0000000110010&quot;; --50      -- 1(低音do)</span><br><span class="line">        when&quot;010&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0000000010100&quot;; --20      -- 2(低音re)</span><br><span class="line">        when&quot;011&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0000000001010&quot;; --10      -- 3(低音mi)</span><br><span class="line">        when&quot;100&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0000000000101&quot;; --5       -- 4(低音fa)</span><br><span class="line">        when&quot;101&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0000000000010&quot;; --2       -- 5(低音sol)</span><br><span class="line">        when&quot;110&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;1000111000000&quot;; --4544    -- 6(低音la)</span><br><span class="line">        when&quot;111&quot;=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0111111010000&quot;; --4048    -- 7(低音si)</span><br><span class="line">        when others=&gt;count<span class="built_in">_</span>ld&lt;=&quot;0111011101110&quot;; --3822</span><br><span class="line">end case;</span><br><span class="line">end process;   </span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br></pre></td></tr></table></figure>
+
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag"># 数学建模</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【持续更新】论文常用LaTeX代码</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年08月30日 - 09:42:10</p>
+  <p><span>原始链接:</span><a href="/2020/08/30/latex-code/" title="【持续更新】论文常用LaTeX代码">https://levitate-qian.github.io/2020/08/30/latex-code/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/08/30/latex-code/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="乘法器电路总结" href="/2020/10/29/RF-multiplier/">
+            ← 乘法器电路总结
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="电磁场与电磁波公式整理" href="/2020/07/31/Formulas-of-Electromagnetic-Field-and-Wave/">
+            电磁场与电磁波公式整理 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#论文常用LaTeX代码"><span class="toc-text">论文常用LaTeX代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公式"><span class="toc-text">公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表格"><span class="toc-text">表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信件"><span class="toc-text">信件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献（MLA）"><span class="toc-text">参考文献（MLA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码高亮"><span class="toc-text">代码高亮</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/08/30/latex-code/" class="leancloud-visitors" data-flag-title="【持续更新】论文常用LaTeX代码">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【持续更新】论文常用LaTeX代码</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

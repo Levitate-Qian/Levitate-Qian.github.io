@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【转】数学建模竞赛经验分享 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【转】数学建模竞赛经验分享 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/06/18/MCM-experience-sharing/">
+
+	
+	<meta property="article:published_time" content="2020-06-17T22:06:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/06/18/MCM-experience-sharing/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-06-17T22:21:44.000Z">
+                    2020-06-17
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E6%80%BB%E7%BB%93/">总结</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【转】数学建模竞赛经验分享</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7y0Xj.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="数学建模竞赛经验分享"><a href="#数学建模竞赛经验分享" class="headerlink" title="数学建模竞赛经验分享"></a>数学建模竞赛经验分享</h1><blockquote>
+<p>由于双创周最后还是选了一门课，也比较有趣，所以别的文章啊之类的可能暂时咕咕咕了！等下周二以后咯！</p>
+<p>这篇文章来源杨文昊，所以<strong>第一视角是杨文昊（编程队友）</strong>，有一定的改动。文章比较长，原来考虑分几篇，后来想想还是放在一起吧。下面贴上原文链接：</p>
+<ul>
+<li>👉<a href="https://www.alpha-yang.cn/2020/02/13/%E5%85%A5%E9%97%A8%E5%8F%82%E4%B8%8E%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B/" target="_blank" rel="noopener">入门参与数学建模竞赛</a></li>
+<li>👉<a href="https://www.alpha-yang.cn/2020/06/02/%E5%A6%82%E4%BD%95%E5%86%99%E5%87%BA%E4%B8%80%E7%AF%87%E9%AB%98%E8%B4%A8%E9%87%8F%E7%9A%84%E6%95%B0%E6%A8%A1%E7%AB%9E%E8%B5%9B%E7%AD%94%E5%8D%B7/" target="_blank" rel="noopener">如何写出一篇高质量的数模竞赛答卷</a></li>
+<li>👉<a href="https://www.alpha-yang.cn/2020/06/11/%E8%A5%BF%E7%94%B5%E6%95%B0%E6%A8%A1%E7%AB%9E%E8%B5%9B%E9%9D%A2%E8%AF%95%E5%9F%B9%E8%AE%AD%E5%8F%82%E8%B5%9B%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/" target="_blank" rel="noopener">西电数模竞赛面试培训参赛经验汇总</a></li>
+<li>👉<a href="https://www.alpha-yang.cn/2020/06/13/%E6%95%B0%E6%A8%A1%E7%AB%9E%E8%B5%9B%E5%A4%87%E8%B5%9B%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%AE%97%E6%B3%95/" target="_blank" rel="noopener">数模竞赛备赛常用模型与算法</a></li>
+</ul>
+</blockquote>
+<p><img class="post-img b-lazy" data-img="https://s1.ax1x.com/2020/08/09/a7y0Xj.png" data-index="0" data-src="https://s1.ax1x.com/2020/08/09/a7y0Xj.png"></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><img alt="目录" class="post-img b-lazy" data-img="/%E7%9B%AE%E5%BD%95.png" data-index="1" data-src="/%E7%9B%AE%E5%BD%95.png"></p>
+<p>（最后有<strong>西电数模竞赛国赛面试培训参赛经验</strong>）</p>
+<h2 id="前言：数模竞赛给我带来了什么？"><a href="#前言：数模竞赛给我带来了什么？" class="headerlink" title="前言：数模竞赛给我带来了什么？"></a>前言：数模竞赛给我带来了什么？</h2><h3 id="1-1-简历上的荣誉"><a href="#1-1-简历上的荣誉" class="headerlink" title="1.1 简历上的荣誉"></a>1.1 简历上的荣誉</h3><p>首先肯定是简历上的荣誉，大学生数模竞赛主要有两个认可度比较高的比赛，一是每年9月的国赛(全国大学生数学建模竞赛)，二是美赛(国际大学生数学建模竞赛)。各有各的专攻方向，之后也会详细说这两个比赛的区别。</p>
+<h3 id="1-2-个人技能的提升"><a href="#1-2-个人技能的提升" class="headerlink" title="1.2 个人技能的提升"></a>1.2 个人技能的提升</h3><p>在美赛培训当中，我们学习了许多对于科研非常有用但我原来懒得学的东西。如果不是数学建模，我们可能到现在也只能面向Bing和CSDN使用MATLAB，更不会使用像LaTeX这样的偏科研写作的专业排版软件。其实整个数模比赛3~4天的过程就是压缩了的科研经历，在这里我学会了大量英文文献的阅读和写作，快速学习模型与算法并应用的能力等等。确实数模真的给我能力的提升太多太多了，’<em>Math is always dependable</em>‘。多学数学，不管你以后从事什么，你都不会吃亏。</p>
+<h3 id="1-3-对于科研心态的转变"><a href="#1-3-对于科研心态的转变" class="headerlink" title="1.3 对于科研心态的转变"></a>1.3 对于科研心态的转变</h3><p>数模比赛就是一次科研经历。在科研的道路上，遇到挫折几乎是绝对的事情，不可能有人说他的科研生涯都能顺风顺水，所有idea都能实现。在比赛的时候，对于模型无法实现，结果无法导出，你是否能以平和的心态去面对，确实是件需要锻炼的事情。除此之外，我相信大部分同学都一样，比赛的几天非常辛苦，于是就希望能拿到一个匹配甚至超过自己努力结果的成绩，这可没有因果关系。患得患失的心态就是很多大一同学的常态，不得不说这让人心很累，想得越多对自己的生活学习影响越大，你是否能以坦然的心态来面对呢？</p>
+<h2 id="队伍组建：最最最重要的事情"><a href="#队伍组建：最最最重要的事情" class="headerlink" title="队伍组建：最最最重要的事情"></a>队伍组建：最最最重要的事情</h2><h3 id="2-1-为什么重要？"><a href="#2-1-为什么重要？" class="headerlink" title="2.1 为什么重要？"></a>2.1 为什么重要？</h3><p>道理很简单，你的队友不一定要是一位大佬，但他需要愿意去学习，数模比赛最重要的东西就是<strong>愿意去学习新的或者是你根本看不懂的知识</strong>。初等模型，初等算法，论文写作架构，我相信这些是大家入门时必看的东西，然而三人一起学习的效果一定强于一个人学习。</p>
+<p>另外，你们的团队需要<strong>早早地磨合好</strong>，尽量不要中途有人退出，然后又找人进来。我打数模以来也接触了许多支队伍，能拿大奖的不一定要是三位大佬，有时候一个团结的队伍能爆发出更大的能量，我很幸运我能遇到两位志同道合的朋友，陪我一直坚持到了今天。</p>
+<h3 id="2-2-专业可以适当考虑，但并不是决定性因素"><a href="#2-2-专业可以适当考虑，但并不是决定性因素" class="headerlink" title="2.2 专业可以适当考虑，但并不是决定性因素"></a>2.2 专业可以适当考虑，但并不是决定性因素</h3><p>关于第二点，很多人在组队上都有一定的执念，希望建模队友是数统院的，编程队友是计算机院的，论文队友是经管学院的，而且团队最好男女搭配等等。个人觉得这些因素确实可以考虑，但不应该是你们的首要决定因素。我们的队伍三人均来自于电子工程学院，但是你在电院并不代表你不擅长计算机或者论文写作啊，这并没有必然联系。</p>
+<p>我认为还是<strong>以愿意努力学习作为选队友的第一标准</strong>。</p>
+<h3 id="2-3-分工：建模、实现、写作"><a href="#2-3-分工：建模、实现、写作" class="headerlink" title="2.3 分工：建模、实现、写作"></a>2.3 分工：建模、实现、写作</h3><p>数模比赛说到底就是让你解决一个实际问题，<strong>建立模型、实现模型、论文写作</strong>这就是比赛的流程，队友的职能也分为<strong>建模、编程、论文</strong>三个方向。简而言之，建模队友主要的工作是对于比赛的实际问题建立模型，将实际问题转化为数学问题。编程队友主要的工作是利用计算机软件求解建模队友转化的数字问题，例如方程等其他任何形式。而论文队友主要的工作是将建模与算法的过程与结果记录下来。三个方向缺一不可，个人觉得都十分重要。</p>
+<p>需要注意的是，各队友之间的职能其实也并没有那么明确的界限，比如编程论文队友也可以参与建模，建模队友也可以辅助编程查错或者完成指定模块任务，建模编程队友最后也一定会参与审稿写作修改等。你可以专精一个方向，但其他的方向你最好也要会，这么复杂的工作流程，更加说明了前期找队友的重要性，<strong>认真努力才是你们找队友的第一指导性因素</strong>。</p>
+<h2 id="前期准备：完成一篇数模论文你需要知道…"><a href="#前期准备：完成一篇数模论文你需要知道…" class="headerlink" title="前期准备：完成一篇数模论文你需要知道…"></a>前期准备：完成一篇数模论文你需要知道…</h2><h3 id="3-1-阅读优秀论文的重要性"><a href="#3-1-阅读优秀论文的重要性" class="headerlink" title="3.1 阅读优秀论文的重要性"></a>3.1 阅读优秀论文的重要性</h3><p>当大家把基础的模型算法(高级的需要靠自己不断积累，但是比赛现学完全来得及)都掌握的差不多的时候，真正能让大家脱颖而出的是，写作的成熟度。我们在看论文的时候，大多可以把论文分为两类。<img alt="论文的分类" class="post-img b-lazy" data-img="/%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%86%E7%B1%BB.png" data-index="2" data-src="/%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%86%E7%B1%BB.png"></p>
+<p>我们队伍在美赛和国赛培训的时候都会做的一件事情就是，大量阅读优秀论文，并将论文分类，将B类论文整理出来，把它们横向对比总结一遍，再和我们的对比总结一遍。虽然这次我们团队的大奖有运气成分，但我一定敢说，<strong>阅读了大量美赛优秀论文，我们做了许多总结和整理</strong>，是我们这次能得奖的重要前提。那下面我就来说说，我们团队对于数模比赛论文写作的目前可以提供给大家分享的经验。</p>
+<blockquote>
+<p>数模国赛、美赛部分优秀论文资源（👉<a href="https://levitate.lanzoux.com/b0de3dx0h" target="_blank" rel="noopener">戳这边</a>　密码:1yj6）</p>
+</blockquote>
+<h3 id="3-2-论文架构"><a href="#3-2-论文架构" class="headerlink" title="3.2 论文架构"></a>3.2 论文架构</h3><p>所有数模论文都有它的套路和最基本的格式，问题分析，模型建立，结果分析，灵敏性分析等等文章必须按照这个来。以及各个部分应该<strong>写什么，不能写什么</strong>，论文长度的限制。</p>
+<p>当然可能你看个几篇文章就会发现一个问题，大家的结构怎么都不一样？确实有这个问题。产生这个问题的原因一般有两个方面：</p>
+<ol>
+<li><p>大家整体思路框架是差不多的，只不过有些队伍进行了<em>微调</em>。</p>
+</li>
+<li><p>受<em>题目限制</em>，例如2018年国赛B题，注定了传统论文框架无法去写(这是个很烦的问题，清晰的论文逻辑思路是论文写作最关键的一点，遇到这种情况只能自己定合理的框架)。</p>
+</li>
+</ol>
+<p>有时候我和学弟交流时也会发现，有些学弟的写作故意不按照套路来，想显得与众不同。关于这个想法，我想说是有极大的风险的。当然，在阅读优秀论文的过程中，确实也出现过这种情况，有些文章的结构其实我自己看都乱的快看不下去了，但是请大家注意一般这类文章能成为优秀论文可不是因为他的结构出彩，而是多半由于它的模型算法，也就是上文所提到的A类文章。对于大多数同学而言，还是老老实实按照思维的连贯性来吧，现在的比赛包括美赛在内，基本都是以四五个问题或四五个task的形式出现的，一个问题一个task对应一种模型算法，有时候可以连在一起解决。</p>
+<p><img alt="论文架构" class="post-img b-lazy" data-img="/%E8%AE%BA%E6%96%87%E6%9E%B6%E6%9E%84.png" data-index="3" data-src="/%E8%AE%BA%E6%96%87%E6%9E%B6%E6%9E%84.png"></p>
+<p>架构可以根据题目灵活调整，主要是调整模型的建立、求解、分析这块部分。这部分通常有两种情况：</p>
+<ol>
+<li>一问一问分析，模型建立，算法求解，结果分析，如果嫌长也可以另起大标题。</li>
+<li>先建立好几问模型，再算法，最后一起分析。</li>
+</ol>
+<p>再次强调，建议初次参加数模竞赛的同学们不要随便更改架构，在你的内容不突出的情况下，架构还十分乱，进而容易引起逻辑不清晰，是件糟糕的事情。</p>
+<h3 id="3-3-文章篇幅"><a href="#3-3-文章篇幅" class="headerlink" title="3.3 文章篇幅"></a>3.3 文章篇幅</h3><ul>
+<li>我这里先说说整篇文章的篇幅，论文页面控制在20页左右，不超过25页，不少于19页为好。（从摘要到参考文献）附录和代码不算在总页数中。20-23 页极佳。模型和算法的篇幅一定是大头，不要主次颠倒。<ul>
+<li>国赛一般可以23~25页左右。</li>
+<li>美赛会有页数限制，一般是正文不超过20页，但最好不要少于19页。（<em>书信一般会给额外的两页，可以美观一些</em>）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-论文写作"><a href="#3-4-论文写作" class="headerlink" title="3.4 论文写作"></a>3.4 论文写作</h3><ul>
+<li><p><strong>摘要</strong>一定一定要好好写，摘要直接影响老师给你论文的总分，摘要可以多读优秀论文来达到提高水平的目的。</p>
+</li>
+<li><p>问题背景，问题重述可以在选定题目后就完成，不必浪费太多时间。模型假设以及符号说明最后一天稍微整理一下就可以完成。</p>
+</li>
+<li><p>模型算法描述一定需要完整，且结合题目本身来进行建立与实现。千万不可脱离题目本身对模型算法进行具体的描述。</p>
+</li>
+<li><p><strong>结果分析</strong>需要特别重视结果图周围的结果分析，因为结果图是阅卷老师重点看的部分，如果这部分的分析很少或者不到位，会减去相当多的印象分。</p>
+</li>
+</ul>
+<h2 id="实战演练：从各种论文看注意事项"><a href="#实战演练：从各种论文看注意事项" class="headerlink" title="实战演练：从各种论文看注意事项"></a>实战演练：从各种论文看注意事项</h2><h3 id="4-1-摘要"><a href="#4-1-摘要" class="headerlink" title="4.1 摘要"></a>4.1 摘要</h3><p>摘要当真是重中之重。老师看论文3 min能看什么呢？看摘要，看图，看结果分析。其他什么问题重述，背景，优缺点，推广，参考文献是很少有人看的。摘要一定是重中之重，建议对照往年优秀论文来写摘要。优秀论文的模型算法学不来，摘要还是一定要学的。由于时间原因，每次写摘要一般都是建模队友主笔，我们团队三个人一起修改一起写，并最终修订了十几遍的版本。</p>
+<hr>
+<h3 id="4-2-模型的建立"><a href="#4-2-模型的建立" class="headerlink" title="4.2 模型的建立"></a>4.2 模型的建立</h3><ul>
+<li>建立模型是数学建模比赛最重要的一个部分，在建立模型之前一定要多阅读相关文献以及相关书籍，所谓好事多磨，模型的建立在比赛中值得去花更多的时间。一般而言，很少存在题目可以直接套用初等模型的情况，基本上都要加以改变或者变化。</li>
+</ul>
+<h4 id="〔案例1〕模型建立"><a href="#〔案例1〕模型建立" class="headerlink" title="〔案例1〕模型建立"></a>〔案例1〕模型建立</h4><ul>
+<li><p>例如本次美赛我们D题的论文，对于四个任务我们建立了两个模型，分别是基于多指标的传球网络模型和基于对抗回归的评价模型。</p>
+<p><img alt="模型建立案例" class="post-img b-lazy" data-img="/%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E6%A1%88%E4%BE%8B.png" data-index="4" data-src="/%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E6%A1%88%E4%BE%8B.png"></p>
+</li>
+</ul>
+<h4 id="4-2-1-优秀的模型具有怎样的特质"><a href="#4-2-1-优秀的模型具有怎样的特质" class="headerlink" title="4.2.1 优秀的模型具有怎样的特质"></a>4.2.1 优秀的模型具有怎样的特质</h4><ul>
+<li><p>首先我们需要确认的是，国赛和美赛的模型都是可以简单的，可以不用那么复杂，比如2019美赛A题的优秀论文，就是用简单的模型去解决问题，并没有任何问题。但是即使简单的模型，也要考虑多方的因素，并不能简单到只考虑问题的一个方面。</p>
+</li>
+<li><p>比赛的时候一定可以查阅文献，注意不管是什么比赛，真的很少用书上的基础模型，如果你用了说明你的模型不够具有创新性。大家可以用搜索引擎根据问题去找更实用的模型，或者队伍水平高，可以自制创新想法的模型。</p>
+</li>
+<li><p>注意细节——细节能突出针对特定问题本质的数学的分析。</p>
+</li>
+</ul>
+<h4 id="4-2-2-不同模型的关系应当如何处理"><a href="#4-2-2-不同模型的关系应当如何处理" class="headerlink" title="4.2.2 不同模型的关系应当如何处理"></a>4.2.2 不同模型的关系应当如何处理</h4><ul>
+<li><p>其次模型的复杂度采用<strong>层层递进</strong>的方法，逐一体现。比如我们Task1的模型，之后也能继续用，不过需要我们的继续改进。采用此方法，既能使文章循序渐进，也能更加合理地安排文章结构。</p>
+</li>
+<li><p>不要仅仅描述自己做了什么工作、怎么解决这个问题，而要升华一下：描述这个方法或结果说明什么问题、发现什么现象。总之要有自己的观点。模型不断改进，逐级推进，即<strong>Basic model→Normal model → Extended model</strong>。</p>
+</li>
+</ul>
+<h4 id="4-2-3-模型应该如何描述"><a href="#4-2-3-模型应该如何描述" class="headerlink" title="4.2.3 模型应该如何描述"></a>4.2.3 模型应该如何描述</h4><ul>
+<li><p>最后就是模型描述必须具体，即使再简单的模型，也需要结合你的具体问题来描述分析。建立模型可以大致分为几个重要步骤，问题分析即题目需要什么，模型描述即为什么这个模型可以解决此问题，模型量化建立即程式具体化的模型。</p>
+<p><img alt="模型描述" class="post-img b-lazy" data-img="/%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0.png" data-index="5" data-src="/%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0.png"></p>
+</li>
+<li><p>配合一些设计精巧的示意图等说明自己的建模动机、方法的原理等。有时这些idea用语言写出来不一定读者能真正理解。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-3-算法的实现"><a href="#4-3-算法的实现" class="headerlink" title="4.3 算法的实现"></a>4.3 算法的实现</h3><ul>
+<li><p>我们首先明确算法的目的是为了求解模型，有的时候他也可以成为模型的重要组成部分。在赛前，我们需要整理各个题目常用算法的实现，这样可以节约比赛的时间，特别是像D题这样网络类的题目，从无到有的编程还是需要挺多时间的。</p>
+</li>
+<li><p>另外就是，好的算法可以直接提高模型和答卷的质量，例如国赛2018B题优秀论文的模型就是基于蒙特卡洛算法的。</p>
+</li>
+</ul>
+<h4 id="〔案例2〕算法实现的反面案例"><a href="#〔案例2〕算法实现的反面案例" class="headerlink" title="〔案例2〕算法实现的反面案例"></a>〔案例2〕算法实现的反面案例</h4><ul>
+<li><p>给大家举个例子，比如我们培训时国赛2018年A题练习训练，用来求解微分方程的一个算法<em>Crank-Nicholson</em>，我大概花了一个中午的时间，看懂了这个算法的意思(好像就是有限差分的变形)，然后我们写了文章。</p>
+<p><img alt="算法实现反面案例" class="post-img b-lazy" data-img="/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8F%8D%E9%9D%A2%E6%A1%88%E4%BE%8B.png" data-index="6" data-src="/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8F%8D%E9%9D%A2%E6%A1%88%E4%BE%8B.png"></p>
+</li>
+<li><p>如你们所见，对于微分方程模型的数值求解算法，我们就一句话就带过去了，这现在让我看来，可以直接说这个论文表述非常非常糟糕。这种情况下，一定要结合你本来的题目内容把这个算法怎么求解的过程给写清楚！</p>
+</li>
+</ul>
+<h4 id="4-3-1-针对智能算法的一些看法"><a href="#4-3-1-针对智能算法的一些看法" class="headerlink" title="4.3.1 针对智能算法的一些看法"></a>4.3.1 针对智能算法的一些看法</h4><ul>
+<li><p>尽量不要使用遗传退火这些神棍算法，用不好也不一定好用，算法的话可以自己查找其他的算法，也可以平时看看非常经典以及常用的算法。</p>
+</li>
+<li><p>算法方面以模型求解的精确度为主，毕竟是数模建模竞赛，算法是用来解决模型求解的，当然有的时候算法也能直接充当模型构建的重要组成部分。还是那句话，数学这种东西，多学永远没坏处。</p>
+</li>
+</ul>
+<h4 id="4-3-2-超重要：模型和算法的表述"><a href="#4-3-2-超重要：模型和算法的表述" class="headerlink" title="4.3.2 超重要：模型和算法的表述"></a>4.3.2 超重要：模型和算法的表述</h4><ul>
+<li>这点我认为是数模比赛中最重要的一点，也是所有队伍包括大二大三都做不好的一点。就是模型和算法的表述，如果是别人的模型算法，千万不要直接搬到自己的论文里面来。我们要做的就是，模型和算法一定要结合我们的实际问题来叙述，要求较高，但是一定要注意。</li>
+</ul>
+<hr>
+<h3 id="4-4-插图以及结果图"><a href="#4-4-插图以及结果图" class="headerlink" title="4.4 插图以及结果图"></a>4.4 插图以及结果图</h3><ul>
+<li><p>这点就不用多说了吧，参加过数模竞赛的都知道，老师没有大家想的那么细致的去审阅你的文章，我们教练说看论文一共就3 min时间(可能还是多的，要是你们队伍写的论文不忍卒读，可能都没这个时间，直接低分看下一篇)，在这个情况下你如果全是大段文字叙述而没有图的话是一件非常吃力不讨好的事情，不光要有图，还要尽量做的丰富以及质量高。</p>
+</li>
+<li><p>结果图，可以用Matlab、Python 、PowerPoint和Excel 等来制作，请展开想象力，让结果图丰富以及好看起来。图表，折线图，柱状图，连续图谱都可以画一画。文字不够，图表来凑。插图，插图包括很多，热传导示意图，受力分析图，复杂算法流程图等。如果只有图片没有文字，那当然也是不行的，所以如何在25页内控制好比例，在有限的图表个数内让图表丰富以来，这些真的需要大家多看论文积累经验了。<em>关于制图方面有👉<a href="https://levitate-qian.github.io/2020/05/04/10%E7%B1%BB%E6%A1%88%E4%BE%8B%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3%E8%AE%BA%E6%96%87%E6%8F%92%E5%9B%BE%E5%88%B6%E4%BD%9C/">单独的报告</a>进行分析。</em></p>
+</li>
+</ul>
+<hr>
+<h3 id="4-5-结果分析"><a href="#4-5-结果分析" class="headerlink" title="4.5 结果分析"></a>4.5 结果分析</h3><ul>
+<li>结果分析一定一定要到位，还记得我上面说的优秀论文的分类吗？所有优秀论文都逃不出一个共性，就是分析到位。这听上去很简单，不过能将这点做好的人并不多，包括在我后来参与的科研中。所以请大家记住论文的一个关键点，每当老师看到一张结果图的时候，他是看不明白的。这时候你一定要把你的分析写在结果图的上下，而且越多越详细越好。千万不要只有一张图和一行分析就了事了，此是论文大忌。</li>
+</ul>
+<h4 id="〔案例3〕结果分析的反面案例"><a href="#〔案例3〕结果分析的反面案例" class="headerlink" title="〔案例3〕结果分析的反面案例"></a>〔案例3〕结果分析的反面案例</h4><ul>
+<li><p>再给大家举一个反例，例如2018A 结果分析，当时实在太年轻，一行字解决。</p>
+<p><img alt="算法实现反面案例" class="post-img b-lazy" data-img="/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8F%8D%E9%9D%A2%E6%A1%88%E4%BE%8B.png" data-index="7" data-src="/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8F%8D%E9%9D%A2%E6%A1%88%E4%BE%8B.png"></p>
+</li>
+<li><p>我们就画了一张图，然后一行字解决了分析，这让老师看到是非常糟糕的结果，老师会直接不知道你在干什么。对于本题，不光要画出温度分布图，还要分析变化的趋势，以及该分布图的特点。</p>
+</li>
+</ul>
+<h3 id="4-5-1结果分析的一些技巧"><a href="#4-5-1结果分析的一些技巧" class="headerlink" title="4.5.1结果分析的一些技巧"></a>4.5.1结果分析的一些技巧</h3><ol>
+<li><p>图表</p>
+<ul>
+<li>建议使用三线表，这是科研论文中常用的一种表格。</li>
+<li>图表建议多样、丰富。</li>
+<li>同时切记要对你做的图表进行分析。<blockquote>
+<ul>
+<li>【论文写作】去口语化与精准表达，审稿人看了都流泪　<a href="https://www.bilibili.com/video/BV1R7411279A" target="_blank" rel="noopener">BV1R7411279A</a></li>
+<li>【论文排面】三种实验图对比法，博士看了都流泪　<a href="https://www.bilibili.com/video/BV1m64y1u73U" target="_blank" rel="noopener">BV1m64y1u73U</a></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>论文中避免口语化的表述。</p>
+<blockquote>
+<ul>
+<li>【毕导】学渣的绝地求生！如何快速肝出一篇优秀的学术论文？<a href="https://www.bilibili.com/video/BV1Sg4y1q79G" target="_blank" rel="noopener">BV1Sg4y1q79G</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="4-6-模型分析"><a href="#4-6-模型分析" class="headerlink" title="4.6 模型分析"></a>4.6 模型分析</h3><ul>
+<li><p>灵敏性分析一般在论文结尾，也就是模型的分析那块，最好有，这绝对是加分项，需要有图有分析。图在美赛中可以稍微做的好看一点。</p>
+<ul>
+<li>此外还有模型检验、误差分析、有效性分析、灵敏性分析、适用条件分析、横纵向对比等。</li>
+</ul>
+</li>
+<li><p>灵敏性分析是国赛美赛的加分项，使得文章论述更加严谨。经过我们分析多篇优秀论文，大家的灵敏性分析可不是随意写的部分，基本都是配合图表来体现的，也建议大家采用这样的方法。例如我们美赛的灵敏性分析，对两个因素分别进行了分析，制作了两张曲线图来表达可视化结果。</p>
+</li>
+</ul>
+<h4 id="〔案例4〕灵敏性分析"><a href="#〔案例4〕灵敏性分析" class="headerlink" title="〔案例4〕灵敏性分析"></a>〔案例4〕灵敏性分析</h4><p><img alt="灵敏性分析" class="post-img b-lazy" data-img="/%E7%81%B5%E6%95%8F%E6%80%A7%E5%88%86%E6%9E%90.png" data-index="8" data-src="/%E7%81%B5%E6%95%8F%E6%80%A7%E5%88%86%E6%9E%90.png"></p>
+<h2 id="知根知底：美赛与国赛的异同点"><a href="#知根知底：美赛与国赛的异同点" class="headerlink" title="知根知底：美赛与国赛的异同点"></a>知根知底：美赛与国赛的异同点</h2><h3 id="5-1-美赛竞赛题目"><a href="#5-1-美赛竞赛题目" class="headerlink" title="5.1 美赛竞赛题目"></a>5.1 美赛竞赛题目</h3><p>3道MCM（数学类），3道ICM（交叉学科），每队6选1。</p>
+<img alt="mcm_icm" style="zoom: 33%;" class="post-img b-lazy" data-img="/mcm_icm.png" data-index="9" data-src="/mcm_icm.png">
+
+<h3 id="5-2-美赛写作排版"><a href="#5-2-美赛写作排版" class="headerlink" title="5.2 美赛写作排版"></a>5.2 美赛写作排版</h3><ol>
+<li><p>写作</p>
+<ul>
+<li>应简洁扼要、条理清晰、流畅易读，将主要结果以最明显的方式表达出来。</li>
+<li>多用短句，客观性描述，避免超长句、文学化。</li>
+</ul>
+</li>
+<li><p>排版</p>
+<ul>
+<li>突出结构，美观合理，符合习惯。</li>
+<li>详读5篇以上的不同类型的O奖论文，思考推进思路和行文结构，用排版突出论文结构以及模型框架，弥补语言写作方面的不足。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-3-摘要是重中之重"><a href="#5-3-摘要是重中之重" class="headerlink" title="5.3 摘要是重中之重"></a>5.3 摘要是重中之重</h3><ul>
+<li><p>摘要——重中之重，决定能否进入第二轮评审。</p>
+</li>
+<li><p>突出亮点：论文能否获得最高奖的关键。</p>
+</li>
+<li><p>开篇第一句话（尤其重要）可以就问题本身出发，比如一句话概括问题的起因、发展趋势等，而不是直接以This paper或In this paper开头。</p>
+</li>
+<li><p>简明扼要描述解题方法，包括全部要点及主要思路，并阐明所得结论。不能有公式和表格。</p>
+</li>
+<li><p>无一句废话，每个词都要经历最仔细的斟酌；没有任何错别词或者语病；表达尽可能的地道；</p>
+</li>
+<li><p>摘要长度一般占大半页。</p>
+</li>
+</ul>
+<h3 id="5-4-美赛评审主要标准"><a href="#5-4-美赛评审主要标准" class="headerlink" title="5.4 美赛评审主要标准"></a>5.4 美赛评审主要标准</h3><ol>
+<li><p><strong>摘要</strong>的要素是否全面，是否符合要求。</p>
+</li>
+<li><p>对<strong>赛题的解读</strong>是否正确，是否澄清了问题中可能的模糊概念。</p>
+</li>
+<li><p>是否清晰地列出了建模所需要的<strong>前提条件和假设</strong>，对其<strong>合理性</strong>是否给出了令人满意的分析与论证。</p>
+</li>
+<li><p>是否分析给出了<strong>建模动机和对模型的合理性</strong>做了详实的论证。</p>
+</li>
+<li><p>是否设计出了能<strong>有效解决</strong>问題的<strong>模型</strong>。</p>
+</li>
+<li><p>是否模型的<strong>稳定性和敏感性</strong>做了分析检验。</p>
+</li>
+<li><p>是否讨论了模型的<strong>优缺点</strong>，并给出了明确的<strong>结论</strong>。</p>
+</li>
+</ol>
+<h3 id="5-5-国赛VS美赛"><a href="#5-5-国赛VS美赛" class="headerlink" title="5.5 国赛VS美赛"></a>5.5 国赛VS美赛</h3><ol>
+<li><p>最大区别</p>
+<ul>
+<li><strong>国赛重结果，美赛重创新</strong></li>
+<li>国赛不管怎么样你都要做出一个解答，有了解答什么都好说，心里也比较踏实，而美赛对于结果没有国赛那么看重，只要你的想法够创新，有依据，哪怕没有做出最后的结果，也是很有希望获奖的。</li>
+</ul>
+</li>
+<li><p>写作语言</p>
+<ul>
+<li>美赛的论文是需要用英文写作的，所以怎么样把自己的论文写的尽量地道让评委看得懂，这点很重要。</li>
+</ul>
+</li>
+<li><p>数据处理</p>
+<ul>
+<li>美赛相比国赛对于数据处理的能力要求更高，题目很少能够给出现成数据，大多数据都是要靠网上搜索得到。</li>
+</ul>
+</li>
+<li><p>图表界面</p>
+<ul>
+<li>国赛一般我们程序的界面都是代码的原始界面，但是美赛的时候可用相关软件对界面做相关处理，做得更美观一点、花哨一点，对于美赛而言，不会认为你弄虚作假，只要程序的结果正确，界面的美观只是时间问题，这么做反而会使人认为你们更有能力。</li>
+</ul>
+</li>
+</ol>
+<h2 id="备赛经验：你可以在培训期间准备什么？"><a href="#备赛经验：你可以在培训期间准备什么？" class="headerlink" title="备赛经验：你可以在培训期间准备什么？"></a>备赛经验：你可以在培训期间准备什么？</h2><h3 id="6-1-数学模型的分类"><a href="#6-1-数学模型的分类" class="headerlink" title="6.1 数学模型的分类"></a>6.1 数学模型的分类</h3><p><img alt="模型分类" class="post-img b-lazy" data-img="/%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB.png" data-index="10" data-src="/%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB.png"></p>
+<h3 id="6-2-备赛：常用的模型与算法"><a href="#6-2-备赛：常用的模型与算法" class="headerlink" title="6.2 备赛：常用的模型与算法"></a>6.2 备赛：常用的模型与算法</h3><ul>
+<li><strong>评价模型：</strong> 层次分析、Topsis(优劣解距离法)、数据包络分析(DEA)、模糊综合评价、秩和比综合评价、主成分分析、灰色关联分析法</li>
+<li><strong>预测分析模型：</strong> 微分方程模型、差分方程模型、回归分析、时间序列、马尔可夫、神经网络、插值拟合、混沌序列预测、小波分析预测、灰色预测模型</li>
+<li><strong>优化模型：</strong> 数学规划模型（多目标、单目标、0-1整数规划等）、复杂网络优化、排队论与计算机仿真、图论、博弈论</li>
+<li><strong>数理统计模型：</strong> 多元分析（主成分分析、聚类分析、因子分析、判别分析、典型相关性分析等）、相关回归分析、假设检验、方差检验、贝叶斯统计</li>
+<li><strong>分类与判别算法：</strong> 距离聚类(系统聚类)、关联性聚类，层次聚类、贝叶斯分类与判别、SVM支持向量机、决策树、极限学习机</li>
+<li><strong>重要的算法：</strong> 蒙特卡罗算法、数据处理算法(数据拟合、参数估计、插值等)、规划算法(线性规划、整数规划、多元规划、二次规划等)、图论算法、计算机经典算法(动态规划、回溯搜索、分治算法、分支定界等)、最优化理论的三大非经典算法(模拟退火法、神经网络、遗传算法)、网格算法和穷举法、元胞自动机</li>
+</ul>
+<h3 id="6-3-备赛：针对性训练"><a href="#6-3-备赛：针对性训练" class="headerlink" title="6.3 备赛：针对性训练"></a>6.3 备赛：针对性训练</h3><ul>
+<li><p>无论是国赛还是美赛，比赛前要确定大概的选题范围。比如这次美赛，我们赛前训练了2道D题，1道A题，1道C题，当然我们学校最擅长的也是C、D题。所以这次美赛前我们便确定了选题。</p>
+</li>
+<li><p>选定题目后，阅读往年优秀论文，可以是这个题目的也可以不是。请尽可能多地阅读，并且总结分析以及比较，人家能得大奖一定有他的原因，每阅读一篇优秀论文就把人家优秀的地方学过来，不断总结积累。</p>
+</li>
+<li><p>经过多次真题训练，比赛前整理一套属于自己队伍的LaTeX或者Word模板，比赛时候方便使用。</p>
+</li>
+<li><p>熟练使用各种查找文献，下载文献的办法，知网、谷歌学术、Sci-hub等等。</p>
+</li>
+</ul>
+<h2 id="备赛经验：软件学习与书籍推荐"><a href="#备赛经验：软件学习与书籍推荐" class="headerlink" title="备赛经验：软件学习与书籍推荐"></a>备赛经验：软件学习与书籍推荐</h2><h3 id="7-1-编程工具"><a href="#7-1-编程工具" class="headerlink" title="7.1 编程工具"></a>7.1 编程工具</h3><p><img alt="编程" class="post-img b-lazy" data-img="/%E7%BC%96%E7%A8%8B.png" data-index="11" data-src="/%E7%BC%96%E7%A8%8B.png"></p>
+<ul>
+<li>不管是数模比赛还是以后做科研，MATLAB几乎是各专业必会的软件，提前学习总是没错的，我大一上花一周时间就学完了各种基本的操作，如矩阵命令，语法，解方程，画图等。对于比赛而言，大部分的方程求解，数据导出，结果图绘制都要靠MATLAB。这里我给大家推荐b站搜索MATLAB郭彦甫教程(<a href="https://www.bilibili.com/video/av68228488/" target="_blank" rel="noopener">av68228488</a>)，当年我就是看着这个教程入门的，很适合新手非常快。Python和C&#x2F;C++我就不多说了，在特定的时候，MATLAB的求解并不如Python和C++这种语言方便，这次美赛我们的主代码就是靠的Python求解模型的。SPSS、Mathematics和Lingo我对于这三个软件的使用也只是轻度的，可能在特定的时候，比如规划我可能会使用Lingo，但三个软件并不作为你主要学习的东西，比赛的时候需要解决什么问题，直接搜索对应命令即可。</li>
+</ul>
+<h3 id="7-2-写作工具"><a href="#7-2-写作工具" class="headerlink" title="7.2 写作工具"></a>7.2 写作工具</h3><ul>
+<li>主流的写作软件就是这两个，国赛我们用的是Word，美赛是LaTeX，官方都认可。 LaTeX是需要学习成本的，如果你参加了几次培训和比赛并准备参加美赛，我会建议你去学习它，因为LaTeX使用起来确实方便很多，包括你以后写毕设和研究生文章都能给你许多便利。写作工具的使用我不多说了，这方面我也只会一些简单的，不过完成一篇论文基本也没问题，很快就能上手。</li>
+</ul>
+<h3 id="7-3-绘图工具"><a href="#7-3-绘图工具" class="headerlink" title="7.3 绘图工具"></a>7.3 绘图工具</h3><p><img alt="绘图" class="post-img b-lazy" data-img="/%E7%BB%98%E5%9B%BE.png" data-index="12" data-src="/%E7%BB%98%E5%9B%BE.png"></p>
+<p>图形的绘制在比赛中的重要性不言而喻，美赛更是极为看重。</p>
+<h3 id="7-4-书籍推荐：必不可少"><a href="#7-4-书籍推荐：必不可少" class="headerlink" title="7.4 书籍推荐：必不可少"></a>7.4 书籍推荐：必不可少</h3><p>终于讲到了最后一个部分，那就是你需要看哪儿些书。我把我的书单整理了一下，因为我才参与数模比赛其实满打满算一年的时间，我选取了与数模有关的书籍，不包括我们课外看的书。</p>
+<blockquote>
+<ol>
+<li>数学模型（第五版）姜启源高教社</li>
+<li>数学建模方法及其应用（第三版）韩中庚高教社</li>
+<li>MATLAB 数学建模方法与实践（第3 版）北京航空航天大学出版社</li>
+<li>数学建模算法与应用（第2 版）国防工业出版社</li>
+<li>数学建模方法与分析（第4 版）机械工业出版社</li>
+<li>MATLAB 智能算法30个案例分析（第2 版）北京航空航天大学出版社</li>
+</ol>
+</blockquote>
+<p>大概就是这六本书了，不过只能遗憾的告诉你们，这些书你们是无法看完或者说吃透的，即使你们半懵半懂翻完了一遍，也只是入门了，离做题还有距离。不过没有关系，即使我到现在也不敢说全部能够理解了。首先是姜启源老师的数学模型比较经典，基本初等模型都讲完了，这里希望大家注意，比赛并不会让你直接使用初等模型，一般没这个可能性。韩老师的数学模型书是我最喜欢的一本，给我更贴近数模比赛的感觉。</p>
+<p>3~6主要是我这个编程队友看的了，3~5我觉得大家可以将它们作为工具书来翻找，当然你不可能能全部记下来，但是想要熟练使用工具书，能理解所有算法的意义与功能是前提。最后一本书大家也可以作为工具书，智能算法包括了遗传算法和退火蚁群这些，一般不建议使用这些神棍算法，但是也要视情况而定，多学习总没有坏处。</p>
+<p>最后还有其他的各种课外书籍，举个例子，我大一下在研究周老师的《机器学习》，这次美赛我有个算法就用到了Lasso回归的思想，多看书积累，总是无害的。</p>
+<h2 id="对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验"><a href="#对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验" class="headerlink" title="对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验"></a>对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验</h2><h3 id="8-1-国赛校队选拔"><a href="#8-1-国赛校队选拔" class="headerlink" title="8.1 国赛校队选拔"></a>8.1 国赛校队选拔</h3><p>首先，大家在五一期间刚刚参加完了校赛，校赛的主要参加队员是大一和大二的同学，大三同学很少参加的原因是，国赛在9月份的中秋节举办，成绩要到11月份才能出来，而那时候的大三也就是大四的学长学姐们早就要么完成了保研要么就是考研的最后冲刺阶段，所以校赛的主力基本是大一和大二的同学们，这些同学参与9月国赛的时候就是大二和大三了。而7月到8月的国赛培训一般是按照校赛的成绩来选拔的，选拔的标准一般而言是校一等奖加上排名靠前的校二等奖(对于大一的要求会相对宽松一点)，这些同学会被选拔出来作为校赛的培训队员。</p>
+<p>当然不是说，没有过面试的同学就没有参加国赛的机会了，每年暑假的国赛培训都可以让同学们旁听的。一般国赛培训好好参加，作业认真完成，总教练都会同意进入校队参加比赛的。去年的校队后来旁听队伍加了十几支的队伍，再加上学校越来越重视数模竞赛(这次美赛就可以看出)，数模校队名额会越来越多，鼓励同学们不要放弃，跟着校队培训来，还是有很大的参赛的可能的。</p>
+<h3 id="8-2-面试建议"><a href="#8-2-面试建议" class="headerlink" title="8.2 面试建议"></a>8.2 面试建议</h3><p>其次就是关于面试的事情，大家不必有太多的心理负担，一般而言大一和大二是分开面试的，主要就是问问校赛的论文以及对着简历问一些简单的问题，简历上面写一些自己擅长的技能，获得的奖项，以及自己专业课的均分及排名(数学类课程尤为重要)。面试的一般都是学校的数模教练，老师一定不会为难大家，所以调整好心态认真回答即可。</p>
+<h3 id="8-3国赛系统课程培训-暑假一轮培训"><a href="#8-3国赛系统课程培训-暑假一轮培训" class="headerlink" title="8.3国赛系统课程培训(暑假一轮培训)"></a>8.3国赛系统课程培训(暑假一轮培训)</h3><p>下面我来说说国赛培训的事情吧，以下是去年国赛一轮培训的课程时间安排计划表。</p>
+<p><img class="post-img b-lazy" data-img="https://i.loli.net/2020/06/10/EmlYkzjo2Ar7SU9.jpg" data-index="13" data-src="https://i.loli.net/2020/06/10/EmlYkzjo2Ar7SU9.jpg"></p>
+<p>每年的主讲老师和内容都会有一些小小的变化，主讲老师也不全是学校数模的教练。不过国赛培训大家好好听课就行了，不用考虑太多的事情，培训主要针对的是对大家水平进行更系统地提升训练。可能大家会听得一头雾水(当年大一的我反正不是很能跟上)，不过不用担心，大家下了课好好去消化尽力弄懂，即使弄不清内在原理，但是也要会灵活熟练使用的。大部分课程讲完后或者讲的过程中，都会布置作业，请参加培训的各位千万把作业记清楚，因为作业是要求之后统一上交的，会根据培训作业完成情况对校队成员进行调整，另外请不要无故缺勤培训，三个人必须到场，否则后果自己承担。</p>
+<h3 id="8-4-国赛真题训练培训-二轮培训"><a href="#8-4-国赛真题训练培训-二轮培训" class="headerlink" title="8.4 国赛真题训练培训(二轮培训)"></a>8.4 国赛真题训练培训(二轮培训)</h3><p>往年上完国赛的培训课程就会放暑假了，然后会要求同学们暑假提前返校，进行真题训练，一轮培训以授课为主，二轮培训主要是队伍的真题训练，一般而言都是中秋国赛开始前，会进行四次真题模拟训练，以及不少于两次的答辩。四次真题的第一道题一般是全校队统一的，由总教练韩老师来出题，大家根据这次题目的完成情况以及暑假一轮培训作业的情况去面试导师，这个之后再详细说，二轮培训之后就是做真题了，从校赛跃迁到国赛的跨度还是很大很大的，国赛的题目会非常非常的难，不过请不要去惧怕这些东西，好好弄还是能弄出结果的，之后再进行答辩以及总结分析，再多看看优秀论文，二轮培训后的水平会有非常大幅度的提升，前提当然是你们队伍认真参加完成。</p>
+<h3 id="8-5-面试导师"><a href="#8-5-面试导师" class="headerlink" title="8.5 面试导师"></a>8.5 面试导师</h3><p>数模校队的队伍是要求暑假提前返校的，返校后第一件事就是完成全校队统一的数模练习题，时间大概是4天，之后数模群会发今年国赛指导老师的名单以及联系的邮箱，大家把自己队伍的简历，一轮培训的作业以及二轮培训第一次完成的答卷发到老师邮箱等待回复即可，去年的二轮国赛指导老师有13个，一般而言投一个就差不多够了，一般老师们的回复都比较快，如果老师明确拒绝了你们，那你们再换个老师投简历，不必广撒网。</p>
+<p>等选择老师的最终结果确定之后，就开始以各个老师组进行二轮培训的真题训练以及答辩了。一般会再布置2~4道真题，至于具体的题目是根据各个老师来决定的，大家在规定的四天完成后发给自己的指导老师，然后由老师来组织统一的答辩，答辩就是把指导的所有队伍聚在一起，轮流上台展示本题的答卷结果(最好能做ppt)，然后指导老师对你们这次作业进行评价，最后指导老师会指出各个队伍的优缺点，别的队伍的优点大家都可以学习学习。答辩还有个重要的目的就是选拔正式队伍(之后解释)，请大家务必重视。完成真题训练后，基本就是要参赛了。</p>
+<h3 id="8-6-校赛名单终确定"><a href="#8-6-校赛名单终确定" class="headerlink" title="8.6 校赛名单终确定"></a>8.6 校赛名单终确定</h3><p>在暑假前的面试所完成的，是一轮国赛培训的名单，并非最终校队名单。等经过两轮国赛培训，去掉一些培训缺勤以及一轮二轮培训作业不完成的队伍，加上态度良好认真完成一轮二轮培训作业的旁听队伍，最终组成校队名单。这些队伍就是能够参加中秋国赛的所有队伍。</p>
+<p>现在我来解释下正式队伍和挂名队伍，每个指导老师会让7支队伍左右参加自己的国赛二轮培训，但经过答辩以及二轮作业完成情况，会选择4支正式队伍，以及3支挂名队伍，挂名队伍由再分配新的指导老师，其实差别也不太大，大家真的不必纠结是不是正式队伍。</p>
+<p><strong>全文很长，感谢大家看到这边！╰(*°▽°*)╯</strong></p>
+<p>(文案：杨文昊　在放进博客时钱辰涞做了一定的修改)</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag"># 数学建模</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【转】数学建模竞赛经验分享</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年06月17日 - 22:21:44</p>
+  <p><span>原始链接:</span><a href="/2020/06/18/MCM-experience-sharing/" title="【转】数学建模竞赛经验分享">https://levitate-qian.github.io/2020/06/18/MCM-experience-sharing/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/06/18/MCM-experience-sharing/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="MATLAB札记（一）：让图像动起来" href="/2020/06/27/matlab-note-01/">
+            ← MATLAB札记（一）：让图像动起来
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="LaTeX札记（一）：插入动画" href="/2020/06/13/latex-note-01/">
+            LaTeX札记（一）：插入动画 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数学建模竞赛经验分享"><span class="toc-text">数学建模竞赛经验分享</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前言：数模竞赛给我带来了什么？"><span class="toc-text">前言：数模竞赛给我带来了什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-简历上的荣誉"><span class="toc-text">1.1 简历上的荣誉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-个人技能的提升"><span class="toc-text">1.2 个人技能的提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-对于科研心态的转变"><span class="toc-text">1.3 对于科研心态的转变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队伍组建：最最最重要的事情"><span class="toc-text">队伍组建：最最最重要的事情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-为什么重要？"><span class="toc-text">2.1 为什么重要？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-专业可以适当考虑，但并不是决定性因素"><span class="toc-text">2.2 专业可以适当考虑，但并不是决定性因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-分工：建模、实现、写作"><span class="toc-text">2.3 分工：建模、实现、写作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前期准备：完成一篇数模论文你需要知道…"><span class="toc-text">前期准备：完成一篇数模论文你需要知道…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-阅读优秀论文的重要性"><span class="toc-text">3.1 阅读优秀论文的重要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-论文架构"><span class="toc-text">3.2 论文架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-文章篇幅"><span class="toc-text">3.3 文章篇幅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-论文写作"><span class="toc-text">3.4 论文写作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战演练：从各种论文看注意事项"><span class="toc-text">实战演练：从各种论文看注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-摘要"><span class="toc-text">4.1 摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-模型的建立"><span class="toc-text">4.2 模型的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#〔案例1〕模型建立"><span class="toc-text">〔案例1〕模型建立</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-优秀的模型具有怎样的特质"><span class="toc-text">4.2.1 优秀的模型具有怎样的特质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-不同模型的关系应当如何处理"><span class="toc-text">4.2.2 不同模型的关系应当如何处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-模型应该如何描述"><span class="toc-text">4.2.3 模型应该如何描述</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-算法的实现"><span class="toc-text">4.3 算法的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#〔案例2〕算法实现的反面案例"><span class="toc-text">〔案例2〕算法实现的反面案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-针对智能算法的一些看法"><span class="toc-text">4.3.1 针对智能算法的一些看法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-超重要：模型和算法的表述"><span class="toc-text">4.3.2 超重要：模型和算法的表述</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-插图以及结果图"><span class="toc-text">4.4 插图以及结果图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-结果分析"><span class="toc-text">4.5 结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#〔案例3〕结果分析的反面案例"><span class="toc-text">〔案例3〕结果分析的反面案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1结果分析的一些技巧"><span class="toc-text">4.5.1结果分析的一些技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-模型分析"><span class="toc-text">4.6 模型分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#〔案例4〕灵敏性分析"><span class="toc-text">〔案例4〕灵敏性分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知根知底：美赛与国赛的异同点"><span class="toc-text">知根知底：美赛与国赛的异同点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-美赛竞赛题目"><span class="toc-text">5.1 美赛竞赛题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-美赛写作排版"><span class="toc-text">5.2 美赛写作排版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-摘要是重中之重"><span class="toc-text">5.3 摘要是重中之重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-美赛评审主要标准"><span class="toc-text">5.4 美赛评审主要标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-国赛VS美赛"><span class="toc-text">5.5 国赛VS美赛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备赛经验：你可以在培训期间准备什么？"><span class="toc-text">备赛经验：你可以在培训期间准备什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-数学模型的分类"><span class="toc-text">6.1 数学模型的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-备赛：常用的模型与算法"><span class="toc-text">6.2 备赛：常用的模型与算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-备赛：针对性训练"><span class="toc-text">6.3 备赛：针对性训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备赛经验：软件学习与书籍推荐"><span class="toc-text">备赛经验：软件学习与书籍推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-编程工具"><span class="toc-text">7.1 编程工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-写作工具"><span class="toc-text">7.2 写作工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-绘图工具"><span class="toc-text">7.3 绘图工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-书籍推荐：必不可少"><span class="toc-text">7.4 书籍推荐：必不可少</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验"><span class="toc-text">对西电的同学的建议：西电数模竞赛国赛面试培训参赛经验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-国赛校队选拔"><span class="toc-text">8.1 国赛校队选拔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-面试建议"><span class="toc-text">8.2 面试建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3国赛系统课程培训-暑假一轮培训"><span class="toc-text">8.3国赛系统课程培训(暑假一轮培训)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-国赛真题训练培训-二轮培训"><span class="toc-text">8.4 国赛真题训练培训(二轮培训)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-面试导师"><span class="toc-text">8.5 面试导师</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-6-校赛名单终确定"><span class="toc-text">8.6 校赛名单终确定</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/06/18/MCM-experience-sharing/" class="leancloud-visitors" data-flag-title="【转】数学建模竞赛经验分享">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【转】数学建模竞赛经验分享</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

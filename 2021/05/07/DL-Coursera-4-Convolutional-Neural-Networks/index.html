@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【深度学习笔记（四）】卷积神经网络 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【深度学习笔记（四）】卷积神经网络 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/">
+
+	
+	<meta property="article:published_time" content="2021-05-06T20:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-05-06T20:01:14.000Z">
+                    2021-05-06
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【深度学习笔记（四）】卷积神经网络</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/17/ch8m1P.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p>这个专项课程一共五门，包括</p>
+<ul>
+<li><a href="https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">Neural Networks and Deep Learning（神经网络与深度学习）</a></li>
+<li><a href="https://levitate-qian.github.io/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization（改进深度神经网络：超参数、正则化和优化）</a></li>
+<li><a href="https://levitate-qian.github.io/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/">Structuring Machine Learning Projects（构建机器学习项目）</a></li>
+<li><strong>Convolution Neural Networks（卷积神经网络）</strong></li>
+<li>Sequence Model（序列模型）</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>最近在做图像大作业和各种课内作业，比较忙，搁置几天在更新。</p>
+</blockquote>
+<h1 id="Convolution-Neural-Networks-学习笔记"><a href="#Convolution-Neural-Networks-学习笔记" class="headerlink" title="Convolution Neural Networks 学习笔记"></a>Convolution Neural Networks 学习笔记</h1><p>第四门课的主体框架</p>
+<ul>
+<li>Week 1: Foundations of Convolutional Neural Networks<ul>
+<li>Convolution NN</li>
+</ul>
+</li>
+<li>Week 2: Deep Convolutional Models: Case Studies<ul>
+<li>Case Studies</li>
+<li>Practical advices for using ConvNets</li>
+</ul>
+</li>
+<li>Week 3: Object Detection<ul>
+<li>Detection algorithm</li>
+</ul>
+</li>
+<li>Week 4: Special Applications: Face recognition &amp; Neural Style Transfer<ul>
+<li>Face Recognition</li>
+<li>Neural Style transfer</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>待更新</p>
+<hr>
+<h2 id="Week-1-Foundations-of-Convolutional-Neural-Networks"><a href="#Week-1-Foundations-of-Convolutional-Neural-Networks" class="headerlink" title="Week 1: Foundations of Convolutional Neural Networks"></a>Week 1: Foundations of Convolutional Neural Networks</h2><h3 id="图像处理基础知识"><a href="#图像处理基础知识" class="headerlink" title="图像处理基础知识"></a>图像处理基础知识</h3><h4 id="Computer-Vision"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</h4><ul>
+<li>Computer Vision<ul>
+<li>brand new applications</li>
+<li>create a lot of cross_fertilization into other areas</li>
+</ul>
+</li>
+<li>CV problems——photos are large<ul>
+<li>Image classification</li>
+<li>Object detection</li>
+<li>Neural Style Transfer</li>
+</ul>
+</li>
+</ul>
+<h4 id="Edge-detection-Example"><a href="#Edge-detection-Example" class="headerlink" title="Edge detection Example"></a>Edge detection Example</h4><p>在传统的图像分析中，我们可以利用模板卷积的方式实现图像的平滑，锐化，边缘检测等操作。这里就以垂直、水平边缘检测为例介绍了模板卷积的基本操作。</p>
+<p>在使用模板卷积进行边缘检测时，我们一般先检测垂直线条，再检测水平线条。</p>
+<ul>
+<li><p>垂直边缘检测：<br>  <img alt="垂直边缘检测" class="post-img b-lazy" data-img="/edge_detection_1.png" data-index="0" data-src="/edge_detection_1.png"></p>
+<ul>
+<li><p>这里的卷积就是将模板滤波器（filter）在实际的图片上拖动，并且相乘相加。</p>
+</li>
+<li><p>比较这里的卷积（convolution）和信号与系统中的卷积运算，其实是将一维卷积拓展到了二维，但少了翻转（slips）这一步骤，故在图像处理中的卷积运算其实是相关（correlation）运算，但因为约定俗成的名称，我们将他叫做卷积。</p>
+</li>
+<li><p>二维的卷积在各种编程语言中可以用简单的命令实现。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conv-forward()	 <span class="comment"># python</span></span><br><span class="line">tf.nn.conv2d()	 <span class="comment"># tensorflow</span></span><br><span class="line">Conv2D()		<span class="comment"># keras</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conv2()			# matlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>举个垂直边缘检测的例子<br>  <img alt="垂直边缘检测例子" class="post-img b-lazy" data-img="/edge_detection_2.jpg" data-index="1" data-src="/edge_detection_2.jpg"><br>  可以发现他利用$3\times 3$的卷积模板$\begin{bmatrix}1&amp;0&amp;-1\1&amp;0&amp;-1\1&amp;0&amp;-1\end{bmatrix}$检测出了垂直线条，他的原理其实是利用图像边缘是一阶导数的极值点，利用梯度算子来检测边缘。</p>
+</li>
+</ul>
+</li>
+<li><p>垂直边缘检测模板和水平边缘检测模板</p>
+<ul>
+<li>垂直边缘检测模板：$\begin{bmatrix}1&amp;0&amp;-1\1&amp;0&amp;-1\1&amp;0&amp;-1\end{bmatrix}$</li>
+<li>水平边缘检测模板：$\begin{bmatrix}1&amp;1&amp;1\0&amp;0&amp;0\-1&amp;-1&amp;-1\end{bmatrix}$</li>
+<li>水平边缘检测模板例子<br>  <img alt="水平边缘检测例子" class="post-img b-lazy" data-img="/edge_detection_3.png" data-index="2" data-src="/edge_detection_3.png"></li>
+</ul>
+</li>
+<li><p>更多种类的边缘检测模板<br>  <img alt="边缘检测模板" class="post-img b-lazy" data-img="/edge_detection_4.png" data-index="3" data-src="/edge_detection_4.png"><br>  注意到这些检测模板都只能检测水平或者是垂直的线条，当然也有利用平均差分方向梯度、十二方向梯度等方式检测斜线，但显然还是很复杂。下面我们将谈到如何解决这个问题。</p>
+</li>
+<li><p>传统图像分析的平滑、锐化、边缘检测模板类型特点（来自<code>《现代图像分析》幻灯片</code>）<br>  <img alt="传统模板" class="post-img b-lazy" data-img="/edge_detection_model.png" data-index="4" data-src="/edge_detection_model.png"></p>
+</li>
+<li><p><strong>深度学习——让神经网络自己训练学习$3\times3$卷积模板中的9个参数</strong><br>  <img alt="深度学习" class="post-img b-lazy" data-img="/edge_detection_5.png" data-index="5" data-src="/edge_detection_5.png"><br>  为了让能检测各种方向的线条，利用图像卷积实现更多的效果，我们可以通过深度学习来训练这个卷积模板，当然他不一定是$3\times 3$的，可以是$5\times 5$甚至更高维度的。一般我们选择奇数维的卷积模板。</p>
+</li>
+</ul>
+<h3 id="CNN基本组件"><a href="#CNN基本组件" class="headerlink" title="CNN基本组件"></a>CNN基本组件</h3><p>在本节中，我们介绍卷积的基本操作方式和CNN的常见组件，是他的的有序结合得到了CNN。</p>
+<h4 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h4><p>注意到上面的例子中，我们对一个$6\times 6$的图像利用$3\times3$的模板进行卷积，得到了$4\times 4$的结果。推而广之，对一个$n\times n$的图像利用$f\times f$的模板进行卷积，将得到了$(n-f+1)\times (n-f+1)$的结果。可以发现：</p>
+<ul>
+<li>矩阵的维数变少了（shrinking output）</li>
+<li>注意到在角落和边缘的数据信息没有被充分利用</li>
+</ul>
+<p>解决上述两个问题的方法就是——Padding</p>
+<p><img alt="padding" class="post-img b-lazy" data-img="/padding.jpg" data-index="6" data-src="/padding.jpg"></p>
+<p>对$6\times6$的图像用0加一圈边就变成了$8\times 8$的图像，再用$3\times 3$的模板进行卷积得到的结果就是$6\times6$的了，此时图片的维度没有发生变化。我们把这种情况记作$p&#x3D;1$。推而广之，对一个$n\times n$的图像，进行$p$-Padding，利用$f\times f$的模板进行卷积，将得到了$(n+2p-f+1)\times (n+2p-f+1)$的结果。</p>
+<p>Padding的两种极端是：</p>
+<ul>
+<li><p>Valid Convolution：有效卷积，即我们进行卷积的都是有效数据，这种情况就退化到了最一般的二维卷积<br>  $$<br>  \begin{aligned}<br>  n\times n &amp;*&amp;f\times f&amp;&#x3D;(n-f+1)\times (n-f+1)<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>Same Convolution：相同卷积，即保持我们卷积输出结果和输入矩阵维数一致。<br>  $$<br>  \begin{aligned}<br>  (n+2p)\times (n+2p) &amp;*&amp;f\times f&amp;&#x3D;(n+2p-f+1)\times (n+2p-f+1)<br>  \end{aligned}<br>  $$<br>  若保持输出与输入维数一致，则$n+2p-f+1&#x3D;n$，即$p&#x3D;\frac{f-1}{2}$。</p>
+</li>
+</ul>
+<h4 id="Strided-convolution"><a href="#Strided-convolution" class="headerlink" title="Strided convolution"></a>Strided convolution</h4><p>在进行卷积操作时，我们有时也需要压缩矩阵的维数，以获得一个更小的矩阵，我们可以通过卷积模板两次移动之间的跨越方格数来调整，而这就被称为stride。</p>
+<img alt="stride" style="zoom:50%;" class="post-img b-lazy" data-img="/strided.jpg" data-index="7" data-src="/strided.jpg">
+
+<p>上图蓝色点的移动跨度$s$为2，对应于卷积模板的左上角点。对于一个$7\times 7$的图像，以$s&#x3D;2$为跨度用$3\times 3$的模板进行卷积，得到的结果图像是$3\times 3$维的。更一般的可以写成<br>$$<br>\begin{aligned}<br>n\times n &amp;*&amp;f\times f&amp;&#x3D;\left\lfloor\frac{n+2p-f}{s}+1\right\rfloor\times\left\lfloor\frac{n+2p-f}{s}+1\right\rfloor<br>\end{aligned}<br>$$</p>
+<h4 id="Convolutions-Over-Volume"><a href="#Convolutions-Over-Volume" class="headerlink" title="Convolutions Over Volume"></a>Convolutions Over Volume</h4><p>卷积不光可以对二维的图像进行，还可以对有多个维度的图像进行，比如对RGB三个通道的灰度图像分别进行卷积。<br><img alt="Volume" class="post-img b-lazy" data-img="/volume_1.png" data-index="8" data-src="/volume_1.png"></p>
+<p>注意到图片的前两个维度表示长和宽，第三个维度表示通道数（number of channel，也被叫做深度，depth）。对于存在通道数的卷积其实和二维卷积类似，我们计算每个通道上的卷积，再将对应点相加即可得到在Volume进行的卷积结果。值得注意的是，<strong>对于多通道的图像利用有多通道的卷积模板进行卷积最后得到的是一个二维图像。</strong></p>
+<p>那么如何得到有多个通道的图像呢？——我们需要利用多个卷积模板滤波器</p>
+<p><img alt="Volume_2" class="post-img b-lazy" data-img="/volume_2.png" data-index="9" data-src="/volume_2.png"></p>
+<p>我们<strong>对多通道的图像利用$N$次多通道的卷积模板进行卷积即可得到$N$个通道的图像</strong>，比如我们对RGB三通道图像施加一个垂直边缘检测模板，一个水平边缘检测模板，即可得到一个两通道的图像含有水平和平行边缘的信息。</p>
+<h4 id="Pooling-Layers"><a href="#Pooling-Layers" class="headerlink" title="Pooling Layers"></a>Pooling Layers</h4><p>Pooling实际上和卷积操作机理并不相同，但是他也是CNN中常用的组件。Pooling主要有两种方式：Max pooling和Average pooling。</p>
+<ul>
+<li>Max pooling：移动模板，取每次被框选的数据中最大的一个（注意这里不再需要卷积，也就不需要模板的数值了）<ul>
+<li>对一个$4\times 4$的图像，使用$2\times 2$的模板以$stride&#x3D;2$为跨度，每次取框选数值中的最大值得到右图的数值。<br>  <img alt="pooling" class="post-img b-lazy" data-img="/pooling_1.png" data-index="10" data-src="/pooling_1.png"></li>
+<li>换言之，如果这些特征在这个filter中被检测到，那么保持一个高的数字。这样可以显著的降低矩阵的维数。</li>
+<li>但是对于有多个通道的图像，我们需要注意pooling仅是针对一个维度而言的，这个卷积的操作并不一样。<br>  <img alt="pooling_channel" class="post-img b-lazy" data-img="/pooling_2.jpg" data-index="11" data-src="/pooling_2.jpg"><br>  如上图对于一个$5\times 5\times 2$的图像，使用$3\times 3$的模板以$s&#x3D;1$为跨度进行Max Pooling得到的结果是一个$3\times 3\times 2$的图像。</li>
+</ul>
+</li>
+<li>Average Pooling：和Max pooling不同的是，此时所取得值为被框选数值得平均值。<ul>
+<li><img alt="pooling_3" class="post-img b-lazy" data-img="/pooling_3.jpg" data-index="12" data-src="/pooling_3.jpg"></li>
+<li>Average Pooling的主要用途为在深度很深的NN中，⽤均值采样合并表示</li>
+</ul>
+</li>
+</ul>
+<p>小小总结以下，在Padding操作中，只存在超参数($f$ for filfter size, $s$ for stride)，不需要Padding。不论是对于Max Pooling还是Average Pooling都没有参数需要学习。经过Pooling后矩阵的维数变为<br>$$<br>\begin{aligned}<br>n_H\times n_W \times n_C\to\left\lfloor\frac{n-f}{s}+1\right\rfloor\times\left\lfloor\frac{n-f}{s}+1\right\rfloor<br>\end{aligned}<br>$$</p>
+<h3 id="构建CNN"><a href="#构建CNN" class="headerlink" title="构建CNN"></a>构建CNN</h3><p>下面，利用上面学习到的卷积的基本操作和CNN组件来一步一步搭建CNN。</p>
+<h4 id="One-layer-of-CNN"><a href="#One-layer-of-CNN" class="headerlink" title="One layer of CNN"></a>One layer of CNN</h4><p>首先考虑对于单层的CNN的搭建。</p>
+<p>卷积实际上是一个线性的过程，我们显然需要非线性函数使他变成一个标准的NN，比如ReLU。<br><img alt="one_layer" class="post-img b-lazy" data-img="/one_layer_1.png" data-index="13" data-src="/one_layer_1.png"></p>
+<p>那么我们可以把这个前向传播过程表述为<br>$$<br>\begin{gathered}<br>z^{[1]}&#x3D;w^{[1]}a^{[0]}+b^{[1]}\<br>a^{[1]}&#x3D;g(z^{[1]})<br>\end{gathered}<br>$$<br>上图可以简单表示为<br><img alt="one_layer" class="post-img b-lazy" data-img="/one_layer_2.png" data-index="14" data-src="/one_layer_2.png"></p>
+<ul>
+<li><p>在一层CNN中参数的个数<br>  例如，对于利用$3\times 3\times 3$的卷积模板作卷积需要$(3\times 3\times 3+bias)&#x3D;28$个参数，如果产生的通道数为10，则需要10个这样的模板，即需要$28\times 10&#x3D;280$个参数。</p>
+</li>
+<li><p>Notation：<br>  If layer $l$ is a convolution layer.</p>
+<ul>
+<li>Input: $n_{H}^{[ l-1]} \times n_{W}^{[l-1]} \times n_{c}^{[l-1]}$<br>  Output: $n_{H}^{[ l]} \times n_{W}^{[l]} \times n_{c}^{[l]}$（其中，$n_{\bullet}^{[l]}&#x3D;\left\lfloor\frac{n_{\bullet}^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1\right\rfloor$,$\bullet&#x3D;H\text{ or }W$）<ul>
+<li>$f^{[l]}$: filter size of $l^{th}$ layer</li>
+<li>$p^{[l]}$: padding</li>
+<li>$s^{[l]}$: stride</li>
+<li>$n_c^{[l]}$: number of filters</li>
+</ul>
+</li>
+<li>Each filter is $f^{[l]}\times f^{[l]}\times n_c^{[l-1]}$</li>
+<li>Activation: $a^{[l]}\to n_{H}^{[ l]} \times n_{W}^{[l]} \times n_{c}^{[l]},\quad A^{[l]}\to m\times n_{H}^{[ l]} \times n_{W}^{[l]} \times n_{c}^{[l]}$</li>
+<li>Weight: $f^{[l]}\times f^{[l]}\times n_{c}^{[ l-1]}  \times n_{c}^{[l]}$</li>
+<li>Bias: $n_{c}^{[l]}\to 1\times 1\times 1\times n_c^{[l]}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="Simple-Convolutional-Network-example"><a href="#Simple-Convolutional-Network-example" class="headerlink" title="Simple Convolutional Network example"></a>Simple Convolutional Network example</h4><p>对于一个简单的卷积网络（ConvNet），我们可以用单层CNN组装而成<br><img alt="SImple" class="post-img b-lazy" data-img="/simple_convnet.png" data-index="15" data-src="/simple_convnet.png"></p>
+<p>CNN网络中常见的组件：</p>
+<ul>
+<li><strong>CONV</strong>: Convolution</li>
+<li><strong>POOL</strong>：Pooling</li>
+<li><strong>FC</strong>：Fully Connected</li>
+</ul>
+<h4 id="CNN-example"><a href="#CNN-example" class="headerlink" title="CNN example"></a>CNN example</h4><p>下图是一个使用LeNet-5实现手写数字识别的过程。</p>
+<p><img alt="LeNet-5" class="post-img b-lazy" data-img="/LeNet-5.png" data-index="16" data-src="/LeNet-5.png"></p>
+<h4 id="Why-convolution？"><a href="#Why-convolution？" class="headerlink" title="Why convolution？"></a>Why convolution？</h4><p>相对于前面三门课程的DNN，为何对于图像要使用CNN呢？</p>
+<ul>
+<li>parameter sharing 参数共享：可以减少parameters 的个数</li>
+<li>sparsity of connection 稀疏性： each output value depends only a small number ofinputs</li>
+<li>put it together<br>  <img alt="Why?" class="post-img b-lazy" data-img="/Why.jpg" data-index="17" data-src="/Why.jpg"></li>
+</ul>
+<h2 id="Week-2：Deep-Convolutional-Models-Case-Studies"><a href="#Week-2：Deep-Convolutional-Models-Case-Studies" class="headerlink" title="Week 2：Deep Convolutional Models: Case Studies"></a>Week 2：Deep Convolutional Models: Case Studies</h2><h3 id="Case-Studies"><a href="#Case-Studies" class="headerlink" title="Case Studies"></a>Case Studies</h3><p>本节中主要介绍一些常用的CNN模型，包括传统模型、ResNet和Inception Network.</p>
+<h4 id="Classic-Networks"><a href="#Classic-Networks" class="headerlink" title="Classic Networks"></a>Classic Networks</h4><ol>
+<li><p>LeNet-5(1998年)<br> <img alt="LeNet-5" class="post-img b-lazy" data-img="/LeNet-5_2.jpg" data-index="18" data-src="/LeNet-5_2.jpg"></p>
+<p> 网络特点：</p>
+<ul>
+<li>60k parameters（比较小）</li>
+<li>随着网络的深入，$n_H,n_W\downarrow,\ n_c\uparrow$</li>
+<li>网络结构：CONV→POOL→CONV→POOL→FC→FC→Output</li>
+<li>由于提出时间比较早，使用的主要是sigmoid&#x2F;tanh，而不是现在比较流行的ReLU</li>
+</ul>
+</li>
+<li><p>AlexNect（2012年）<br> <img alt="AlexNet" class="post-img b-lazy" data-img="/AlexNet.png" data-index="19" data-src="/AlexNet.png"></p>
+<p> 网络特点：</p>
+<ul>
+<li>有更多的参数，达到了60 M。</li>
+<li>使用性能更好的ReLU函数，而非sigmoid或是tanh。</li>
+<li>但是文章中的多GPU是现在不需要考虑的，Local response Normalization （LRN）是吴恩达不推荐的，Andrew Ng认为他没有必要</li>
+</ul>
+</li>
+<li><p>VGG-16</p>
+<p> 网络最突出的特点就是所有CONV层和POOL层采用的都是一样的参数</p>
+<ul>
+<li>CONV: 采用$3\times 3$ filters，$s&#x3D;1$，same</li>
+<li>MAX-POOL：采用$2\times 2$ filters, $s&#x3D;2$</li>
+</ul>
+<p> <img alt="VGG-16" class="post-img b-lazy" data-img="/VGG-16.png" data-index="20" data-src="/VGG-16.png"></p>
+<ul>
+<li>该网络有128 M的参数</li>
+<li>除此以外还有VGG-19</li>
+</ul>
+</li>
+</ol>
+<h4 id="ResNet-Residual-Networks"><a href="#ResNet-Residual-Networks" class="headerlink" title="ResNet (Residual Networks)"></a>ResNet (Residual Networks)</h4><p>gradient vanishing&#x2F;exploding → skip connection → ResNet（残差⽹络）</p>
+<p>为了抑制梯度消失或者梯度爆炸，我们采取跳过几层网络直接作用的方式，这就构成了残差网络。</p>
+<ol>
+<li><p>Residual block<br> <img alt="block" class="post-img b-lazy" data-img="/ResNet.png" data-index="21" data-src="/ResNet.png"></p>
+<p> 更细致的可以画成这样：</p>
+ <img alt="path" style="zoom:50%;" class="post-img b-lazy" data-img="/ResNet_2.png" data-index="22" data-src="/ResNet_2.png">
+
+<p> 将Residual block用数学公式表达：<br> $$<br> \begin{aligned}<br> z^{[l+1]}&#x3D;&amp;W^{[l+1]}a^{[l]}+b^{[l+1]}\<br> a^{[l+1]}&#x3D;&amp;g(z^{[l+1]})\<br> z^{[l+2]}&#x3D;&amp;W^{[l+1]}a^{[l+1]}+b^{[l+2]}\<br> a^{[l+2]}&#x3D;&amp;g(z^{[l+2]})\<br> \boldsymbol{a^{[l+2]}&#x3D;}&amp;\boldsymbol{g(z^{[l+2]}+a^{[l]})}<br> \end{aligned}<br> $$</p>
+</li>
+<li><p>Residual Network</p>
+<ul>
+<li><p>我们Residual block级联，就可以构成一个最简单的ResNet。其中黑色的是plain network，加上了skip connection后它就变成了ResNet<br>  <img alt="ResNet_plain" class="post-img b-lazy" data-img="/ResNet_3.png" data-index="23" data-src="/ResNet_3.png"></p>
+</li>
+<li><p>对比普通网络和ResNet的性能</p>
+<p>  <img alt="compare" class="post-img b-lazy" data-img="/ResNet_4.jpg" data-index="24" data-src="/ResNet_4.jpg"> 可以发现一般的网络在网络层数增加到一定多时，错误率不降反升，这是因为前后参数之间没有建立起联系，而ResNet通过跳跃的方式是的前后之间有所牵制，不至于梯度消失或爆炸。</p>
+</li>
+<li><p>为什么ResNet能够运行起来呢？</p>
+<ul>
+<li>The identity function（恒等函数） is easy for residual block to learn.<br>  <img alt=" identity function" class="post-img b-lazy" data-img="/ResNet_6.png" data-index="25" data-src="/ResNet_6.png"></li>
+<li>Adding residual block doesnt hurt NN only</li>
+<li>help performance——底线是不会破坏网络，可能会出奇效<ul>
+<li>baseline: not hurt NN</li>
+<li>help: gradient descent mayhelp improve</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> <img alt="ResNet" class="post-img b-lazy" data-img="/ResNet_5.jpg" data-index="26" data-src="/ResNet_5.jpg"></p>
+</li>
+</ol>
+<h4 id="Inception-Network"><a href="#Inception-Network" class="headerlink" title="Inception Network"></a>Inception Network</h4><ol>
+<li>Networks in Networks and $1\times 1$ convolution</li>
+</ol>
+<h3 id="Practical-advices-for-using-ConvNets"><a href="#Practical-advices-for-using-ConvNets" class="headerlink" title="Practical advices for using ConvNets"></a>Practical advices for using ConvNets</h3><h4 id="Transfer-learning"><a href="#Transfer-learning" class="headerlink" title="Transfer learning"></a>Transfer learning</h4><h4 id="Data-Augmentation"><a href="#Data-Augmentation" class="headerlink" title="Data Augmentation"></a>Data Augmentation</h4><h4 id="State-of-CV"><a href="#State-of-CV" class="headerlink" title="State of CV"></a>State of CV</h4><h2 id="Week-3-Object-Detection"><a href="#Week-3-Object-Detection" class="headerlink" title="Week 3: Object Detection"></a>Week 3: Object Detection</h2><h3 id="目标识别基础"><a href="#目标识别基础" class="headerlink" title="目标识别基础"></a>目标识别基础</h3><h4 id="Object-localization"><a href="#Object-localization" class="headerlink" title="Object localization"></a>Object localization</h4><h4 id="Landmark-Detection"><a href="#Landmark-Detection" class="headerlink" title="Landmark Detection"></a>Landmark Detection</h4><h3 id="目标识别组件"><a href="#目标识别组件" class="headerlink" title="目标识别组件"></a>目标识别组件</h3><h4 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h4><h4 id="Convolutional-Implementation-of-Sliding-Windows"><a href="#Convolutional-Implementation-of-Sliding-Windows" class="headerlink" title="Convolutional Implementation of Sliding Windows"></a>Convolutional Implementation of Sliding Windows</h4><h4 id="Bounding-Box-Algorithm"><a href="#Bounding-Box-Algorithm" class="headerlink" title="Bounding Box Algorithm"></a>Bounding Box Algorithm</h4><h4 id="Make-YOLO-Better"><a href="#Make-YOLO-Better" class="headerlink" title="Make YOLO Better"></a>Make YOLO Better</h4><h3 id="应用YOLO"><a href="#应用YOLO" class="headerlink" title="应用YOLO"></a>应用YOLO</h3><h4 id="YOLO-Algorithm"><a href="#YOLO-Algorithm" class="headerlink" title="YOLO Algorithm"></a>YOLO Algorithm</h4><h4 id="Region-Proposals"><a href="#Region-Proposals" class="headerlink" title="Region Proposals"></a>Region Proposals</h4><h2 id="Week-4-Special-Applications-Face-recognition-amp-Neural-Style-Transfer"><a href="#Week-4-Special-Applications-Face-recognition-amp-Neural-Style-Transfer" class="headerlink" title="Week 4: Special Applications: Face recognition &amp; Neural Style Transfer"></a>Week 4: Special Applications: Face recognition &amp; Neural Style Transfer</h2><h3 id="Face-Recognition"><a href="#Face-Recognition" class="headerlink" title="Face Recognition"></a>Face Recognition</h3><h4 id="What-is-face-recognition？"><a href="#What-is-face-recognition？" class="headerlink" title="What is face recognition？"></a>What is face recognition？</h4><h4 id="One-shot-learning"><a href="#One-shot-learning" class="headerlink" title="One-shot learning"></a>One-shot learning</h4><h4 id="Siamese-Network"><a href="#Siamese-Network" class="headerlink" title="Siamese Network"></a>Siamese Network</h4><h4 id="triplet-loss"><a href="#triplet-loss" class="headerlink" title="triplet loss"></a>triplet loss</h4><h4 id="Face-verification-and-Binary-classification"><a href="#Face-verification-and-Binary-classification" class="headerlink" title="Face verification and Binary classification"></a>Face verification and Binary classification</h4><h3 id="Neural-Style-transfer"><a href="#Neural-Style-transfer" class="headerlink" title="Neural Style transfer"></a>Neural Style transfer</h3><object data="style_transfer_beamer_handout.pdf" type="application/pdf" width="100%" height="450px">
+<p><b>❗Alert</b>: 该浏览器不支持PDF。请点击下载查看: 
+<a href="style_transfer_beamer_handout.pdf">Download PDF</a>.</p>
+</object>
+
+
+<p>该beamer建议在支持动画的PDF阅读器上播放。比如Adobe Acrobat DC等，否则无法播放动画哦。</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【深度学习笔记（四）】卷积神经网络</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年05月06日 - 20:01:14</p>
+  <p><span>原始链接:</span><a href="/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/" title="【深度学习笔记（四）】卷积神经网络">https://levitate-qian.github.io/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【转】Github+hexo博客搭建教程" href="/2021/08/27/hexo-blog/">
+            ← 【转】Github+hexo博客搭建教程
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【无线通信学习笔记（五）】分集" href="/2021/05/07/Wireless-Communications-Ch-7/">
+            【无线通信学习笔记（五）】分集 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Convolution-Neural-Networks-学习笔记"><span class="toc-text">Convolution Neural Networks 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-1-Foundations-of-Convolutional-Neural-Networks"><span class="toc-text">Week 1: Foundations of Convolutional Neural Networks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图像处理基础知识"><span class="toc-text">图像处理基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Computer-Vision"><span class="toc-text">Computer Vision</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Edge-detection-Example"><span class="toc-text">Edge detection Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CNN基本组件"><span class="toc-text">CNN基本组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Padding"><span class="toc-text">Padding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Strided-convolution"><span class="toc-text">Strided convolution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutions-Over-Volume"><span class="toc-text">Convolutions Over Volume</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pooling-Layers"><span class="toc-text">Pooling Layers</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建CNN"><span class="toc-text">构建CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#One-layer-of-CNN"><span class="toc-text">One layer of CNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Simple-Convolutional-Network-example"><span class="toc-text">Simple Convolutional Network example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CNN-example"><span class="toc-text">CNN example</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-convolution？"><span class="toc-text">Why convolution？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-2：Deep-Convolutional-Models-Case-Studies"><span class="toc-text">Week 2：Deep Convolutional Models: Case Studies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Case-Studies"><span class="toc-text">Case Studies</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Classic-Networks"><span class="toc-text">Classic Networks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ResNet-Residual-Networks"><span class="toc-text">ResNet (Residual Networks)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Inception-Network"><span class="toc-text">Inception Network</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Practical-advices-for-using-ConvNets"><span class="toc-text">Practical advices for using ConvNets</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Transfer-learning"><span class="toc-text">Transfer learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Augmentation"><span class="toc-text">Data Augmentation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#State-of-CV"><span class="toc-text">State of CV</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-3-Object-Detection"><span class="toc-text">Week 3: Object Detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标识别基础"><span class="toc-text">目标识别基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-localization"><span class="toc-text">Object localization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Landmark-Detection"><span class="toc-text">Landmark Detection</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标识别组件"><span class="toc-text">目标识别组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-detection"><span class="toc-text">Object detection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutional-Implementation-of-Sliding-Windows"><span class="toc-text">Convolutional Implementation of Sliding Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bounding-Box-Algorithm"><span class="toc-text">Bounding Box Algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Make-YOLO-Better"><span class="toc-text">Make YOLO Better</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用YOLO"><span class="toc-text">应用YOLO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-Algorithm"><span class="toc-text">YOLO Algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Region-Proposals"><span class="toc-text">Region Proposals</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-4-Special-Applications-Face-recognition-amp-Neural-Style-Transfer"><span class="toc-text">Week 4: Special Applications: Face recognition &amp; Neural Style Transfer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Face-Recognition"><span class="toc-text">Face Recognition</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-is-face-recognition？"><span class="toc-text">What is face recognition？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#One-shot-learning"><span class="toc-text">One-shot learning</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Siamese-Network"><span class="toc-text">Siamese Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#triplet-loss"><span class="toc-text">triplet loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Face-verification-and-Binary-classification"><span class="toc-text">Face verification and Binary classification</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neural-Style-transfer"><span class="toc-text">Neural Style transfer</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/" class="leancloud-visitors" data-flag-title="【深度学习笔记（四）】卷积神经网络">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【深度学习笔记（四）】卷积神经网络</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

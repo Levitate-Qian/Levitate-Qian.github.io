@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无线通信学习笔记（三）】无线信道的信道容量 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无线通信学习笔记（三）】无线信道的信道容量 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/05/03/Wireless-Communications-Ch-4/">
+
+	
+	<meta property="article:published_time" content="2021-05-03T01:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/05/03/Wireless-Communications-Ch-4/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-05-03T01:17:25.000Z">
+                    2021-05-03
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无线通信学习笔记（三）】无线信道的信道容量</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/22/cLSMZR.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p> <em>Wireless Communications</em> (Andrea Goldsmith)学习笔记。</p>
+</blockquote>
+<h1 id="Capacity-of-Wireless-Channels"><a href="#Capacity-of-Wireless-Channels" class="headerlink" title="Capacity of Wireless Channels"></a>Capacity of Wireless Channels</h1><p>在第二、三章中，主要介绍无线信道传输过程中发射信号到接收信号之间的损耗——路径损耗、阴影和多径模型。第四章讨论另外无线信道的一个重要参数——信道容量（Capacity）。</p>
+<ol>
+<li><strong>香农编码定理（Shannon’s coding theorem）</strong>：a code did exist that could achieve a data rate close to capacity with negligible probability of error, and that any data rate higher than capacity could not be achieved without an error probability bounded away from zero. 一定存在一种编码，可以在误码率可忽略不计的情况下实现接近信道容量的传输速率，而任何高于信道容量的传输速率都不可能在误码率接近于零的情况下实现。</li>
+<li>本章主要讨论单用户无线信道（single-user wireless channel），即收发天线都只有一根。</li>
+<li>当收发都已知CSI时，最佳功率分配方式是water-filling法。</li>
+<li>本章循序渐进从三种大类来讨论无线信道的容量，先是最简单的AWGN信道，进而讨论窄带的平衰落信道，最后讨论宽带的频率选择性衰落信道。</li>
+</ol>
+<h2 id="Capacity-in-AWGN"><a href="#Capacity-in-AWGN" class="headerlink" title="Capacity in AWGN"></a>Capacity in AWGN</h2><ul>
+<li><p>AWGN（加性高斯白噪声）有扰信道的容量：<br>  $$<br>  C&#x3D;B\log_2(1+\gamma)\quad bps<br>  $$</p>
+<ul>
+<li>证明方法：信道容量是mutual information（互信息量）的最大值<br>  $$<br>  C&#x3D;\max _{p(x)} I(X ; Y)&#x3D;\max <em>{p(x)} \sum</em>{x, y} p(x, y) \log \left(\frac{p(x, y)}{p(x) p(y)}\right)<br>  $$</li>
+</ul>
+</li>
+<li><p>Shannon capacity is generally used as an upper bound on the data rates that can be achieved under real system constraints. 香农容量一般被作为实际信道传输速率的上限。</p>
+</li>
+</ul>
+<h2 id="Capacity-of-Flat-Fading-Channels"><a href="#Capacity-of-Flat-Fading-Channels" class="headerlink" title="Capacity of Flat-Fading Channels"></a>Capacity of Flat-Fading Channels</h2><p>对于平衰落信道结构大致如下图，在信道中：</p>
+<ul>
+<li>时变增益为$\sqrt{g[i]}$。下面我们假设$g[i]$与信道输入无关。$g[i]$也被称为CSI，在码字传输过程中是时变的。分析$g[i]$有两种途径——分布和瞬时值。</li>
+<li>噪声为$n[i]$（加性高斯白噪声）。</li>
+<li>$\bar P$是平均发射功率，瞬时接收信噪比为$\gamma[i]&#x3D;\frac{\bar P g[i]}{N_0B}$。</li>
+</ul>
+<img alt="Flat-Fading Channel and System Model" class="post-img b-lazy" data-img="/Flat-Fading Channel and System Model.png" data-index="0" data-src="/Flat-Fading Channel and System Model.png">
+
+<p>信道容量取决于发射机和接收机对CSI的了解情况：</p>
+<ul>
+<li><strong>CDI</strong>(Channel Distribution Information)：发射机、接收机仅知道$g[i]$的分布。</li>
+<li><strong>Receiver CSI</strong>:发射机、接收机知道$g[i]$的分布，且接收机知道CSI瞬时值。</li>
+<li><strong>Transmitter and Receiver CSI</strong>:发射机、接收机知道$g[i]$的分布和瞬时值。</li>
+</ul>
+<h3 id="CDI（仅知道信道分布）"><a href="#CDI（仅知道信道分布）" class="headerlink" title="CDI（仅知道信道分布）"></a>CDI（仅知道信道分布）</h3><ul>
+<li>对于几乎所有的信道分布，寻找CDI下的容量达到的输入分布和相应的衰减信道的容量仍然是一个未解之谜。</li>
+<li>一般仅有两种情况在CDI情况下可求解：<ul>
+<li>i.i.d. Rayleigh fading channels(独立同分布的瑞利衰减信道)</li>
+<li>FSMC（有限状态马尔可夫信道）</li>
+</ul>
+</li>
+<li>i.i.d. Rayleigh fading channels无闭式解，只能求解数值解。</li>
+<li>FSMC：the receiver must decode all past channel outputs jointly with the current output for optimal (i.e. capacity-achieving) decoding.</li>
+</ul>
+<h3 id="Receiver-CSI"><a href="#Receiver-CSI" class="headerlink" title="Receiver CSI"></a>Receiver CSI</h3><ul>
+<li><p><strong>Shannon capacity</strong> (ergodic capacity, capacity with outage)香农容量给出的是一个恒定的速率。<br>  $$<br>  C&#x3D;\int_0^{\infty} B\log_2(1+\gamma)p(\gamma)\ \mathrm{d}\gamma<br>  $$</p>
+<ul>
+<li><p>这个式子就是对信噪比为$\gamma$的AWGN信道按信噪比分布加权作平均。</p>
+</li>
+<li><p>香农容量下，信道传输速率是恒定值。</p>
+</li>
+<li><p>香农容量下，编码必须足够长，以便收到的码字变量所有可能的衰落状态的影响。（这也是为什么被称为<em>遍历信道</em>）这可能会导致显著的延迟。</p>
+</li>
+<li><p>由Jensen不等式有<br>  $$<br>  E[B\log_2(1+\gamma)]\le B\log_2(1+\bar\gamma)<br>  $$<br>  即Receiver CSI情况下香农容量比AWGN信道容量小。</p>
+</li>
+</ul>
+</li>
+<li><p>Capacity with Outage（带中断容量）带中断容量允许在给定突发时间端，以一定的概率译错所传输的bits。<br>  $$<br>  C_{out}&#x3D;(1-p_{out})B\log_2(1+\gamma_{\min})<br>  $$</p>
+<ul>
+<li>$p_{out}$是中断概率，$\gamma_{\min}$是接收机允许的最小正确接收信噪比。</li>
+<li>当中断概率很小时，信道容量趋于0.</li>
+<li>当中断概率提高后，信道容量提升，带来的问题是高中断率高速率意味着高错误接收率。</li>
+<li>通过$\gamma_{\min}$和$p_{out}$的优化，可以最大化平均正确接收率，从而提升带中断容量的质量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Transmitter-and-Receiver-CSI"><a href="#Transmitter-and-Receiver-CSI" class="headerlink" title="Transmitter and Receiver CSI"></a>Transmitter and Receiver CSI</h3><p>当接收机和发射机都知道CSI时，可以通过CSI实时调整发送策略，比较好的功率控制方式为——water-filling法（注水法）。</p>
+<ul>
+<li><p>收发均知CSI的模型<br>  <img alt="CSITR" class="post-img b-lazy" data-img="/TR_CSI.png" data-index="1" data-src="/TR_CSI.png"></p>
+</li>
+<li><p>最佳功率控制、速率自适应下的<strong>香农容量</strong>——最佳，注水法难</p>
+<ul>
+<li><p>发射机不功率控制，CSIT不能增加信道容量。</p>
+</li>
+<li><p>考虑时变信道，信道状态有无限种可能，允许发射功率$P(\gamma)$随信道状态变化并受限于平均功率，定义<strong>fading channel capacity with average power constraint</strong>（受限于平均功率的衰落信道容量）<br>  $$<br>  C&#x3D;\max <em>{P(\gamma): \int P(\gamma) p(\gamma) d \gamma&#x3D;\bar{P}} \int</em>{0}^{\infty} B \log _{2}\left(1+\boldsymbol{\frac{P(\gamma) \gamma}{\bar{P}}}\right) p(\gamma) d \gamma<br>  $$</p>
+<ul>
+<li>上式可通过多路输入多路输出的time-diversity来实现。将时变信道分解为一组并行的时不变信道，每个时不变信道仅在$\gamma[i]&#x3D;\gamma_j$时工作。</li>
+</ul>
+</li>
+<li><p>利用Lagrange乘数法求解最优功率控制方案为：<br>  $$<br>  \frac{P(\gamma)}{\bar{P}}&#x3D;\left{\begin{array}{ll}\frac{1}{\gamma_{0}}-\frac{1}{\gamma} &amp; \gamma \geq \gamma_{0} \ 0 &amp; \gamma&lt;\gamma_{0}\end{array}\right.<br>  $$<br>  其中，$\gamma_0$时截断值，只在信噪比大于截断值时使用信道。此时信道容量为<br>  $$<br>  C&#x3D;\int_{\gamma_0}^\infty B\log_2\left(\frac{\gamma}{\gamma_0}\right)p(\gamma)\mathrm{d}\gamma<br>  $$</p>
+</li>
+<li><p>信道容量的实现——注水法（water-filling）：<br><img alt="water-filling" class="post-img b-lazy" data-img="/water-filling.png" data-index="2" data-src="/water-filling.png"></p>
+<p>  原理：<strong>利用良好的信道条件</strong>。当信道条件良好（$\gamma$大）时，多分配功率，用更高的传输速率。当信道质量下降时（$\gamma$小），减小发射发射传输速率。如果信道瞬时SNR低于截断值，就不使用该信道。</p>
+</li>
+<li><p>截断值$\gamma_0$的取值：同时我们认为最佳功率分配时，动态调整的功率的平均功率达到最大即原来的平均发射功率$\bar P$，则必然满足<br>  $$<br>  \int_{\gamma_0}^{\infty}\left(\frac{1}{\gamma_0}-\frac{1}{\gamma}\right)p(\gamma)\mathrm{d}\gamma&#x3D;1<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>Zero-Outage Capacity（零中断容量）——次佳但简单<br>  零中断功率利用CSIT，实现<strong>接收功率恒定</strong>，即将信道衰落折算进发射机中（信道衰落进行反转）。</p>
+<ul>
+<li><p>发射功率自适应方案——信道反转（Channel Inversion）</p>
+</li>
+<li><p>设$\sigma$是恒定的接收信噪比，则$\sigma&#x3D;\frac{1}{E[\frac{1}{\gamma}]}$，此时的信道容量(零中断容量)为<br>  $$<br>  C&#x3D;B\log_2[1+\sigma]&#x3D;B\log_2\left[1+\frac{1}{E[\frac 1\gamma]}\right]<br>  $$</p>
+</li>
+<li><p>在所有信道条件下传输速率均恒定，不需要考虑中断。</p>
+</li>
+<li><p>在衰落严重环境下，零中断容量接近于0.</p>
+</li>
+<li><p>Channel inversion is common in spread spectrum systems with near-far interference imbalances</p>
+</li>
+</ul>
+</li>
+<li><p>Outage Capacity（中断容量）——次佳但简单<br>  为避免在衰落严重条件下，信道容量趋于0，设在特别差的信道上停止发射数据，即可提高传输速率进而提高信道容量。</p>
+<ul>
+<li><p>发射功率自适应方案——截断式信道反转（Truncated Channel Inversion）<br>  $$<br>  \frac{P(\gamma)}{\bar{P}}&#x3D;\left{\begin{array}{ll}\frac{\sigma}{\gamma} &amp; \gamma \geq \gamma_{0} \ 0 &amp; \gamma&lt;\gamma_{0}\end{array}\right.<br>  $$</p>
+</li>
+<li><p>设$\sigma$是非中断时恒定的接收信噪比，则$\sigma&#x3D;\frac{1}{E_{\gamma_0}[\frac{1}{\gamma}]}&#x3D;\frac{1}{\int_{\gamma_0}^{\infty}\frac{1}{\gamma}p(\gamma)d\gamma}$，此时的信道容量（中断容量）为<br>  $$<br>  C(p_{out})&#x3D;B\log_2\left(1+\frac{1}{E_{\gamma_0}\left[\frac 1 \gamma\right]}\right)p(\gamma\ge \gamma_0)<br>  $$</p>
+</li>
+<li><p>最大中断容量：<br>  $$<br>  C&#x3D;\max_{\gamma_0}B\log_2\left(1+\frac{1}{E_{\gamma_0}\left[\frac 1 \gamma\right]}\right)p(\gamma\ge \gamma_0)<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>Capacity with Receiver Diversity（接收分集）<br>  利用多天线可以减小衰落带来的波动，接收天线数量越多，信道接近AWGN信道，各种容量趋于相近。</p>
+</li>
+</ul>
+<h3 id="信道容量的比较"><a href="#信道容量的比较" class="headerlink" title="信道容量的比较"></a>信道容量的比较</h3><p><img alt="comparasion" class="post-img b-lazy" data-img="/comparasion.png" data-index="3" data-src="/comparasion.png"></p>
+<ul>
+<li>AWGN信道容量比其余任何衰落情况信道容量都大。<ul>
+<li>信噪比低时与Transmitter and Receiver CSI接近。</li>
+<li>AWGN信道总是总是较低SNR，限制了信道容量。</li>
+</ul>
+</li>
+<li>当传输速率相对于信道进行调整时，调整功率的调整对容量的增加忽略不计。</li>
+<li>相对于只使用CSIR，CSIT自适应带来的容量增加可以忽略不计。</li>
+<li>信道容量和实现复杂度的trade-off</li>
+</ul>
+<h2 id="Capacity-of-Frequency-Selective-Fading-Channels"><a href="#Capacity-of-Frequency-Selective-Fading-Channels" class="headerlink" title="Capacity of Frequency-Selective Fading Channels"></a>Capacity of Frequency-Selective Fading Channels</h2><p>频率选择性衰落信道可以看作是平衰落信道的延伸。</p>
+<h3 id="时不变信道"><a href="#时不变信道" class="headerlink" title="时不变信道"></a>时不变信道</h3><p>在时不变情况下，频率选择性衰落信道的频域可以看作分段平衰落信道。<br><img alt="Block Frequency-Selective Fading" style="zoom:80%;" class="post-img b-lazy" data-img="Block Frequency-Selective Fading.png" data-index="4" data-src="Block Frequency-Selective Fading.png"></p>
+<ul>
+<li><p>考虑信号（功率谱$P_j$）通过时不变系统后功率谱变为$|H_j|^2P_j$，信噪比为$\frac{|H_j|^2P_j}{BN_0}$</p>
+</li>
+<li><p>受限于平均功率的衰落信道容量<br>  $$<br>  C&#x3D;\sum_{\max P_{j}: \sum_{j} P_{j} \leq P} B \log <em>{2}\left(1+\frac{\left|H</em>{j}\right|^{2} P_{j}}{N_{0} B}\right)<br>  $$</p>
+</li>
+<li><p>最佳功率分配下的信道容量：<br>  $$<br>  C&#x3D;\sum_{j:\gamma_j&gt;\gamma_0}B\log_2\left(\frac{\gamma_j}{\gamma_0}\right)<br>  $$<br>  利用<strong>频域注水法功率控制</strong>，在不同子信道上分配不同功率并且以不同传输速率传输达到。<br>  <img alt="Water-Filling in Block Frequency-Selective Fading" class="post-img b-lazy" data-img="/Water-Filling_freq.png" data-index="5" data-src="/Water-Filling_freq.png"></p>
+</li>
+<li><p>当$H(f)$连续，则求和变积分。</p>
+</li>
+</ul>
+<h3 id="时变信道"><a href="#时变信道" class="headerlink" title="时变信道"></a>时变信道</h3><ul>
+<li><p>频率选择性衰落时变信道的处理方式主要是将<em>频率变化、时间变化</em>分块变成<em>仅时间变化</em>。即假设个子信道变成独立的时变平衰落信道，对$H(f,i)&#x3D;H_f[i]$。</p>
+</li>
+<li><p>收发CSI的香农容量是其它非AWGN信道容量的上限，利用二维注水法，求解香农容量。</p>
+<ul>
+<li><p>收发CSI，时域（$\gamma_j[i]&#x3D;\gamma_j$）、频域（子信道）均最佳功率控制<br>  $$<br>  C&#x3D;\max <em>{P</em>{j}\left(\gamma_{j}\right): \sum_{j} \int_{0}^{\infty} P_{j}\left(\gamma_{j}\right) p\left(\gamma_{j}\right) d \gamma_{j} \leq \bar{P}} \sum_{j} \int_{0}^{\infty} B_{c} \log <em>{2}\left(1+\frac{P</em>{j}\left(\gamma_{j}\right) \gamma_{j}}{\bar{P}}\right) p\left(\gamma_{j}\right) d \gamma_{j}<br>  $$</p>
+</li>
+<li><p>二维注水法截断值$\gamma_0$对于所有子信道都是一致的，信道容量为<br>  $$<br>  C&#x3D;\sum_{j} \int_{\gamma_{0}}^{\infty} B_{c} \log <em>{2}\left(\frac{\gamma</em>{j}}{\gamma_{0}}\right) p\left(\gamma_{j}\right) d \gamma_{j}<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>ANDREA GOLDSMITH.<em>WIRELESS COMMUNICATIONS</em>.2005.</li>
+<li>（美）Andrea Goldsmith著；杨鸿文，李卫东，郭文彬等译. 无线通信. 北京：人民邮电出版社, 2007.06.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无线通信学习笔记（三）】无线信道的信道容量</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年05月03日 - 01:17:25</p>
+  <p><span>原始链接:</span><a href="/2021/05/03/Wireless-Communications-Ch-4/" title="【无线通信学习笔记（三）】无线信道的信道容量">https://levitate-qian.github.io/2021/05/03/Wireless-Communications-Ch-4/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/05/03/Wireless-Communications-Ch-4/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【深度学习笔记（三）】构建机器学习模型" href="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/">
+            ← 【深度学习笔记（三）】构建机器学习模型
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【B测】数字2DPSK频带传输系统的设计" href="/2021/04/22/b-test/">
+            【B测】数字2DPSK频带传输系统的设计 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Capacity-of-Wireless-Channels"><span class="toc-text">Capacity of Wireless Channels</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Capacity-in-AWGN"><span class="toc-text">Capacity in AWGN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Capacity-of-Flat-Fading-Channels"><span class="toc-text">Capacity of Flat-Fading Channels</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDI（仅知道信道分布）"><span class="toc-text">CDI（仅知道信道分布）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Receiver-CSI"><span class="toc-text">Receiver CSI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transmitter-and-Receiver-CSI"><span class="toc-text">Transmitter and Receiver CSI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信道容量的比较"><span class="toc-text">信道容量的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Capacity-of-Frequency-Selective-Fading-Channels"><span class="toc-text">Capacity of Frequency-Selective Fading Channels</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时不变信道"><span class="toc-text">时不变信道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时变信道"><span class="toc-text">时变信道</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/05/03/Wireless-Communications-Ch-4/" class="leancloud-visitors" data-flag-title="【无线通信学习笔记（三）】无线信道的信道容量">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无线通信学习笔记（三）】无线信道的信道容量</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

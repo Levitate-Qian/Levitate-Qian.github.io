@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无监督学习】聚类算法——K-means | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无监督学习】聚类算法——K-means | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/11/14/clustering-k-means/">
+
+	
+	<meta property="article:published_time" content="2020-11-13T22:11:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/11/14/clustering-k-means/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-11-13T22:12:36.000Z">
+                    2020-11-13
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无监督学习】聚类算法——K-means</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s3.ax1x.com/2020/11/16/DE1QuF.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="【无监督学习】聚类算法——K-means"><a href="#【无监督学习】聚类算法——K-means" class="headerlink" title="【无监督学习】聚类算法——K-means"></a>【无监督学习】聚类算法——K-means</h1><h2 id="1聚类任务"><a href="#1聚类任务" class="headerlink" title="1聚类任务"></a>1聚类任务</h2><h3 id="1-1-无监督学习概述"><a href="#1-1-无监督学习概述" class="headerlink" title="1.1 无监督学习概述"></a>1.1 无监督学习概述</h3><p>机器学习一般包括监督学习、无监督学习、强化学习。有时候还包括半监督学习、主动学习。</p>
+<h4 id="1-1-1-监督学习与无监督学习"><a href="#1-1-1-监督学习与无监督学习" class="headerlink" title="1.1.1 监督学习与无监督学习"></a>1.1.1 监督学习与无监督学习</h4><p><strong>监督学习（Supervised learning）</strong>  监督学习（Supervised learning）是指<em>从标注数据中学习</em>预测模型的机器学习问题。监督学习的本质是从学习输入到输出的映射的统计规律。</p>
+<p> $$T&#x3D;{(\boldsymbol{x}_1,\boldsymbol{y}_1),(\boldsymbol{x}_2,\boldsymbol{y}_2),\cdots,(\boldsymbol{x}_m,\boldsymbol{y}_m)}$$</p>
+<p><strong>无监督学习（Unsupervised learning）</strong>  无监督学习（Unsupervised learning）是指<em>从无标注数据中学习</em>数据的统计规律。目标是通过对无标记的训练样本的学习来解释数据的内在性质及规律，为进一步的数据分析提供基础。主要包括<em>聚类、降维、概率估计</em>。无监督学习可以用于数据分析获监督学习的前处理。 </p>
+<p>$$T&#x3D;{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_m}$$</p>
+<p><img alt="supervise" class="post-img b-lazy" data-img="/supervise.png" data-index="0" data-src="/supervise.png"></p>
+<h4 id="1-1-2-聚类的引入"><a href="#1-1-2-聚类的引入" class="headerlink" title="1.1.2 聚类的引入"></a>1.1.2 聚类的引入</h4><p>在数学建模竞赛中，会遇到不少类似这样的问题，比如拍照定价给城市分类(2017国赛B题)，美国阿片危机的城市(2019美赛C题，是一个三维图)，球员之间联系的紧密性研究(2020美赛D题)等，这些都是明显的聚类问题。</p>
+<p><img alt="MCM" class="post-img b-lazy" data-img="/MCM.png" data-index="1" data-src="/MCM.png"></p>
+<p>我们再举几个平时生活的例子，比如市场消费调研，社交网络分析，衣服尺码分布等等，这些问题所给出的样本，不像监督学习问题中的房价预测等问题。上述例子并没有带标签，而我们就把这样没有带标签的样本进行算法学习，由参数体现出的分类情况称为聚类，也就是Clustering。</p>
+<p><strong>聚类(Clustering)与簇(Cluster)</strong></p>
+<ul>
+<li><p>聚类试图将数据集中的样本划分为若干个通常是不相交的子集；</p>
+</li>
+<li><p>每个子集被称为一个”簇”。</p>
+</li>
+</ul>
+<p>聚类既能作为一个单独过程，用于寻找数据内在的分布结构，也可作为分类等其他学习任务的前驱过程。</p>
+<h3 id="1-2-预备知识——距离计算"><a href="#1-2-预备知识——距离计算" class="headerlink" title="1.2 预备知识——距离计算"></a>1.2 预备知识——距离计算</h3><h4 id="距离计算"><a href="#距离计算" class="headerlink" title="距离计算"></a>距离计算</h4><p>在聚类中，我们要将样本集划分为若干个互不相交的自己，即样本簇。那么什么样的聚类效果比较好呢？从直观上来说，我们希望”物以类聚”，即同一个簇的样本尽可能彼此相似，不同簇的样本尽可能地不同。换言之，聚类结果中的”簇内相似度”(intra-cluster similarity)高，而”簇间相似度”(inter-cluster similarity)低。</p>
+<p>不论是聚类结果中的”簇内相似度”(intra-cluster similarity)还是”簇间相似度”(inter-cluster similarity)，我们都可以用<em>距离</em>$\mathrm{dist}$这个参量来定义。这里我只介绍为最基本的连续样本的几个”距离度量”。</p>
+<p><strong>闵可夫斯基距离(Minkowski distance)</strong> </p>
+<p>$$\mathrm{dist}<em>{mk}(\boldsymbol{x}<em>i,\boldsymbol{x}<em>j)&#x3D;\left(\sum</em>{u&#x3D;1}^n|x</em>{iu}-x</em>{ju}|^p\right)^{\frac{1}{p}}$$ </p>
+<p>闵可夫斯基距离其实就是$\boldsymbol{x}_i-\boldsymbol{x}_j$的$\mathrm{L}_p$范数$||\boldsymbol{x}_i-\boldsymbol{x}_j||_p$</p>
+<p><strong>欧氏距离(Euclidean distance)</strong> </p>
+<p>$$\mathrm{dist}_{ed}(\boldsymbol{x}_i,\boldsymbol{x}_j)&#x3D;||\boldsymbol{x}<em>i-\boldsymbol{x}<em>j||<em>2&#x3D;\sqrt{\sum</em>{u&#x3D;1}^n|x</em>{iu}-x</em>{ju}|^2}$$</p>
+<p>我们可以看出 闵可夫斯基距离其实就是$\boldsymbol{x}_i-\boldsymbol{x}_j$的$\mathrm{L}_p$范数，而当$p&#x3D;2$时，就退化为了欧氏距离；而当$p&#x3D;1$时，就退化为曼哈顿距离。</p>
+<h2 id="2-K-means算法概览"><a href="#2-K-means算法概览" class="headerlink" title="2 K-means算法概览"></a>2 K-means算法概览</h2><h3 id="2-1-K-means算法的形象化理解"><a href="#2-1-K-means算法的形象化理解" class="headerlink" title="2.1 K-means算法的形象化理解"></a>2.1 K-means算法的形象化理解</h3><p><img alt="k-means" class="post-img b-lazy" data-img="/k-means.gif" data-index="2" data-src="/k-means.gif"></p>
+<p>我们先来形象的理解一下K-means算法的流程是怎样的（动图）。假设我有一个无标签的数据集，然后我想把它分成3个簇。我们下面一步一步来理解一下这个过程。</p>
+<ol>
+<li><p>随机选择三个点——聚类中心（均值向量）；（我想把这些样本分成3个簇，K-means是一个迭代算法）</p>
+</li>
+<li><p>第一个是簇分配：我们会遍历图上的每一个样本点，找到每个样本点距离最近的聚类中心，将样本点的颜色染成聚类中心的颜色，换言之分配给三个聚类中心；</p>
+</li>
+<li><p>第二个是移动聚类中心：接着我们计算所有相同颜色的点的均值向量（质心），将开始的聚类中心移动到我们计算的均值向量处；就变成了这个图。</p>
+</li>
+<li><p>我们反复操作这个迭代的过程，得到了最后的聚类结果。下面不管我们在怎么去迭代得到的都是这样的结果了。</p>
+</li>
+</ol>
+<h3 id="2-2-K-means算法初步"><a href="#2-2-K-means算法初步" class="headerlink" title="2.2 K-means算法初步"></a>2.2 K-means算法初步</h3><h4 id="2-2-1-算法的基本流程"><a href="#2-2-1-算法的基本流程" class="headerlink" title="2.2.1 算法的基本流程"></a>2.2.1 算法的基本流程</h4><p><strong>输入</strong></p>
+<ul>
+<li>$K$：簇的总数</li>
+<li>样本集$D&#x3D;{\boldsymbol{x}_1,\boldsymbol{x}_2,\cdots,\boldsymbol{x}_m}$</li>
+</ul>
+<p>首先，我们来看一看K-means 算法有哪些输出，一个是簇的总数，也就是说你最后想<br>要得到多少个簇；另一个就是我们的样本集，值得注意的是这个样本集是不带标签的。</p>
+<p><img alt="liucheng" class="post-img b-lazy" data-img="/liucheng.png" data-index="3" data-src="/liucheng.png"></p>
+<p>下面我们来看一看算法的流程：</p>
+<ol>
+<li><p><strong>Initialization: 初始化聚类中心（均值向量）；</strong> 从刚刚的图形中，我们可以看出在最开始我们需要根据我们需要的聚类的个数$K$选择相应个数的聚类中心。这个操作我们称之为”初始化”(Initialization)。至于如何初始化，我们会在第三部分谈到。</p>
+</li>
+<li><p><strong>Cluster assignment: 簇分配；</strong>第二个操作便是K-means算法的最重要的的两个操作之一——“簇分配”了，在这个步骤中，我们遍历数据集中的所有样本点，找到离每个点最近的聚类中心，将第$i$个样本分配给簇，并将簇的索引(Index)保存到变量$c_i$中。这个分配过程，我们可以理解为将每个样本点染色。</p>
+</li>
+<li><p><strong>Move centroid: 移动聚类中心（均值向量）；</strong>为了让我们的K-means算法”运动”起来，我们势必将聚类中心也进行移动。那么如何移动呢？我们在这边先给出结论——我们将所有聚类中心移动到簇中所有点的质心处，即计算所有样本点向量的均值向量。正因如此，我们将聚类中心的位置用均值向量$\boldsymbol{\mu}_j$来表示。</p>
+</li>
+<li><p><strong>Iteration: 迭代；</strong>最后一个操作，既然我们通过移动聚类中心，使得K-means算法”运动”起来。那么”聚类”，”聚类”，我们最终需要的是各个样本点之间的关系。我们有需要让样本点们重新染色，重新分配到上一步移动过的聚类中心去了。如此循环往复的过程便是”迭代”。既然是迭代必定会有一个结束条件——一般有两种：一是，针对小样本集来说，均值向量不再发生移动便为结束；二是，对于上千上万的数据，设置一个最大迭代次数来终止这个迭代过程。但是这个解是个最优解吗？很显然这并不一定，这很可能只是个局部最优解。这个问题，我会在第三部分中继续讨论。</p>
+</li>
+</ol>
+<p><img alt="algorithm" class="post-img b-lazy" data-img="/algorithm.png" data-index="4" data-src="/algorithm.png"></p>
+<p>这里我还给出了一个算法流程图，其中第1行就是对聚类中心进行初始化；在第4-7行和8-13行分别对于当前数据进行簇分配和移动聚类中心；2-14行这个总体过程是一个迭代的过程；当迭代更新后的聚类结果保持不见，则输出簇划分。</p>
+<h3 id="2-3-西瓜数据集4-0例"><a href="#2-3-西瓜数据集4-0例" class="headerlink" title="2.3 西瓜数据集4.0例"></a>2.3 西瓜数据集4.0例</h3><p><img alt="watermelon" class="post-img b-lazy" data-img="/watermelon.png" data-index="5" data-src="/watermelon.png">  </p>
+<p>下面，我们以周志华老师编写的《机器学习》上的一个西瓜数据集4.0为例来演示K-means算法的学习过程。为了方便需要，我们将编号为$i$的样本成为$\boldsymbol{x}_i$，$\boldsymbol{x}_i$是一个包含”密度”和”含糖率”两属性值的二维向量。</p>
+<h4 id="2-3-1-初始化聚类中心（均值向量）-Initialization"><a href="#2-3-1-初始化聚类中心（均值向量）-Initialization" class="headerlink" title="2.3.1 初始化聚类中心（均值向量）(Initialization)"></a>2.3.1 初始化聚类中心（均值向量）(Initialization)</h4><p>假设聚类簇的个数$K&#x3D;3$，算法开始时随机选取三个样本$\boldsymbol{x}<em>6$,$\boldsymbol{x}</em>{12}$,$\boldsymbol{x}_{24}$作为初始均值向量，即 </p>
+<p>$$\boldsymbol{\mu}_1&#x3D;(0.403;0.237),\quad<br>    \boldsymbol{\mu}_2&#x3D;(0.343;0.099),\quad<br>    \boldsymbol{\mu}_3&#x3D;(0.478;0.437).$$</p>
+<h4 id="2-3-2-簇分配-Cluster-assignment"><a href="#2-3-2-簇分配-Cluster-assignment" class="headerlink" title="2.3.2 簇分配(Cluster assignment)"></a>2.3.2 簇分配(Cluster assignment)</h4><p>考察样本$\boldsymbol{x}_1&#x3D;(0.697;0.460)$，它与当前均值向量$\boldsymbol{\mu}_1,\boldsymbol{\mu}_2,\boldsymbol{\mu}_3$的距离分别为0.369, 0.506, 0.220，因此$\boldsymbol{x}_1$被划入簇$C_3$中。这里我们计算的都是欧氏距离，即$\mathrm{L}_2$范数。 类似的，对数据集中的所有样本进行考察，可得当前的簇划分为 </p>
+<p>$$\begin{aligned}<br>        C_1&#x3D;&amp;{\boldsymbol{x}<em>3, \boldsymbol{x}<em>5, \boldsymbol{x}<em>6, \boldsymbol{x}<em>7, \boldsymbol{x}<em>8, \boldsymbol{x}<em>9, \boldsymbol{x}</em>{10}, \boldsymbol{x}</em>{13}, \boldsymbol{x}</em>{14}, \boldsymbol{x}</em>{17}, \boldsymbol{x}</em>{18}, \boldsymbol{x}</em>{19}, \boldsymbol{x}<em>{20}, \boldsymbol{x}</em>{23}};\<br>        C_2&#x3D;&amp;{ \boldsymbol{x}<em>{11}, \boldsymbol{x}</em>{12}, \boldsymbol{x}<em>{16}};\<br>        C_3&#x3D;&amp;{\boldsymbol{x}<em>1, \boldsymbol{x}<em>2, \boldsymbol{x}<em>4, \boldsymbol{x}</em>{15},  \boldsymbol{x}</em>{21}, \boldsymbol{x}</em>{22}, \boldsymbol{x}</em>{24}, \boldsymbol{x}<em>{25}, \boldsymbol{x}</em>{26}, \boldsymbol{x}<em>{27}, \boldsymbol{x}</em>{28}, \boldsymbol{x}<em>{29}, \boldsymbol{x}</em>{30}};\<br>    \end{aligned}$$ </p>
+<p>我们将这30个样本点染上相应聚类中心的颜色。</p>
+<h4 id="2-3-3-移动聚类中心（均值向量）-Move-Centroid"><a href="#2-3-3-移动聚类中心（均值向量）-Move-Centroid" class="headerlink" title="2.3.3 移动聚类中心（均值向量）(Move Centroid)"></a>2.3.3 移动聚类中心（均值向量）(Move Centroid)</h4><p>于是我们从$C_1,\ C_2,\ C_3$中计算出新的均值向量，即</p>
+<p> $$\boldsymbol{\mu}_1&#x3D;(0.493;0.207),\quad<br>\boldsymbol{\mu}_2&#x3D;(0.394;0.066),\quad<br>\boldsymbol{\mu}_3&#x3D;(0.602;0.396).$$ </p>
+<p>然后将相应的聚类中心移动到更新的均值向量处。</p>
+<p><img alt="cluster_centriod" class="post-img b-lazy" data-img="/cluster_centriod.png" data-index="6" data-src="/cluster_centriod.png"></p>
+<h4 id="2-3-4-迭代-Iteration"><a href="#2-3-4-迭代-Iteration" class="headerlink" title="2.3.4 迭代(Iteration)"></a>2.3.4 迭代(Iteration)</h4><p>更新第一轮的均值向量后，不断重复上述过程，第六轮迭代产生的结果与第五轮迭代结果相同，于是算法停止，得到最终的簇划分。</p>
+<p><img alt="iteration" class="post-img b-lazy" data-img="/iteration.png" data-index="7" data-src="/iteration.png"></p>
+<h2 id="3-K-means算法再探究"><a href="#3-K-means算法再探究" class="headerlink" title="3 K-means算法再探究"></a>3 K-means算法再探究</h2><p>刚刚，我们对于K-means算法的基本流程有了一定的了解了。下面我们就对于刚刚算法流程遗留的一些问题予以说明。在开始之前，我们先约定一些符号。</p>
+<h4 id="几个参数的进一步说明"><a href="#几个参数的进一步说明" class="headerlink" title="几个参数的进一步说明"></a>几个参数的进一步说明</h4><p>$c_i$ 最靠近$\boldsymbol{x}_i$的聚类中心的索引编号$(j&#x3D;1,2,\cdots,K)$ Index of cluster $(1,2,\cdots,K)$ to which example $\boldsymbol{x}_i$ is currently assigned</p>
+<p>$\boldsymbol{\mu}_j$ 第$j$个簇的中心（均值向量） Cluster centroid $j(\boldsymbol{\mu}_j\in\mathbb{R}^n)$</p>
+<p>$\boldsymbol{\mu}_{c_i}$ $\boldsymbol{x}_i$所处的簇的中心（均值向量） Cluster centroid of cluster to which example $\boldsymbol{x}_i$ has been assigned</p>
+<p>注意：其中，$c_i$是一个索引编号，也就是说是一个标量值；而$\boldsymbol{\mu}<em>j$和$\boldsymbol{\mu}</em>{c_i}$都是一个包含属性的多维向量。对于上面的西瓜数据集来说，$c_i$可以取为$1,2,3$，而$\boldsymbol{\mu}<em>j$和$\boldsymbol{\mu}</em>{c_i}$联同前面提到的$\boldsymbol{x}_i$是包含”密度”和”含糖率”两属性值的二维向量。</p>
+<h3 id="3-1-优化目标"><a href="#3-1-优化目标" class="headerlink" title="3.1 优化目标"></a>3.1 优化目标</h3><p>第三部分的题目叫做”K-means算法再探究”。首先我们要探究的是一个名为”优化目标”的东西。在刚刚算法流程的讲述中，我们谈到了”簇分配”和”移动聚类中心”两步操作，但为什么我们可以这样来移动使得达到”聚类”的效果，这就是”优化目标”解决的问题。</p>
+<h4 id="3-1-1-损失代价函数"><a href="#3-1-1-损失代价函数" class="headerlink" title="3.1.1 损失代价函数"></a>3.1.1 损失代价函数</h4><p>K-means算法的流程</p>
+<ol>
+<li><p><strong>Initialization:</strong> 初始化聚类中心（均值向量）；</p>
+</li>
+<li><p><strong>Cluster assignment:</strong> 簇分配；</p>
+</li>
+<li><p><strong>Move centroid:</strong> 移动聚类中心（均值向量）；</p>
+</li>
+<li><p><strong>Iteration:</strong> 迭代至（局部）最优解；</p>
+</li>
+</ol>
+<p>这里我们先引入一个”损失代价函数”的概念。这将帮助我们更好地理解为什么我们可以通过这样简单的两步来实现”簇内相似度”最高的效果；同时也将帮助我们更好选择簇来避免局部最优的情况。</p>
+<p>我们将需要优化的参数值也就是每个样本点所属的簇$c_i$和聚类中心的位置$\boldsymbol{\mu}_j$。我们把损失代价函数表述为这个式子，很明显右边的求和项求的就是每个样本到它对应的聚类中心的欧氏距离，这个函数实际上就是对这些距离求数学期望。</p>
+<p>于是，我们可以很容易的得出损失代价函数和优化目标。</p>
+<p><strong>损失代价函数(Distortion cost function)</strong> </p>
+<p>$$J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}<em>K)&#x3D;\frac{1}{m}\sum</em>{i&#x3D;1}^m||\boldsymbol{x}<em>i-\boldsymbol{\mu}</em>{c_i}||^2$$</p>
+<h4 id="3-1-2-优化目标"><a href="#3-1-2-优化目标" class="headerlink" title="3.1.2 优化目标"></a>3.1.2 优化目标</h4><p>而K-means算法要做的是什么呢？就是将这个损失代价函数达到最小，这恰恰也就是我们我们所需要的”簇内相似度”最高的这个效果。但是这个式子可以直接实现吗？并不能，这是一个NP难问题，我们只能使用贪心算法来解决这个问题。</p>
+<p><strong>优化目标(Optimization objective)</strong> </p>
+<p>$$\min_{\substack{c_1,\cdots,c_m,\ \boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K}}J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$$</p>
+<h3 id="3-2-随机初始化"><a href="#3-2-随机初始化" class="headerlink" title="3.2 随机初始化"></a>3.2 随机初始化</h3><p>说完了”簇分配”和”移动聚类中心”的理论，我们还有两个操作没有谈到，就是”初始化”和”迭代”。</p>
+<h4 id="3-2-1-聚类中心如何初始化？"><a href="#3-2-1-聚类中心如何初始化？" class="headerlink" title="3.2.1 聚类中心如何初始化？"></a>3.2.1 聚类中心如何初始化？</h4><p>K-means算法的流程</p>
+<ol>
+<li><p><strong>Initialization:</strong> 初始化聚类中心（均值向量）；</p>
+</li>
+<li><p><strong>Cluster assignment:</strong> 簇分配；</p>
+</li>
+<li><p><strong>Move centroid:</strong> 移动聚类中心（均值向量）；</p>
+</li>
+<li><p><strong>Iteration:</strong> 迭代至（局部）最优解；</p>
+</li>
+</ol>
+<p>在K-means算法中，我们还有一个悬而未决的问题，到现在也没有说明。那就是如何初始化$K$个聚类中心？ 一般地，<em>随机选择$K$个样本作为初始化的点</em>($K&lt;m$)，但是这样确实也会出现一些问题……</p>
+<h4 id="3-2-2-局部最优解-Local-optima"><a href="#3-2-2-局部最优解-Local-optima" class="headerlink" title="3.2.2 局部最优解(Local optima)"></a>3.2.2 局部最优解(Local optima)</h4><p>我们从下面三个图形可以看到，当我们取定不同的初始聚类中心后，他们的聚类结果并不相同，这是为什么呢？这是因为他们陷入了局部最优解。</p>
+<p><img alt="local_optima" class="post-img b-lazy" data-img="/local_optima.png" data-index="8" data-src="/local_optima.png"></p>
+<p>当我们随机初始化聚类中心时，很有可能聚类中心会分布在我们意想不到的地方，非常容易造成局部最优解(Local optima)。 解决这个问题的方法就是<em>尝试多次初始化，并分别迭代到局部最优再对其损失代价函数$J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$分别进行比较</em>。</p>
+<h4 id="3-2-3-基于随机初始化对K-means算法进行改进"><a href="#3-2-3-基于随机初始化对K-means算法进行改进" class="headerlink" title="3.2.3 基于随机初始化对K-means算法进行改进"></a>3.2.3 基于随机初始化对K-means算法进行改进</h4><p>下面我们对算法进行改进。刚刚我们已经说了，”初始化”的方式我们采取随机选择$K$个样本作为初始化的点来取定。为了尽可能地解决局部最优解的问题，我们采取的是”多次初始化”的方式。我们多次随机初始化迭代到最终结果，接着利用我们刚刚谈到的损失代价函数来描述各种初始化最终的效果。最后我们比较各个损失代价函数，取最小的作为我们最后的聚类结论。</p>
+<p><strong>基于随机初始化对K-means算法进行改进</strong></p>
+<p><img alt="gaijin" class="post-img b-lazy" data-img="/gaijin.png" data-index="9" data-src="/gaijin.png"></p>
+<p><strong>对于西瓜数据集4.0的随机初始化</strong></p>
+<p>利用随机初始化100次，得到代价函数的最小值为 0.409663。</p>
+<p><img alt="intial_100" class="post-img b-lazy" data-img="/intial_100.png" data-index="10" data-src="/intial_100.png"></p>
+<p><strong>经验公式</strong> 有经验公式表明，当簇的个数$K$取为2-10时，迭代100次一般能收敛到一个比较好的结果。</p>
+<h3 id="3-3-簇数-K-的选择"><a href="#3-3-簇数-K-的选择" class="headerlink" title="3.3 簇数$K$的选择"></a>3.3 簇数$K$的选择</h3><p>在前面两节中，我们讨论了算法流程中四个操作的原理，但是对于输入参数我们并没有进行讨论。下面简要的介绍一下输入参数中簇数$K$的取值方式。</p>
+<h4 id="3-3-1-肘部法则-Elbow-Method"><a href="#3-3-1-肘部法则-Elbow-Method" class="headerlink" title="3.3.1 肘部法则(Elbow Method)"></a>3.3.1 肘部法则(Elbow Method)</h4><p>我们分别测试不同簇个数$K$情况下代价函数的大小，即可画出如下图的最小代价函数的折线图。仔细分辨两幅图的区别，可以发现左图在$K&#x3D;3$处有一个明显转折，而右图则比较平滑。那么我们如何选择簇数$K$呢？如果出现了如左边情况的图像，则选择转折点，可以发现，当大于转折点后这个代价函数曲线的变化就不那么明显了，也就说明它趋于稳定；而往往出现的是右边的图像，比如西瓜数据集4.0。而对于右边的数据我们如何处理呢？</p>
+<p><img alt="number" class="post-img b-lazy" data-img="/number.png" data-index="11" data-src="/number.png"></p>
+<h4 id="3-3-2-平滑下降时的处理方法"><a href="#3-3-2-平滑下降时的处理方法" class="headerlink" title="3.3.2 平滑下降时的处理方法"></a>3.3.2 平滑下降时的处理方法</h4><p>一般地，在应用K-means算法时，都是为了将得到的”簇”应用于后续的处理。所以，我们也可以根据后续处理需要的类的个数来确定K-means中簇的个数。比如我们上面的右图是西瓜数据集的”代价函数-K”曲线，而聚类可能有一个需要的结论，例如”浅色瓜”、”深色瓜”就需要两个簇；再举个吴恩达机器学习MOOC栗子：例如衬衫厂商想要根据人群的身高体重来制造不同尺寸的衬衫，如果他的心里规划是设置S、M、L三种尺寸，就分三个簇；而想要设置XS、S、M、L、XL号们就需要分五个簇。</p>
+<p><img alt="shirt" class="post-img b-lazy" data-img="/shirt.png" data-index="12" data-src="/shirt.png"></p>
+<h2 id="4-K-means算法的代码实现"><a href="#4-K-means算法的代码实现" class="headerlink" title="4 K-means算法的代码实现"></a>4 K-means算法的代码实现</h2><p>最后，简要的介绍一下Matlab和Python库函数对于K-means算法的支持。其中，特别需要注意的是迭代次数和随机初始化次数的区分要明确。</p>
+<h3 id="4-1-Matlab库函数"><a href="#4-1-Matlab库函数" class="headerlink" title="4.1 Matlab库函数"></a>4.1 Matlab库函数</h3><p><code>idx = kmeans(X,k)</code> 执行 k 均值聚类，以将 $n\times p$ 数据矩阵 $\boldsymbol{X}$ 的观测值划分为 $k$ 个聚类，并返回包含每个观测值的簇索引的 $n\times 1$ 向量 (<code>idx</code>)。$\boldsymbol{X}$ 的行对应于点，列对应于变量。</p>
+<p><code>[idx,C] = kmeans(___)</code> 在 $k\times p$ 矩阵 $\boldsymbol{C}$ 中返回 $k$ 个簇质心的位置。</p>
+<p>其中，$\boldsymbol{X}$为数据，$\boldsymbol{X}$的行对应于观测值，而列对应于变量。$k$为簇的数量。$\boldsymbol{C}$为簇质心位置，第$j$行是簇$j$的质心。</p>
+<p><strong>可能用到的参数</strong></p>
+<ul>
+<li><p>‘Display’ - 要显示的输出的级别：’off’ （默认） | ‘final’（最终） | ‘iter’（迭代）</p>
+</li>
+<li><p>‘Distance’ - 距离度量： ‘sqeuclidean’ （欧氏距离） | ‘cityblock’（曼哈顿距离） 等</p>
+</li>
+<li><p>‘MaxIter’ - 最大迭代次数，默认为100</p>
+</li>
+<li><p>‘Replicates’ - 使用新初始簇质心位置重复聚类的次数，默认为1</p>
+</li>
+</ul>
+<h4 id="Matlab库函数实现西瓜数据集4-0"><a href="#Matlab库函数实现西瓜数据集4-0" class="headerlink" title="Matlab库函数实现西瓜数据集4.0"></a>Matlab库函数实现西瓜数据集4.0</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear ,clc ;</span><br><span class="line">data = load (’dataset .txt ’);</span><br><span class="line">opts = statset (’Display ’,’iter ’);</span><br><span class="line">[idx ,C] = kmeans ( data (: ,<span class="number">2</span>:<span class="number">3</span>) ,<span class="number">3</span>,’Replicates ’ ,<span class="number">100</span>, ’Options ’,opts );</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line">set (gcf , ’color ’,’w’);</span><br><span class="line">xlabel (’密度’);</span><br><span class="line">ylabel (’含糖率’);</span><br><span class="line"><span class="built_in">plot</span> (C(<span class="number">1</span> ,<span class="number">1</span>) ,C(<span class="number">1</span> ,<span class="number">2</span>) ,’g+’,’MarkerSize ’ ,<span class="number">10</span>,’LineWidth ’ ,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span> (C(<span class="number">2</span> ,<span class="number">1</span>) ,C(<span class="number">2</span> ,<span class="number">2</span>) ,’r+’,’MarkerSize ’ ,<span class="number">10</span>,’LineWidth ’ ,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span> (C(<span class="number">3</span> ,<span class="number">1</span>) ,C(<span class="number">3</span> ,<span class="number">2</span>) ,’b+’,’MarkerSize ’ ,<span class="number">10</span>,’LineWidth ’ ,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span> ( data ( idx ==<span class="number">1</span> ,<span class="number">2</span>) ,data ( idx ==<span class="number">1</span> ,<span class="number">3</span>) ,’gd ’);</span><br><span class="line"><span class="built_in">plot</span> ( data ( idx ==<span class="number">2</span> ,<span class="number">2</span>) ,data ( idx ==<span class="number">2</span> ,<span class="number">3</span>) ,’ro ’);</span><br><span class="line"><span class="built_in">plot</span> ( data ( idx ==<span class="number">3</span> ,<span class="number">2</span>) ,data ( idx ==<span class="number">3</span> ,<span class="number">3</span>) ,’b^’);</span><br><span class="line"><span class="built_in">hold</span> off ;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-Python库函数"><a href="#4-2-Python库函数" class="headerlink" title="4.2 Python库函数"></a>4.2 Python库函数</h3><p>首先，K-means在sklearn.cluster中，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
+
+<p>K-means在Python的三方库中的定义是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">sklearn</span>.cluster.KMeans(n_clusters=<span class="number">8</span>, init=<span class="string">&#x27;k-means++&#x27;</span>, n_init=<span class="number">10</span>, max_iter=<span class="number">300</span>, tol=<span class="number">0.0001</span>, precompute_distances=<span class="string">&#x27;auto&#x27;</span>, verbose=<span class="number">0</span>, random_state=<span class="literal">None</span>, copy_x=<span class="literal">True</span>, n_jobs=<span class="literal">None</span>, algorithm=<span class="string">&#x27;auto&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>n_clusters</code>表示的是要生成的簇的数量，<code>n_init</code>表示随机初始化的次数，<code>max_iter</code>表示最大迭代次数。</p>
+<p><code>estimator =KMeans(___)</code> 构造聚类器。其中，<code>n_clusters</code>表示的是要生成的簇的数量，<code>n_init</code>表示随机初始化的次数，<code>max_iter</code>表示最大迭代次数。</p>
+<p><code>estimator.fit(data)</code> 计算K-means聚类。</p>
+<p><strong>可能用到的参数</strong></p>
+<ul>
+<li><p><code>label_pred = estimator.labels_</code> ：获取聚类标签</p>
+</li>
+<li><p><code>centroids = estimator.cluster_centers_</code> ：获取聚类中心</p>
+</li>
+<li><p><code>inertia = estimator.inertia_</code> ： 获取聚类准则的总和</p>
+</li>
+</ul>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h2><h4 id="K-means算法的思路"><a href="#K-means算法的思路" class="headerlink" title="K-means算法的思路"></a>K-means算法的思路</h4><p>for $k&#x3D;1$ to 100{</p>
+<p> 　　随机初始化$K$个聚类中心（均值向量）$\boldsymbol{\mu}_1,\boldsymbol{\mu}_2,\cdots,\boldsymbol{\mu}_K\in\mathbb{R}^n$;</p>
+<p>　　Repeat{ </p>
+<p>　　　　　for $i&#x3D;1$ to $m$</p>
+<p> 　　　　　　　$c_i\leftarrow$ 最靠近$\boldsymbol{x}_i$的聚类中心的索引编号</p>
+<p> 　　　　　for $j&#x3D;1$ to $K$</p>
+<p> 　　　　　　　$\boldsymbol{\mu}_j\leftarrow$ 第$j$簇所有向量的平均（均值向量）</p>
+<p> 　　} </p>
+<p>　　得到第$k$组$c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K$;</p>
+<p> 　　计算代价损失函数$J_k(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$; </p>
+<p>} </p>
+<p>选择使得代价损失函数$J_k(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$最小的聚类方式。</p>
+<h4 id="损失代价函数-Cost-function-和优化目标-Optimization-objective"><a href="#损失代价函数-Cost-function-和优化目标-Optimization-objective" class="headerlink" title="损失代价函数(Cost function)和优化目标(Optimization objective)"></a>损失代价函数(Cost function)和优化目标(Optimization objective)</h4><p>$$J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}<em>K)&#x3D;\frac{1}{m}\sum</em>{i&#x3D;1}^m||\boldsymbol{x}<em>i-\boldsymbol{\mu}</em>{c_i}||^2$$ </p>
+<p>$$\min_{\substack{c_1,\cdots,c_m,\ \boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K}}J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$$</p>
+<h4 id="随机初始化-Randomly-Initialization"><a href="#随机初始化-Randomly-Initialization" class="headerlink" title="随机初始化(Randomly Initialization)"></a>随机初始化(Randomly Initialization)</h4><ul>
+<li><p>初始化方式：随机选择$K$个样本作为初始化的点$(K &lt; m)$；</p>
+</li>
+<li><p>局部最优解：尝试多次初始化，并分别迭代到局部最优再对其损失代价函数 $J(c_1,\cdots,c_m,\boldsymbol{\mu}_1,\cdots,\boldsymbol{\mu}_K)$分别进行比较；</p>
+</li>
+</ul>
+<h4 id="簇数-K-的选择-Choosing-the-number-of-clusters"><a href="#簇数-K-的选择-Choosing-the-number-of-clusters" class="headerlink" title="簇数$K$的选择(Choosing the number of clusters)"></a>簇数$K$的选择(Choosing the number of clusters)</h4><ul>
+<li>肘部法则 (Elbow Method)；</li>
+<li>考虑后续处理需要；</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li>周志华.机器学习[M]北京：清华大学出版社,2016:197-204. </li>
+<li>吴恩达.机器学习学习系列课程[V&#x2F;OL] <a href="https://study.163.com/course/introduction.htm?courseId=1004570029&amp;_trace_c_p_k2_=60b3accf313c45bcbd5dddc890ff4346" target="_blank" rel="noopener">https://study.163.com/course/introduction.htm?courseId=1004570029&amp;_trace_c_p_k2_=60b3accf313c45bcbd5dddc890ff4346</a>. </li>
+<li>李航. 统计学习方法（第2版）[M] 北京：清华大学出版社, 2019. </li>
+<li>MathWorks.kmeans[EB&#x2F;OL] <a href="https://ww2.mathworks.cn/help/stats/kmeans.html#d122e16427" target="_blank" rel="noopener">https://ww2.mathworks.cn/help/stats/kmeans.html#d122e16427</a>. </li>
+<li>Levitate_.LaTeX札记（一）：插入动画[EB&#x2F;OL] <a href="https://levitate-qian.github.io/2020/06/13/latex-note-01/">https://levitate-qian.github.io/2020/06/13/latex-note-01/</a>. </li>
+<li>Levitate_.MATLAB札记（一）：让图像动起来[EB&#x2F;OL] <a href="https://levitate-qian.github.io/2020/06/27/matlab-note-01/">https://levitate-qian.github.io/2020/06/27/matlab-note-01/</a>. </li>
+<li>Wong, J. A. Hartiganm. A. . &quot;Algorithm AS 136: A K-Means Clustering Algorithm.&quot; <em>Journal of the Royal Statistical Society. Series C (Applied Statistics)</em> 28.1(1979):100-108.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无监督学习】聚类算法——K-means</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年11月13日 - 22:12:36</p>
+  <p><span>原始链接:</span><a href="/2020/11/14/clustering-k-means/" title="【无监督学习】聚类算法——K-means">https://levitate-qian.github.io/2020/11/14/clustering-k-means/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/11/14/clustering-k-means/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="LaTeX模板分享" href="/2020/12/01/latex-lecture/">
+            ← LaTeX模板分享
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="乘法器电路总结" href="/2020/10/29/RF-multiplier/">
+            乘法器电路总结 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【无监督学习】聚类算法——K-means"><span class="toc-text">【无监督学习】聚类算法——K-means</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1聚类任务"><span class="toc-text">1聚类任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-无监督学习概述"><span class="toc-text">1.1 无监督学习概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-监督学习与无监督学习"><span class="toc-text">1.1.1 监督学习与无监督学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-聚类的引入"><span class="toc-text">1.1.2 聚类的引入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-预备知识——距离计算"><span class="toc-text">1.2 预备知识——距离计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#距离计算"><span class="toc-text">距离计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-K-means算法概览"><span class="toc-text">2 K-means算法概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-K-means算法的形象化理解"><span class="toc-text">2.1 K-means算法的形象化理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-K-means算法初步"><span class="toc-text">2.2 K-means算法初步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-算法的基本流程"><span class="toc-text">2.2.1 算法的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-西瓜数据集4-0例"><span class="toc-text">2.3 西瓜数据集4.0例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-初始化聚类中心（均值向量）-Initialization"><span class="toc-text">2.3.1 初始化聚类中心（均值向量）(Initialization)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-簇分配-Cluster-assignment"><span class="toc-text">2.3.2 簇分配(Cluster assignment)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-移动聚类中心（均值向量）-Move-Centroid"><span class="toc-text">2.3.3 移动聚类中心（均值向量）(Move Centroid)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-4-迭代-Iteration"><span class="toc-text">2.3.4 迭代(Iteration)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-K-means算法再探究"><span class="toc-text">3 K-means算法再探究</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#几个参数的进一步说明"><span class="toc-text">几个参数的进一步说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-优化目标"><span class="toc-text">3.1 优化目标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-损失代价函数"><span class="toc-text">3.1.1 损失代价函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-优化目标"><span class="toc-text">3.1.2 优化目标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-随机初始化"><span class="toc-text">3.2 随机初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-聚类中心如何初始化？"><span class="toc-text">3.2.1 聚类中心如何初始化？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-局部最优解-Local-optima"><span class="toc-text">3.2.2 局部最优解(Local optima)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-基于随机初始化对K-means算法进行改进"><span class="toc-text">3.2.3 基于随机初始化对K-means算法进行改进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-簇数-K-的选择"><span class="toc-text">3.3 簇数$K$的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-肘部法则-Elbow-Method"><span class="toc-text">3.3.1 肘部法则(Elbow Method)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-平滑下降时的处理方法"><span class="toc-text">3.3.2 平滑下降时的处理方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-K-means算法的代码实现"><span class="toc-text">4 K-means算法的代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Matlab库函数"><span class="toc-text">4.1 Matlab库函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Matlab库函数实现西瓜数据集4-0"><span class="toc-text">Matlab库函数实现西瓜数据集4.0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Python库函数"><span class="toc-text">4.2 Python库函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-总结"><span class="toc-text">5 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#K-means算法的思路"><span class="toc-text">K-means算法的思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#损失代价函数-Cost-function-和优化目标-Optimization-objective"><span class="toc-text">损失代价函数(Cost function)和优化目标(Optimization objective)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#随机初始化-Randomly-Initialization"><span class="toc-text">随机初始化(Randomly Initialization)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#簇数-K-的选择-Choosing-the-number-of-clusters"><span class="toc-text">簇数$K$的选择(Choosing the number of clusters)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/11/14/clustering-k-means/" class="leancloud-visitors" data-flag-title="【无监督学习】聚类算法——K-means">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无监督学习】聚类算法——K-means</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【预编码论文阅读（一）】传统方法 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【预编码论文阅读（一）】传统方法 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/12/08/precoding-1/">
+
+	
+	<meta property="article:published_time" content="2021-12-07T19:12:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/12/08/precoding-1/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-12-07T19:57:07.000Z">
+                    2021-12-07
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【预编码论文阅读（一）】传统方法</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s4.ax1x.com/2021/12/07/ogFC1H.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="预编码论文阅读（一）——传统方法"><a href="#预编码论文阅读（一）——传统方法" class="headerlink" title="预编码论文阅读（一）——传统方法"></a>预编码论文阅读（一）——传统方法</h1><blockquote>
+<p>由于没有非常系统地看完MIMO的相关内容，整理中必定有很多的问题，欢迎在评论区批评指正。</p>
+<p>整理很乱。。。</p>
+<p>由于网页公式渲染器KaTeX不支持公式交叉引用，我的前端水平就不足以把我这个模板加入mathjax。故将所有公式交叉引用均删除了，有的是在显示不出来的建议贴到markdown里面去吧</p>
+</blockquote>
+<h2 id="线性预编码"><a href="#线性预编码" class="headerlink" title="线性预编码"></a>线性预编码</h2><p><a href="https://blog.csdn.net/weixin_43871127/article/details/104593325" target="_blank" rel="noopener">大规模MIMO下行链路预编码（1）_月半 月半的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_43871127/article/details/104722688" target="_blank" rel="noopener">大规模MIMO下行链路预编码（2）_月半 月半的博客-CSDN博客</a></p>
+<h3 id="MRT预编码"><a href="#MRT预编码" class="headerlink" title="MRT预编码"></a>MRT预编码</h3><p>由于可以平衡系统性能和计算复杂度，最大比传输（MRT）预编码【又称作匹配滤波器（MF）预编码】是最简单易实现的预编码算法，通过最大化接收信噪比（SNR）实现。在大规模MIMO系统中，当基站天线数M MM足够大时，最简单的MRT线性预编码方案便可以得到最优的系统性能。</p>
+<p>在发射端已知完美信道状态信息的前提下，MRT线性预编码矩阵为：<br>$$<br>\mathbf V&#x3D;\beta_{MRT}\mathbf H^H<br>$$<br>(注：以上编码矩阵后可以加上功率分配矩阵组成整个预编码矩阵)</p>
+<p>式中，  $\beta_{MRT}&#x3D;\sqrt{\frac{1}{tr(HH^H )}}$  为约束基站发送功率的约束因子。大规模MIMO系统中基站天线数的不断增加使得信道矩阵列向量之间逐渐呈现正交性，即不同终端间的干扰逐渐降低甚至被完全消除，因此最简单的 MRT 预编码下便可以获得最优的频谱效率和最好的信号传输质量，且复杂度最低。</p>
+<p>传统MIMO系统中，匹配滤波预编码方案的侧重点在于接收端用户的信号增益最大化，<strong>但在多用户系统的场景下，随着传输信道相关性的提升，此方案由于没有考虑如何对用户间的干扰进行处理，将会导致整个系统性能快速下降</strong>。</p>
+<h3 id="Zero-forcing-precoding"><a href="#Zero-forcing-precoding" class="headerlink" title="Zero-forcing precoding"></a>Zero-forcing precoding</h3><p>转化为互相独立的并行信道，不考虑其它信道的干扰。${\bf h}_i^H\tilde{\bf w}<em>j&#x3D;0,i\neq j$(5)——achieve virtually optimal<br>$$<br>\mathbf{W}</em>{\mathrm{ZF}}&#x3D;\mathbf{H}^{H}\left(\mathbf{H} \mathbf{H}^{H}\right)^{-1}<br>$$</p>
+<h4 id="Equal-power-scaling-allocation-ZF-EPS"><a href="#Equal-power-scaling-allocation-ZF-EPS" class="headerlink" title="Equal power scaling allocation(ZF-EPS)"></a>Equal power scaling allocation(ZF-EPS)</h4><p>平均分配能量——normalized&#x3D;power allocate<br>$$<br>\begin{gathered}<br>    \tilde{\bf w}<em>i&#x3D;\eta{\bf w}<em>i\<br>    \eta&#x3D;\sqrt{\frac{P}{tr{\mathbf{W}</em>{\mathrm{ZF}}\mathbf{W}</em>{\mathrm{ZF}}^H}}}<br>\end{gathered}<br>$$</p>
+<h4 id="Optimal-power-allocation-water-filling-solution-ZF-WF"><a href="#Optimal-power-allocation-water-filling-solution-ZF-WF" class="headerlink" title="Optimal power allocation - water-filling solution(ZF-WF)"></a>Optimal power allocation - water-filling solution(ZF-WF)</h4><p>信噪比高的多分配能量<br>$$<br>\begin{aligned}<br>&amp;\operatorname{maximize}<em>{p</em>{1}, \ldots, p_{K}} &amp;\sum_{i&#x3D;1}^{K} \log \left(1+\rho_{i} p_{i}\right) \<br>&amp;\text { subject to } &amp; \sum_{i&#x3D;1}^{K} \gamma_{i} p_{i} \leq P , p_{i} \geq 0<br>\end{aligned}<br>$$<br>其中，$\gamma_i&#x3D;[({\bf HH}^H)^{-1}]$。注水法功率控制(6)——$\eta_i&#x3D;\sqrt{p_i}$<br>$$<br>p_i&#x3D;\left[\frac{\mu}{\gamma_i}-\frac{1}{\rho_i}\right]^+,\forall i<br>$$<br>其中， $[x]^+&#x3D;max(x,0)$ ， 总功率限制<br>$$<br>\sum_{i&#x3D;1}^K&#x3D;\left[\mu-\gamma_i\rho_i^{-1}\right]^+&#x3D;P<br>$$</p>
+<h3 id="Regularized-zero-forcing-precoding-RZF"><a href="#Regularized-zero-forcing-precoding-RZF" class="headerlink" title="Regularized zero-forcing precoding(RZF)"></a>Regularized zero-forcing precoding(RZF)</h3><p>$(\mathbf{H} \mathbf{H}^{H})^{-1}$最大奇异值的不良性质，即使增加天线，也无法增加最大速率。加入正则项，(7)<br>$$<br>\mathbf{W}_{\mathrm{RZF}}&#x3D;\mathbf{H}^{H}\left(\mathbf{H} \mathbf{H}^{H}+\alpha \mathbf{I}\right)^{-1}<br>$$</p>
+<p>$$<br>\begin{gathered}<br>    \tilde{\bf W}&#x3D;\eta{\bf W}<em>\text{RZF}\<br>    \eta&#x3D;\sqrt{\frac{P}{tr{\mathbf{W}</em>{\mathrm{RZF}}\mathbf{W}_{\mathrm{RZF}}^H}}}<br>\end{gathered}<br>$$</p>
+<ol>
+<li>homogeneous SNR conditions（$\rho_i&#x3D;1$）</li>
+</ol>
+<p>$$<br>    \alpha^{\star}&#x3D;\frac KP<br>$$</p>
+<ol start="2">
+<li>non-homogeneous SNR conditions——non-weighted sum-MSE minimization(9)<br> $$<br> \mathbf{W}<em>{\mathrm{RZF}}&#x3D;\mathbf{H}^{H}\left(\mathbf{HH}^{H}+\frac{\sum</em>{i&#x3D;1}^{K}\left(1 &#x2F; \rho_{i}\right)}{P} \mathbf{I}\right)^{-1}<br> $$</li>
+</ol>
+<h3 id="Iterative-weighted-minimization-ofmean-squared-error-algorithm-IWMMSE"><a href="#Iterative-weighted-minimization-ofmean-squared-error-algorithm-IWMMSE" class="headerlink" title="Iterative weighted minimization ofmean squared error algorithm(IWMMSE)"></a>Iterative weighted minimization ofmean squared error algorithm(IWMMSE)</h3><p>解决非凸问题的数值算法。weighted MSE problem(10)<br>$$<br>\begin{aligned}<br>&amp;\underset{\Lambda, \Omega, \tilde{\mathbf{W}}}{\operatorname{minimize}} \mathbb{E}\left{\left|\Omega^{\frac{1}{2}}(\mathbf{u}-\Lambda \mathbf{y})\right|^{2}\right}-\log \operatorname{det} \Omega \<br>&amp;\text { subject to } \operatorname{Tr}\left{\tilde{\mathbf{W}} \tilde{\mathbf{W}}^{H}\right} \leq P<br>\end{aligned}<br>$$<br>其中，$\mathbf{\Omega},\mathbf{\Lambda}$均为对角阵，$\mathbf{\Omega}$表示K个UE的权重(weights)，$\mathbf{\Lambda}$表示接收因子(receive coefficients)。$\tilde{\mathbf{W}},\mathbf{\Omega},\mathbf{\Lambda}$是优化变量。</p>
+<p>S1：随机初始化变量<br>$$<br>||\tilde{\mathbf{w}}_i||^2&#x3D;\frac PK<br>$$<br>S2：迭代直到convergence</p>
+<ul>
+<li><p>确定$\tilde{\mathbf{W}},\mathbf{\Omega}$，优化$\mathbf{\Lambda}$(11)<br>  $$<br>  \begin{aligned}<br>  \lambda_{i} &amp;&#x3D;\arg \min <em>{\lambda</em>{i}} \mathbb{E}\left{\left|u_{i}-\lambda_{i} y_{i}\right|^{2}\right} \<br>  &amp;&#x3D;\left(\sum_{j&#x3D;1}^{K} \rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{j}\right|^{2}+1\right)^{-1} \sqrt{\rho_{i}} \tilde{\mathbf{w}}<em>{i}^{H} \mathbf{h}</em>{i} .<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>确定$\tilde{\mathbf{W}},\mathbf{\Lambda}$，优化$\mathbf{\Omega}$(12)<br>  $$<br>  \begin{aligned}<br>  \omega_{i} &amp;&#x3D;\arg \min <em>{\omega</em>{i}} \omega_{i} e_{i}-\log \omega_{i} \<br>  &amp;&#x3D;e_{i}^{-1}&#x3D;1+\operatorname{SINR}<em>{i}&#x3D;\frac{\sum</em>{j&#x3D;1}^{K} \rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{j}\right|^{2}+1}{\sum_{j \neq i}^{K} \rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{j}\right|^{2}+1}<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>确定$\mathbf{\Omega},\mathbf{\Lambda}$，优化$\tilde{\mathbf{W}}$(14)<br>  $$<br>  \begin{aligned}<br>  \tilde{\mathbf{W}} &amp;&#x3D;\left(\mathbf{H}^{H} \Lambda^{H} \Omega \Sigma \Lambda \mathbf{H}+\mu \mathbf{I}\right)^{-1} \mathbf{H}^{H} \Lambda^{H} \Omega \Sigma^{\frac{1}{2}} \<br>  &amp;&#x3D;\mathbf{H}^{H}\left[\mathbf{H} \mathbf{H}^{H}+\mu\left(\Lambda^{H} \Omega \Sigma \Lambda\right)^{-1}\right]^{-1} \Lambda^{-1} \Sigma^{-\frac{1}{2}}<br>  \end{aligned}<br>  $$</p>
+</li>
+</ul>
+<h2 id="WMMSE【数字预编码】——2014"><a href="#WMMSE【数字预编码】——2014" class="headerlink" title="WMMSE【数字预编码】——2014"></a>WMMSE【数字预编码】——2014</h2><p><em>MMSE precoding for multiuser MISO downlink transmission with non-homogeneous user SNR conditions</em></p>
+<p>MU-MISO模型（M天线、K用户）</p>
+<p>$\bf u$是向量，每次给$UE_i$发送的是单个字符$u_i$——多用户<br>$$<br>\begin{gathered}<br>\mathbf{y}&#x3D;\mathbf{\Sigma}^{\frac 12}\mathbf{H\tilde Wu}+\mathbf{n}\<br>\mathbf{x}&#x3D;\sum_{i&#x3D;1}^K\tilde{\mathbf{w}}_iu_i&#x3D;\mathbf{u\tilde W}<br>\end{gathered}<br>$$<br>其中，$\mathbf{\Sigma}&#x3D;\mathrm{diag}(\rho_1,\cdots,\rho_K)$是对角阵，表示非同质信噪比条件的差异；$\mathbf{H}&#x3D;[\mathbf{h}_1,\cdots,\mathbf{h}_K]^H$；$\tilde{\mathbf{W}}&#x3D;[\tilde{\mathbf{w}}_1,\cdots,\tilde{\mathbf{w}}_K]$ ， $u&#x3D;[u_1,\cdots,u_K]^T$</p>
+<p>SINR（信干噪比）<br>$$<br>\mathrm{SINR}<em>i&#x3D;\frac{\rho</em>{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{i}\right|^{2}}{\sum_{j \neq i}^{K} \rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{j}\right|^{2}+1}<br>$$<br>sum-rate的优化问题——非凸问题<br>$$<br>\begin{aligned}<br>&amp;\underset{\tilde{\mathbf{w}}<em>{1}, \ldots, \tilde{\mathbf{w}}</em>{K}}{\operatorname{maximize}} \sum_{i&#x3D;1}^{K} \log \left(1+\frac{\rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{i}\right|^{2}}{\sum_{j \neq i}^{K} \rho_{i}\left|\mathbf{h}<em>{i}^{H} \tilde{\mathbf{w}}</em>{j}\right|^{2}+1}\right) \<br>&amp;\text { subject to } \sum_{i&#x3D;1}^{K}\left|\tilde{\mathbf{w}}_{i}\right|^{2} \leq P<br>\end{aligned}<br>$$</p>
+<h3 id="perfect-CSI-and-average-SNR-knowledge"><a href="#perfect-CSI-and-average-SNR-knowledge" class="headerlink" title="perfect CSI and average SNR knowledge"></a>perfect CSI and average SNR knowledge</h3><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>take advantage of the non-homogeneous SNR conditions at the UE to predetermine the weights and receive coefficients and thus remove the iterative procedure of the IWMMSE algorithm.（利用UE的信噪比非同质这一特点，事先确定IWMMSE中的两个迭代参数$\mathbf{\Omega},\mathbf{\Lambda}$）</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>用effective small-scale channel gain $\mathbf{G}(g_i&#x3D;\frac{||\mathbf{h}<em>i||}{\sigma</em>{n_i}})$表示两个迭代参数(16)<br>$$<br>\mathrm{MSE}&#x3D;\mathbb{E}\left{\left|\underbrace{\mathbf{G} \boldsymbol{\Sigma}^{\frac{1}{2}}}<em>{\mathbf{\Omega}^{\frac12}}\left(\mathbf{u}-\underbrace{\eta^{-1} \mathbf{G}^{-1} \boldsymbol{\Sigma}^{-\frac{1}{2}}}</em>{\Lambda} \mathbf{y}\right)\right|^{2}\right}<br>$$<br>使用lagrange乘数法求lagrange因子$\mu^{\star}$和波束成形矩阵$\mathbf{W}^{\star}$</p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>$$<br>\begin{gathered}\mu^\star&#x3D;\frac KP\<br>\mathbf{W}^\star&#x3D;\mathbf{H}^H\left(\mathbf{HH}^H+\frac KP\mathbf{\Sigma}^{-1}\right)^{-1}\mathbf{G}<br>\end{gathered}<br>$$</p>
+<p>结果与IWMMSE形式类似，与RZF相比采用non-identity regularizer matrix（非同一正则矩阵）</p>
+<h3 id="quantized-CDI-and-CQI-feedbacks"><a href="#quantized-CDI-and-CQI-feedbacks" class="headerlink" title="quantized CDI and CQI feedbacks"></a>quantized CDI and CQI feedbacks</h3><p>对平均SNR无knowledge。</p>
+<ul>
+<li>CDI（channel direction indicator）：量化方向矢量$\mathbf{\hat h}_i$的编号。用量化矢量$\mathbf{\hat h}_i$代替SINR表达式中的$\mathbf{h}_i$</li>
+<li>CQI（channel quality indicator）：用有效信道增益表示瞬时信噪比$\hat g_i \hat \rho_i&#x3D;\frac MP\widehat{SNR_i}$代替SINR中平均信噪比$\rho_i$</li>
+<li>CDI和CQI综合即可改写式$\eqref{eq:16}$ ，但量化误差会带来non-robust。</li>
+</ul>
+<h4 id="方法——Robust"><a href="#方法——Robust" class="headerlink" title="方法——Robust"></a>方法——Robust</h4><p>分解归一化信道$\mathbf{\tilde h}_i&#x3D;\frac{\mathbf{h}_i}{||\mathbf{h}_i||}$,<br>$$<br>\begin{gathered}<br>\mathbf{\tilde h}_i&#x3D;\sqrt{1-z_i},\mathbf{\hat h}_i+\sqrt{z_i},\mathbf{s}\<br>z_i&#x3D;1-|\mathbf{\tilde h}_i^H\mathbf{\hat h}_i|^2<br>\end{gathered}<br>$$<br>其中，$z_i$是量化误差，$\mathbf{\tilde h}_i$是实际方向，$\mathbf{\hat h}_i$是量化方向的投影，$\mathbf{s}$是量化矢量$\mathbf{\hat h}_i$的核空间上的各向同性的单位矢量。【1-[16]】</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>和perfect CSI and average SNR knowledge的MSE一致，但是其中$\mathbf{\tilde H}$有所变化：<br>$$<br>\mathbf{H}&#x3D;\mathbf{G} \tilde{\mathbf{H}}&#x3D;\mathbf{G}(\mathbf{I}-\mathbf{Z})^{\frac{1}{2}} \hat{\mathbf{H}}+\mathbf{G} \mathbf{Z}^{\frac{1}{2}} \mathbf{S}<br>$$<br>化开，同样使用lagrange乘数法求lagrange因子$\mu^{\star}$和波束成形矩阵$\mathbf{W}^{\star}$</p>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p>$\mu^\star$不变<br>$$<br>\mathbf{W}&#x3D;\frac{\zeta}{1-\delta} \hat{\mathbf{H}}^{H}\left(\hat{\mathbf{H}} \hat{\mathbf{H}}^{H}+\frac{\delta P \operatorname{Tr}\left{\mathbf{\Sigma G}^{2}\right}+K M}{P M(1-\delta)} \mathbf{\Sigma}^{-1} \mathbf{G}^{-2}\right)^{-1}<br>$$<br>系数不影响归一化的波束成形矩阵$\mathbf{\tilde W}$，信噪比$\mathbf{SNR}&#x3D;\frac PM\mathbf{G}^2\mathbf{\Sigma}$（37）<br>$$<br>\mathbf{W}^\star&#x3D;\hat{\mathbf{H}}^{H}\left(\hat{\mathbf{H}} \hat{\mathbf{H}}^{H}+\frac{\delta  \operatorname{Tr}\left{\mathbf{SNR}\right}+K }{M(1-\delta)} \mathbf{SNR}^{-1}\right)^{-1}<br>$$</p>
+<ul>
+<li>由quantized CDI and CQI feedbacks可以推perfect CSI and average SNR knowledge</li>
+<li>CQI量化可能无法很好估计SNR</li>
+<li>可以通过WMMSE推出non-weighted MMSE【1-[11]】</li>
+</ul>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><p>用计算的effective small-scale channel gain却代替迭代的过程。</p>
+<hr>
+<h2 id="Iteratively-Weighted-MMSE【数字预编码，迭代】——2011-TSP"><a href="#Iteratively-Weighted-MMSE【数字预编码，迭代】——2011-TSP" class="headerlink" title="Iteratively Weighted MMSE【数字预编码，迭代】——2011-TSP"></a>Iteratively Weighted MMSE【数字预编码，迭代】——2011-TSP</h2><p><em>An Iteratively Weighted MMSE Approach to Distributed Sum-Utility Maximization for a MIMO Interfering Broadcast Channel</em></p>
+<p>MIMO</p>
+<p>每次给UE$i_k$发送的是$\bf s$，而非单个字符——讨论单用户</p>
+<p><img alt="image-20211104143313382" class="post-img b-lazy" data-img="https://z3.ax1x.com/2021/11/08/I8Sr9A.png" data-index="0" data-src="https://z3.ax1x.com/2021/11/08/I8Sr9A.png"><br>$$<br>\mathbf{\hat s}<em>{i_k}&#x3D;\mathbf{U}</em>{i_k}^H\mathbf{y}_{i_k}<br>$$</p>
+<h3 id="优化问题"><a href="#优化问题" class="headerlink" title="优化问题"></a>优化问题</h3><blockquote>
+<p><strong>Sum-rate problem</strong></p>
+<p>在点对点单用户信道中，如果我们已知发送信号的协方差矩阵$\mathbf{Q}&#x3D;\mathbb{E}{\mathbf{x}<em>k\mathbf{x}<em>k^H}$ ，假设干扰加噪声协方差矩阵是单位矩阵，那么单用户的信道容量就是<br>$$<br>\log |\mathbf{I}+\mathbf{H}\mathbf{Q}\mathbf{H}^H|.<br>$$<br>扩展到多用户IC信道，此时干扰加噪声协方差矩阵（interference-plus-noise covariance matrix）就不会再成为单位矩阵，它是$\mathbf{R}<em>i &#x3D; \sum</em>{i \neq j} \mathbf{H}</em>{ji}\mathbf{Q}<em>j \mathbf{H}</em>{ji}^H+\mathbf{I}，$多用户信道容量就变成了：<br>$$<br>\sum</em>{i&#x3D;1}^K \log |\mathbf{I}+\mathbf{R}^{-1}<em>i\mathbf{H}</em>{ii}\mathbf{Q}<em>i\mathbf{H}^H</em>{ii}|.<br>$$<br>考虑它更广义的形式$i$个用户，加入效用因子$\lambda_i$（文章1的$\rho_i$）。当效用因子都是1时，就和上式等价，问题就变成了：<br>$$<br>\sum_{i&#x3D;1}^K \lambda_i\log |\mathbf{I}+\mathbf{R}^{-1}<em>i\mathbf{H}</em>{ii}\mathbf{Q}<em>i\mathbf{H}^H</em>{ii}|<br>$$<br><a href="https://zhuanlan.zhihu.com/p/137952433" target="_blank" rel="noopener">【优质信源】计划02–多用户通信中总速率优化问题的一些凸优化模式 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<ul>
+<li><p>sum-rate problem(1)<br>  $$<br>  \begin{aligned}<br>  \max_{\mathbf{V}} &amp; \sum_{k&#x3D;1}^{K} \sum_{i_{k}&#x3D;1}^{I_{k}} \alpha_{i_{k}} R_{i_{k}} \<br>  \text { s.t. } &amp; \sum_{i&#x3D;1}^{I_{k}} \operatorname{Tr}\left(\mathbf{V}<em>{i</em>{k}} \mathbf{V}<em>{i</em>{k}}^{H}\right) \leq P_{k}, \forall k&#x3D;1,2, \ldots, K<br>  \end{aligned}<br>  $$<br>  其中，$\alpha_{i_k}$是优先级</p>
+</li>
+<li><p>sum-MSE minimization(4)<br>  $$<br>  \begin{aligned}<br>  \min <em>{\mathbf{U}, \mathbf{V}} &amp; \sum</em>{k&#x3D;1}^{K} \sum_{i&#x3D;1}^{I_{k}} \operatorname{Tr}\left(\mathbf{E}<em>{i</em>{k}}\right) &#x3D;\sum_{k&#x3D;1}^{K} \sum_{i&#x3D;1}^{I_{k}} ||\mathbf{\hat s }<em>{i_k}-\mathbf{s}</em>{i_k}||\<br>  \text { s.t. } &amp; \sum_{i&#x3D;1}^{I_{k}} \operatorname{Tr}\left(\mathbf{V}<em>{i</em>{k}} \mathbf{V}<em>{i</em>{k}}^{H}\right) \leq P_{k}, \quad k&#x3D;1,2, \ldots, K .<br>  \end{aligned}<br>  $$</p>
+<p>  $$<br>  \begin{aligned}<br>  \mathbf{U}<em>{i</em>{k}}^{\mathrm{mmse}}&#x3D;&amp;\mathbf{J}<em>{i</em>{k}}^{-1} \mathbf{H}<em>{i</em>{k} k} \mathbf{V}<em>{i</em>{k}}\<br>  \mathbf{E}<em>{i</em>{k}}^{\mathrm{mmse}}&#x3D;&amp;\mathbf{I}-\mathbf{V}<em>{i</em>{k}}^{H} \mathbf{H}<em>{i</em>{k} k}^{H} \mathbf{J}<em>{i</em>{k}}^{-1} \mathbf{H}<em>{i</em>{k} k} \mathbf{V}<em>{i</em>{k}}<br>  \end{aligned}<br>  $$</p>
+<p>  其中，$\mathbf{J}<em>{i</em>{k}} \triangleq \sum_{j&#x3D;1}^{K} \sum_{\ell&#x3D;1}^{I_{j}} \mathbf{H}<em>{i</em>{k} j} \mathbf{V}<em>{\ell</em>{j}} \mathbf{V}<em>{\ell</em>{j}}^{H} \mathbf{H}<em>{i</em>{k}}^{H}+\sigma_{i_{k}}^{2} \mathbf{I}$。</p>
+</li>
+<li><p>两个问题的统一性（7）——【1-[5]、2-[13]】梯度、KKT条件引出<br>  $$<br>  \begin{aligned}<br>  \min <em>{\mathbf{W}, \mathbf{U}, \mathbf{V}} &amp; \sum</em>{k&#x3D;1}^{K} \sum_{i&#x3D;1}^{I_{k}} \alpha_{i_{k}}\left(\operatorname{Tr}\left(\mathbf{W}<em>{i</em>{k}} \mathbf{E}<em>{i</em>{k}}\right)-\log \operatorname{det}\left(\mathbf{W}<em>{i</em>{k}}\right)\right) \<br>  \text { s.t. } &amp; \sum_{i&#x3D;1}^{I_{k}} \operatorname{Tr}\left(\mathbf{V}<em>{i</em>{k}} \mathbf{V}<em>{i</em>{k}}^{H}\right) \leq P_{k}, k&#x3D;1,2, \ldots, K<br>  \end{aligned}<br>  $$<br>  （7） is in the space of $(u,v,w)$ and is easier to handle since optimizing each variable while holding others fixed is convex and easy (e.g., closed form).</p>
+</li>
+</ul>
+<p>$$<br>R_{i_k}&#x3D;\log\det\left(\left(\mathbf{E}_{i_k}^{mmse}\right)^{-1}\right)<br>$$</p>
+<h3 id="迭代优化的方法"><a href="#迭代优化的方法" class="headerlink" title="迭代优化的方法"></a>迭代优化的方法</h3><p>要解决sum-rate问题，即解决式$\eqref{eq:2-7}$的优化问题，需要优化$\mathbf{U,V,W}$。</p>
+<blockquote>
+<p>1 Initialize $\mathbf{V}<em>{i</em>{k}}$ ‘s such that $\operatorname{Tr}\left(\mathbf{V}<em>{i</em>{k}} \mathbf{V}<em>{i</em>{k}}^{H}\right)&#x3D;\frac{p_{k}}{I_{k}}$<br>2 <strong>repeat</strong><br>$3 \quad \mathbf{W}<em>{i</em>{k}}^{\prime} \leftarrow \mathbf{W}<em>{i</em>{k}}, \quad \forall i_{k} \in \mathcal{I}$<br>$4 \quad \mathbf{U}<em>{i</em>{k}} \leftarrow\left(\sum_{(j, \ell)} \mathbf{H}<em>{i</em>{k} j} \mathbf{V}<em>{\ell</em>{j}} \mathbf{V}<em>{\ell</em>{j}}^{H} \mathbf{H}<em>{i</em>{k} j}^{H}+\sigma_{i_{k}}^{2} \mathbf{I}\right)^{-1} \mathbf{H}<em>{i</em>{k} k} \mathbf{V}<em>{k}, \forall i</em>{k} \in \mathcal{I}$<br>$5\quad\mathbf{W}<em>{i</em>{k}} \leftarrow\left(\mathbf{I}-\mathbf{U}<em>{i</em>{k}}^{H} \mathbf{H}<em>{i</em>{k} k} \mathbf{V}<em>{i</em>{k}}\right)^{-1}, \forall i_{k} \in \mathcal{I}$<br>$6 \quad \mathbf{V}<em>{i</em>{k}} \leftarrow \alpha_{i_{k}}\left(\sum_{(j, \ell)} \alpha_{\ell_{j}} \mathbf{H}<em>{\ell</em>{j} k}^{H} \mathbf{U}<em>{\ell</em>{j}} \mathbf{W}<em>{\ell</em>{j}} \mathbf{U}<em>{\ell</em>{j}}^{H} \mathbf{H}<em>{\ell</em>{j} k}+\mu_{k}^{*} \mathbf{I}\right)^{-1} \mathbf{H}<em>{i</em>{k} k}^{H} \mathbf{U}<em>{i</em>{k}} \mathbf{W}<em>{i</em>{k}}, \forall i_{k}$<br>7 <strong>until</strong> $\left|\sum_{(j, \ell)} \log \operatorname{det}\left(\mathbf{W}<em>{\ell</em>{j}}\right)-\sum_{(j, \ell)} \log \operatorname{det}\left(\mathbf{W}<em>{\ell</em>{j}}^{\prime}\right)\right| \leq \epsilon$</p>
+</blockquote>
+<ul>
+<li>$\mathbf{W}$的优化来自对$\eqref{eq:2-7}$的求解——对$\mathbf{W}$求一阶导数得到$\mathbf{W}^\star&#x3D;(\mathbf{E}<em>{i_k}^{MMSE})^{-1}$ ， $\mathbf{E}</em>{i_k}^{MMSE}$来自MMSE问题的求解，可由$\mathbf{U}$表示</li>
+<li>$\mathbf{U}$的优化来自MMSE的求解——对MSE表达式对$\mathbf{U}$求一阶导，求极值</li>
+<li>$\mathbf{V}$的优化来自对$\eqref{eq:2-7}$的求解——将MSE表达式代入$\eqref{eq:2-7}$，对$\mathbf{V}$利用Lagrange乘数法，解出$\mathbf{V}$与$\mu_k$有关，根据约束条件求$\mu_k^\star$，回代</li>
+</ul>
+<p>这种方法也适用于general utility maximization</p>
+<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><p>（7） is in the space of $(u,v,w)$ and is easier to handle since optimizing each variable while holding others fixed is convex and easy (e.g., closed form).</p>
+<p>the sum-rate maximization problem is first equivalently transformed into an  MMSE problem and then a block coordinate descent (BCD) method is proposed to solve the resultant MMSE problem.</p>
+<hr>
+<h2 id="Low-Complexity-Hybrid-Precoding-in-Massive-Multiuser-MIMO-Systems【混合预编码】——2014-LWC"><a href="#Low-Complexity-Hybrid-Precoding-in-Massive-Multiuser-MIMO-Systems【混合预编码】——2014-LWC" class="headerlink" title="Low-Complexity Hybrid Precoding in Massive Multiuser MIMO Systems【混合预编码】——2014-LWC"></a>Low-Complexity Hybrid Precoding in Massive Multiuser MIMO Systems【混合预编码】——2014-LWC</h2><p><img alt="混合预编码" class="post-img b-lazy" data-img="https://z3.ax1x.com/2021/11/08/I8Ss1I.png" data-index="1" data-src="https://z3.ax1x.com/2021/11/08/I8Ss1I.png"></p>
+<p>混合预编码——传统数字预编码的RF chain数量需要和$N_t$相等，通过$\mathbf{WF}$的统一考虑，减少RF chain。<br>$$<br>y_k&#x3D;\mathbf{h}<em>k^H\mathbf{F}</em>{N_t\times K}\mathbf{W}<em>{K\times K}\mathbf{s}</em>{K\times 1}+n_k<br>$$</p>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><p>apply phase-only control to couple the $K$ RF chain outputs with $N_t$ transmit antennas, using cost-effective RF phase shifters.（$\mathbf{F}$只相移，将K条射频链和$N_t$个发射天线耦合）</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><ul>
+<li><p>$\bf F$只调相<br>  $$<br>  \mathbf{F}<em>{i,j}&#x3D;\frac{1}{\sqrt{N_t}}e^{j\varphi</em>{i,j}}<br>  $$<br>  This is to align the phases of channel elements and can thus harvest the large array gain provided by the massive multiuser MIMO systems.</p>
+</li>
+<li><p>$\bf W$调幅、调相：将$\bf HF$看作等效的$\bf H$，利用非注水的ZF（块对角化）<br>  $$<br>  \mathbf{W}&#x3D;\mathbf{H}<em>{eq}^H(\mathbf{H}</em>{eq}\mathbf{H}_{eq}^H)^{-1}\mathbf{\Lambda}<br>  $$<br>  $\mathbf{\Lambda}$为列功率归一化。类似【1】的$\eta_i$</p>
+</li>
+<li><p>Quantized RF Phase Control：由于$\mathbf{F}$控制相位，实际中移相器位数有限，需要量化，则再计算$\mathbf{W}$时利用量化后的$\mathbf{\hat F}$</p>
+</li>
+</ul>
+<h3 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h3><h4 id="频谱利用率-Spectral-Efficiency-分析"><a href="#频谱利用率-Spectral-Efficiency-分析" class="headerlink" title="频谱利用率(Spectral Efficiency)分析"></a>频谱利用率(Spectral Efficiency)分析</h4><p>——当$N_t$足够大，用户间干扰可以忽略</p>
+<p>Phased-ZF的上界$R\leq K \mathcal{R}$，且<br>$$<br>\begin{gathered}<br>\lim_{N_t\to \infty}\frac{\mathcal{R}}{\log_2\left(1+\frac{\pi}{4}\frac{PN_t}{K}\right)}&#x3D;1\<br>\mathcal{R}&#x3D;\mathbb{E}\left[1+\frac PK |\mathbf{h}_k^H\mathbf{f}_k|^2\right]<br>\end{gathered}<br>$$</p>
+<h4 id="仿真1：Rayleigh信道"><a href="#仿真1：Rayleigh信道" class="headerlink" title="仿真1：Rayleigh信道"></a>仿真1：Rayleigh信道</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">F = <span class="number">1</span>/<span class="built_in">sqrt</span>(Nt)*<span class="built_in">exp</span>(<span class="built_in">j</span>.*<span class="built_in">angle</span>(H))&#x27;;   <span class="comment">% RF precoder 128x4</span></span><br><span class="line">Fb = CalBDPrecoder(H*F);            <span class="comment">% 4x(128)x4, baseband, same as inverse with column normalization W = Fb</span></span><br><span class="line">                                    <span class="comment">% (BD precoder is a method of ZF)</span></span><br><span class="line">wt = F*Fb;                          <span class="comment">% aggregate precoder wt=FW</span></span><br><span class="line">WPR = wt*inv(<span class="built_in">sqrt</span>(<span class="built_in">diag</span>(<span class="built_in">diag</span>(wt&#x27;*wt))));  <span class="comment">% normalized columns </span></span><br><span class="line">rateHyb(isnr) = rateHyb(isnr) + CalRate((P/K)*<span class="built_in">eye</span>(K), H, WPR);<span class="comment">% ZF-PRP</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="仿真2：mmWave信道"><a href="#仿真2：mmWave信道" class="headerlink" title="仿真2：mmWave信道"></a>仿真2：mmWave信道</h4><p>毫米波信道的特点：limited multipath components.—— poor scattering nature<br>$$<br>\mathbf{h}<em>k^H&#x3D;\sqrt{\frac{N_t}{N_p}}\sum</em>{l&#x3D;1}^{N_p}\alpha_l^k\mathbf{a}^H(\phi_l^k,\theta_l^k)<br>$$</p>
+<h3 id="Contribution-1"><a href="#Contribution-1" class="headerlink" title="Contribution"></a>Contribution</h3><p>在性能减弱不大的情况下，减少射频链(RF chains)的数量</p>
+<hr>
+<h2 id="Hybrid-Digital-and-Analog-Beamforming-Design-for-Large-Scale-Antenna-Arrays【混合预编码】——2016-JSTSP"><a href="#Hybrid-Digital-and-Analog-Beamforming-Design-for-Large-Scale-Antenna-Arrays【混合预编码】——2016-JSTSP" class="headerlink" title="Hybrid Digital and Analog Beamforming Design for Large-Scale Antenna Arrays【混合预编码】——2016-JSTSP"></a>Hybrid Digital and Analog Beamforming Design for Large-Scale Antenna Arrays【混合预编码】——2016-JSTSP</h2><p><img alt="image-20211109103444712" class="post-img b-lazy" data-img="/image-20211109103444712.png" data-index="2" data-src="/image-20211109103444712.png"><br>$$<br>\mathbf{x}&#x3D;\underbrace{\mathbf{V}<em>{RF}}</em>{N\times N_t^{RF}}\underbrace{\mathbf{V}<em>D}</em>{N_t^{RF}\times N_s}\mathbf{s}&#x3D;\sum_{\ell&#x3D;1}^K\mathbf{V}<em>{RF}\mathbf{V}</em>{D_\ell}\mathbf{s}_\ell<br>$$<br>其中，$N_s&#x3D;Kd$ ， $K$个用户，每个用户$d$个符号</p>
+<p>接收信号<br>$$<br>\mathbf{\tilde s}<em>k&#x3D;\tilde{\mathbf{y}}</em>{k}&#x3D;\underbrace{\mathbf{W}<em>{\mathrm{t}</em>{k}}^{H} \mathbf{H}<em>{k} \mathbf{V}</em>{\mathrm{t}<em>{k}} \mathbf{s}</em>{k}}<em>{\text {desired signals }}+\underbrace{\mathbf{W}</em>{\mathrm{t}<em>{k}}^{H} \mathbf{H}</em>{k} \sum_{\ell \neq k} \mathbf{V}<em>{\mathrm{t}</em>{\ell}} \mathbf{s}<em>{\ell}}</em>{\text {effective interference }}+\underbrace{\mathbf{W}<em>{\mathrm{t}</em>{k}}^{H} \mathbf{z}<em>{k}}</em>{\text {effective noise }}<br>$$<br>其中，基站的预编码$\mathbf{V}<em>{\mathrm{t}<em>k}&#x3D;\mathbf{V}</em>{RF}\mathbf{V}</em>{D_k}$，同理，用户侧的预编码$\mathbf{W}<em>{\mathrm{t}<em>k}&#x3D;\mathbf{V}</em>{RF_k}\mathbf{V}</em>{D_k}$</p>
+<p>优化问题sum-rate problem(4)<br>$$<br>\begin{aligned}<br>&amp;R_{k}&#x3D;\log <em>{2}\left|\mathbf{I}</em>{M}+\mathbf{W}<em>{\mathrm{t}</em>{k}} \mathbf{C}<em>{k}^{-1} \mathbf{W}</em>{\mathrm{t}<em>{k}}^{H} \mathbf{H}</em>{k} \mathbf{V}<em>{\mathrm{t}</em>{k}} \mathbf{V}<em>{\mathrm{t}</em>{k}}^{H} \mathbf{H}<em>{k}^{H}\right|\<br>&amp;\text { where } \quad \mathbf{C}</em>{k}&#x3D;\mathbf{W}<em>{\mathrm{t}</em>{k}}^{H} \mathbf{H}<em>{k}\left(\sum</em>{\ell \neq k} \mathbf{V}<em>{\mathrm{t}</em>{\ell}} \mathbf{V}<em>{\mathrm{t}</em>{\ell}}^{H}\right) \mathbf{H}<em>{k}^{H} \mathbf{W}</em>{\mathrm{t}<em>{k}}+\sigma^{2} \mathbf{W}</em>{\mathrm{t}<em>{k}}^{H} \mathbf{W}</em>{\mathrm{t}_{k}}<br>\end{aligned}<br>$$</p>
+<ul>
+<li>Point-to-Point MIMO——两侧都是大规模天线阵列</li>
+<li>下行链路MU-MIMO——基站侧多天线，用户侧单天线</li>
+</ul>
+<h3 id="Fully-Digital-Beamformer（全数字波束赋形）"><a href="#Fully-Digital-Beamformer（全数字波束赋形）" class="headerlink" title="Fully Digital Beamformer（全数字波束赋形）"></a>Fully Digital Beamformer（全数字波束赋形）</h3><p>$\mathbf{V}_{FD}\in \mathbb{C}^{N\times N_s}$</p>
+<ul>
+<li>必要条件：$N^{RF}\geq N_s$</li>
+<li>充分条件：$N^{RF}\geq 2N_s$</li>
+<li>$N_s\geq 2N^{RF}$的构造方法：it is in fact possible to realize any fully digital beamformer using the hybrid structure with $N_s$ RF chains and $2N_sN$ phase shifters.</li>
+<li>当$N^{RF}\approx N$，可以达到近似最优解，此时移相器数量为$N_sN$。</li>
+<li>在低信噪比环境中，若$\mathbf{V}<em>{FD}$非满秩矩阵，则先进行满秩分解($\mathbf{V}</em>{FD}&#x3D;\mathbf{A}<em>{N\times r}\mathbf{B}</em>{r\times N_s}$)，将$\mathbf{A}&#x3D;\mathbf{V}_{RF}\mathbf{V}’<em>D$作为预编码矩阵，射频链数量为$2r$，此时模拟预编码$\mathbf{V}</em>{RF}$，数字预编码$\mathbf{V}’_D\mathbf{B}$</li>
+</ul>
+<h3 id="SU-Point-to-Point-MIMO"><a href="#SU-Point-to-Point-MIMO" class="headerlink" title="SU-Point-to-Point MIMO"></a>SU-Point-to-Point MIMO</h3><p>假设$N_t^{RF}&#x3D;N_r^{RF}&#x3D;N^{RF}$</p>
+<p>优化目标：由$\eqref{eq:4-4}$化简：<br>$$<br>R&#x3D;\log <em>{2}\left|\mathbf{I}</em>{M}+\frac{1}{\sigma^2}\mathbf{W}<em>{\mathrm{t}} (\mathbf{W}<em>t^H\mathbf{W}<em>t)^{-1} \mathbf{W}</em>{\mathrm{t}}^{H} \mathbf{H} \mathbf{V}</em>{\mathrm{t}} \mathbf{V}</em>{\mathrm{t}}^{H} \mathbf{H}^{H}\right|<br>$$</p>
+<ul>
+<li><p>先考虑必要条件$N^{RF}&#x3D;N_s$的启发式算法</p>
+<ul>
+<li><p>数字预编码：由注水法$\mathbf{V}<em>D&#x3D;(\mathbf{V}</em>{RF}^H\mathbf{V}_{RF})^{-\frac12}\mathbf{U}_e\mathbf{\Gamma}_e$(11)，得$\mathbf{V}_D\mathbf{V}_D^H&#x3D;\gamma^2\mathbf{I},\gamma&#x3D;\frac{P}{NN^{RF}}$</p>
+</li>
+<li><p>RF预编码：优化函数(12)<br>  $$<br>  \begin{aligned}<br>  \max <em>{\mathbf{V}</em>{\mathrm{RF}}}\quad &amp; \log <em>{2}\left|\mathbf{I}+\frac{\gamma^{2}}{\sigma^{2}} \mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{F}<em>{1} \mathbf{V}</em>{\mathrm{RF}}\right| \<br>  \text { s.t. }\quad &amp;\left|\mathbf{V}<em>{\mathrm{RF}}(i, j)\right|^{2}&#x3D;1, \forall i, j<br>  \end{aligned}<br>  $$<br>  目标函数也可写为(13)<br>  $$<br>  \log <em>{2}\left|\mathbf{C}</em>{j}\right|+\log <em>{2}\left(2 \operatorname{Re}\left{\mathbf{V}</em>{\mathrm{RF}}^{*}(i, j) \eta</em>{i j}\right}+\zeta_{i j}+1\right)<br>  $$</p>
+<p>  $$<br>  \begin{aligned}<br>  &amp;\hline \text { Algorithm 1. Design of } \mathbf{V}<em>{\mathrm{RF}} \text { by solving (12) } \<br>  &amp;\hline \text { Given: } \mathbf{F}</em>{1}, \gamma^{2}, \sigma^{2} \<br>  &amp;\text { 1: Initialize } \mathbf{V}<em>{\mathrm{RF}}&#x3D;1</em>{N \times N^{\mathrm{RF}}} \<br>  &amp;\text { 2: \textbf{for} } j&#x3D;1 \rightarrow N^{\mathrm{RF}} \textbf { do } \<br>  &amp;\text { 3: Calculate } \mathbf{C}<em>{j}&#x3D;\mathbf{I}+\frac{\gamma^{2}}{\sigma^{2}}\left(\overline{\mathbf{V}}</em>{\mathrm{RF}}^{j}\right)^{H} \mathbf{F}<em>{1} \overline{\mathbf{V}}</em>{\mathrm{RF}}^{j} \<br>  &amp;\text { 4: Calculate } \mathbf{G}<em>{j}&#x3D;\frac{\gamma^{2}}{\sigma^{2}} \mathbf{F}</em>{1}-\frac{\gamma^{4}}{\sigma^{4}} \mathbf{F}<em>{1} \overline{\mathbf{V}}</em>{\mathrm{RF}}^{j} \mathbf{C}<em>{j}^{-1}\left(\overline{\mathbf{V}}</em>{\mathrm{RF}}^{j}\right)^{H} \mathbf{F}<em>{1} . \<br>  &amp;\text { 5: } \quad \textbf { for } i&#x3D;1 \rightarrow N \<br>  &amp;\text { 6: } \quad \text { Find } \eta</em>{i j}&#x3D;\sum_{\ell \neq i} \mathbf{G}<em>{j}(i, \ell) \mathbf{V}</em>{\mathrm{RF}}(\ell, j) . \<br>  &amp;\text { 7: } \quad \mathbf{V}<em>{\mathrm{RF}}(i, j)&#x3D;\left{\begin{array}{cc}<br>  1, &amp; \text { if } \eta</em>{i j}&#x3D;0, \<br>  \frac{\eta_{i j}}{\left|\eta_{i j}\right|}, \text { otherwise. }<br>  \end{array}\right. \<br>  &amp;\text { 8: } \quad \textbf { end for } \<br>  &amp;\text { 9: \textbf{end for} } \<br>  &amp;\text { 10: Check convergence. If yes, stop; if not go to Step } 2 . \<br>  \hline<br>  \end{aligned}<br>  $$</p>
+<p>  算法运行中，目标函数不减</p>
+</li>
+<li><p>RF合并：将优化函数中的$\mathbf{W}<em>{RF}^H\mathbf{W}</em>{RF}\approx M\mathbf{I}$，后续类似上述算法1（16）</p>
+</li>
+<li><p>数字合并：MMSE方法，类似【2】-$\eqref{eq:2-5}$</p>
+</li>
+</ul>
+</li>
+<li><p>后考虑将$N^{RF}&#x3D;N_s$扩展到$N_s&lt;N^{RF}&lt;2N_s$：多余的射频链可用作相移器精度的折中<br>  $$<br>  \begin{aligned}<br>  &amp;\hline \begin{array}{l}<br>  \text { Algorithm 2. Design of Hybrid Beamformers for Point-to- } \<br>  \text { Point MIMO systems }<br>  \end{array} \<br>  &amp;\hline \text { Given: } \sigma^{2}, P \<br>  &amp;\text { 1: Assuming } \mathbf{V}<em>{\mathrm{D}} \mathbf{V}</em>{\mathrm{D}}^{H}&#x3D;\gamma^{2} \mathbf{I} \text { where } \gamma&#x3D;\sqrt{P &#x2F;\left(N N^{\mathrm{RF}}\right)}, \text { find } \<br>  &amp;\mathbf{V}<em>{\mathrm{RF}} \text { by solving the problem in (12) using Algorithm 1. } \<br>  &amp;\text { 2: Calculate } \mathbf{V}</em>{\mathrm{D}}&#x3D;\left(\mathbf{V}<em>{\mathrm{RF}}^{H} \mathbf{V}</em>{\mathrm{RF}}\right)^{-1 &#x2F; 2} \mathbf{U}<em>{e} \boldsymbol{\Gamma}</em>{e} \text { where } \mathbf{U}<em>{e} \text { and } \boldsymbol{\Gamma}</em>{e} \<br>  &amp;\text { are defined as following }(11) \text {. } \<br>  &amp;\text { 3: Find } \mathbf{W}<em>{\mathrm{RF}} \text { by solving the problem in (16) using } \<br>  &amp;\text { Algorithm 1. } \<br>  &amp;\text { 4: Calculate } \mathbf{W}</em>{\mathrm{D}}&#x3D;\mathbf{J}^{-1} \mathbf{W}<em>{\mathrm{RF}}^{H} \mathbf{H V}</em>{\mathrm{RF}} \mathbf{V}<em>{\mathrm{D}} \text { where } \mathbf{J}&#x3D;\mathbf{W}</em>{\mathrm{RF}}^{H} \mathbf{H} \<br>  &amp;\mathbf{V}<em>{\mathrm{RF}} \mathbf{V}</em>{\mathrm{D}} \mathbf{V}<em>{\mathrm{D}}^{H} \mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{H}^{H} \mathbf{W}<em>{\mathrm{RF}}+\sigma^{2} \mathbf{W}</em>{\mathrm{RF}}^{H} \mathbf{W}_{\mathrm{RF}} \text {. } \<br>  \hline<br>  \end{aligned}<br>  $$</p>
+</li>
+</ul>
+<h3 id="MU-MISO"><a href="#MU-MISO" class="headerlink" title="MU-MISO"></a>MU-MISO</h3><ul>
+<li>考虑用户间干扰的因素</li>
+<li>考虑streams的优先级</li>
+<li>proposes a design for the scenarios where $N^{RF} &gt; K$ with practical $N$ and show numerically that adding a few more RF chains can increase the overall performance of the system and reduce the gap to capacity.</li>
+</ul>
+<p>方法：<strong>在$\mathbf{V}_{RF}$和$\mathbf{P}$的设计之间迭代</strong></p>
+<ul>
+<li><p>先优化$\mathbf{V}<em>{RF}&#x3D;e^{-j\theta</em>{i,j}}$</p>
+</li>
+<li><p>$\mathbf{V}<em>{RF}$收敛，注水法功控<br>  $$<br>  \begin{gathered}<br>  \mathbf{P}&#x3D;\mathrm{diag}(p_1,\cdots,p_k)\<br>  p_k&#x3D;\frac{1}{\tilde q</em>{kk}}\left(\frac{\beta_k}{\lambda}-\tilde q_{kk}\sigma^2\right)^+<br>  \end{gathered}<br>  $$<br>  其中，$\tilde q_{kk}$ 是 $\mathbf{\tilde Q}&#x3D;\mathbf{\tilde V}<em>D^H\mathbf{V}</em>{RF}^H\mathbf{V}<em>{RF}\mathbf{\tilde V}<em>D $ 的主对角线元素。同时 $\lambda$ 使 $\sum</em>{k&#x3D;1}^K\left(\frac{\beta_k}{\lambda}-\tilde q</em>{kk}\sigma^2\right)^+&#x3D;P$ ， $\mathbf{\tilde V}<em>D$是$\mathbf{H}</em>{eq}&#x3D;\mathbf{HV}_{RF}$的ZF数字预编码。</p>
+</li>
+<li><p>整个算法收敛，应用注水功控的ZF数字预编码<br>  $$<br>  \mathbf{V}<em>{\mathrm{D}}^{\mathrm{ZF}}&#x3D;\mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{H}^{H}\left(\mathbf{H V}<em>{\mathrm{RF}} \mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{H}^{H}\right)^{-1} \mathbf{P}^{\frac{1}{2}}&#x3D;\tilde{\mathbf{V}}_{\mathrm{D}} \mathbf{P}^{\frac{1}{2}}<br>  $$</p>
+</li>
+</ul>
+<p>$$<br>\begin{aligned}<br>&amp;\hline \begin{array}{l}<br>\text { Algorithm 3. Design of Hybrid Precoders for MU-MISO } \<br>\text { systems }<br>\end{array} \<br>&amp;\hline \text { Given: } \beta_{k}, P, \sigma^{2} \<br>&amp;\text { 1: Start with a feasible } \mathbf{V}<em>{\mathrm{RF}} \text { and } \mathbf{P}&#x3D;\mathbf{I}</em>{K} \text {. } \<br>&amp;\text { 2: for } j&#x3D;1 \rightarrow N^{\mathrm{RF}} \<br>&amp;\text { 3:\quad  Calculate } \mathbf{A}<em>{j}&#x3D;\mathbf{P}^{-\frac{1}{2}} \mathbf{H} \overline{\mathbf{V}}</em>{\mathrm{RF}}^{j}\left(\overline{\mathbf{V}}<em>{\mathrm{RF}}^{j}\right)^{H} \mathbf{H}^{H} \mathbf{P}^{-\frac{1}{2}} \<br>&amp;\text { 4: } \quad \text { for } i&#x3D;1 \rightarrow N \<br>&amp;\text { 5: } \quad\quad  \text { Find } \zeta</em>{i j}^{B}, \zeta_{i j}^{D}, \eta_{i j}^{B}, \eta_{i j}^{D} \text { as defined in Appendix A. } \<br>&amp;\text { 6: } \quad\quad  \text { Calculate } \theta_{i, j}^{(1)} \text { and } \theta_{i, j}^{(2)} \text { according to }(27) . \<br>&amp;\text { 7: } \quad\quad  \text { Find } \theta_{i, j}^{\text {opt }}&#x3D;\arg \min \left(\hat{f}\left(\theta_{i, j}^{(1)}\right), \hat{f}\left(\theta_{i, j}^{(2)}\right)\right) . \<br>&amp;\text { 8:\quad  Set } \mathbf{V}<em>{\mathrm{RF}}(i, j)&#x3D;e^{-j \theta</em>{i, j}^{\text {opt }}} \text {. } \<br>&amp;\text { 9: \quad end for } \<br>&amp;\text { 10: end for } \<br>&amp;\text { 11: Check convergence of RF precoder. If yes, continue; if not } \<br>&amp;\text { go to Step } 2 . \<br>&amp;\text { 12: Find } \mathbf{P}&#x3D;\operatorname{diag}\left[p_{1}, \ldots, p_{k}\right] \text { using water-filling as in (23). } \<br>&amp;\text { 13: Check convergence of the overall algorithm. If yes, stop; } \<br>&amp;\text { if not go to Step } 2 . \<br>&amp;\text { 14: Set } \mathbf{V}<em>{\mathrm{D}}&#x3D;\mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{H}^{H}\left(\mathbf{H V}<em>{\mathrm{RF}} \mathbf{V}</em>{\mathrm{RF}}^{H} \mathbf{H}^{H}\right)^{-1} \mathbf{P}^{\frac{1}{2}} \text {. }\\hline<br>\end{aligned}<br>$$</p>
+<h3 id="相移器精度有限"><a href="#相移器精度有限" class="headerlink" title="相移器精度有限"></a>相移器精度有限</h3><p>与第三篇先计算波束赋形矢量后再进行量化不同，在<strong>迭代优化过程中就开始量化</strong>，尤其是$\max\ \mathrm{Re}{\mathbf{V}<em>{RF}^*(i,j)\eta</em>{ij}}$即最小化复平面上$\mathbf{V}<em>{RF}$和$\eta</em>{ij}$的夹角。</p>
+<hr>
+<h2 id="Weighted-Sum-Rate-Maximization-for-Reconfigurable-Intelligent-Surface-Aided-Wireless-Networks【智能反射面】——2020-TWC"><a href="#Weighted-Sum-Rate-Maximization-for-Reconfigurable-Intelligent-Surface-Aided-Wireless-Networks【智能反射面】——2020-TWC" class="headerlink" title="Weighted Sum-Rate Maximization for Reconfigurable Intelligent Surface Aided Wireless Networks【智能反射面】——2020-TWC"></a>Weighted Sum-Rate Maximization for Reconfigurable Intelligent Surface Aided Wireless Networks【智能反射面】——2020-TWC</h2><p>MU-MISO</p>
+<p><img alt="image-20211111150451134" class="post-img b-lazy" data-img="/image-20211111150451134.png" data-index="3" data-src="/image-20211111150451134.png"></p>
+<p>基站$M$根天线，RIS有$N$个反射单元，$K$个单天线用户<br>$$<br>\begin{aligned}<br>y_{k} &amp;&#x3D;\underbrace{\mathbf{h}<em>{\mathrm{d}, k}^{\mathrm{H}} \mathbf{x}}</em>{\text {Direct link }}+\underbrace{\mathbf{h}<em>{\mathrm{r}, k}^{\mathrm{H}} \Theta \mathbf{G} \mathbf{x}}</em>{\text {RIS-aided link }}+u_{k} \<br>&amp;&#x3D;\left(\mathbf{h}<em>{\mathrm{d}, k}^{\mathrm{H}}+\mathbf{h}</em>{\mathrm{r}, k}^{\mathrm{H}} \Theta \mathbf{G}\right) \sum_{k&#x3D;1}^{K} \mathbf{w}<em>{k} s</em>{k}+u_{k}\<br>&amp;&#x3D;\left(\mathbf{h}<em>{d,k}^H+\boldsymbol{\theta}^H\mathbf{H}</em>{r,k}\right)\sum_{k&#x3D;1}^K\mathbf{w}<em>ks_k+u_k<br>\end{aligned}<br>$$<br>其中，$\boldsymbol{\Theta}&#x3D;diag(\theta_1,\cdots,\theta_N),\boldsymbol{\theta}&#x3D;[\theta_1,\cdots,\theta_N]^H$，$\mathbf{H}</em>{r,k}&#x3D;diag(\mathbf{h}_{r,k}^H)\mathbf{G}\in\mathbb{C}^{N\times M}$</p>
+<ul>
+<li><p>perfect CSI：weighted sum-rate maximization<br>  $$<br>  \begin{aligned}<br>  \max <em>{\mathbf{W}, \boldsymbol{\theta}} \quad &amp;f</em>{\mathrm{A}}(\mathbf{W}, \boldsymbol{\theta})&#x3D;\sum_{k&#x3D;1}^{K} \omega_{k} \log \left(1+\gamma_{k}\right) \<br>  \text { s.t. }\quad&amp;\left|\theta_{n}\right|&#x3D;1, \quad \forall n&#x3D;1, \cdots, N \<br>  &amp;\sum_{k&#x3D;1}^{K}\left|\mathbf{w}<em>{k}\right|^{2} \leq P</em>{\mathrm{T}}<br>  \end{aligned}<br>  $$<br>  $\gamma_k$即SINR。</p>
+</li>
+<li><p>imperfect CSI：$ \mathbf{h}<em>{d,k}$ ， $\mathbf{G}$ ， $\mathbf{h}</em>{r,k}$可以看成由非完美CSI $({\hat{\mathbf{h}}}<em>{d,k}$ ， $\hat{\mathbf{G}}$ ， ${\hat{\mathbf{h}}}</em>{r,k}$)与信道估计误差($\mathbf{z}<em>{d,\ k}$ ， $\mathbf{Z}<em>G$，$\mathbf{z}</em>{r,k}$)分布的样本空间的一个随机样本。<br>  $$<br>  \begin{aligned}<br>  \max <em>{ \boldsymbol{\theta}} \quad &amp;f</em>{\mathrm{B}}(\boldsymbol{\theta})&#x3D;\mathbb{E}<em>\xi\left[\max</em>{\mathbf{W}<em>\xi}f_A\left(\mathbf{W}(\xi) ,\boldsymbol{\theta};\xi \right)\right] \<br>  \text { s.t. }\quad&amp;\left|\theta</em>{n}\right|&#x3D;1, \quad \forall n&#x3D;1, \cdots, N \<br>  &amp;\sum</em>{k&#x3D;1}^{K}\left|\mathbf{w}<em>{k}(\xi)\right|^{2} \leq P</em>{\mathrm{T}},\quad\forall\xi.<br>  \end{aligned}<br>  $$</p>
+</li>
+</ul>
+<hr>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/MIMO/" rel="tag"># MIMO</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" rel="tag"># 预编码</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【预编码论文阅读（一）】传统方法</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年12月07日 - 19:57:07</p>
+  <p><span>原始链接:</span><a href="/2021/12/08/precoding-1/" title="【预编码论文阅读（一）】传统方法">https://levitate-qian.github.io/2021/12/08/precoding-1/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/12/08/precoding-1/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【预编码论文阅读（二）】深度学习(一)" href="/2021/12/08/precoding-2/">
+            ← 【预编码论文阅读（二）】深度学习(一)
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="尘埃落定——XDU to SEU" href="/2021/09/29/xdu-to-seu/">
+            尘埃落定——XDU to SEU →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#预编码论文阅读（一）——传统方法"><span class="toc-text">预编码论文阅读（一）——传统方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性预编码"><span class="toc-text">线性预编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MRT预编码"><span class="toc-text">MRT预编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zero-forcing-precoding"><span class="toc-text">Zero-forcing precoding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Equal-power-scaling-allocation-ZF-EPS"><span class="toc-text">Equal power scaling allocation(ZF-EPS)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Optimal-power-allocation-water-filling-solution-ZF-WF"><span class="toc-text">Optimal power allocation - water-filling solution(ZF-WF)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Regularized-zero-forcing-precoding-RZF"><span class="toc-text">Regularized zero-forcing precoding(RZF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iterative-weighted-minimization-ofmean-squared-error-algorithm-IWMMSE"><span class="toc-text">Iterative weighted minimization ofmean squared error algorithm(IWMMSE)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WMMSE【数字预编码】——2014"><span class="toc-text">WMMSE【数字预编码】——2014</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#perfect-CSI-and-average-SNR-knowledge"><span class="toc-text">perfect CSI and average SNR knowledge</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结果"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#quantized-CDI-and-CQI-feedbacks"><span class="toc-text">quantized CDI and CQI feedbacks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法——Robust"><span class="toc-text">方法——Robust</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路-1"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结果-1"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contribution"><span class="toc-text">Contribution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iteratively-Weighted-MMSE【数字预编码，迭代】——2011-TSP"><span class="toc-text">Iteratively Weighted MMSE【数字预编码，迭代】——2011-TSP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优化问题"><span class="toc-text">优化问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代优化的方法"><span class="toc-text">迭代优化的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contributions"><span class="toc-text">Contributions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Low-Complexity-Hybrid-Precoding-in-Massive-Multiuser-MIMO-Systems【混合预编码】——2014-LWC"><span class="toc-text">Low-Complexity Hybrid Precoding in Massive Multiuser MIMO Systems【混合预编码】——2014-LWC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-2"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-2"><span class="toc-text">结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#频谱利用率-Spectral-Efficiency-分析"><span class="toc-text">频谱利用率(Spectral Efficiency)分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#仿真1：Rayleigh信道"><span class="toc-text">仿真1：Rayleigh信道</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#仿真2：mmWave信道"><span class="toc-text">仿真2：mmWave信道</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Contribution-1"><span class="toc-text">Contribution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hybrid-Digital-and-Analog-Beamforming-Design-for-Large-Scale-Antenna-Arrays【混合预编码】——2016-JSTSP"><span class="toc-text">Hybrid Digital and Analog Beamforming Design for Large-Scale Antenna Arrays【混合预编码】——2016-JSTSP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fully-Digital-Beamformer（全数字波束赋形）"><span class="toc-text">Fully Digital Beamformer（全数字波束赋形）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SU-Point-to-Point-MIMO"><span class="toc-text">SU-Point-to-Point MIMO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MU-MISO"><span class="toc-text">MU-MISO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相移器精度有限"><span class="toc-text">相移器精度有限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Weighted-Sum-Rate-Maximization-for-Reconfigurable-Intelligent-Surface-Aided-Wireless-Networks【智能反射面】——2020-TWC"><span class="toc-text">Weighted Sum-Rate Maximization for Reconfigurable Intelligent Surface Aided Wireless Networks【智能反射面】——2020-TWC</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/12/08/precoding-1/" class="leancloud-visitors" data-flag-title="【预编码论文阅读（一）】传统方法">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【预编码论文阅读（一）】传统方法</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

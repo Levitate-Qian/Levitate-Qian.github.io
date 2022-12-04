@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【转】Github+hexo博客搭建教程 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【转】Github+hexo博客搭建教程 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/08/27/hexo-blog/">
+
+	
+	<meta property="article:published_time" content="2021-08-26T19:08:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/08/27/hexo-blog/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-08-26T19:59:30.000Z">
+                    2021-08-26
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E6%80%BB%E7%BB%93/">总结</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【转】Github+hexo博客搭建教程</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/08/26/huNAdH.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="Github-hexo博客搭建教程"><a href="#Github-hexo博客搭建教程" class="headerlink" title="Github+hexo博客搭建教程"></a>Github+hexo博客搭建教程</h1><h2 id="hexo博客的作用"><a href="#hexo博客的作用" class="headerlink" title="hexo博客的作用"></a>hexo博客的作用</h2><p>博客就像一个人公开的日记一般，可以记录很多包括生活学习在内的诸多事情，作为IT的学生，拥有一个属于自己的博客，也将是未来校招或研究生面试重要的加分项。</p>
+<h2 id="教程内容"><a href="#教程内容" class="headerlink" title="教程内容"></a>教程内容</h2><p>本文将带你从0开始，根据以下5个内容，搭建属于自己的hexo博客。</p>
+<ul>
+<li><ol>
+<li>部署环境</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>初始化个人博客</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>markdown写博客</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>通过github把博客部署到远端</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>设置博客主题</li>
+</ol>
+</li>
+</ul>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h3><blockquote>
+<p>node.js<br>git工具</p>
+</blockquote>
+<p>首先需要下载<code>nodejs</code>，我们可以去<a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a>下载<br><img alt="nodejis" class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/EuDAUeitgs1L3jm.png" data-index="0" data-src="https://i.loli.net/2020/02/11/EuDAUeitgs1L3jm.png"><br>下载完按照其默认安装即可。<br>下载安装完之后，本地就有了两个组件：<code>nodejs</code>和<code>npm</code>。</p>
+<p>下面我们下载git工具，直接在官网上下载即可。<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a><br>和nodejs一样根据他的提示下载安装。<br>安装完成后，本地将会有三个东西：<code>Git Gui</code> <code>Git cmd</code> <code>Git Bash</code><br>我们打开<code>Git Bash</code>输入以下指令，来设置自己的用户名和邮箱</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">&quot;nameVal&quot;</span>   <span class="comment"># 全局配置自己的用户名</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email <span class="string">&quot;emailVal&quot;</span> <span class="comment"># 全局配置自己的邮箱</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完之后我们可以确认下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">list</span>  <span class="comment"># 查看git配置信息</span></span><br></pre></td></tr></table></figure>
+
+<p>以上便是hexo博客搭建的软件准备了，下面我们开始部署环境。</p>
+<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><p>打开电脑终端<code>cmd</code>，在<code>shell</code>中输入命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v <span class="comment"># 查看nodejs版本</span></span><br><span class="line">npm -v  <span class="comment"># 查看npm版本</span></span><br></pre></td></tr></table></figure>
+
+<p>查看无误后，下面开始在终端输入命令，安装hexo博客框架。<br>由于国内<code>npm</code>安装速度问题，我们可以通过淘宝镜像换成<code>cnpm</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.taobao.org</span><br><span class="line"><span class="comment"># 安装完成之后可以查看版本来验证安装成功</span></span><br><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+
+<p>这样<code>cnpm</code>安装完成，接下来安装hexo。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="comment"># 安装完成后同样查看下版本</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>以上便是hexo博客的环境部署，非常方便。</p>
+<h3 id="初始化个人博客"><a href="#初始化个人博客" class="headerlink" title="初始化个人博客"></a>初始化个人博客</h3><p>下面我们在<code>cmd</code>的默认路径下<code>C:\Users\nameVal&gt;</code>下新建一个文件夹，名为blog(名字当然随便取)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br></pre></td></tr></table></figure>
+
+<p>然后我们在本地就能看到一个新的文件夹blog，我们的所有配置都在此文件夹下面。<br>然后我们在<code>cmd</code>中进入blog这个目录下面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure>
+
+<p>下面开始初始化博客</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init  <span class="comment"># 需要一些时间等待</span></span><br></pre></td></tr></table></figure>
+
+<p>经过等待之后，博客已经搭建完成。大家可以进入blog文件夹查看生成的配置文件。然后我们启动博客预览。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment"># hexo s==hexo server意思是启动本地服务器</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们在本地服务器中输入<code>cmd</code>中提示的4000端口就可以看到自己的博客了。<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/ms53VpJQgfMWRcO.png" data-index="1" data-src="https://i.loli.net/2020/02/11/ms53VpJQgfMWRcO.png"><br><code>hexo s</code>一般是在本地作为博客预览的一个命令。</p>
+<h3 id="markdown写博客"><a href="#markdown写博客" class="headerlink" title="markdown写博客"></a>markdown写博客</h3><p>下面我们就要开始在我们的hexo博客下写博客了。我们首先需要创建一篇新的博客，在blog目录下输入命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇博客&quot;</span>  <span class="comment"># 引号内写博客的标题</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在<code>blog/source/_posts/</code>的目录下就能找到我们创建的第一篇博客的markdown文件。<br>markdown格式是程序员常用写博客的方式，markdown的语法十分简单。<br>给大家markdown的菜鸟教程<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a><br>基本上里面的语法就能解决常用的问题了，如果有里面没有的，要善用搜索引擎。<br>完成博客内容后，我们首先要在本地预览此篇博客的内容，写完之后打开<code>cmd</code>终端，在blog目录下输入两个命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># hexo g==hexo generate生成博客</span></span><br><span class="line">hexo s <span class="comment"># 在本地服务器上启动</span></span><br></pre></td></tr></table></figure>
+
+<p>这是我们刷新本地服务器地址，就能看到我们的博客了。</p>
+<h3 id="通过github把博客部署到远端"><a href="#通过github把博客部署到远端" class="headerlink" title="通过github把博客部署到远端"></a>通过github把博客部署到远端</h3><p><code>local:4000</code>作为我们本地的测试端，但是我们的博客内容不可能仅仅在本地用，所以我们需要把它部署到远端去。<br>github是一种非常稳定的方式，以后我们只要通过github的方式来访问我们的博客就可以了，而且此方法免费。<br><strong>当然大家也可以购买阿里云服务器，为自己的博客地址更改域名，这就看个人需求了</strong><br>ps：如果你还没有github账号，请赶紧注册<a href="https://www.github.com/" target="_blank" rel="noopener">https://www.github.com/</a>，这可是程序员乃至所有工科生必备神器，以及最大的同性交友网站gayhub(滑稽)。<br>下面打开自己的github，我们首先新建一个仓库(new repository)。<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/5SoyteL4BYb3pnR.png" data-index="2" data-src="https://i.loli.net/2020/02/11/5SoyteL4BYb3pnR.png"><br>用户部署个人博客的github仓库的命名必须要与你的用户名一致才行。如下图所示，因为我的博客已经部署好了，所以它会提示已存在。<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/QMuhEzAomG4lc2S.png" data-index="3" data-src="https://i.loli.net/2020/02/11/QMuhEzAomG4lc2S.png"><br>然后按照默认的点击<code>create repository</code>就行了。这现在是个空仓库，这是我们部署的博客地址<a href="https://alpha-yang.github.io/" target="_blank" rel="noopener">https://Alpha-Yang.github.io</a><br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/mikay2LEFxNPHvd.png" data-index="4" data-src="https://i.loli.net/2020/02/11/mikay2LEFxNPHvd.png"><br>下面我们先不管它，打开终端命令行<code>cmd</code>下载git插件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>然后我们需要设置其配置文件，在<code>blog/</code>目录下找到配置文件<code>_config.yml</code>，用notepad或vim等记事本工具将其打开，更改该文件底部Deployment的内容。</p>
+<p><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/bNcDdlqYVOIJ5gL.png" data-index="5" data-src="https://i.loli.net/2020/02/11/bNcDdlqYVOIJ5gL.png"></p>
+<blockquote>
+<p>这里会出现一些问题（2021年8月以后）：</p>
+<p>请按照本文操作<a href="https://z.arlmy.me/posts/hexo/Hexo_PersonalAccessToken/" target="_blank" rel="noopener">Github 强制要求使用 Personal access token | 素生 (arlmy.me)</a></p>
+</blockquote>
+<p>最后一步，我们将博客部署到远端，打开<code>cmd</code>终端。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># hexo d=hexo deployer部署到远端</span></span><br></pre></td></tr></table></figure>
+
+<p>这时候输入你的github账号及密码(<strong>这里注意你的密码不会显示出来，所以输入即可</strong>)<br>这时候你会发现的仓库多了很多东西，然后把我们的仓库名拿出来访问，即<a href="https://alpha-yang.github.io/" target="_blank" rel="noopener">https://alpha-yang.github.io</a><br>就能看到我们的博客被部署到github上了，这样的话博客的部署工作也就完成了。所以我们今后使用hexo的命令基本为五个，这里我做下整理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;博客名&quot;</span>   <span class="comment"># 新建一篇博客</span></span><br><span class="line">hexo g           <span class="comment"># 博客内容生成</span></span><br><span class="line">hexo s           <span class="comment"># 启动本地服务器，预览更改后的博客</span></span><br><span class="line">hexo d           <span class="comment"># 将更改后的博客部署到远端</span></span><br><span class="line">hexo clean       <span class="comment"># 在hexo g之前的文件清理，不是必要。</span></span><br></pre></td></tr></table></figure>
+
+<p>以上就完成了所有的博客搭建的内容教程，这时候你就有了属于你自己的博客了。</p>
+<h2 id="设置博客主题"><a href="#设置博客主题" class="headerlink" title="设置博客主题"></a>设置博客主题</h2><p>hexo博客的默认主题为landscape，我们可以自由地更换主题，大家可以去github上广泛地搜索，下面我们来讲解下如何更换主题。</p>
+<h3 id="博客主题下载"><a href="#博客主题下载" class="headerlink" title="博客主题下载"></a>博客主题下载</h3><p>在hexo博客中有好多主题被广泛使用，这里我推荐我使用的两款主题</p>
+<blockquote>
+<p>next(杨神原先使用)：<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a></p>
+<p>yimlia：<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
+<p>casper（我所使用的）：由<a href="https://github.com/xzhih/hexo-theme-casper" target="_blank" rel="noopener">GitHub - xzhih&#x2F;hexo-theme-casper: New casper theme ported to hexo.</a>和<a href="https://github.com/GeekMubai/hexo-casper" target="_blank" rel="noopener">GitHub - GeekMubai&#x2F;hexo-casper: hexo theme</a>两者综合</p>
+</blockquote>
+<p>可以现在github上预览看下自己喜欢的主题。<br>我们下面来下载主题，打开<code>cmd</code>终端，在blog目录下输入命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-<span class="built_in">next</span>/hexo-theme-<span class="built_in">next</span>.git themes/<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<p>克隆完之后，在<code>blog/themes/</code>的目录下就有next文件夹了。</p>
+<h3 id="将主题导入自己的博客"><a href="#将主题导入自己的博客" class="headerlink" title="将主题导入自己的博客"></a>将主题导入自己的博客</h3><p>打开blog目录下的配置文件<code>_config.yml</code>，更改theme的内容<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/Umzn6IaltJZPXi7.png" data-index="6" data-src="https://i.loli.net/2020/02/11/Umzn6IaltJZPXi7.png"><br>这样主题就导入成功了，接下来生成新内容，并部署到远端就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>就可以在我们的网址上看到新的主题了。<br><strong>有可能出现尚未生效的情况，大家多刷新或等待就可以了，这是正常情况</strong></p>
+<h3 id="常用更改"><a href="#常用更改" class="headerlink" title="常用更改"></a>常用更改</h3><p>最后的最后，我们需要学会更改配置文件的内容，根据自己的喜好优化博客即可，比如更改名字背景或添加特效等等。</p>
+<p>第一个是<code>blog/</code>目录下的<code>_config.yml</code>配置文件<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/238yAmoSVrMPkHj.png" data-index="7" data-src="https://i.loli.net/2020/02/11/238yAmoSVrMPkHj.png"><br>我们可以设置博客标题，副标题，描述，昵称，语言以及时区等等。</p>
+<p>第二个是<code>blog/themes/next/</code>目录下的<code>_config.yml</code>配置文件<br>其实next主题还有四种样式可以选择，我选择的是Gemini样式<br><img class="post-img b-lazy" data-img="https://i.loli.net/2020/02/11/ko1bgBWGqX89QlJ.png" data-index="8" data-src="https://i.loli.net/2020/02/11/ko1bgBWGqX89QlJ.png"><br>大家想要哪儿个样式，就在配置文件中取消注释就可以了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上所有内容便是hexo博客搭建的所有内容了。除了hexo以外，当然还有其他很多博客的框架，选择hexo的原因是应用比较广泛，可讨论的地方比较多。当然大家搭建博客还是先玩起来，至于其他的之后再考虑。<br>关于博客的其他细节内容，大家一定要善用搜索引擎，我也会考虑写一篇hexo next主题优化的博客内容，供大家参考。</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="尘埃落定——XDU to SEU" href="/2021/09/29/xdu-to-seu/">
+            ← 尘埃落定——XDU to SEU
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【深度学习笔记（四）】卷积神经网络" href="/2021/05/07/DL-Coursera-4-Convolutional-Neural-Networks/">
+            【深度学习笔记（四）】卷积神经网络 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-hexo博客搭建教程"><span class="toc-text">Github+hexo博客搭建教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo博客的作用"><span class="toc-text">hexo博客的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#教程内容"><span class="toc-text">教程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客搭建"><span class="toc-text">博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件准备"><span class="toc-text">软件准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境部署"><span class="toc-text">环境部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化个人博客"><span class="toc-text">初始化个人博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown写博客"><span class="toc-text">markdown写博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过github把博客部署到远端"><span class="toc-text">通过github把博客部署到远端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置博客主题"><span class="toc-text">设置博客主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#博客主题下载"><span class="toc-text">博客主题下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将主题导入自己的博客"><span class="toc-text">将主题导入自己的博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用更改"><span class="toc-text">常用更改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/08/27/hexo-blog/" class="leancloud-visitors" data-flag-title="【转】Github+hexo博客搭建教程">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【转】Github+hexo博客搭建教程</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

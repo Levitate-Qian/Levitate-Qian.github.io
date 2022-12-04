@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>信号与系统3种变换性质整理 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="信号与系统3种变换性质整理 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/05/30/Signal-and-System-3-transform/">
+
+	
+	<meta property="article:published_time" content="2020-05-30T11:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/05/30/Signal-and-System-3-transform/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-05-30T11:22:41.000Z">
+                    2020-05-30
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">信号与系统3种变换性质整理</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7yek6.jpg)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="信号与系统3种变换性质整理"><a href="#信号与系统3种变换性质整理" class="headerlink" title="信号与系统3种变换性质整理"></a>信号与系统3种变换性质整理</h1><blockquote>
+<ol>
+<li>以下是信号与系统3种重要变换的公式整理，如有错误欢迎在评论区指出。</li>
+<li>电子版见👉<a href="https://levitate-qian.github.io/2020/05/01/XDU-note/">笔记整理部分</a>信号与系统部分03 傅里叶变换、04 Laplace变换、05 z变换， <strong>后续增减添补仅在电子PDF版中作修改，此处不再做改动。</strong></li>
+</ol>
+</blockquote>
+<h2 id="Fourier变换"><a href="#Fourier变换" class="headerlink" title="Fourier变换"></a>Fourier变换</h2><h3 id="傅里叶变换的表示"><a href="#傅里叶变换的表示" class="headerlink" title="傅里叶变换的表示"></a>傅里叶变换的表示</h3><p>$$\begin{aligned}<br>    f(t)&amp;\longleftrightarrow F(j\omega)\<br>    F(j\omega)&amp;&#x3D;\mathscr{F}[f(t)]&#x3D;\int_{-\infty}^{\infty}f(t)\mathrm{e}^{-j\omega t}\mathrm{d}t\<br>    f(t)&amp;&#x3D;\mathscr{F}^{-1}[F(j\omega)]&#x3D;\frac{1}{2\pi}&#x3D;\int_{-\infty}^{\infty}F(j\omega)\mathrm{e}^{j\omega t}\mathrm{d}\omega<br>\end{aligned}$$</p>
+<h3 id="7种常用函数的傅里叶变换"><a href="#7种常用函数的傅里叶变换" class="headerlink" title="7种常用函数的傅里叶变换"></a>7种常用函数的傅里叶变换</h3><p>$$\begin{aligned}<br>    g_\tau (t) &amp;\longleftrightarrow\tau Sa(\frac{\omega \tau}{2})\<br>    \mathrm{e}^{-\alpha t}\varepsilon(t) &amp;\longleftrightarrow\frac{1}{\alpha+j\omega}\<br>    \mathrm{e}^{-\alpha|t|}&amp;\longleftrightarrow\frac{2\alpha}{\alpha^2+\omega^2}\<br>    \delta^{(n)}(t) &amp;\longleftrightarrow(j\omega)^n\<br>    1&amp;\longleftrightarrow 2\pi\delta(\omega)\<br>    \mathrm{sgn}(t)&amp;\longleftrightarrow\frac{2}{j\omega}\<br>    \varepsilon(t)&amp;\longleftrightarrow\frac{1}{j\omega}+\pi \delta(\omega)<br>\end{aligned}$$</p>
+<h3 id="傅里叶变换的性质"><a href="#傅里叶变换的性质" class="headerlink" title="傅里叶变换的性质"></a>傅里叶变换的性质</h3><ol>
+<li><p>线性性质</p>
+</li>
+<li><p>奇偶虚实性<br>$$|F(j\omega)|&#x3D;|F(-j\omega)|,\varphi(\omega)&#x3D;-\varphi(-\omega)$$</p>
+<p>当$f(t)$为実(虚)函数，</p>
+<p>$F(j\omega)$ 的实部 $R(\omega)$为偶(奇)函数</p>
+<p>虚部$X(\omega)$为奇(偶)函数 </p>
+<p>$$\begin{aligned}          f(-t)&amp;\longleftrightarrow F^*(j\omega)\         (f(-t)&amp;\longleftrightarrow-F^*(j\omega))           \end{aligned}$$</p>
+</li>
+<li><p>对称性<br>$$F(jt)\longleftrightarrow 2\pi f(-\omega)$$</p>
+</li>
+<li><p>尺度变换</p>
+<p>   $$f(at)&#x3D;\frac{1}{|a|} F\left(j\frac{\omega}{a}\right)$$</p>
+</li>
+<li><p>时移特性</p>
+<p>   $$f(t\pm t_0)\longleftrightarrow F(j\omega)\mathrm{e}^{\pm j\omega t_0}$$</p>
+</li>
+<li><p>频移特性</p>
+<p>   $$F[j(\omega\pm \omega_0)]\longleftrightarrow f(t)\mathrm{e}^{\mp j\omega_0 t}$$</p>
+</li>
+<li><p>卷积性质</p>
+<p>   $$\begin{aligned}<br>    f_1(t)*f_2(t) &amp;\longleftrightarrow F_1(j\omega)F_2(j\omega)\<br>    f_1(t) f_2(t) &amp;\longleftrightarrow\frac{1}{2\pi}F_1(j\omega)*F_2(j\omega)<br> \end{aligned}$$</p>
+</li>
+<li><p>时域微积分<br> $$\begin{aligned}<br>   f^{(n)}(t)&amp;\longleftrightarrow(j\omega)^n F(j\omega)\<br>  \int_{-\infty}^t f(x)\mathrm{d}x &amp;\longleftrightarrow\pi F(0)\delta(\omega) +\frac{F(j\omega)}{j\omega}\<br>    F(0)&#x3D;&amp;\left.F(j\omega)\right|<em>{\omega&#x3D;0}&#x3D;\int</em>{-\infty}^{\infty}f(t)\mathrm{d} t    \end{aligned}$$</p>
+</li>
+<li><p>频域微积分<br>  $$\begin{aligned}<br>   F^{(n)}(j\omega)&amp;\longleftrightarrow(-jt)^n f(t)\<br>   \int_{-\infty}^\omega F(jx)\mathrm{d}x &amp;\longleftrightarrow\pi f(0)\delta(t) +\frac{f(t)}{-jt}\<br>   f(0)&#x3D;&amp;\frac{1}{2\pi}\int_{-\infty}^{\infty}F(j\omega)\mathrm{d}\omega    \end{aligned}$$</p>
+</li>
+<li><p>相关定理</p>
+<p> $$\begin{aligned}<br>    \mathscr{F}[R_{12}(\tau)]&amp;&#x3D;F_1(j\omega)F_2^*(j\omega)\<br>    \mathscr{F}[R_{21}(\tau)]&amp;&#x3D;F_1^*(j\omega)F_2(j\omega)\<br>    \mathscr{F}[R(\tau)]&amp;&#x3D;\left|F(j\omega)\right|^2<br>\end{aligned}$$</p>
+</li>
+</ol>
+<h2 id="Laplace变换"><a href="#Laplace变换" class="headerlink" title="Laplace变换"></a>Laplace变换</h2><h3 id="单边拉普拉斯变换"><a href="#单边拉普拉斯变换" class="headerlink" title="单边拉普拉斯变换"></a>单边拉普拉斯变换</h3><p>$$\begin{aligned}<br>    f(t)&amp;\longleftrightarrow F(s)\<br>    F(s)&amp;&#x3D;\mathcal{L}[f(t)]&#x3D;\int_{0_-}^{\infty}f(t)\mathrm{e}^{-st}\mathrm{d}t\quad(\Re[s]&gt;\alpha)\<br>    f(t)&amp;&#x3D;\left[\frac{1}{2\pi j}\int_{\sigma-j\infty}^{\sigma+j\infty}F(s)\mathrm{e}^{st}\mathrm{d}s\right]\varepsilon(t)<br>\end{aligned}$$</p>
+<h3 id="常用函数的拉普拉斯变换"><a href="#常用函数的拉普拉斯变换" class="headerlink" title="常用函数的拉普拉斯变换"></a>常用函数的拉普拉斯变换</h3><p>$$\begin{aligned}<br>    \delta^{(n)}(t)&amp;\longleftrightarrow s^n (\sigma&gt;-\infty)\<br>    \varepsilon(t) \text{或}1&amp;\longleftrightarrow\frac{1}{s}(\sigma&gt;0)\<br>    \mathrm{e}^{-s_0t}&amp;\longleftrightarrow\frac{1}{s+s_0}(\sigma&gt;-\Re[s_0])\<br>    t&amp;\longleftrightarrow\frac{1}{s^2}\<br>    \cos (\beta t)&amp;\longleftrightarrow\frac{s}{s^2+\beta^2}\<br>    \sin (\beta t)&amp;\longleftrightarrow\frac{\beta}{s^2+\beta^2}\<br>    f_T(t)&amp;\longleftrightarrow\frac{1}{1-\mathrm{e}^{-sT}}\int_0^Tf_T(t)\mathrm{e}^{-sT}\mathrm{d}t\<br>    \delta_T(t)&amp;\longleftrightarrow\frac{1}{1-\mathrm{e}^{-sT}}<br>\end{aligned}$$</p>
+<h3 id="拉普拉斯变换的性质"><a href="#拉普拉斯变换的性质" class="headerlink" title="拉普拉斯变换的性质"></a>拉普拉斯变换的性质</h3><ol>
+<li><p>线性性质</p>
+</li>
+<li><p>尺度变换(实数$a&gt;0$)<br>$$f(at)\longleftrightarrow\frac{1}{a}F\left(\frac{s}{a}\right)(\Re[s]&gt;a\sigma_0)$$</p>
+</li>
+<li><p>时移特性(実常数$t_0&gt;0$)</p>
+<p> $$\begin{gathered}<br>    f(t-t_0)\varepsilon(t-t_0)\longleftrightarrow\mathrm{e}^{-st_0}F(s)\(\Re[s]&gt;\sigma_0)<br>\end{gathered}$$</p>
+</li>
+<li><p>复频移特性<br> $$f(t)\mathrm{e}^{s_at}\longleftrightarrow F(s-s_a)(\Re[s]&gt;\sigma_0+\sigma_a)$$</p>
+</li>
+<li><p>卷积定理($s$域卷积定理不考)：</p>
+<p>对于因果信号$f_1(t),\ f_2(t)$ ，$f_1(t)*f_2(t)\longleftrightarrow F_1(s)F_2(s)$</p>
+</li>
+<li><p>时域微积分<br>$$\begin{aligned}<br>   f^{(n)}(t)&amp;\longleftrightarrow s^nF(s)-\sum_{m&#x3D;0}^{n-1}s^{n-1-m}f^{(m)}(0_-)\<br>   f^{({-n})}(t) &amp;\longleftrightarrow\frac{F(s)}{s^n}+\sum_{r&#x3D;1}^{n}\frac{1}{s^{n-r+1}}f^{(-r)}(0_-)<br>   \end{aligned}$$<br>若为因果信号，则有<br> $$\begin{aligned}<br>    f^{(n)}(t)&amp;\longleftrightarrow s^nF(s)\<br>    \left(\int_{0_-}^{t}\right)^nf(x)\mathrm{d}x&amp;\longleftrightarrow\frac{1}{s^n}F(s)<br>\end{aligned}$$</p>
+</li>
+<li><p>复频域($s$域)微积分<br> $$\begin{aligned}<br>    (-t)^nf(t)&amp;\longleftrightarrow\frac{\mathrm{d}^n F(s)}{\mathrm{d}s^n}\<br>    \frac{f(t)}{t}&amp;\longleftrightarrow\int_s^{\infty}F(\eta)\mathrm{d}\eta<br>\end{aligned}$$</p>
+</li>
+<li><p>初值定理、终值定理</p>
+<p>初值定理(不含$\delta(t)$及其各阶导数) </p>
+<p>$$f(0_+)&#x3D;\lim_{t\to 0_+}f(t)&#x3D;\lim_{s\to\infty}sF(s)$$ </p>
+<p>终值定理(包含虚轴，即$j\omega$轴)</p>
+<p> $$f(\infty)&#x3D;\lim_{s\to 0}sF(s)$$</p>
+</li>
+</ol>
+<h3 id="拉普拉斯逆变换"><a href="#拉普拉斯逆变换" class="headerlink" title="拉普拉斯逆变换"></a><strong>拉普拉斯逆变换</strong></h3><h4 id="部分分式展开-displaystyle-F-s-x3D-frac-B-s-A-s"><a href="#部分分式展开-displaystyle-F-s-x3D-frac-B-s-A-s" class="headerlink" title="部分分式展开$\displaystyle F(s)&#x3D;\frac{B(s)}{A(s)}$"></a>部分分式展开$\displaystyle F(s)&#x3D;\frac{B(s)}{A(s)}$</h4><p>(1)求极点($A(s)&#x3D;0$)</p>
+<p>(2)将$F(s)$展开为部分分式</p>
+<ol>
+<li><p>单根</p>
+<p> $$\begin{gathered}<br>    F(s)&#x3D;\sum_{i&#x3D;1}^{n}\frac{K_i}{s-p_i},\qquad<br>    K_i&#x3D;\left.(s-p_i)F(s)\right|_{s&#x3D;p_i}\<br>    \mathcal{L}^{-1}\left[\frac{1}{s-p_i}\right]&#x3D;\mathrm{e}^{p_it}\varepsilon(t)<br>\end{gathered}$$</p>
+</li>
+<li><p>含共轭复根($p_{1,2}&#x3D;-\alpha\pm j\beta$)</p>
+<p> $$\begin{gathered}<br>    F_0(s)&#x3D;\frac{K_1}{s+\alpha-j\beta}+\frac{K_2}{s+\alpha+j\beta}\quad<br>    (K_2&#x3D;K_1^*,\ K_1&#x3D;|K_1|\mathrm{e}^{j\theta}&#x3D;A+jB)\<br>    f_0&#x3D;2|K_1|\mathrm{e}^{-\alpha t}\cos(\beta t+\theta)\varepsilon(t)&#x3D;2\mathrm{e}^{-\alpha t}[A\cos(\beta t)-B\sin{\beta t}]\varepsilon({t})<br>\end{gathered}$$</p>
+</li>
+<li><p>重根($s&#x3D;p_1$)</p>
+<p> $$\begin{gathered}F_1(s)&#x3D;\sum_{i&#x3D;1}^{r}\frac{K_{1i}}{(s-p_1)^{r-i+1}},\qquad<br>    K_{1i}&#x3D;\left.\frac{1}{(i-1)!}\frac{\mathrm{d}^{i-1}}{\mathrm{d}s^{i-1}}\left(s-p_1\right)^i F_1(s)\right|_{s&#x3D;p_i}\<br>    \mathcal{L}^{-1}\left[\frac{1}{(s-p_1)^{n+1}}\right]&#x3D;\frac{1}{n!}t^n\mathrm{e}^{p_1t}\varepsilon(t)<br>\end{gathered}$$</p>
+</li>
+</ol>
+<p>(3)求原函数$F(s)\longleftrightarrow f(t)$</p>
+<h4 id="留数法（反演积分）"><a href="#留数法（反演积分）" class="headerlink" title="留数法（反演积分）"></a>留数法（反演积分）</h4><p>$$f(t)&#x3D;\sum_{k&#x3D;1}^{n}\mathrm{Res}[F(s)\mathrm{e}^{st},s_k]$$ </p>
+<p>求解留数的其中3条规则：</p>
+<ol>
+<li><p>1级极点</p>
+<p> $$\mathrm{Res}[f(z),z_0]&#x3D;\lim_{z\to z_0}(z-z_0)f(z)$$</p>
+</li>
+<li><p>$m$级极点 </p>
+<p>$$\mathrm{Res}[f(z),z_0]&#x3D;\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm{d}^{m-1}}{\mathrm{d}z^{m-1}}[(z-z_0)^mf(z)]$$</p>
+</li>
+<li><p>$f(z)&#x3D;\frac{P(z)}{Q(z)}$，$P(z),\ Q(z)$均在$z&#x3D;z_0$处解析，$P(z_0)\not&#x3D; 0$，$Q(z_0)&#x3D;0$，$Q’(z_0)\not&#x3D; 0$，$z_0$为1级极点，$z_0$为$Q(z)$的1级零点。</p>
+</li>
+</ol>
+<h2 id="boldsymbol-z-变换"><a href="#boldsymbol-z-变换" class="headerlink" title="$\boldsymbol{z}$变换"></a>$\boldsymbol{z}$变换</h2><h3 id="z-变换"><a href="#z-变换" class="headerlink" title="$z$变换"></a>$z$变换</h3><p>双边$z$变换：$F(z)&#x3D;\sum_{k&#x3D;-\infty}^{\infty}f(k)z^{-k}$</p>
+<p>单边$z$变换：$F(z)&#x3D;\sum_{k&#x3D;0}^{\infty}f(k)z^{-k}$</p>
+<p>$f(k)$因果，单边、双边$z$变换相等</p>
+<h3 id="常用函数的-boldsymbol-z-变换"><a href="#常用函数的-boldsymbol-z-变换" class="headerlink" title="常用函数的$\boldsymbol{z}$变换"></a>常用函数的$\boldsymbol{z}$变换</h3><p>$$\begin{aligned}<br>\delta(k)&amp;\longleftrightarrow 1\text{(整个$z$平面)}\<br>\varepsilon(k)&amp;\longleftrightarrow\frac{z}{z-1}(|z|&gt;1)\<br>-\varepsilon(-k-1)&amp;\longleftrightarrow\frac{z}{z-1}(|z|&lt;1)<br>\end{aligned}$$</p>
+<h3 id="boldsymbol-z-变换的性质"><a href="#boldsymbol-z-变换的性质" class="headerlink" title="$\boldsymbol{z}$变换的性质"></a>$\boldsymbol{z}$变换的性质</h3><ol>
+<li><p>线性性质(收敛域至少为相交部分)</p>
+</li>
+<li><p>尺度变换(序列乘$a^k$)</p>
+<p> $$a^kf(k)\longleftrightarrow F\left(\frac{z}{a}\right)(|a|\alpha&lt;|z|&lt;|a|\beta)$$</p>
+</li>
+<li><p>移位（移序）特性</p>
+<p>双边$z$变换($m&gt;0$)</p>
+<p> $$f(k\pm m)\longleftrightarrow z^{\pm m}F(z)$$ </p>
+<p>单边$z$变换($m&gt;0$)</p>
+<p> $$\begin{aligned}<br>    &amp;f(k-m)\longleftrightarrow z^{-m}\left[F(z)+\sum_{k&#x3D;-m}^{-1}f(k)z^{-k}\right]\<br>    &amp;f(k+m)\longleftrightarrow z^{m}\left[F(z)-\sum_{k&#x3D;0}^{m-1}f(k)z^{-k}\right]\<br>\end{aligned}$$</p>
+</li>
+<li><p>卷积定理(收敛域一般为相交部分) </p>
+<p>单边$z$要求因果序列$f_1(t),f_2(t)$ </p>
+<p>$$f_1(t)*f_2(t)\longleftrightarrow F_1(z)F_2(z)$$</p>
+</li>
+<li><p>$z$域微积分<br>微分(序列乘$k$)<br>$$\begin{aligned}<br>    kf(k)&amp;\longleftrightarrow(-z)\frac{\mathrm{d}}{\mathrm{d}z}F(z)\<br>    k^mf(k)&amp;\longleftrightarrow\left[-z\frac{\mathrm{d}}{\mathrm{d}z}\right]^mF(z)<br>\end{aligned}$$<br>积分(序列除$(k+m)$)</p>
+<p> $$\begin{aligned}<br>    &amp;\exists m\in \mathbb{Z},k+m&gt;0\<br>    &amp;\frac{f(k)}{k+m}\longleftrightarrow z^m\int_z^\infty \frac{F(\eta)}{\eta^{m+1}}\mathrm{d}\eta<br>\end{aligned}$$</p>
+</li>
+<li><p>$k$域反转(仅适用于双边$z$变换) </p>
+<p>$$f(-k)\longleftrightarrow F(z^{-1})\ (\frac{1}{\beta}&lt;|z|&lt;\frac{1}{\alpha})$$</p>
+</li>
+<li><p>部分和</p>
+<p> $$\begin{gathered}<br>    \sum_{i&#x3D;-\infty}^kf(i)\longleftrightarrow\frac{z}{z-1}F(z)<br>    (\max(\alpha,1)&lt;|z|&lt;\beta)<br>\end{gathered}$$</p>
+</li>
+<li><p>初值定理、终值定理(右边序列)</p>
+<p>初值定理</p>
+<p> $$f(M)&#x3D;\lim_{z\to \infty}z^MF(z)$$ </p>
+<p>若因果，$f(0)&#x3D;\mathop {\lim }\limits_{z\to \infty}F(z)$</p>
+<p>终值定理(包含单位圆$0&lt;\alpha&lt;1$)</p>
+<p> $$\begin{aligned}<br>    f(\infty ) &amp;&#x3D; \mathop {\lim }\limits_{k \to \infty } f(k)\<br>    &amp;&#x3D; \mathop {\lim }\limits_{z \to 1} \frac{z - 1}{z}F(z) &#x3D; \mathop {\lim }\limits_{z \to 1} (z - 1)F(z)<br>\end{aligned}$$</p>
+</li>
+</ol>
+<h3 id="逆-boldsymbol-z-变换"><a href="#逆-boldsymbol-z-变换" class="headerlink" title="逆$\boldsymbol{z}$变换"></a><strong>逆$\boldsymbol{z}$变换</strong></h3><h4 id="幂级数展开法"><a href="#幂级数展开法" class="headerlink" title="幂级数展开法"></a>幂级数展开法</h4><p>因果序列和反因果序列的象函数分别是$z^{-1}$和$z$的幂级数。其系数就是相应序列值。</p>
+<ul>
+<li><p>因果序列：圆外展开(负幂项)</p>
+</li>
+<li><p>反因果序列：圆内展开(正幂项)</p>
+</li>
+<li><p>双边序列：环域展开</p>
+</li>
+<li><p>唯一性定理转化为等比级数$C_n&#x3D;\displaystyle\frac{f^{(n)}(z_0)}{n!}$</p>
+</li>
+</ul>
+<p>原序列通常难以写成闭合形式。</p>
+<h4 id="部分分式展开-displaystyle-F-z-x3D-frac-B-z-A-z"><a href="#部分分式展开-displaystyle-F-z-x3D-frac-B-z-A-z" class="headerlink" title="部分分式展开$\displaystyle F(z)&#x3D;\frac{B(z)}{A(z)}$"></a>部分分式展开$\displaystyle F(z)&#x3D;\frac{B(z)}{A(z)}$</h4><p><strong>Case 1</strong> 单根 </p>
+<p>$$\begin{gathered}<br>        \frac{F(z)}{z}&#x3D;\sum_{i&#x3D;0}^{n}\frac{K_i}{z-z_i},\<br>        K_i&#x3D;\left.(z-z_i)\frac{F(z)}{z}\right|<em>{z&#x3D;z_i},\<br>         F(z)&#x3D;K_0+\sum</em>{i&#x3D;1}^nK_i\frac{z}{z-z_i}\<br>    \end{gathered}$$</p>
+<p> 区分圆内圆外展开:</p>
+<p>$$\begin{aligned}<br>    \delta(k)&amp;\longleftrightarrow 1\<br>         a^k\varepsilon(k)&amp;\longleftrightarrow\frac{z}{z-a}(|z|&gt;|a|)\<br>         -a^k\varepsilon(-k-1)&amp;\longleftrightarrow\frac{z}{z-a}(|z|&lt;|a|)<br>    \end{aligned}$$</p>
+<p><strong>Case 2</strong> 共轭单极点($z_{1,2}&#x3D;c\pm jd&#x3D;\alpha \mathrm{e}^{\pm j\beta}$)</p>
+<p> $$\begin{gathered}<br>        \frac{F(z)}{z}&#x3D;\frac{K_1}{z-c-jd}+\frac{K^*_1}{z-c+jd}\<br>        (K_1&#x3D;|K_1|\mathrm{e}^{j\theta})\<br>        \frac{F(z)}{z}&#x3D;\frac{|K_1|\mathrm{e}^{j\theta}z}{z-\alpha \mathrm{e}^{j\beta}}+\frac{|K_1|\mathrm{e}^{-j\theta}z}{z-\alpha \mathrm{e}^{-j\beta}}\end{gathered}$$ </p>
+<p>$$\begin{aligned}<br>    &amp;f(k)&#x3D;2|K_1|\alpha^k\cos(\beta k+\theta)\varepsilon(k)&amp;(|z|&gt;\alpha)\<br>        &amp;f(k)&#x3D;-2|K_1|\alpha^k\cos(\beta k+\theta)\varepsilon(-k-1)&amp;(|z|&lt;\alpha)<br>\end{aligned}$$</p>
+<p><strong>Case 3</strong> 重根($z&#x3D;a$) </p>
+<p>$$\begin{gathered}<br>        F_1(z)&#x3D;\sum_{i&#x3D;1}^{r}\frac{K_{1i}z}{(z-a)^{r-i+1}},\<br>        K_{1i}&#x3D;\left.\frac{1}{(i-1)!}\frac{\mathrm{d}^{i-1}}{\mathrm{d}z^{i-1}}\left(z-a\right)^r \frac{F(z)}{z}\right|_{z&#x3D;a}\<br>        \mathcal{Z}^{-1}\left[\frac{z}{(z-a)^{r}}\right]&#x3D;\frac{\mathbf{A}_k^{r-1}}{(r-1)!}a^{k-r+1}\varepsilon(k)<br>    \end{gathered}$$</p>
+<h4 id="留数法（反演积分）-1"><a href="#留数法（反演积分）-1" class="headerlink" title="留数法（反演积分）"></a>留数法（反演积分）</h4><p>$$f(k)&#x3D;\begin{cases}<br>    \displaystyle\sum_{\text{C内极点}}\mathrm{Res}\left[F(z)z^{k-1}\right],&amp;k\ge 0\<br>    \displaystyle -\sum_{\text{C外极点}}\mathrm{Res}\left[F(z)z^{k-1}\right],&amp;k&lt; 0<br>\end{cases}$$ </p>
+<p>求解$F(z)z^{k-1}$在极点处留数的2条规则：</p>
+<ol>
+<li><p>1级极点 </p>
+<p>$$\mathrm{Res}[F(z)z^{k-1},z_i]&#x3D;\lim_{z\to z_i}(z-z_0)F(z)z^{k-1}$$</p>
+</li>
+<li><p>$r$级极点 </p>
+<p>$$\begin{aligned}<br>    \mathrm{Res}[F(z)z^{k-1},z_i]&#x3D;\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm{d}^{r-1}}{\mathrm{d}z^{r-1}}[(z-z_i)^rF(z)z^{k-1}]<br>\end{aligned}$$</p>
+</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E4%BF%A1%E5%8F%B7/" rel="tag"># 信号</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>信号与系统3种变换性质整理</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年05月30日 - 11:22:41</p>
+  <p><span>原始链接:</span><a href="/2020/05/30/Signal-and-System-3-transform/" title="信号与系统3种变换性质整理">https://levitate-qian.github.io/2020/05/30/Signal-and-System-3-transform/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/05/30/Signal-and-System-3-transform/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="LaTeX札记（一）：插入动画" href="/2020/06/13/latex-note-01/">
+            ← LaTeX札记（一）：插入动画
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="模拟电子线路实验" href="/2020/05/16/AC-experiment/">
+            模拟电子线路实验 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信号与系统3种变换性质整理"><span class="toc-text">信号与系统3种变换性质整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fourier变换"><span class="toc-text">Fourier变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#傅里叶变换的表示"><span class="toc-text">傅里叶变换的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7种常用函数的傅里叶变换"><span class="toc-text">7种常用函数的傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#傅里叶变换的性质"><span class="toc-text">傅里叶变换的性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laplace变换"><span class="toc-text">Laplace变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单边拉普拉斯变换"><span class="toc-text">单边拉普拉斯变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数的拉普拉斯变换"><span class="toc-text">常用函数的拉普拉斯变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拉普拉斯变换的性质"><span class="toc-text">拉普拉斯变换的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拉普拉斯逆变换"><span class="toc-text">拉普拉斯逆变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#部分分式展开-displaystyle-F-s-x3D-frac-B-s-A-s"><span class="toc-text">部分分式展开$\displaystyle F(s)&#x3D;\frac{B(s)}{A(s)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#留数法（反演积分）"><span class="toc-text">留数法（反演积分）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#boldsymbol-z-变换"><span class="toc-text">$\boldsymbol{z}$变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#z-变换"><span class="toc-text">$z$变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数的-boldsymbol-z-变换"><span class="toc-text">常用函数的$\boldsymbol{z}$变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boldsymbol-z-变换的性质"><span class="toc-text">$\boldsymbol{z}$变换的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆-boldsymbol-z-变换"><span class="toc-text">逆$\boldsymbol{z}$变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#幂级数展开法"><span class="toc-text">幂级数展开法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分分式展开-displaystyle-F-z-x3D-frac-B-z-A-z"><span class="toc-text">部分分式展开$\displaystyle F(z)&#x3D;\frac{B(z)}{A(z)}$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#留数法（反演积分）-1"><span class="toc-text">留数法（反演积分）</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/05/30/Signal-and-System-3-transform/" class="leancloud-visitors" data-flag-title="信号与系统3种变换性质整理">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">信号与系统3种变换性质整理</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

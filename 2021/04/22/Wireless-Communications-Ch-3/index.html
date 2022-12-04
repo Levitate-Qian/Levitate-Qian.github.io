@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【无线通信学习笔记（二）】统计多径信道模型 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【无线通信学习笔记（二）】统计多径信道模型 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/04/22/Wireless-Communications-Ch-3/">
+
+	
+	<meta property="article:published_time" content="2021-04-22T11:04:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/04/22/Wireless-Communications-Ch-3/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-04-22T11:33:35.000Z">
+                    2021-04-22
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【无线通信学习笔记（二）】统计多径信道模型</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/22/cLSQd1.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p> <em>Wireless Communications</em> (Andrea Goldsmith)学习笔记。</p>
+</blockquote>
+<h1 id="Statistical-Multipath-Channel-Models"><a href="#Statistical-Multipath-Channel-Models" class="headerlink" title="Statistical Multipath Channel Models"></a>Statistical Multipath Channel Models</h1><ol>
+<li><p>在第二章中，着重讨论的确知信道，但是实际中确知信道是极为少见的。第三章将通过<strong>随机时变冲激响应</strong>(random time-varying impulse response)来刻画多径信道。路径损耗、阴影和多径模型共同刻画了信号传输过程中发射信号到接收信号之间的损耗。</p>
+</li>
+<li><p>多径信道的两个基本特征：</p>
+<ul>
+<li>**时延扩展(delay spread)**：这个延迟扩散等于第一个收到的信号分量（LOS或多径）到达与单个传输脉冲相关的最后一个收到的信号分量之间的时间延迟。</li>
+<li><strong>时变性（time-varying）</strong>：如果我们从一个<strong>移动</strong>的发射器重复发射脉冲，我们将观察到每个脉冲对应的**振幅(amplitudes)、延迟(delays)和多径分量(number of multipath components)**的变化。</li>
+</ul>
+<blockquote>
+<p>散射函数其实有点《雷达原理与系统》中雷达波形模糊函数的意味在里面了。<br>$$<br>\chi\left(\tau, f_{d}\right)&#x3D;\int_{-\infty}^{\infty} u(t) u^{*}(t+\tau) e^{j 2 \pi f_{d} t} \mathrm{~d} t<br>$$
+ </p>
+</blockquote>
+</li>
+<li><p>本章的主要思路是：先给出一个时变信道的冲激响应(Time-Varying Channel Impulse Response)，利用随机信号分析的知识应用到窄带衰落模型（the channel bandwidth is small compared to the inverse delay spread.$B&lt;\frac 1{\Delta\tau}$）和宽带多径模型中。最后讨论另外两种离散时间(Discrete-Time)信道模型和空时(Space-time)信号模型。</p>
+</li>
+</ol>
+<h2 id="Time-Varying-Channel-Impulse-Response"><a href="#Time-Varying-Channel-Impulse-Response" class="headerlink" title="Time-Varying Channel Impulse Response"></a>Time-Varying Channel Impulse Response</h2><h3 id="接收信号及其可分辨性-resolvable"><a href="#接收信号及其可分辨性-resolvable" class="headerlink" title="接收信号及其可分辨性(resolvable)"></a>接收信号及其可分辨性(resolvable)</h3><ul>
+<li><p>发射信号：<br>  $$<br>  s(t)&#x3D;\Re[u(t)e^{j2\pi f_ct}]<br>  $$<br>  发射基带信号$u(t)$的带宽为$B_u$。</p>
+</li>
+<li><p>接收信号：<br>  $$ {eq2}<br>  r(t)&#x3D;\Re\left{\sum_{n&#x3D;0}^{N(t)} \alpha_{n}(t) u\left(t-\tau_{n}(t)\right) e^{j\left(2 \pi f_{c}\left(t-\tau_{n}(t)\right)+\phi_{D_{n}(t)}\right)}\right}<br>  $$<br>  其中，$N(t)$是可分辨多径(multipath)的数量，$\alpha_n(t)$是第$n$个分量幅度(amplitude)上的变化，$\tau_n(t)&#x3D;\frac{r_n(t)}{c}$是第$n$个分量的时延(delay)，$r_n(t)$是路径长，$\phi_{D_n}(t)$是第$n$个分量的多普勒频移。注意到这些参量都是<strong>时变</strong>的。</p>
+</li>
+<li><p>对于单一反射体，接收信号的参数：</p>
+<ul>
+<li><strong>幅度</strong>变化：$\alpha_n(t)$是第$n$个分量幅度(amplitude)上的变化，主要由path loss和shadowing决定</li>
+<li><strong>频率</strong>变化主要有两方面组成：时延$\tau_n(t)$带来的相移分量$e^{-j2\pi f_C \tau_n(t)}$，多普勒频移$\phi_{D_n}(t)&#x3D;\int_t 2\pi \frac{v\cos\theta_n(t)}{\lambda}\ d\tau$</li>
+</ul>
+<blockquote>
+<p>值得注意的是，在雷达中的多普勒频移刚好和这里差了一个2倍的关系，这是因为对于收发公用天线的雷达，需要考虑去程和回程。在雷达回波信号模型中，回波信号的基带复包络为<br>$$<br>S(t)&#x3D;As_e(t-\tau_0)\exp (j2\pi f_dt)<br>$$<br>多普勒频移项为$j2\pi f_d t&#x3D;j 2\pi \frac{2v\cos\theta f_0}{c}t&#x3D;j 2\pi \frac{2v\cos\theta }{\lambda}t$。</p>
+</blockquote>
+</li>
+<li><p>**可分辨性(resolvable)**：对于时延分别为$\tau_1,\tau_2$的径，若<br>  $$<br>  |\tau_1-\tau_2|\gg \frac{1}{B_u}<br>  $$<br>  则称这两个径是可分辨的。</p>
+<blockquote>
+<p>这里的$\frac{1}{B_u}$在雷达信号处理中实际上就是时延分辨率$\Delta\tau$，即<br>$$<br>\Delta \tau&#x3D;\frac{\int_{-\infty}^{\infty}|\chi(\tau, 0)|^{2} \mathrm{<del>d} \tau}{|\chi(0,0)|^{2}}&#x3D;2 \pi \frac{\int_{-\infty}^{\infty}|U(\omega)|^{4} \mathrm{</del>d} \omega}{\left[\int_{-\infty}^{\infty}|U(\omega)|^{2} \mathrm{~d} \omega\right]^{2}}&#x3D;\frac{1}{B}<br>$$<br>其中，$\chi(\tau,f_d)$是雷达信号的模糊函数，$B$是信号的有效带宽。时延分辨率在雷达中反映的就是距离分辨率，对应关系为<br>$$<br>\Delta R&#x3D;\frac{c\Delta\tau}{2}&#x3D;\frac{c}{2B}<br>$$<br>而可分辨性的定义即表明当两径时延差远大于时延分辨率时，两径是可分辨的，对应于雷达中的概念就是当两个目标对应回波延时差大于某一距离分辨率，两个目标在距离上是可以分辨的。这也正反映出窄带信道和宽带信道的区别。窄带信道，我们将所有多径分量都看作时一个独立反射体反射出的，对应距离上无法分辨；宽带信道，我们可以将多径分量看作是不同反射体反射出的，对应距离上可以分辨。</p>
+</blockquote>
+</li>
+<li><p>参数$\alpha_n(t),\tau_n(t),\phi_{D_n}(t)$都是各态历经过程，那么接收信号也是各态历经过程。</p>
+<ul>
+<li><p><strong>窄带</strong>信道下，每个径都是**不可分辨(nonresolvable)**的，有$u(t-\tau_1)\approx u(t-\tau_2)$。这些不可分辨分量的叠加使得信号幅度快速起伏，信号的变化速度和信号波长可比拟。</p>
+</li>
+<li><p><strong>宽带</strong>信道一般都<strong>有可分辨的</strong>多径分量，那么接收信号中的每一项对应一个单独的反射体，则随环境变化是缓变得。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="时变脉冲响应-Time-Varying-Channel-Impulse-Response"><a href="#时变脉冲响应-Time-Varying-Channel-Impulse-Response" class="headerlink" title="时变脉冲响应(Time-Varying Channel Impulse Response)"></a>时变脉冲响应(Time-Varying Channel Impulse Response)</h3><ul>
+<li><p>一由$\phi_{n}(t)&#x3D;2\pi f_c\tau_n(t)-\phi_{D_n}(t)$，则接收信号为<br>  $$<br>  r(t)&#x3D;\Re\left{\left[\sum_{n&#x3D;0}^{N(t)} \alpha_{n}(t) e^{-j \phi_{n}(t)} u\left(t-\tau_{n}(t)\right)\right] e^{j 2 \pi f_{c} t}\right}<br>  $$</p>
+</li>
+<li><p>二由时变系统分析（基带输入信号通过时变信道再上变频到载频）可知<br>  $$<br>  r(t)&#x3D;\Re\left{\left(\int_{-\infty}^{\infty} c(\tau, t) u(t-\tau) d \tau\right) e^{j 2 \pi f_{c} t}\right}<br>  $$<br>  ​    其中，$c(\tau,t)$表示在$(t-\tau)$时刻发射冲激脉冲，$t$时刻在接收端观察到脉冲响应。</p>
+</li>
+<li><p>则可获得（离散）等效基带信道的时变脉冲响应<br>  $$<br>  c(\tau, t)&#x3D;\sum_{n&#x3D;0}^{N(t)} \alpha_{n}(t) e^{-j \phi_{n}(t)} \delta\left(\tau-\tau_{n}(t)\right)<br>  $$<br>  ​    将求和变成积分，即可得到（连续）时变脉冲响应<br>  $$<br>  c(\tau, t)&#x3D;\int \alpha(\xi, t) e^{-j \phi(\xi, t)} \delta(\tau-\xi) d \xi&#x3D;\alpha(\tau, t) e^{-j \phi(\tau, t)}<br>  $$</p>
+</li>
+<li><p>时不变信道的脉冲响应就是将上述两式的$t$全部去掉</p>
+</li>
+</ul>
+<h3 id="衰落-fading"><a href="#衰落-fading" class="headerlink" title="衰落(fading)"></a>衰落(fading)</h3><ul>
+<li><strong>衰落(fading)<strong>：Rapid phase changes in each multipath component gives rise to constructive and destructive addition of the multipath components comprising the received signal, which in turn causes rapid variation in the received signal strength. (每个多径分量的快速相位变化引起构成接收信号的多径分量的叠加，这反过来又引起接收信号强度的快速变化。这种现象，称为</strong>衰落</strong>。)<ul>
+<li>time delay(时延扩展)$T_m\ll\frac 1B$小，多径分量不可分辨，则为窄带衰落信道。</li>
+<li>time delay(时延扩展)大，多径分量可分辨，则为宽带衰落信道。宽带衰落中的可分辨分量实际上就是若干不可分辨分量的叠加。</li>
+</ul>
+</li>
+<li>在时变信道中，多径时延随时间变化，所以time delay $T_m$是一个随机变量。下面的分析其实很多都是针对时延扩展来分析的。</li>
+</ul>
+<h2 id="Narrowband-fading-models"><a href="#Narrowband-fading-models" class="headerlink" title="Narrowband fading models"></a>Narrowband fading models</h2><p>窄带衰落模型(Narrowband fading model)中，时延扩展$T_m$远小于带宽的倒数（时延分辨率）$\frac 1B$。</p>
+<h3 id="窄带衰落模型的接收信号"><a href="#窄带衰落模型的接收信号" class="headerlink" title="窄带衰落模型的接收信号"></a>窄带衰落模型的接收信号</h3><ul>
+<li><p>对于窄带衰落模型，所有分量的时延不可分辨，$\tau_i&#x3D;\tau$，则接收信号：<br>  $$<br>  r(t)&#x3D;\Re\left{u(t) e^{j 2 \pi f_{c} t}\left(\sum_{n} \alpha_{n}(t) e^{-j \phi_{n}(t)}\right)\right}<br>  $$</p>
+</li>
+<li><p>令$u(t)&#x3D;1$，则发射信号为$s(t)&#x3D;\Re\left{ e^{j 2 \pi f_{c} t}e^{j\phi_0(t)}\right}$，接收信号（此处窄带信号的正交表示中文版和英文版有区别，中文版与随机信号课程中一致。）    为<br>  $$<br>  r(t)&#x3D;\Re\left{ e^{j 2 \pi f_{c} t}\left(\sum_{n} \alpha_{n}(t) e^{-j \phi_{n}(t)}\right)\right}&#x3D;r_I(t)\cos 2\pi f_c t-r_Q(t)\sin 2\pi f_c t<br>  $$<br>  即对其进行模拟正交检波得到</p>
+<ul>
+<li>同相分量（in-phase）：$r_I(t)&#x3D;\sum_{n&#x3D;1}^{N(t)}\alpha_n(t)\cos\phi_n(t)$</li>
+<li>正交分量（quadrature）：$r_Q(t)&#x3D;\sum_{n&#x3D;1}^{N(t)}\alpha_n(t)\sin\phi_n(t)$</li>
+<li>相移：$\phi_n(t)&#x3D;2\pi f_c\tau_n(t)-\phi_{D_n}-\phi_0$（受时延、多普勒频移、发送初相）</li>
+</ul>
+</li>
+</ul>
+<h3 id="接收信号的自相关与互相关"><a href="#接收信号的自相关与互相关" class="headerlink" title="接收信号的自相关与互相关"></a>接收信号的自相关与互相关</h3><p>在不考虑LOS分量的前提下考虑同相分量和正交分量。同时我们认为幅度、多径的时延和多普勒频移都是缓变的。</p>
+<ul>
+<li><p>由《随机信号分析》有，$N(t)$很大时，不考虑LOS分量，剩余的多径分量近似于窄带噪声。$r_I(t),r_Q(t)$服从联合高斯分布，$\alpha_n(t)$服从瑞利(Rayleigh)分布，$\phi_n(t)$服从均匀分布。</p>
+</li>
+<li><p>均值：$2\pi f_c\tau_n$是快变的，则接收信号在不考虑LOS分量时，是零均值高斯变量。</p>
+</li>
+<li><p>自相关(Autocorrelation)、互相关(Cross Correlation)</p>
+<ul>
+<li><p>接收信号的同相分量和正交分量时正交且不相关的。</p>
+</li>
+<li><p>自相关函数：（为了方便理解，这里的书写方式与《随机信号分析》保持一致）同相分量的自相关函数为<br>  $$<br>  A_{r_I}(t,t+\tau)&#x3D;\frac 12\sum_nE[\alpha_n^2]E\left[\cos\frac{2\pi v\tau\cos\theta_n}{\lambda}\right]&#x3D;A_{r_I}(\tau)<br>  $$<br>  由于自相关与$t$无关，则为宽平稳随机过程(WSS)，同理正交分量也是WSS，且$A_{r_I}(t)&#x3D;A_{r_Q}(t)$。</p>
+</li>
+<li><p>互相关函数：<br>  $$<br>  A_{r_I,r_Q}(t,t+\tau)&#x3D;\frac 12\sum_nE[\alpha_n^2]E\left[\sin\frac{2\pi v\tau\cos\theta_n}{\lambda}\right]&#x3D;A_{r_I,r_Q}(\tau)&#x3D;-A_{r_Q,r_I}(\tau)<br>  $$<br>  同样互相关函数也是WSS。</p>
+</li>
+<li><p><strong>接收信号的自相关函数：</strong><br>  $$<br>  A_{r}(\tau)&#x3D;A_{r_{I}}(\tau) \cos \left(2 \pi f_{c} \tau\right)+A_{r_{I}, r_{Q}}(\tau) \sin \left(2 \pi f_{c} \tau\right)<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="均匀散射环境的谱分析"><a href="#均匀散射环境的谱分析" class="headerlink" title="均匀散射环境的谱分析"></a>均匀散射环境的谱分析</h3><ul>
+<li><p>均匀散射环境(uniform scattering environment)</p>
+  <img alt="uniform scattering environment" style="zoom:60%;" class="post-img b-lazy" data-img="/scattering_environment.png" data-index="0" data-src="/scattering_environment.png">
+
+<ul>
+<li>$N$个多径分量，第$n$径的angle  of arrive为$\theta_n&#x3D;n\Delta\theta&#x3D;\frac {2\pi n}{N}$。若各径有相同的接收功率$E[\alpha_n^2]&#x3D;\frac{2P_r}{N}$。</li>
+</ul>
+</li>
+<li><p>均匀散射环境条件下的自相关和互相关</p>
+<ul>
+<li><p>自相关函数(中文版有误)<br>  $$<br>  A_{r_{I}}(\tau)&#x3D;\frac{P_{r}}{2 \pi} \int \cos \left(\frac{2 \pi v \tau \cos \theta}{\lambda}\right) d \theta&#x3D;P_{r} J_{0}\left(2 \pi f_{D} \tau\right)<br>  $$</p>
+</li>
+<li><p>互相关函数(中文版有误)<br>  $$<br>  A_{r_{I},r_Q}(\tau)&#x3D;\frac{P_{r}}{2 \pi} \int \sin \left(\frac{2 \pi v \tau \cos \theta}{\lambda}\right) d \theta&#x3D;0<br>  $$<br>  其中，$J_0(x)$是零阶贝塞尔函数。</p>
+</li>
+<li><p>根据该假设，观察贝塞尔函数图</p>
+  <img alt="零阶贝塞尔函数" style="zoom:60%;" class="post-img b-lazy" data-img="/bessel_function.png" data-index="1" data-src="/bessel_function.png">
+
+<ul>
+<li>在相位均匀分布的前提下，信号在经过半波长后变得不相关。</li>
+<li>当利用阵列天线时，为保证接收天线衰落彼此独立，需保证间距为$0.4\lambda$。</li>
+<li>当信号相关接近为0时，可近似认为是马尔可夫过程。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>均匀散射环境条件下的功率谱(PSD, Power Spectral Density)</p>
+<ul>
+<li><p>自谱密度：<br>  $$<br>  S_{r_{I}}(f)&#x3D;S_{r_{Q}}(f)&#x3D;\mathscr{F}\left[A_{r_{I}}(\tau)\right]&#x3D;\left{\begin{array}{ll}\frac{P_{r}}{2 \pi f_{D}} \frac{1}{\sqrt{1-\left(f &#x2F; f_{D}\right)^{2}}} &amp; |f| \leq f_{D} \ 0 &amp; \text { else }\end{array}\right.<br>  $$</p>
+</li>
+<li><p>互谱密度：<br>  $$<br>  S_{r}(f)&#x3D;\mathscr{F}\left[A_{r}(\tau)\right]&#x3D;\frac 14\left[S_{r_{I}}\left(f-f_{c}\right)+S_{r_{I}}\left(-f-f_{c}\right)\right]&#x3D;\left{\begin{array}{cl}\frac{P_{r}}{4 \pi f_{D}} \frac{1}{\sqrt{1-\left(\frac{\left|f-f_{c}\right|}{f_{D}}\right)^{2}}} &amp; \left|f-f_{c}\right| \leq f_{D} \ 0 &amp; \text { else }\end{array}\right.<br>  $$</p>
+</li>
+<li><p>对于有密集散射体的环境，PSD通常在接近最大多普勒频率时频率达到最大。</p>
+</li>
+<li><p>模拟窄带衰减过程包络的常用方法是将两个独立的高斯白噪声源($S&#x3D;\frac{N_0}{2}$，通过频率响应为$H(f)$的低通滤波器，满足以下条件<br>  $$<br>  S_{r_I}(f)&#x3D;S_{r_Q}(f)&#x3D;\frac{N_0}{2}|H(f)|^2<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>窄带信道中功率随距离变化的模型<br>  <img alt="窄带信道中功率随距离变化" class="post-img b-lazy" data-img="/narrowband_P.png" data-index="2" data-src="/narrowband_P.png"></p>
+<ul>
+<li>路径损耗(path loss)随$d^{\gamma}$速度下降，$\gamma$为路径损耗因子。</li>
+<li>阴影衰落(shadowing fading)和去相关距离$X_c$在同一数量级</li>
+<li>多径衰落(multipath fading)的变化速度和半波长可比拟</li>
+<li>一个以固定速度$v$运动的移动接收器，接收功率呈现为各态历经的平稳过程。</li>
+</ul>
+</li>
+</ul>
+<h3 id="包络与功率的分布"><a href="#包络与功率的分布" class="headerlink" title="包络与功率的分布"></a>包络与功率的分布</h3><ul>
+<li><p>对于均匀分布的相位，同相分量和正交分量服从零均值联合高斯分布。功率的分布就是包络平方的分布。</p>
+</li>
+<li><p>不考虑LOS分量包络的分布（窄带高斯噪声包络的分布）——瑞利分布(Rayleigh-distributed)<br>  $$<br>  p_{Z}(z)&#x3D;\frac{2 z}{\bar P_{r}} \exp \left[-\frac{z^{2}} {\bar P_{r}}\right]&#x3D;\frac{z}{\sigma^{2}} \exp \left[-\frac{z^{2}}{2 \sigma^{2}}\right], \quad x \geq 0<br>  $$<br>  ​    $\bar P_r$是不考虑多径时信号的平均接收功率。</p>
+</li>
+<li><p>不考虑LOS分量包络平方（功率）的分布（窄带高斯噪声包络的分布）——均值为$2\sigma^2$的指数分布(exponentially distributed)<br>  $$<br>  P_{Z^2}(x)&#x3D;\frac{1}{P_r}e^{-\frac x{P_r}}&#x3D;\frac{1}{2\sigma^2}e^{-\frac x{2\sigma^2}},x\ge 0<br>  $$</p>
+</li>
+<li><p>考虑LOS分量包络的分布（窄带高斯噪声+信号包络的分布）——莱斯分布(广义瑞利分布，Rician distribution)<br> $$<br> p_{Z}(z)&#x3D;\frac{z}{\sigma^{2}} \exp \left[\frac{-\left(z^{2}+s^{2}\right)}{2 \sigma^{2}}\right] I_{0}\left(\frac{z s}{\sigma^{2}}\right), \quad z \geq 0<br> $$<br> 其中，$s^2&#x3D;\alpha_0^2$时LOS分量功率，$2\sigma^2$是其它多径分量的平均功率。$I_0(x)$是零阶修正贝塞尔函数。</p>
+<ul>
+<li><p>平均接收功率$\bar P_r&#x3D;s^2+2\sigma^2$</p>
+</li>
+<li><p>衰落系数（其实也是信噪比的意思）<br>  $$<br>  K&#x3D;\frac{s^2}{2\sigma^2}<br>  $$</p>
+<ul>
+<li>$K&#x3D;0$为瑞利衰落，$K&#x3D;\infty$为无衰落。</li>
+<li>因此，衰落系数$K$是衡量消退严重程度的标准：小的$K$意味着严重的衰落，大的$K$则意味着更温和的衰落。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>考虑LOS分量包络平方（功率）的分布（窄带高斯噪声+信号包络的分布）——自由度$n&#x3D;2$的非中心卡方分布(书上没有)</p>
+</li>
+<li><p>包络分布的经验公式——Nakagami fading distribution<br> $$<br> p_{Z}(z)&#x3D;\frac{2 m^{m} z^{2 m-1}}{\Gamma(m)\bar P_{r}^{m}} \exp \left[\frac{-m z^{2}}{\bar P_{r}}\right], \quad m \geq 0.5<br> $$</p>
+<ul>
+<li>$\bar P_r$为平均接收功率</li>
+<li>$m&#x3D;1$退化为瑞利衰落，$m&#x3D;\infty$近似无衰落，$m&#x3D;\frac{(K+1)^2}{2K+1}$近似衰落系数为$K$的莱斯分布</li>
+</ul>
+</li>
+<li><p>包络平方（功率）分布的经验公式<br> $$<br> p_{Z^{2}}(x)&#x3D;\left(\frac{m}{P_{r}}\right)^{m} \frac{x^{m-1}}{\Gamma(m)} \exp \left(\frac{-m x}{P_{r}}\right)<br> $$</p>
+</li>
+</ul>
+<h3 id="Level-Crossing-Rate-and-Average-Fade-Duration"><a href="#Level-Crossing-Rate-and-Average-Fade-Duration" class="headerlink" title="Level Crossing Rate and Average Fade Duration"></a>Level Crossing Rate and Average Fade Duration</h3><ul>
+<li><p>Level Crossing Rate(电平通过率)$L_Z$：信号包络在向下方向穿越电平$Z$的平均速率（以每秒穿越次数计）<br>  $$<br>  L_Z&#x3D;\frac{N_Z}{T}&#x3D;\int_{-\infty}^{0}\dot zp(Z,\dot z)\ \mathrm{d}\dot z<br>  $$<br>  其中，$Z$是跨越的电平，$\dot z$是包络的时间导数。</p>
+<ul>
+<li><p>莱斯衰落的Level Crossing Rate：<br>  $$<br>  L_{Z}&#x3D;\sqrt{2 \pi(K+1)} f_{D} \rho e^{-K-(K+1) \rho^{2}} I_{0}(2 \rho \sqrt{K(K+1)})<br>  $$</p>
+</li>
+<li><p>瑞利衰落的Level Crossing Rate：<br>  $$<br>  L_{Z}&#x3D;\sqrt{2 \pi} f_{D} \rho e^{-\rho^{2}}<br>  $$<br>  其中，$\rho&#x3D;\frac{Z}{\bar P_r}$</p>
+</li>
+</ul>
+</li>
+<li><p>average signal fade duration（平均衰减时长）$\bar t_z$：信号包络保持在给定目标电平$Z$以下的平均时间。<br>  $$<br>  \bar{t}<em>{Z}&#x3D;\frac{1}{T L</em>{Z}} \sum_{i&#x3D;1}^{L_{Z} T} t_{i} \approx \frac{p(z(t)&lt;Z)}{L_{Z}}&#x3D;\frac{\text{小于Z的总时间&#x2F;单位时间}}{\text{下穿过Z的次数&#x2F;单位时间}}<br>  $$</p>
+<ul>
+<li><p>瑞利分布的average signal fade duration：<br>  $$<br>  \bar{t}<em>{Z}&#x3D;\frac{e^{\rho^{2}}-1}{\rho f</em>{D} \sqrt{2 \pi}}<br>  $$</p>
+</li>
+<li><p>average signal fade duration随多普勒频移的增加而减少。</p>
+</li>
+<li><p>The average fade duration indicates the number of bits or symbols affected by a deep fade.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="有限状态马尔可夫信道"><a href="#有限状态马尔可夫信道" class="headerlink" title="有限状态马尔可夫信道"></a>有限状态马尔可夫信道</h3><p>有限状态马尔可夫信道（FSMC）是一个比较简单的模型，它捕捉到了平衰落信道的主要特征。在这个模型中，衰落被近似为一个离散时间马尔可夫过程，时间被离散为一个给定的间隔$T$（通常是符号周期）。具体来说，所有可能的衰落增益的集合被建模为一组有限的信道状态。根据一组马尔可夫转移概率，信道在每个区间$T$的这些状态中变化。</p>
+<h2 id="Wideband-fading-models"><a href="#Wideband-fading-models" class="headerlink" title="Wideband fading models"></a>Wideband fading models</h2><p>宽带衰落模型(Wideband fading models)中，多出了多径时延扩展导致的失真(distortion due to the multipath delay)。若发射脉冲宽度为$T$，回波信号的脉宽扩展为$T+T_m$，则时延扩展为$T_m$。<br>![多径分辨率](&#x2F;Multipath Resolution.png)</p>
+<ul>
+<li>当$T_m\ll T$时，重叠的信号叠加造成窄带衰落，无明显时延扩展，对后续干扰很小。</li>
+<li>当$T_m\gg T$时，多径分量可分辨，造成ISI(码间串扰)。</li>
+<li>解决方法：equalization（均衡）, multicarrier modulation（多载波调制）, and spread spectrum（扩频）</li>
+</ul>
+<h3 id="散射函数-scattering-function"><a href="#散射函数-scattering-function" class="headerlink" title="散射函数(scattering function)"></a>散射函数(scattering function)</h3><ul>
+<li><p>对于宽带衰落模型，$u(t - \tau_n(t))\approx u(t)$的近似值不再有效。因此，接收信号是发射信号的拷贝之和，其中每个副本在时间上延迟了$\tau_n$，在相位上移位了$\phi_n(t)$。</p>
+</li>
+<li><p>对于窄带信道，我们主要从幅度和相位随机过程来刻画。对于宽带信道，必须要考虑**多径时延扩展(multipath delay spread)和信道时变(time-variations associated with the channel)**的影响。</p>
+</li>
+<li><p>deterministic scattering function（确知散射函数）：<br>  $$<br>  c(\tau,t)\longleftrightarrow S_{c}(\tau, \rho)&#x3D;\int_{-\infty}^{\infty} c(\tau, t) e^{-j 2 \pi \rho t}\ \mathrm{d} t<br>  $$<br>  $S_{c}(\tau, \rho)$是等效基带信道的时变脉冲响应$c(\tau,t)$关于$t$的Fourier变换。通过频率参数$\rho$反映信道的多普勒特性。</p>
+</li>
+<li><p>random scattering function（随机散射函数）</p>
+<ul>
+<li><p>考虑到$c(\tau,t)$的随机性，用时变随机过程的自相关函数$A_c(\tau_1,\tau_2;t,t+\Delta t)$，并假设信道宽平稳$A_c(\tau_1,\tau_2;\Delta t)$，同时假设信道为不相关散射(uncorrelated scattering)信道($\tau_1\neq\tau_2$)<br>  $$<br>  E\left[c^{*}\left(\tau_{1} ; t\right) c\left(\tau_{2} ; t+\Delta t\right)\right]&#x3D;A_{c}\left(\tau_{1} ; \Delta t\right) \delta\left[\tau_{1}-\tau_{2}\right] \triangleq A_{c}(\tau ; \Delta t)<br>  $$<br>  其中$A_{c}(\tau ; \Delta t)$给出了与信道相关的平均输出功率，作为多径延迟$\tau&#x3D;\tau_1&#x3D;\tau_2$和观察时间差$\Delta t$的函数。</p>
+</li>
+<li><p>定义scattering function：<br>  $$<br>  A_c(\tau,\Delta t)\longleftrightarrow S_{c}(\tau, \rho)&#x3D;\int_{-\infty}^{\infty} A_c(\tau, \Delta t) e^{-j 2 \pi \rho \Delta t}\ \mathrm{d} \Delta t<br>  $$<br>  散射函数描述了与信道相关的平均输出功率，是多径延迟$\tau$和多普勒频移$\rho$的函数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="功率时延谱、相干带宽、多普勒功率谱、相干时间"><a href="#功率时延谱、相干带宽、多普勒功率谱、相干时间" class="headerlink" title="功率时延谱、相干带宽、多普勒功率谱、相干时间"></a>功率时延谱、相干带宽、多普勒功率谱、相干时间</h3><ul>
+<li><p>**功率时延谱(power delay profile)**：令$A_c(\tau,\Delta t)$中$\Delta t&#x3D;0$，则得到功率时延谱(power delay profile)$A_c(\tau)&#x3D;A_c(\tau,0)$。</p>
+<ul>
+<li><p>时延扩展的概率密度分布<br>  $$<br>  p_{T_m}&#x3D;\frac{A_c(\tau)}{\int_o^{\infty}A_c(\tau)d\tau}<br>  $$</p>
+</li>
+<li><p>时延扩展</p>
+<ul>
+<li>平均时延扩展（average delay）$\mu_{T_m}$</li>
+<li>均方根时延扩展（rms delay）$\sigma_{T_m}$</li>
+<li>平均和均方根时延扩展都是<strong>把各径的时延按照功率加权</strong>。</li>
+<li>The time delay $T$ where $A_c(\tau)\approx 0$ for $\tau\ge T$ can be used to roughly characterize by a small integer multiple of the rms delay spread ($n\sigma_{T_m}$). When symbol period $T_s$ is within an order of magnitude of σTm then there will be some ISI.</li>
+<li>$\mu_{T_m}\approx \sigma_{T_m}$ in many channels with a large number of scatterers.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>相干带宽（Coherence Bandwidth）</strong></p>
+<ul>
+<li><p>对$c(\tau;t)$关于$\tau$作傅里叶变换<br>  $$<br>  C(f, t)&#x3D;\int_{-\infty}^{\infty} c(\tau, t) e^{-j 2 \pi f \tau}\ \mathrm{d} \tau<br>  $$<br>  再对$C(f,t)$求自相关函数，设其宽平稳，且不相关散射<br>  $$<br>  A_C(f_1,f_2;\Delta t)&#x3D;E[C^*(f_1;t)C(f_2;t+\Delta t)]&#x3D;A_C(\Delta f,\Delta t)<br>  $$<br>  令$A_C(\Delta f,\Delta t)$中$\Delta t&#x3D;0$，则得到$A_C(\Delta f)$，也有傅里叶变换关系<br>  $$<br>  A_C(\Delta f)&#x3D;\int_{-\infty}^{\infty} A_c(\tau) e^{-j 2 \pi \Delta f \tau}\ \mathrm{d} \tau<br>  $$</p>
+</li>
+<li><p><strong>相干带宽（Coherence Bandwidth）</strong>：<br>  $$<br>  \forall \Delta f&gt;B_c,A_C(\Delta f)\approx 0<br>  $$</p>
+<ul>
+<li>对$\tau&gt;T$有$A_C(\Delta f)\approx 0$，$B_c\approx \frac 1T$</li>
+<li>更一般的近似<br>  $$<br>  B_c\approx \frac{k}{\sigma_{T_m}}<br>  $$<br>  其中，$k$ depends on the shape of Ac(τ ) and the precise specification of coherence bandwidth.</li>
+</ul>
+</li>
+<li><p>信号带宽与相干带宽<br>  <img alt="fading" class="post-img b-lazy" data-img="/fading.png" data-index="3" data-src="/fading.png"></p>
+<ul>
+<li>**平衰落(flat fading)**：对于$B\ll B_c$的窄带信号，信号带宽内衰落高度相关，整个带宽上的衰落近似相等。$T_s\approx \frac 1B\gg\frac 1{B_c}\approx \sigma_{T_m}$，可以忽略ISI。</li>
+<li>**频率选择性衰落(requency-selective fading)**：对于$B\gg B_c$的宽带信号，信道幅度在不同带宽间变化很大。$T_s\approx \frac 1B\ll \frac 1{B_c}\approx \sigma_{T_m}$，不可以忽略ISI。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多普勒功率谱（Doppler Power Spectrum）与相干时间（Channel Coherence Time）</p>
+<ul>
+<li><p>令$A_C(\Delta f,\Delta t)$中$\Delta f&#x3D;0$，则得到$A_C(\Delta t)$，也有傅里叶变换关系<br>  $$<br>  S_{C}(\rho)&#x3D;\int_{-\infty}^{\infty} A_{C}(\Delta t) e^{-j 2 \pi \rho \Delta t} d \Delta t<br>  $$</p>
+</li>
+<li><p>多普勒功率谱（Doppler Power Spectrum）描述接收功率在多普勒频率$\rho$上的密度</p>
+</li>
+<li><p>Doppler spread（多普勒扩展）：<br>  $$<br>  \forall \Delta \rho&gt;B_D,|S_C(\rho)|\approx 0<br>  $$</p>
+</li>
+<li><p>相干时间（Channel Coherence Time）$T_c$：$A_C(\Delta t)$近似为非零的数值范围。</p>
+<blockquote>
+<p>根据随机信号分析知识，<br>$$<br>T_c&#x3D;\int_0^\infty A_C(\Delta t)\ d\Delta t<br>$$</p>
+</blockquote>
+</li>
+<li><p>多普勒扩展和相干时间的关系：<br>  $$<br>  B_D\approx \frac 1{T_c}<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="自相关与散射函数"><a href="#自相关与散射函数" class="headerlink" title="自相关与散射函数"></a>自相关与散射函数</h3><p>$$<br>S_{c}(\tau ; \rho)&#x3D;\mathscr{F}<em>{\Delta t}\mathscr{F}</em>{\Delta f}^{-1}[ A_{C}(\Delta f ; \Delta t)]&#x3D;\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} A_{C}(\Delta f ; \Delta t) e^{-j 2 \pi \rho \Delta t} e^{j 2 \pi \tau \Delta f} d \Delta t d \Delta f<br>$$</p>
+<p><img alt="transform" class="post-img b-lazy" data-img="/transforms.png" data-index="4" data-src="/transforms.png"></p>
+<h2 id="Discrete-Time-Model"><a href="#Discrete-Time-Model" class="headerlink" title="Discrete-Time Model"></a>Discrete-Time Model</h2><p>通常情况下，时变脉冲响应信道模型对于简单的分析来说过于复杂。在这种情况下，可以使用宽带多径模型的离散时间近似值。这个离散时间模型是基于一个由孤立的点状散射体组成的物理传播环境。<br><img alt="散射点信道模型" class="post-img b-lazy" data-img="/Point_Scatterer.png" data-index="5" data-src="/Point_Scatterer.png"><br>$$<br>c(\tau ; t)&#x3D;\sum_{n&#x3D;0}^{N} \alpha_{n}(t) e^{-j \phi_{n}(t)} \delta\left(\tau-\tau_{n}(t)\right)<br>$$<br>给定$t$的情况下，将时延轴$\tau$分为间隔为$T$的$M$个时间段，且$MT\ge \sigma_{T_m}$，每个径分配到这$M$个时间段中。则离散时间模型的多径时延扩展为$MT$，各径之间分辨率为$T\approx \frac 1B$。</p>
+<p>随着时间的推移，用一连串的时间点配置数据刻画信道脉冲响应的变化。</p>
+<h2 id="Space-Time-Channel-Models"><a href="#Space-Time-Channel-Models" class="headerlink" title="Space-Time Channel Models"></a>Space-Time Channel Models</h2><p>多天线在无线系统中变得非常普遍。具有多天线的系统需要信道模型来体现信道的空间（到达角）和时间特性。</p>
+<p>对于二维多径传播环境，接收天线或发射天线配备$M$个天线单元，则时变脉冲响应模型为<br>$$<br>c(\tau, t)&#x3D;\sum_{n&#x3D;0}^{N(t)} \alpha_{n}(t) e^{-j \phi_{n}(t)} \bar{a}\left(\theta_{n}(t)\right) \delta\left(\tau-\tau_{n}(t)\right)<br>$$<br>其中，$\bar{a}\left(\theta_{n}(t)\right)$是阵因子矢量。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>ANDREA GOLDSMITH.<em>WIRELESS COMMUNICATIONS</em>.2005.</li>
+<li>（美）Andrea Goldsmith著；杨鸿文，李卫东，郭文彬等译. 无线通信. 北京：人民邮电出版社, 2007.06.</li>
+<li>陈伯孝. 雷达原理与系统（讲义）. 西安电子科技大学, 2021.02.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【无线通信学习笔记（二）】统计多径信道模型</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年04月22日 - 11:33:35</p>
+  <p><span>原始链接:</span><a href="/2021/04/22/Wireless-Communications-Ch-3/" title="【无线通信学习笔记（二）】统计多径信道模型">https://levitate-qian.github.io/2021/04/22/Wireless-Communications-Ch-3/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/04/22/Wireless-Communications-Ch-3/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【B测】数字2DPSK频带传输系统的设计" href="/2021/04/22/b-test/">
+            ← 【B测】数字2DPSK频带传输系统的设计
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化" href="/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">
+            【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Statistical-Multipath-Channel-Models"><span class="toc-text">Statistical Multipath Channel Models</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Varying-Channel-Impulse-Response"><span class="toc-text">Time-Varying Channel Impulse Response</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接收信号及其可分辨性-resolvable"><span class="toc-text">接收信号及其可分辨性(resolvable)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时变脉冲响应-Time-Varying-Channel-Impulse-Response"><span class="toc-text">时变脉冲响应(Time-Varying Channel Impulse Response)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#衰落-fading"><span class="toc-text">衰落(fading)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Narrowband-fading-models"><span class="toc-text">Narrowband fading models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#窄带衰落模型的接收信号"><span class="toc-text">窄带衰落模型的接收信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接收信号的自相关与互相关"><span class="toc-text">接收信号的自相关与互相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#均匀散射环境的谱分析"><span class="toc-text">均匀散射环境的谱分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包络与功率的分布"><span class="toc-text">包络与功率的分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Level-Crossing-Rate-and-Average-Fade-Duration"><span class="toc-text">Level Crossing Rate and Average Fade Duration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有限状态马尔可夫信道"><span class="toc-text">有限状态马尔可夫信道</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wideband-fading-models"><span class="toc-text">Wideband fading models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#散射函数-scattering-function"><span class="toc-text">散射函数(scattering function)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功率时延谱、相干带宽、多普勒功率谱、相干时间"><span class="toc-text">功率时延谱、相干带宽、多普勒功率谱、相干时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自相关与散射函数"><span class="toc-text">自相关与散射函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Discrete-Time-Model"><span class="toc-text">Discrete-Time Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Space-Time-Channel-Models"><span class="toc-text">Space-Time Channel Models</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/04/22/Wireless-Communications-Ch-3/" class="leancloud-visitors" data-flag-title="【无线通信学习笔记（二）】统计多径信道模型">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【无线通信学习笔记（二）】统计多径信道模型</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

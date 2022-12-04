@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>LaTeX札记（四）：字体 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LaTeX札记（四）：字体 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2022/04/14/latex-note-04/">
+
+	
+	<meta property="article:published_time" content="2022-04-14T10:04:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2022/04/14/latex-note-04/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2022-04-14T10:36:34.000Z">
+                    2022-04-14
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/LaTeX/">LaTeX</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">LaTeX札记（四）：字体</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2022/04/14/LQ7BjK.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="LaTeX-札记（四）——字体"><a href="#LaTeX-札记（四）——字体" class="headerlink" title="$\LaTeX$ 札记（四）——字体"></a>$\LaTeX$ 札记（四）——字体</h1><p>今天讨论几个最近碰到的字体问题。后续碰到有新的字体问题的可能也会更新。</p>
+<p>❗ <strong>首先注意，你的字体必须是为全体安装的！！！</strong> 目前我这些问题出现在 $\TeX Live$ 2022版本，部分问题在2020、2021就有出现。</p>
+<p>🌟推荐下载开源免费商用字体的网站：猫啃网（<a href="https://www.maoken.com/" target="_blank" rel="noopener">猫啃网，最新最全的可免费商用中文字体下载网站！喵啃~ (maoken.com)</a>），好多人来问题江城哪里下载，就在这上面！都是开源免费商用的字体，冲！真的是非常良心的网站！！</p>
+<h2 id="简历模板中“思源黑体-Light”、“江城斜黑体-200W”无法识别"><a href="#简历模板中“思源黑体-Light”、“江城斜黑体-200W”无法识别" class="headerlink" title="简历模板中“思源黑体 Light”、“江城斜黑体 200W”无法识别"></a>简历模板中“思源黑体 Light”、“江城斜黑体 200W”无法识别</h2><p>这其实是两个问题：</p>
+<h3 id="“思源黑体-Light”无法识别"><a href="#“思源黑体-Light”无法识别" class="headerlink" title="“思源黑体 Light”无法识别"></a>“思源黑体 Light”无法识别</h3><p>请大家看清自己安装的是“思源黑体”（中日韩全字库版本，较大），还是“思源黑体 CN”（仅中文字库），如果安装的是CN版稍作修改即可。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\setCJKsansfont</span>&#123;思源黑体 CN Light&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="“江城斜黑体-200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体"><a href="#“江城斜黑体-200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体" class="headerlink" title="“江城斜黑体 200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体"></a>“江城斜黑体 200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体</h3><p>这个问题很早之前就有人来问我，但我一直也没碰到就没有解决，直到我自己从  $\TeX Live$  2020更新到  $\TeX Live$  2022后，我也遇到了这个问题🤔。根据网上的猜测应该是由 $\TeX Live$ 2021大版本更新带来的。。。</p>
+<blockquote>
+<p>网络上有的一些解决办法：</p>
+<p><a href="https://blog.csdn.net/github_39582118/article/details/120598547" target="_blank" rel="noopener">(25条消息) window11 latex 解决找不到字体的问题_问题生产商的博客-CSDN博客_texlive 找不到字体</a></p>
+<p><a href="https://blog.csdn.net/qq_41437512/article/details/117306015" target="_blank" rel="noopener">Win10+TeXLive2021无法识别新安装字体解决方法_zorchp的博客-CSDN博客_texlive 找不到字体</a></p>
+</blockquote>
+<p><strong>原因</strong>：由于“江城斜黑体”等字体名为中文，例如“江城斜黑体 200W.ttf”，这种中文文件名的字体在 $\TeX Live$ 2021版以后就经常找不到了。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜宋体 300W&#125;]&#123;思源宋体&#125;</span><br><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜黑体 200W&#125;]&#123;思源黑体 Light&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方法</strong></p>
+<ul>
+<li><p>方法一（可以尝试，但在我的TeXLive2022版本行不通）：将上述字体名直接加上文字名称的后缀名<code>.ttf</code>，也许可以缓解该问题，例如</p>
+  <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜宋体 300W.ttf&#125;]&#123;思源宋体&#125;</span><br><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜黑体 200W.ttf&#125;]&#123;思源黑体 Light&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二（我就是这样解决的）：其实就是重装字体，同时重装之前先把文件名改成<del>中文</del>英文<em>（感谢郑同学指出原来的错误）</em>，例如江城斜黑体改成这样<img alt="image-20220414111433042" class="post-img b-lazy" data-img="/image-20220414111433042.png" data-index="0" data-src="/image-20220414111433042.png"></p>
+<p>  然后重新为全体用户安装即可，中间如果说字体已经安装过了，这样选就可以啦！<br>  <img alt="image-20220414111610966" class="post-img b-lazy" data-img="/image-20220414111610966.png" data-index="1" data-src="/image-20220414111610966.png"></p>
+<p>  这样安装完，直接原来的应该就可以用了</p>
+  <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜宋体 300W&#125;]&#123;思源宋体&#125;</span><br><span class="line"><span class="keyword">\setCJKmainfont</span>[ItalicFont=&#123;江城斜黑体 200W&#125;]&#123;思源黑体 Light&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格"><a href="#Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格" class="headerlink" title="Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格"></a>Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格</h2><p><strong>问题：</strong> Github上<a href="https://github.com/StickCui/XDUthesis-personal" target="_blank" rel="noopener">StickCui&#x2F;XDUthesis-personal: XDUthesis 西安电子科技大学学位论文模板 Xidian University thesis template (github.com)</a>版本（该版本已不再维护）的毕设模板中，pdflatex可以编译出Times风格数学公式字体，而xelatex不可以。在“不改备注别进群”、“匿名毕设交流群”中的模板已经进行了替换，具体替换如下，这样的修改对于 $\TeX Live$ 2020和 $\TeX Live$ 2021早期版本，overleaf均是适用的：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% \setmainfont[NFSSFamily=entextrm]&#123;Times New Roman&#125;%</span></span><br><span class="line"><span class="comment">% \setsansfont[NFSSFamily=entextsf]&#123;Times New Roman&#125;%</span></span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;newtxtext&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>[cmintegrals]&#123;newtxmath&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但如果对 $\TeX Live$ 2021的宏包进行了更新或使用 $\TeX Live$ 2022版本，则会出现找不到“SimHei”字体的错误，这主要是<code>newtxtext</code>宏包引起的，具体解决方案是回退<code>newtxtext</code>版本。</p>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li><p>方法一：回退<code>newtxtext</code>版本，并加上<code>[nofontspec]</code></p>
+</li>
+<li><p>方法二：下载<code>newtxtext</code>早期版本（提供一个早期版本的🔗<a href="https://levitate.lanzouq.com/iLqd803623hc" target="_blank" rel="noopener">链接</a>，下载了记得解压，蓝奏云无法直接上传sty文件），并在XDUthesis.cls文件的<code>newtxtext</code>引用部分加上<code>[nofontspec]</code>（全局搜索<code>\RequirePackage&#123;newtxtext&#125;</code>，都改成<code>\RequirePackage[nofontspec]&#123;newtxtext&#125;</code>即可），</p>
+  <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\RequirePackage</span>[nofontspec]&#123;newtxtext&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>[cmintegrals]&#123;newtxmath&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  直接放置在毕设文件夹下，具体放在这个位置，记得重新编译前把之前生成的临时文件（Demo开头除了tex以外的文件）删掉<br>  <img alt="image-20220414112658599" class="post-img b-lazy" data-img="/image-20220414112658599.png" data-index="2" data-src="/image-20220414112658599.png"></p>
+</li>
+<li><p>方法三：换用overleaf，使用overleaf中TeXLive2021+xelatex编译是没有问题的</p>
+</li>
+<li><p>方法四：换用其他模板，如大佬最新推出的可能会持续的更新的模板</p>
+<blockquote>
+<p>新的本科毕设latex模板发布了</p>
+<p>睿思：<a href="https://rs.xidian.edu.cn/forum.php?mod=viewthread&amp;tid=1136781&amp;extra=" target="_blank" rel="noopener">https://rs.xidian.edu.cn/forum.php?mod=viewthread&amp;tid=1136781&amp;extra=</a><br>GitHub：<a href="https://github.com/note286/xduts" target="_blank" rel="noopener">https://github.com/note286/xduts</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包"><a href="#beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包" class="headerlink" title="beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包"></a>beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包</h2><p>尝试了好多次，经常报NFSS异常的错。有几点注意事项：</p>
+<ul>
+<li><p>请使用<code>ctexbemaer</code>文档类，而非<code>beamer</code>文档类+<code>ctex</code>宏包，会报NFSS错</p>
+</li>
+<li><p>不要使用<code>sansmathfonts</code>宏包的<code>onlymath</code>、<code>nottext</code>等命令，会报NFSS错</p>
+</li>
+<li><p>建议使用<del>T1字体族</del> OT1字体族，不然会报错</p>
+  <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[OT1]&#123;fontenc&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>sansmathfonts</code>宏包后数字等字符会显示为衬线体，在引用该宏包前先引用CM宏包，即<code>cmbright</code>宏包，<del>但是注意部分加粗字体采用的是sansmathfonts的加粗而非cmbright的加粗，看起来有点区别，我也不会调整</del> 改成OT1字体族就可以了</p>
+  <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[OT1]&#123;fontenc&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;cmbright&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;sansmathfonts&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>大家对beamer有什么别的疑惑的话可以去读文档，有<a href="http://static.latexstudio.net/wp-content/uploads/2017/02/BeamerUserGuide_V3.24_zh-cn.pdf" target="_blank" rel="noopener">中文版</a>的，比较通俗。提供一个自用的beamer导言区，见<a href="https://levitate-qian.github.io/2020/12/01/latex-lecture/">LaTeX模板分享 | Levitate_ (levitate-qian.github.io)</a></p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>LaTeX札记（四）：字体</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2022年04月14日 - 10:36:34</p>
+  <p><span>原始链接:</span><a href="/2022/04/14/latex-note-04/" title="LaTeX札记（四）：字体">https://levitate-qian.github.io/2022/04/14/latex-note-04/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2022/04/14/latex-note-04/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="LaTeX札记（五）：毕设相关" href="/2022/05/10/latex-note-05/">
+            ← LaTeX札记（五）：毕设相关
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【预编码论文阅读（三）】深度学习(二)" href="/2022/01/06/procoding-3/">
+            【预编码论文阅读（三）】深度学习(二) →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LaTeX-札记（四）——字体"><span class="toc-text">$\LaTeX$ 札记（四）——字体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简历模板中“思源黑体-Light”、“江城斜黑体-200W”无法识别"><span class="toc-text">简历模板中“思源黑体 Light”、“江城斜黑体 200W”无法识别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“思源黑体-Light”无法识别"><span class="toc-text">“思源黑体 Light”无法识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“江城斜黑体-200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体"><span class="toc-text">“江城斜黑体 200W”无法识别，TeXLive2021以后版本无法识别中文文献名字体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格"><span class="toc-text">Github上StickCui版毕业设计模板中xelatex如何输出公式字体为Times风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包"><span class="toc-text">beamer中如何全篇使用CM风格非衬线体，即使用sansmathfonts宏包</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2022/04/14/latex-note-04/" class="leancloud-visitors" data-flag-title="LaTeX札记（四）：字体">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">LaTeX札记（四）：字体</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

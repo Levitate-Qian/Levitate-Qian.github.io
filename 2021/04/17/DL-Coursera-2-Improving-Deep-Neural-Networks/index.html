@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">
+
+	
+	<meta property="article:published_time" content="2021-04-17T00:04:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-04-17T00:33:05.000Z">
+                    2021-04-17
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/17/ch8uX8.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p>这个专项课程一共五门，包括</p>
+<ul>
+<li><a href="https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">Neural Networks and Deep Learning（神经网络与深度学习）</a></li>
+<li><strong>Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization（改进深度神经网络：超参数、正则化和优化）</strong></li>
+<li>Structuring Machine Learning Projects（构建机器学习项目）</li>
+<li>Convolution Neural Networks（卷积神经网络）</li>
+<li>Sequence Model（序列模型）</li>
+</ul>
+<p>部分内容参考了左老板的博客（<a href="http://www.cyzuo.cn/%EF%BC%89" target="_blank" rel="noopener">http://www.cyzuo.cn/）</a></p>
+</blockquote>
+<h1 id="Improving-Deep-Neural-Networks-学习笔记"><a href="#Improving-Deep-Neural-Networks-学习笔记" class="headerlink" title="Improving Deep Neural Networks 学习笔记"></a>Improving Deep Neural Networks 学习笔记</h1><p>第二门课程的主体框架：</p>
+<ul>
+<li>Week 1: Practical aspects of DL<ul>
+<li>Setting up your Machine learning Application</li>
+<li>Regularizing your NN</li>
+<li>Setting up your optimization problem</li>
+</ul>
+</li>
+<li>Week 2: Optimization algorithms</li>
+<li>Week 3: Hyperparameter tuning, Batch Normalization, Programming frameworks<ul>
+<li>Hyperparameter tuning</li>
+<li>Batch Normalization</li>
+<li>Multi-class classification</li>
+<li>Programming frameworks</li>
+</ul>
+</li>
+</ul>
+<h2 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h2><h3 id="1-1-Setting-up-your-Machine-learning-Application"><a href="#1-1-Setting-up-your-Machine-learning-Application" class="headerlink" title="1-1 Setting up your Machine learning Application"></a>1-1 Setting up your Machine learning Application</h3><p>在这个section里面主要讨论的是机器学习中基本的性能度量和评价指标。主要谈到了这两点：</p>
+<ul>
+<li>Training&#x2F;dev&#x2F;Test sets（训练集&#x2F;验证集（开发集）&#x2F;测试集）</li>
+<li>Bias&#x2F;Variance（偏差和方差）</li>
+</ul>
+<h4 id="1-Training-x2F-dev-x2F-Test-sets"><a href="#1-Training-x2F-dev-x2F-Test-sets" class="headerlink" title="1. Training&#x2F;dev&#x2F;Test sets"></a>1. Training&#x2F;dev&#x2F;Test sets</h4><ol>
+<li><p>Applied ML is a highly iterative process.（应用机器学习是一个高度重复的过程）</p>
+</li>
+<li><p>Train&#x2F;dev&#x2F;Test sets的划分</p>
+<p> <img alt="Training/dev/Test sets" class="post-img b-lazy" data-img="/Train_Dev_Test.png" data-index="0" data-src="/Train_Dev_Test.png"></p>
+</li>
+<li><p>Mismatched train&#x2F;test distribution</p>
+<ul>
+<li><strong>验证集要和训练集来自于同一个分布</strong>（数据来源一致），可以使得机器学习算法变得更快并获得更好的效果。</li>
+<li>同时，没有测试集是可以的，但是不能没有验证集用于交叉验证。</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-Bias-x2F-Variance"><a href="#2-Bias-x2F-Variance" class="headerlink" title="2. Bias&#x2F;Variance"></a>2. Bias&#x2F;Variance</h4><p>下面通过图片和数据两种方式形象地展示在机器学习中偏差(Bias)和方差(Variance)指什么，过拟合(overfitting)和欠拟合(underfitting)。</p>
+<ul>
+<li><strong>偏差(Bias)<strong>：度量了学习算法的期望预测与真实结果的偏离程度，即刻画了</strong>学习算法本身的拟合能力</strong>；</li>
+<li><strong>方差(Variance)<strong>：度量了同样大小的训练集的变动所导致的学习性能的变化，即</strong>刻画了数据扰动所造成的影响</strong>；</li>
+<li><strong>噪声(noise)<strong>：表达了在当前任务上任何学习算法所能够达到的期望泛化误差的下界，即</strong>刻画了学习问题本身的难度</strong>。</li>
+<li>过拟合(overfitting)：模型过分地契合训练集，但泛化能力不够。</li>
+<li>欠拟合(underfitting)：模型和真实情况还有较大偏差</li>
+</ul>
+<p>从坐标图像角度来看：</p>
+<p><img alt="Bias/Variance" class="post-img b-lazy" data-img="/bias_variance.png" data-index="1" data-src="/bias_variance.png"></p>
+<p>从数据角度来看：</p>
+<table>
+<thead>
+<tr>
+<th>数据</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试集错误率</td>
+<td>1%</td>
+<td>15%</td>
+<td>15%</td>
+<td>0.5%</td>
+</tr>
+<tr>
+<td>验证集错误率</td>
+<td>11%</td>
+<td>16%</td>
+<td>30%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>存在的问题</td>
+<td>验证集和测试集错误率相差很大</td>
+<td>验证集和测试集错误率相差不大，但是错误率都比较高</td>
+<td>验证集和测试集错误率相差大，同时错误率比较高</td>
+<td>验证集和测试集错误率相差不大，错误率都比较低</td>
+</tr>
+<tr>
+<td>Bias&#x2F;Variance分析</td>
+<td>high variance (overfitting)</td>
+<td>high bias (underfitting)</td>
+<td>high bias &amp; high variance</td>
+<td>low bias &amp; low variance</td>
+</tr>
+</tbody></table>
+<p>同时，我们将最优误差(optimal error)也称为贝叶斯误差(Bayes error)，一般取$\approx 0$。</p>
+<h4 id="3-Basic-Recipe-for-ML"><a href="#3-Basic-Recipe-for-ML" class="headerlink" title="3. Basic Recipe for ML"></a>3. Basic Recipe for ML</h4><p><img alt="Basic Recipe for ML" class="post-img b-lazy" data-img="/basic_recipe.png" data-index="2" data-src="/basic_recipe.png"></p>
+<p>对于以前的Bias-variance trade-off（偏差方差均衡），则是由于过去无法控制单个Bias或是variance，使得只减少偏差或方差而不影响到另外一方。而在大数据时代不需要去考虑均衡问题。</p>
+<h3 id="1-2-Regularizing-your-NN"><a href="#1-2-Regularizing-your-NN" class="headerlink" title="1-2 Regularizing your NN"></a>1-2 Regularizing your NN</h3><p>本section主要讲述正则化的原理与相关方法。正则化是为了解决过大的方差而提出的。主要思想就是引入一个正则项防止模型过于复杂，导致过拟合。</p>
+<h4 id="1-Regularization-amp-Why？"><a href="#1-Regularization-amp-Why？" class="headerlink" title="1. Regularization &amp; Why？"></a>1. Regularization &amp; Why？</h4><ol>
+<li><p>对Logistic Regression的正则化<br> $$<br> \begin{gathered}<br> \min\ J(w,b)\qquad w\in\mathbb{R}^{n_x},b\in\mathbb{R}\<br> J(w,b)&#x3D;\frac 1m\sum_{i&#x3D;1}^m\mathscr{L}(\hat y^{(i)},y^{(i)})+\boldsymbol{\frac{\lambda}{2m}||w||<em>2^2}\underbrace{+\frac{\lambda}{2m}b^2}</em>{\text{omit}}<br> \end{gathered}<br> $$<br> 注意加粗项 $\frac{\lambda}{2m}||w||_2^2$ 即为我们引入的正则项，其中$\lambda$被称为正则因子，是一个超参数。上式中我们采用的是L2 正则化（L2范数），下面介绍两种不同的范数可以替代上述损失函数$J(w,b)$中的范数。</p>
+<ul>
+<li>L2正则化（L2范数）：$||w||<em>2^2&#x3D;\sum</em>{j&#x3D;1}^{n_x}w_j^2&#x3D;\mathbf{w}^T\mathbf{w}$</li>
+<li>L1正则化（L1范数）：$||w||<em>1&#x3D;\sum</em>{j&#x3D;1}^{n_x}|w|$</li>
+</ul>
+</li>
+<li><p>对于神经网络的正则化</p>
+<ul>
+<li>损失代价函数</li>
+</ul>
+<p> $$<br> J\left(w^{[1]}, b^{[1]}, \ldots, w^{[L]}, b^{[L]}\right)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} L\left(\hat{y}^{(i)}, y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{l&#x3D;1}^{L}\left|w^{[l]}\right|<em>{F}^{2}<br> $$<br> 这里将范数项取Frobenius范数，又$w$的大小为 $\left(n^{[l-1]}, n^{[l]}\right)$，故<br> $$<br>  \left|w^{[l]}\right|</em>{F}^{2}&#x3D;\sum_{i&#x3D;1}^{n^{[l-1]}} \sum_{j&#x3D;1}^{n [l]}\left(w_{i j}^{[l]}\right)^{2}<br> $$</p>
+<ul>
+<li>反向传播中权重衰减为</li>
+</ul>
+<p> $$<br> \left{\begin{array}{l}dw^{[l]}&#x3D;\mathtt{(from_back_prop.)}+\boldsymbol{\frac{\lambda}{m}w^{[l]}}\<br> w^{[l]}:&#x3D;w^{[l]}-\alpha dw^{[l]}<br> \end{array}\right.<br> $$<br> 将两个式子合并起来，得到权重衰减(weight-decay)为<br> $$<br> w^{[l]}:&#x3D;w^{[l]}-\alpha \mathtt{(from_back_prop.)}-\alpha{\frac{\lambda}{m}w^{[l]}}<br> $$
+ </p>
+</li>
+<li><p>为什么正则化能防止过拟合？<br> $$<br> J\left(w^{[1]}, b^{[1]}, \ldots, w^{[L]}, b^{[L]}\right)&#x3D;\frac{1}{m} \sum_{i&#x3D;1}^{m} L\left(\hat{y}^{(i)}, y^{(i)}\right)+\frac{\lambda}{2 m} \sum_{l&#x3D;1}^{L}\left|w^{[l]}\right|_{F}^{2}<br> $$</p>
+<ul>
+<li><p>当$\lambda\to \infty$时，权重$w^{[l]}\to 0$，此时每个神经元都很小，则隐层是无用的，也就退化为了单层的Logistic Regression。</p>
+</li>
+<li><p>用tanh函数来解释的话，</p>
+<p>  <img alt="tanh" class="post-img b-lazy" data-img="/tanh.png" data-index="3" data-src="/tanh.png"></p>
+<p>  当$\lambda\nearrow$，则权重$w^{[l]}\searrow$，又$z^{[l]}&#x3D;w^{[l]}a^{[l-1]}+b^{[l]}$，当$\lambda$相当大时，$w^{[l]}$相当小，此时用到了tanh的线性段，即$a^{[l]}&#x3D;g^{[l]}(z^{[l]})$是近乎线性的。当每一层都近乎线性时，整个神经网络都是线性的也就不存在过拟合一说了。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-Dropout-Regularization"><a href="#2-Dropout-Regularization" class="headerlink" title="2. Dropout Regularization"></a>2. Dropout Regularization</h4><ol>
+<li><p>Dropout的概念与操作</p>
+<ul>
+<li><p>概念<img alt="dropout" class="post-img b-lazy" data-img="/drop-out.jpg" data-index="4" data-src="/drop-out.jpg"></p>
+<p>  dropout（随机失活）是在神经网络的隐藏层为每个神经元结点设置一个随机消除的概率，保留下来的神经元形成一个结点较少、规模较小的网络用于训练。</p>
+</li>
+<li><p>操作——Inverted dropout</p>
+<p>  假设我们在第3层应用dropout，并将0.2的神经元抛弃，即<code>keep.prob&lt;0.8</code></p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">keep.prob = <span class="number">0.8</span>	<span class="comment"># 保留率为0.8</span></span><br><span class="line">d3 = np.random.rand(a3, shape[<span class="number">0</span>], a3.shape[<span class="number">1</span>]) &lt; keep.prob</span><br><span class="line"><span class="comment"># 0.8的概率被保留，0.2的概率被dropout，其中np.random.rand表示0-1分布</span></span><br><span class="line">a3 = np.multiply(a3, d3)	<span class="comment"># 实现a3和d3的相乘</span></span><br><span class="line">a3 /= keep.prob				<span class="comment"># 恢复期望值，确保a3的期望值不变</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>每次应当dropout不同的元素</li>
+<li>不要在test期间进行dropout，这对模型的优化无意义，反而会增加噪声。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Dropout的解释</p>
+<ul>
+<li>解释1：就像在更小的NN上训练，⽤更⼩的NN好像具有Regularization的作用。</li>
+<li>解释2：由于dropout的存在，神经网络不能依赖于任何单独一个特征，所以会将权重分散开来，因此，通过传播过程，dropout 将产生和 L2 正则化相同的shrink weights(收缩权重)的效果。</li>
+<li>注意：<ul>
+<li>对于不同的层，设置的<code>keep.prob</code>也可以不同。当你担心某一层比其他层更有可能过拟合了，那么你可以对那层设置一个更小的<code>keep.prob</code>值。</li>
+<li>由于图像网络很庞大，故在CV领域使用较多</li>
+<li>dropout由于随机抛弃一些神经元，不能采用画图的方式来判定$J$，也无法确保无法确保成本函数单调递减。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="3-Other-Regularization-methods"><a href="#3-Other-Regularization-methods" class="headerlink" title="3. Other Regularization methods"></a>3. Other Regularization methods</h4><ol>
+<li><p>Data argument（数据量的扩大）</p>
+<ul>
+<li>flipping（翻折）</li>
+<li>random crop（随机裁剪），但可能导致关键部分被裁剪</li>
+<li>random rotations（随机旋转）</li>
+<li>distortion（扭曲）</li>
+</ul>
+</li>
+<li><p>Early Stopping</p>
+<p> 可以采用Early Stopping来替代L2正则化</p>
+<p> 训练集和验证集进行梯度下降时的成本变化曲线画在同一个坐标轴内，当训练集误差降低但验证集误差升高，两者开始发生较大偏差时及时停止迭代，并返回具有最小验证集误差的连接权和阈值，以避免过拟合。这种方法的缺点是无法同时达成偏差和方差的最优。</p>
+<p> <img alt="early_stop" class="post-img b-lazy" data-img="/early_stop.png" data-index="5" data-src="/early_stop.png"></p>
+</li>
+</ol>
+<h3 id="1-3-Setting-up-your-optimization-problem"><a href="#1-3-Setting-up-your-optimization-problem" class="headerlink" title="1-3 Setting up your optimization problem"></a>1-3 Setting up your optimization problem</h3><h4 id="1-Normalizing-inputs"><a href="#1-Normalizing-inputs" class="headerlink" title="1. Normalizing inputs"></a>1. Normalizing inputs</h4><ol>
+<li><p>Normalizing inputs（标准化输入）的方法</p>
+<p> 【S1】 Subtract mean（将数据移到原点位置）<br> $$<br> \begin{gathered}<br> \mu&#x3D;\frac 1m\sum_{i&#x3D;1}^mx^{(i)}\<br> x:&#x3D;x-\mu<br> \end{gathered}<br> $$<br> 【S2】Normalize variance（⽅差标准化）<br> $$<br> \begin{gathered}<br> \sigma^2&#x3D;\frac 1m \sum_{i&#x3D;1}^{m}x^{(i)2}\<br> x&#x2F;&#x3D;\sigma\<br> x:&#x3D;\frac{x-\mu}{\sigma}<br> \end{gathered}<br> $$<br> 注意：请<strong>使用相同的$\mu,\sigma^2$来标准化测试集</strong>。</p>
+</li>
+<li><p>为何需要Normalizing inputs？</p>
+<p> 在不使用归一化的代价函数中，如果我们设置一个较小的学习率，那么很可能我们需要很多次迭代才能到达代价函数全局最优解；如果使用了归一化，那么无论从哪个位置开始迭代，我们都能以相对很少的迭代次数找到全局最优解，也可以选择更大的步长。</p>
+<p> <img alt="Normalizing inputs" class="post-img b-lazy" data-img="/normalizing_inputs.jpg" data-index="6" data-src="/normalizing_inputs.jpg"></p>
+</li>
+</ol>
+<h4 id="2-Vanishing-x2F-Exploding-gradients"><a href="#2-Vanishing-x2F-Exploding-gradients" class="headerlink" title="2. Vanishing&#x2F;Exploding gradients"></a>2. Vanishing&#x2F;Exploding gradients</h4><p><img alt="Vanishing/Exploding gradients" class="post-img b-lazy" data-img="/gradient.jpg" data-index="7" data-src="/gradient.jpg"></p>
+<ol>
+<li><p>Vanishing&#x2F;Exploding gradients</p>
+<ul>
+<li><p>假设$g(z)&#x3D;z$，$b^{[l]}&#x3D;0$，则上述网络输出为$\hat y&#x3D;w^{[L]}w^{[L-1]}\cdots w^{[2]}w^{[1]}x$</p>
+<ul>
+<li>若$w^{[l]}&#x3D;\begin{bmatrix}1.5&amp; 0\ 0&amp; 1.5\end{bmatrix}$，则$\hat y&#x3D;w^{[L]}\begin{bmatrix}1.5&amp; 0\ 0&amp; 1.5\end{bmatrix}^{L-1}x\to 1.5^{L-1}x$，则发生了Exploding gradients</li>
+<li>若$w^{[l]}&#x3D;\begin{bmatrix}0.5&amp; 0\ 0&amp; 0.5\end{bmatrix}$，则$\hat y&#x3D;w^{[L]}\begin{bmatrix}0.5&amp; 0\ 0&amp; 0.5\end{bmatrix}^{L-1}x\to 0.5^{L-1}x$，则发生了Vanishing gradients</li>
+</ul>
+</li>
+<li><p>在梯度函数上出现的以指数级递增或者递减的情况分别称为<strong>梯度爆炸(Exploding gradients)<strong>或者</strong>梯度消失(Vanishin gradients</strong>。</p>
+</li>
+<li><p>更一般的来说<br>  $$<br>  \left{\begin{array}{l}w^{[l]} &gt;\mathbf{I}\w^{[l]}&lt;\mathbf{I} \end{array} \right.\xrightarrow{\text{很深}} \begin{array}{l}\text{exploding}\\text{decrease exponatially}\end{array}<br>  $$</p>
+</li>
+<li><p>所以需要小心谨慎地取权重的初值。</p>
+</li>
+</ul>
+</li>
+<li><p>Weight Initialization for Deep network</p>
+<p> <img alt="Weight Initialization" class="post-img b-lazy" data-img="/weight_initialize.png" data-index="8" data-src="/weight_initialize.png"></p>
+<ul>
+<li><p>当输入的数量 $n$ 较大时，我们希望每个 $w_i$ 的值都小一些，这样它们的和得到的 $z$ 也较小。为了得到较小的 $w_i$，我们设置 $Var(w_i)&#x3D;\frac{2}{n}$，即<br>  $$<br>  w^{[L]}&#x3D;\mathtt{np.random.randn(shape)}*\mathtt{np.sqrt}\left(\frac{2}{n^{L-1}}\right)<br>  $$<br>  这样，激活函数ReLU的输入 $x $近似设置成均值为 $0$，标准方差为 $1$，神经元输出 $z$ 的方差就正则化到 $1$ 了。虽然没有解决梯度消失和爆炸的问题，但其在一定程度上确实减缓了梯度消失和爆炸的速度。</p>
+</li>
+<li><p>对于其他的activation function也有类似的初始化方式：</p>
+<ul>
+<li>tanh：$\sqrt{\frac{1}{n^{[l-1]}}}$，这也被称为Xavier initialization</li>
+<li>另外有$\sqrt{\frac2{n^{[l-1]}+n^{[l]}}}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-Gradient-Checking"><a href="#4-Gradient-Checking" class="headerlink" title="4. Gradient Checking"></a>4. Gradient Checking</h4><ol>
+<li><p>梯度数值的逼近</p>
+<p> 我们使用双侧差值来求解梯度，即倒数的定义。<br> $$<br> f’(\theta)&#x3D;\lim_{\varepsilon\to 0}\frac{f(\theta+\varepsilon)-f(\theta-\varepsilon)}{2\varepsilon}<br> $$</p>
+</li>
+<li><p>Gradient Checking的实现</p>
+<ul>
+<li><p>将$W^{[1]},b^{[1]},\cdots, W^{[L]},b^{[L]}$首尾连接，成为一个大的向量$\theta$。<br>  $$<br>  J(W^{[1]},b^{[1]},\cdots, W^{[L]},b^{[L]})&#x3D;J(\theta)<br>  $$</p>
+</li>
+<li><p>将$dW^{[1]},db^{[1]},\cdots, dW^{[L]},db^{[L]}$首尾连接，成为一个大的向量$d\theta$。它与$\theta$是同型的。</p>
+</li>
+<li><p>for each $i$:<br>  $$<br>  \begin{aligned}<br>  d\theta_\text{approx}[i]&#x3D;&amp; \frac{J(\theta_1,\theta_2,\cdots,\theta_i+\varepsilon,\cdots)-f(\theta_1,\theta_2,\cdots,\theta_i-\varepsilon,\cdots)}{2\varepsilon}\<br>  \approx &amp;d\theta[i]&#x3D;\frac{\partial J}{\partial \theta_i}<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>用梯度检验值<br>  $$<br>  \frac{||d\theta_\text{approx} -d\theta ||_2}{||d\theta_\text{approx} ||_2+||d\theta ||_2}\triangleq(*)<br>  $$</p>
+</li>
+<li><p>对于$\varepsilon&#x3D;10^{-7}$</p>
+<ul>
+<li>如果<code>(*)</code>小于$10^{-7}$ 则一般没有问题</li>
+<li>如果<code>(*)</code>为 $10^{-5}$的量级，则可以考虑一下是否出现了bug</li>
+<li>如果<code>(*)</code>大于$ 10^{-3}$ 的量级，则大概率存在 bug</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>Don’t use in training. Only to <strong>debug</strong>.</li>
+<li>If algorithm fails grad check, look at components to identify bug.（即确定哪个$d\theta_\text{approx}$与$d\theta$相距较远）</li>
+<li>Remember regularization.</li>
+<li>Doesn’t use with dropout, make sure<code>keep.prob = 1.0</code>.</li>
+<li>Run at random initialization, perhaps again after some training.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h3 id="Optimization-algorithms"><a href="#Optimization-algorithms" class="headerlink" title="Optimization algorithms"></a>Optimization algorithms</h3><h4 id="1-Mini-batch-gradient-descent"><a href="#1-Mini-batch-gradient-descent" class="headerlink" title="1. Mini-batch gradient descent"></a>1. Mini-batch gradient descent</h4><p>batch 梯度下降法（批梯度下降法）是最常用的梯度下降形式，即同时处理整个训练集。其在更新参数时使用所有的样本来进行更新。</p>
+<p>对整个训练集进行梯度下降法的时候，我们必须处理整个训练数据集，然后才能进行一步梯度下降，即每一步梯度下降法需要对整个训练集进行一次处理，如果训练数据集很大的时候，处理速度就会比较慢。</p>
+<p>但是如果每次处理训练数据的一部分即进行梯度下降法，则我们的算法速度会执行的更快。而处理的这些一小部分训练子集即称为 mini-batch。</p>
+<ol>
+<li><p>vectorization allows you to efficiently compute on $m$ examples</p>
+<ul>
+<li>$x^{(1)}$：第$i$个example</li>
+<li>$z^{[l]}$：第$l$层layer</li>
+<li>$X^,Y^$：第$t$个mini-batch</li>
+</ul>
+<p> 举个栗子：数据量$m&#x3D;5,000,000$，要将其划分成每份1000大小的mini-batch，可以描述为</p>
+<p> <img alt="mini-batch" class="post-img b-lazy" data-img="/mini-batch.png" data-index="9" data-src="/mini-batch.png"></p>
+</li>
+<li><p>Mini-batch gradient descent</p>
+<p> <img alt="mini-batch gradient descent" class="post-img b-lazy" data-img="/mini-batch2.png" data-index="10" data-src="/mini-batch2.png"></p>
+<p> 从上述mini-batch gradient descent中可以看到，对于5,000,000的训练集我们将其分为5000个mini-batch，每个mini-batch有1000个数据。在红色大括号围起来的部分被称为一个epoch，只对mini-batch做一次梯度下降，并更新参数和代价函数。显然对整个训练集做一次梯度下降，需要的时间显然比一次epoch的时间来的多，这也就是我们引入mini-batch的原因。</p>
+</li>
+<li><p>size of mini-batch</p>
+<ul>
+<li>首先思考使用mini-batch是否会对梯度下降带来影响呢？很显然，mini-batch相较于对整个训练集训练其实是一个随机的抽取，必定会带来代价函数$J$的震荡，但鉴于时间代价，使用mini-batch还是值得的。对整个训练集梯度下降和使用mini-batch梯度下降的区别可以用下图表现。<br>  <img alt="compare" class="post-img b-lazy" data-img="/compare_batch.jpg" data-index="11" data-src="/compare_batch.jpg"></li>
+<li>下面分析选取不同mini-batch尺寸对梯度下降的影响：<ul>
+<li>若mini-batch的大小为$m$，实际上就是对整个训练集进行梯度下降，此时$(X^,Y^)&#x3D;(X,Y)$，这样每次迭代显然会消耗大量的时间。</li>
+<li>若mini-batch的大小为1，这就退化为了随机梯度下降，此时每个样本都是一个mini-batch：$(X^,Y^)&#x3D;(X^{(t)} ,Y^{(t)})$，这就失去了Vectorization带来的加速。</li>
+</ul>
+</li>
+<li>所以在实际使用中，我们一般选取一个介于1和$m$的mini-batch，此时能够达到最快的学习速度，也可以使用到vectorization带来的加速。<ul>
+<li>对于较小的训练集（例如$m\leq 2000$），可以只用batch gradient descent，即对于整个训练集梯度下降。</li>
+<li>典型的mini-batch尺寸有64，128，256，512，1024……，注意到这些值都是2的整数倍，这是为了和计算机的存储方式相匹配。</li>
+<li>最后mini-batch的大小要适应于CPU、GPU的容量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-Exponentially-weighed-moving-averages"><a href="#2-Exponentially-weighed-moving-averages" class="headerlink" title="2. Exponentially weighed(moving) averages"></a>2. Exponentially weighed(moving) averages</h4><p>Exponentially weighed(moving) averages是帮助我们提高mini-batch梯度下降效率方法的预备知识。</p>
+<p>Exponentially weighed(moving) averages（指数加权平均）的公式可以表述为<br>$$<br>V_t&#x3D;\beta V_{t-1}+(1-\beta)\theta_t<br>$$<br>其中，$V_t$是拟合值，$\theta_t$是真实值。</p>
+<p>首先通过一个例子来了解什么是Exponentially weighed averages，给定一个时间序列给例如伦敦一年每天的气温值，图中蓝色的点代表真实数据。<br>![Exponentially weighed average](Exponentially weighed average.jpg)</p>
+<p>我们看到蓝色的点非常杂乱，为了使得曲线变得更平滑，使用上公式进行Exponentially weighed average，红绿黄线都是我们根据上述公式求得拟合曲线。我们可以大致近似$V_t$是根据$\frac 1{1-\beta}$天温度平均出来的值。</p>
+<ul>
+<li>当$\beta&#x3D;0.9$时，我们可以得到红色曲线，近似于根据最近10天天气得到的</li>
+<li>当$\beta&#x3D;0.98$时，我们可以得到绿色曲线，近似于根据最近50天天气得到的。我们可以发现相较于红线，它更加平滑，但是也有些右移的迹象。</li>
+<li>当$\beta&#x3D;0.5$时，我们可以得到黄色曲线，近似于根据最近2天天气得到的。可见相较于红线他的噪声非常严重。</li>
+</ul>
+<ol>
+<li><p>理解Exponentially weighed averages</p>
+<ul>
+<li><p>将上式展开<br>  $$<br>  \begin{aligned}<br>  V_{100}&#x3D;&amp;0.1\theta_{100}+0.9(0.1\theta_{99}+0.9(0.1\theta_{98}+\cdots))\<br>  &#x3D;&amp; 0.1\theta_{100}+0.1\times 0.9^1\theta_{99}+0.1\times 0.9^2\theta_{98}+\cdots+ 0.1\times 0.9^{99}\theta_1<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>这实际上就是对每天的气温乘指数衰减项(exponetially decay)，再将其相加的过程。</p>
+</li>
+<li><p>根据函数极限的定理：<br>  $$<br>  \lim_{\beta\to 0}(1-\beta)^{\frac 1\beta}&#x3D;\frac 1e<br>  $$<br>  实际上就是经过$\frac{1}{1-\beta}$的时间，影响将下降到$\frac 1e$。</p>
+</li>
+</ul>
+</li>
+<li><p>Exponentially weighed averages的实现</p>
+<p>考虑到这是一个迭代的过程，我们可以通过以下方式进行迭代：</p>
+<p>$V_\theta&#x3D;0$<br>Repeat {<br>　　Get next $\theta_t$<br>　　$V_\theta:&#x3D;\beta V_\theta+(1-\beta)\theta_t$<br>}</p>
+<p>指数加权平均数公式的好处之一在于它只需要一行代码，且占用极少内存，因此<strong>效率极高，且节省成本</strong>。但是它也会带来一定的问题，比如在前期，指数加权平均值与正常值的差距会非常大，下面我们就来讨论如何进行修正。</p>
+</li>
+<li><p>bias correction（误差修正）</p>
+<p>注意到在前期计算中由于我们初始化$V_\theta$为0，会带来较大的误差。我们需要在前期减小前期数据的权重。于是，我们对上述公式进行修正<br>$$<br>V_t&#x3D;\frac{V_t}{1-\beta^t}<br>$$<br>随着$t$的增大，$\beta$的$t$次方趋近于 0。因此当 t 很大的时候，偏差修正几乎没有作用，但是在前期学习可以帮助更好的预测数据。但是如果不是很关心前期值的误差的话，也可以不进行偏差修正，因为毕竟会增加一定量的计算量。</p>
+</li>
+</ol>
+<h4 id="3-Two-ways-to-reduce-oscillations"><a href="#3-Two-ways-to-reduce-oscillations" class="headerlink" title="3. Two ways to reduce oscillations"></a>3. Two ways to reduce oscillations</h4><ol>
+<li><p>Gradient descent with momentum</p>
+<p>  在进行梯度下降时，我们需要设置learning rate $\alpha$，过大的学习率会导致过头(over shooting)，Gradient descent with momentum（动量梯度下降法）是解决这一问题的方法之一。</p>
+<ul>
+<li><p>算法</p>
+<p>  $V_{dW}&#x3D;0,V_{db}&#x3D;0$<br>  On iteration t:<br>  　　Compute $dW,db$ on current mini batch<br>  　　$V_{dW}&#x3D;\beta V_{dW}+(1-\beta)dW$<br>  　　$V_{db}&#x3D;\beta V_{db}+(1-\beta)db$<br>  　　$W:&#x3D;W-\alpha V_{dW}$<br>  　　$b:&#x3D;b-\alpha V_{db}$</p>
+</li>
+<li><p>注意到在上述式子中，我们对反向传播的参数$dW,db$进行了指数加权平均，这正是减小梯度下降噪声的好方法。</p>
+</li>
+<li><p>至于为什么叫Gradient descent with momentum，我们可以将$\beta$看作是摩擦(friction)，$V$看作速率(velocity)，$dW,db$看作加速度(acceleration)。由于摩擦的存在，速度不可能持续增大也就保证了反向传播时步子不会迈的太大。</p>
+</li>
+<li><p>进行一般的梯度下降将会得到图中的蓝色曲线，由于存在上下波动，减缓了梯度下降的速度，因此只能使用一个较小的学习率进行迭代。如果用较大的学习率，结果可能会像紫色曲线一样偏离函数的范围。而使用Gradient descent with momentum时，通过累加过去的梯度值来减少抵达最小值路径上的波动，加速了收敛，因此在横轴方向下降得更快，从而得到图中红色的曲线。当前后梯度方向一致时，动量梯度下降能够加速学习；而前后梯度方向不一致时，动量梯度下降能够抑制震荡。<br>  <img alt="momentum" class="post-img b-lazy" data-img="/momentum.png" data-index="12" data-src="/momentum.png"></p>
+</li>
+<li><p>注意到上述式子中，$(1-\beta)$项一般是可以忽略的。同时$\alpha.\beta$是两个超参数，一般我们取$\beta&#x3D;0.9$，这表明经过10次mini-batch就可以忽略前期bias的影响，不再需要bias correction。</p>
+</li>
+</ul>
+</li>
+<li><p>RMSprop （root mean square prop)</p>
+<p> RMSProp（Root Mean Square Propagation，均方根传播）算法是在对梯度进行指数加权平均的基础上，引入平方和平方根。</p>
+<ul>
+<li>算法<br>  $S_{dW}&#x3D;0,S_{db}&#x3D;0$<br>  On iteration t:<br>  　　Compute $dW,db$ on current mini batch<br>  　　$S_{dW}&#x3D;\beta_2 S_{dW}+(1-\beta_2)dW^2$<br>  　　$S_{db}&#x3D;\beta_2 S_{db}+(1-\beta_2)db^2$<br>  　　$W:&#x3D;W-\alpha \frac{S_{dW}}{\sqrt{S_{dW}}+\varepsilon}$<br>  　　$b:&#x3D;b-\alpha \frac{S_{db}}{\sqrt{S_{db}}+\varepsilon}$</li>
+<li>其中，$\varepsilon$是一个较小的数字(例如$10^{-8}$)，这主要是为了防止除以0的情况。$\beta_2$是一个超参数，下标2是为了和momentum进行区分。</li>
+<li>RMSProp 有助于减少抵达最小值路径上的摆动，并允许使用一个更大的学习率$\alpha$，从而加快算法学习速度。</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-Adam-optimization-algorithm"><a href="#4-Adam-optimization-algorithm" class="headerlink" title="4. Adam optimization algorithm"></a>4. Adam optimization algorithm</h4><p>Adam 优化算法（Adaptive Moment Estimation，自适应矩估计）基本上就是将 Momentum 和 RMSProp 算法结合在一起，通常有超越二者单独时的效果。</p>
+<ul>
+<li><p>算法</p>
+<p>  $V_{dW}&#x3D;0,V_{db}&#x3D;0,S_{dW}&#x3D;0,S_{db}&#x3D;0$</p>
+<p>  On iteration t:<br>  　　Compute $dW,db$ on current mini batch<br>  $$<br>  \begin{aligned}<br>  V_{dW}&#x3D;&amp;\beta V_{dW}+(1-\beta_1)dW\<br>  V_{db}&#x3D;&amp;\beta V_{db}+(1-\beta_1)db\<br>  S_{dW}&#x3D;&amp;\beta_2 S_{dW}+(1-\beta_2)dW^2\<br>  S_{db}&#x3D;&amp;\beta_2 S_{db}+(1-\beta_2)db^2<br>  \end{aligned}<br>  $$<br>  　　进行bias correction:<br>  $$<br>  \begin{aligned}<br>  V_{dW}^\text{corrected}&#x3D;&amp;\frac{V_{dW}}{1-\beta_1^t}\<br>  V_{db}^\text{corrected}&#x3D;&amp;\frac{V_{db}}{1-\beta_1^t}\<br>  S_{dW}^\text{corrected}&#x3D;&amp;\frac{S_{dW}}{1-\beta_2^t}\<br>  S_{db}^\text{corrected}&#x3D;&amp;\frac{S_{db}}{1-\beta_2^t}\<br>  \end{aligned}<br>  $$<br>  　　更新$W,b$<br>  $$<br>  \begin{aligned}<br>  W:&#x3D;&amp;W-\alpha \frac{S_{dW}^\text{corrected}}{\sqrt{S_{dW}^\text{corrected}}+\varepsilon}\<br>  b:&#x3D;&amp;b-\alpha \frac{S_{db}^\text{corrected}}{\sqrt{S_{db}^\text{corrected}}+\varepsilon}<br>  \end{aligned}<br>  $$</p>
+</li>
+<li><p>超参数：</p>
+<ul>
+<li>$\alpha$： 需要调参</li>
+<li>$\beta_1$：momentum的参数，一般取为0.9</li>
+<li>$\beta_2$：RMSprop的参数，一般取为0.999</li>
+<li>$\varepsilon$：一般取为$10^{-8}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Learning-rate-decay"><a href="#5-Learning-rate-decay" class="headerlink" title="5. Learning rate decay"></a>5. Learning rate decay</h4><p>如果设置一个固定的学习率$\alpha$，在最小值点附近，由于不同的 batch 中存在一定的噪声，因此不会精确收敛，而是始终在最小值周围一个较大的范围内波动。而如果随着时间慢慢减少学习率$\alpha$的大小，在初期 $\alpha$较大时，下降的步长较大，能以较快的速度进行梯度下降；而后期逐步减小 $\alpha$ 的值，即减小步长，有助于算法的收敛，更容易接近最优解。</p>
+<p>常用的Learning rate decay方法有：</p>
+<ul>
+<li>$\alpha&#x3D;\frac{1}{1+\mathtt{decay_rate}*\mathtt{epoch_num}}\alpha_0$</li>
+<li>exponetially decay: $\alpha&#x3D;0.95^\mathtt{epoch_num}\alpha_0$</li>
+<li>$\alpha&#x3D;\frac{k}{\sqrt{\mathtt{epoch_num}}}\alpha_0$或$\alpha&#x3D;\frac{k}{\sqrt{t}}\alpha_0$</li>
+<li>discrete staircase：<img alt="discrete staircase" class="post-img b-lazy" data-img="/discrete_stair.png" data-index="13" data-src="/discrete_stair.png"></li>
+<li>manual decay</li>
+</ul>
+<h4 id="6-Local-optima"><a href="#6-Local-optima" class="headerlink" title="6. Local optima"></a>6. Local optima</h4><p>在低维度的情形下，我们可能会想象到一个Cost function存在一些<strong>局部最小值</strong>点，在初始化参数的时候，如果初始值选取的不得当，会存在陷入局部最优点的可能性。</p>
+<p>但是，如果我们建立一个神经网络，通常梯度为零的点，是<strong>鞍点</strong>(Saddle point)，即位于$\bigcap$位置的点。在鞍点附近会有一段plateaus（停滞区），这段区域的梯度一直为0。因此当我们建立一个神经网络时，通常梯度为零的点是的鞍点，而非局部最小值。减少损失的难度也来自误差曲面中的鞍点，而不是局部最低点。因为在一个具有高维度空间的成本函数中，如果梯度为 0，那么在每个方向，成本函数或是凸函数，或是凹函数。而所有维度均需要是凹函数的概率极小，因此在低维度的局部最优点的情况并不适用于高维度。</p>
+<p><img alt="local optima" class="post-img b-lazy" data-img="/plateau.jpg" data-index="14" data-src="/plateau.jpg"></p>
+<p>结论：</p>
+<ul>
+<li>Unlikely to get stuck in a bad local optima. 在存在大量参数，成本函数在高维空间时，可以困在很差的局部最优点是不太可能的。</li>
+<li>plateaus会使得学习变慢，这时momentum、RMSprop、Adam就能帮助走出plateaus。</li>
+</ul>
+<h2 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h2><h3 id="3-1-Hyperparameter-tuning"><a href="#3-1-Hyperparameter-tuning" class="headerlink" title="3-1 Hyperparameter tuning"></a>3-1 Hyperparameter tuning</h3><h4 id="1-Tuning-process"><a href="#1-Tuning-process" class="headerlink" title="1. Tuning process"></a>1. Tuning process</h4><p>在上面的讨论中给出了许多的超参数，超参数的调试也是有技巧的，比如：</p>
+<ul>
+<li><p>超参数的重要性（重要程度从红→黄→绿→蓝）</p>
+  <img alt="importance" style="zoom:50%;" class="post-img b-lazy" data-img="/hyperparameter_important.png" data-index="15" data-src="/hyperparameter_important.png">
+</li>
+<li><p>Try random values： Don’t use grid</p>
+<p>  <img alt="random_value" class="post-img b-lazy" data-img="/hyperparameter_random_value.jpg" data-index="16" data-src="/hyperparameter_random_value.jpg"></p>
+<p>  使用打点的方式选取的值太少了，对于上述左图我们只分别尝试了5个$\alpha,\varepsilon$</p>
+</li>
+<li><p>Coarse to fine（区域定位的采样⽅式）</p>
+  <img alt="coarse" style="zoom: 50%;" class="post-img b-lazy" data-img="/coarse.jpg" data-index="17" data-src="/coarse.jpg">
+
+<p>  聚焦效果不错的点组成的小区域，在其中更密集地取值，以此类推；</p>
+</li>
+</ul>
+<h4 id="2-Using-an-appropriate-scale-to-pick-parameters"><a href="#2-Using-an-appropriate-scale-to-pick-parameters" class="headerlink" title="2. Using an appropriate scale to pick parameters"></a>2. Using an appropriate scale to pick parameters</h4><ol>
+<li><p>logarithmic scale(对数尺度)</p>
+<ul>
+<li><p>$\alpha&#x3D;0.0001\sim 1$</p>
+<p>  ![logarithmic scale](logarithmic scale.png)</p>
+</li>
+<li><p>Python 实现：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r = -<span class="number">4</span> * np.random.rand()	<span class="comment"># r in U[-4,0]</span></span><br><span class="line">learning_rate = <span class="number">10</span> ** r		<span class="comment"># 取alpha为 10^r</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在exponentially weighted averages中，我们选取$\beta&#x3D;0.9\sim 0.999$。显然均匀采点是不合适的。我们可以使$1-\beta&#x3D;0.1\sim 0.001$，这样就可以在对数坐标下进行采点。即<br> $$<br> 1-\beta&#x3D;10^r\Rightarrow \beta&#x3D;1-10^r<br> $$</p>
+</li>
+</ol>
+<h4 id="3-Hyperparameters-tuning-in-practice"><a href="#3-Hyperparameters-tuning-in-practice" class="headerlink" title="3. Hyperparameters tuning in practice"></a>3. Hyperparameters tuning in practice</h4><p><img alt="Hyperparameters tuning in practice" class="post-img b-lazy" data-img="/hyperparameter_tuning.png" data-index="18" data-src="/hyperparameter_tuning.png"></p>
+<ul>
+<li>Panda（熊猫方式）：在在线广告设置或者在计算机视觉应用领域有大量的数据，但受计算能力所限，同时试验大量模型比较困难。可以采用这种方式：试验一个或一小批模型，初始化，试着让其工作运转，观察它的表现，不断调整参数；</li>
+<li>Caviar（鱼子酱方式）：拥有足够的计算机去平行试验很多模型，尝试很多不同的超参数，选取效果最好的模型；</li>
+</ul>
+<h3 id="3-2-Batch-Normalization"><a href="#3-2-Batch-Normalization" class="headerlink" title="3-2 Batch Normalization"></a>3-2 Batch Normalization</h3><h4 id="1-Normalizing-activations-in-a-network"><a href="#1-Normalizing-activations-in-a-network" class="headerlink" title="1. Normalizing activations in a network"></a>1. Normalizing activations in a network</h4><p>为了使得网络easier 、robust 、bigger range，我们需要Normalizing。常用的方式是将隐藏层的经过激活函数前的 $z^{[l]}$进行归一化。</p>
+<ul>
+<li><p>算法</p>
+<p>  Given Some intermediate values in NN: $z^{(1)},\cdots,z^{(m)}$<br>  $$<br>  \begin{gathered}<br>  \mu&#x3D;\frac 1m\sum_iz^{(i)}\<br>  \sigma^2&#x3D;\frac 1m\sum_i(z^{(i)}-\mu)^2\<br>  z_\text{norm}^{(i)}&#x3D;\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}\<br>  \tilde z^{(i)}&#x3D;\gamma z_\text{norm}^{(i)}+\beta<br>  \end{gathered}<br>  $$<br>  　　use $\tilde z^{i}$ instead of $z^{(i)}$</p>
+</li>
+<li><p>一些说明：</p>
+<ul>
+<li>此处$z^{<a href="i">l</a>}$简记为$z^{(i)}$</li>
+<li>使用$\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}$归一化后所有的$z^{(i)}$均服从$N(0,1)$，但是不同的高斯分布也许更有意义，所以使用$\gamma,\beta$，我们让$\tilde z^{(i)}$服从$N(\gamma,\beta)$。其中，$\gamma,\beta$都是可以学习的参数。设置$\gamma$ 和 $\beta$的原因是，如果各隐藏层的输入均值在靠近 0 的区域，即处于激活函数的线性区域，不利于训练非线性神经网络，从而得到效果较差的模型。因此，需要用$\gamma$ 和 $\beta$对标准化后的结果做进一步处理。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Fitting-Batch-Norm-into-a-NN"><a href="#2-Fitting-Batch-Norm-into-a-NN" class="headerlink" title="2. Fitting Batch Norm into a NN"></a>2. Fitting Batch Norm into a NN</h4><ol>
+<li><p>将BN应用于NN中</p>
+<p> <img alt="BN in NN" class="post-img b-lazy" data-img="/BN_NN.png" data-index="19" data-src="/BN_NN.png"></p>
+<p> Batch Norm在tensorflow中可以用以下代码实现：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.batch-normalization</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将Batch Norm和mini-batch一起使用</p>
+<p> <img alt="Batch Norm mini-batch" class="post-img b-lazy" data-img="/BN_mini-batch.png" data-index="20" data-src="/BN_mini-batch.png"></p>
+<p> 其中的参数有$W^{[l]},\beta^{[l]},\gamma^{[l]}$，注意$b^{[l]}$在进行高斯分布的标准化时被减均值减去了，因此在使用BN后，$b^{[l]}$不再有用。因此，<br> $$<br> \begin{aligned}<br> Z^{[l]}&#x3D;&amp;W^{[l]}a^{[l-1]}\<br> \tilde Z^{[l]}&#x3D;&amp;\gamma^{[l]}<em>{n^{[l]}\times 1}Z_\text{norm}^{[l]}+\beta^{[l]}</em>{n^{[l]}\times 1}<br> \end{aligned}<br> $$</p>
+</li>
+<li><p>使用梯度下降：</p>
+<p> for $t&#x3D;1, \cdots,\mathtt{mini_batch_num}$:<br> 　　Compute forward prop on $X^$:<br> 　　　　In each hidden layer, use BN to replace $ Z^{[l]}$ with $\tilde Z^{[l]}$<br> 　　Use Backpop to compute $dW^{[l]},d\beta^{[l]},d\gamma^{[l]}$<br> 　　Update parameters:<br> $$<br> \begin{gathered}<br> W^{[l]}&#x3D;W^{[l]}-\alpha dW^{[l]}\<br> \beta^{[l]}&#x3D;\beta^{[l]}-\alpha d\beta^{[l]}\<br> \gamma^{[l]}&#x3D;\gamma^{[l]}-\alpha d\gamma^{[l]}<br> \end{gathered}<br> $$<br> 除了传统的梯度下降算法之外，还可以使用之前学过的动量梯度下降、RMSProp 或者 Adam 等优化算法。</p>
+</li>
+</ol>
+<h4 id="3-Why-does-BN-works"><a href="#3-Why-does-BN-works" class="headerlink" title="3.  Why does BN works?"></a>3.  Why does BN works?</h4><ol>
+<li><p>learning on shifting input distribution</p>
+ <img alt="BN_why" style="zoom:50%;" class="post-img b-lazy" data-img="/BN_why.png" data-index="21" data-src="/BN_why.png">
+
+<p> 针对后续hidden layer $l$ 来说其输入 $a_1^{[l-1]},\cdots,a_m^{[l-1]}$ 在训练过程中是变化的,这就引入covariant shift。而BN就是消除了$a_1^{[l-1]},\cdots,a_m^{[l-1]}$分布中协方差的影响，而保持了$z_1^{[l-1]},\cdots,z_m^{[l-1]}$中均值$\mu$，方差$\sigma^2$。</p>
+</li>
+<li><p>BN reduces the problem of input values changing. 即使输入的值改变了，由于 Batch Normalization 的作用，使得均值和方差保持不变，限制了在前层的参数更新对数值分布的影响程度，削弱了前层参数与后层参数之间的联系，因此后层的学习变得更容易一些。Batch Normalization 减少了各层$W$ 和 $b$之间的耦合性，让各层更加独立，从而实现自我训练学习的效果。</p>
+</li>
+<li><p>BN as regularizaion</p>
+<ul>
+<li>在每个 mini-batch 估计得出的均值和方差会有一些噪声，最终的$z^{(i)}$也有一定噪声。这也就变相起到了一定regularization的作用。要削弱这一影响，可以使用更大的mini-batch尺寸。</li>
+<li>不要将 Batch Normalization 作为正则化的手段，而是当作加速学习的方式。正则化只是一种非期望的副作用，Batch Normalization 解决的还是反向传播过程中的梯度问题（梯度消失和爆炸）。</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-BN-at-test-time"><a href="#4-BN-at-test-time" class="headerlink" title="4. BN at test time"></a>4. BN at test time</h4><p>$\mu,\sigma^2$对于单独的样本是没有意义的。理论上，我们可以将所有训练集放入最终的神经网络模型中，然后将每个隐藏层计算得到的$\mu^{[l]},\sigma^{2[l]}$直接作为测试过程的$\mu$ 和 $\sigma^2$来使用。但是，实际应用中一般不使用这种方法，而是使用之前学习过的exponentially weighted average在mini-batch中估计获得。</p>
+<img alt="BN_test" style="zoom:60%;" class="post-img b-lazy" data-img="BN.png" data-index="22" data-src="BN.png">
+
+<h3 id="3-3-Multi-class-classification"><a href="#3-3-Multi-class-classification" class="headerlink" title="3-3 Multi-class classification"></a>3-3 Multi-class classification</h3><h4 id="1-Softmax-Regression"><a href="#1-Softmax-Regression" class="headerlink" title="1. Softmax Regression"></a>1. Softmax Regression</h4><p>对于一个四分类的网络，有$C&#x3D;\text{number of classes}&#x3D;4\quad(0,1,2,3)$</p>
+<p><img alt="softmax" class="post-img b-lazy" data-img="/softmax.png" data-index="23" data-src="/softmax.png"></p>
+<p>对于Softmax回归模型的输出层，即第$L$层，有：<br>$$<br>z^{[l]}&#x3D;W^{[L]}z^{[L-1]}+b^{[L]}<br>$$<br>Softmax函数是一个vector对vector的激活函数，对于第L层第i个元素：<br>$$<br>a_i^{[L]}&#x3D;\frac{e^{z_i^{[L]}}}{\sum_{i&#x3D;1}^{C}e^{z_i^{[L]}}}\quad\left(\sum_{i&#x3D;1}^{C}a_i^{[L]}&#x3D;1\right)<br>$$</p>
+<h4 id="2-Turning-a-Softmax-Classifier"><a href="#2-Turning-a-Softmax-Classifier" class="headerlink" title="2. Turning a Softmax Classifier"></a>2. Turning a Softmax Classifier</h4><ol>
+<li><p>Softmax &amp; Hardmax</p>
+<ul>
+<li>Softmax：$\begin{bmatrix}0.842\ 0.042\ 0.002\ 0.114\end{bmatrix}$</li>
+<li>Hardmax:$\begin{bmatrix}1\ 0\ 0\ 0\end{bmatrix}$</li>
+<li>Softmax regression generalizes logistic regression to $C$ classes. 当$C&#x3D;2$就退化成了Logictic Regression</li>
+</ul>
+</li>
+<li><p>Loss function &amp; Cost function</p>
+<ul>
+<li><p>Loss function：我们用最大似然来定义Loss function，其实也就是信息量。<br>  $$<br>  \mathscr{L}(\hat y,y)&#x3D;-\sum_{j&#x3D;1}^Cy_j\log\hat y_j<br>  $$<br>  若$i$为真实情况，则$y_j&#x3D;0(j\neq i)$，有<br>  $$<br>  \mathscr{L}(\hat y, y)&#x3D;-y_i\log \hat y_i&#x3D;-\log\hat y<br>  $$</p>
+</li>
+<li><p>Cost function:<br>  $$<br>  J(w^{[1]},b^{[1]},\cdots)&#x3D;\frac 1m\sum_{i&#x3D;1}^m\mathscr{L}(\hat y^{(i)},y^{(i)})<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>Gradient descent with Softmax</p>
+<p>在反向传播时：<br>$$<br>dz^{[L]}&#x3D;\hat y-y<br>$$</p>
+</li>
+</ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>左辰宇.深度学习（五）：正则化.<a href="http://www.cyzuo.cn/index.php/archives/61/" target="_blank" rel="noopener">http://www.cyzuo.cn/index.php/archives/61/</a></li>
+<li>左辰宇.深度学习（六）：标准化与梯度检验.<a href="http://www.cyzuo.cn/index.php/archives/62/" target="_blank" rel="noopener">http://www.cyzuo.cn/index.php/archives/62/</a></li>
+<li>左辰宇.深度学习（七）：优化算法.<a href="http://www.cyzuo.cn/index.php/archives/65/" target="_blank" rel="noopener">http://www.cyzuo.cn/index.php/archives/65/</a></li>
+<li>左辰宇.深度学习（八）：Batch Normalization与Softmax 回归.<a href="http://www.cyzuo.cn/index.php/archives/67/" target="_blank" rel="noopener">http://www.cyzuo.cn/index.php/archives/67/</a></li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 神经网络</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年04月17日 - 00:33:05</p>
+  <p><span>原始链接:</span><a href="/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/" title="【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化">https://levitate-qian.github.io/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【无线通信学习笔记（二）】统计多径信道模型" href="/2021/04/22/Wireless-Communications-Ch-3/">
+            ← 【无线通信学习笔记（二）】统计多径信道模型
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【无线通信学习笔记（一）】路径损耗与阴影衰落" href="/2021/04/16/Wireless-Communications-Ch-2/">
+            【无线通信学习笔记（一）】路径损耗与阴影衰落 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Improving-Deep-Neural-Networks-学习笔记"><span class="toc-text">Improving Deep Neural Networks 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-1"><span class="toc-text">Week 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Setting-up-your-Machine-learning-Application"><span class="toc-text">1-1 Setting up your Machine learning Application</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Training-x2F-dev-x2F-Test-sets"><span class="toc-text">1. Training&#x2F;dev&#x2F;Test sets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Bias-x2F-Variance"><span class="toc-text">2. Bias&#x2F;Variance</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Basic-Recipe-for-ML"><span class="toc-text">3. Basic Recipe for ML</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Regularizing-your-NN"><span class="toc-text">1-2 Regularizing your NN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Regularization-amp-Why？"><span class="toc-text">1. Regularization &amp; Why？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Dropout-Regularization"><span class="toc-text">2. Dropout Regularization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Other-Regularization-methods"><span class="toc-text">3. Other Regularization methods</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Setting-up-your-optimization-problem"><span class="toc-text">1-3 Setting up your optimization problem</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Normalizing-inputs"><span class="toc-text">1. Normalizing inputs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Vanishing-x2F-Exploding-gradients"><span class="toc-text">2. Vanishing&#x2F;Exploding gradients</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Gradient-Checking"><span class="toc-text">4. Gradient Checking</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-2"><span class="toc-text">Week 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimization-algorithms"><span class="toc-text">Optimization algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Mini-batch-gradient-descent"><span class="toc-text">1. Mini-batch gradient descent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Exponentially-weighed-moving-averages"><span class="toc-text">2. Exponentially weighed(moving) averages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Two-ways-to-reduce-oscillations"><span class="toc-text">3. Two ways to reduce oscillations</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Adam-optimization-algorithm"><span class="toc-text">4. Adam optimization algorithm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Learning-rate-decay"><span class="toc-text">5. Learning rate decay</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Local-optima"><span class="toc-text">6. Local optima</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-3"><span class="toc-text">Week 3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Hyperparameter-tuning"><span class="toc-text">3-1 Hyperparameter tuning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Tuning-process"><span class="toc-text">1. Tuning process</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Using-an-appropriate-scale-to-pick-parameters"><span class="toc-text">2. Using an appropriate scale to pick parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Hyperparameters-tuning-in-practice"><span class="toc-text">3. Hyperparameters tuning in practice</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Batch-Normalization"><span class="toc-text">3-2 Batch Normalization</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Normalizing-activations-in-a-network"><span class="toc-text">1. Normalizing activations in a network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Fitting-Batch-Norm-into-a-NN"><span class="toc-text">2. Fitting Batch Norm into a NN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Why-does-BN-works"><span class="toc-text">3.  Why does BN works?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-BN-at-test-time"><span class="toc-text">4. BN at test time</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Multi-class-classification"><span class="toc-text">3-3 Multi-class classification</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Softmax-Regression"><span class="toc-text">1. Softmax Regression</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Turning-a-Softmax-Classifier"><span class="toc-text">2. Turning a Softmax Classifier</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/" class="leancloud-visitors" data-flag-title="【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【深度学习笔记（二）】改进深度神经网络：超参数、正则化和优化</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

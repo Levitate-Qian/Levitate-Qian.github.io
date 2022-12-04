@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【深度学习笔记（三）】构建机器学习模型 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【深度学习笔记（三）】构建机器学习模型 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/">
+
+	
+	<meta property="article:published_time" content="2021-05-04T12:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2021-05-04T12:59:52.000Z">
+                    2021-05-04
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【深度学习笔记（三）】构建机器学习模型</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://z3.ax1x.com/2021/04/17/ch8n6f.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <blockquote>
+<p>这个专项课程一共五门，包括</p>
+<ul>
+<li><a href="https://levitate-qian.github.io/2021/03/26/DL-Coursera-1-Neural-Networks-and-Deep-Learning/">Neural Networks and Deep Learning（神经网络与深度学习）</a></li>
+<li><a href="https://levitate-qian.github.io/2021/04/17/DL-Coursera-2-Improving-Deep-Neural-Networks/">Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization（改进深度神经网络：超参数、正则化和优化）</a></li>
+<li><strong>Structuring Machine Learning Projects（构建机器学习项目）</strong></li>
+<li>Convolution Neural Networks（卷积神经网络）</li>
+<li>Sequence Model（序列模型）</li>
+</ul>
+</blockquote>
+<h1 id="Structuring-Machine-Learning-Projects-学习笔记"><a href="#Structuring-Machine-Learning-Projects-学习笔记" class="headerlink" title="Structuring Machine Learning Projects 学习笔记"></a>Structuring Machine Learning Projects 学习笔记</h1><p>第三门课程主要介绍Machine Learning的一些模型评估方法。</p>
+<ul>
+<li>Introduction to ML Strategy</li>
+<li>Setting up your goal</li>
+<li>Comparing to Human level performance</li>
+<li>Error Analysis</li>
+<li>Mismatched training and dev&#x2F;test set</li>
+<li>Learing from multiple tasks</li>
+<li>End to End deep learning</li>
+</ul>
+<p>在使用机器学习模型训练模型遇到问题时，我们可能会有以下一些想法。但是我们并不能确定哪个能够改善我们的模型，本课程主要就是分析在哪些情况下使用哪些方法比较好。</p>
+<p><img alt="ideas" class="post-img b-lazy" data-img="/ML_strategy.jpg" data-index="0" data-src="/ML_strategy.jpg"></p>
+<h2 id="Orthogonalization"><a href="#Orthogonalization" class="headerlink" title="Orthogonalization"></a>Orthogonalization</h2><ul>
+<li><p>正交化的思想可以看作设计旋钮(knobs)时，每个旋钮只控制一件事。</p>
+</li>
+<li><p>在ML项目中如何使用“正交化”优化我们的思考过程呢？在ML项目中我们主要要完善四个问题：</p>
+<ul>
+<li>Fit training set well on cost function, 否则我们需要bigger network, Adam……</li>
+<li>Fit dev set well on cost function, 否则我们需要Regularization, Bigger training set……</li>
+<li>Fit test set well on cost function, 否则我们需要bigger dev set……</li>
+<li>Performs well in real world, 否则我们需要改变dev set或是cost function</li>
+</ul>
+<p>  上面我们谈到的<em>Fit well on cost function</em>指的是达到Human level performance.</p>
+</li>
+</ul>
+<h2 id="Setting-up-your-goal"><a href="#Setting-up-your-goal" class="headerlink" title="Setting up your goal"></a>Setting up your goal</h2><h3 id="Single-number-evaluation-metric-（单一量化评估指标）"><a href="#Single-number-evaluation-metric-（单一量化评估指标）" class="headerlink" title="Single number evaluation metric （单一量化评估指标）"></a>Single number evaluation metric （单一量化评估指标）</h3><p>对学习模型的泛化能力进行评估，需要有衡量模型泛化能力的指标，也就是性能度量。这里我们使用🍉西瓜书中一套符号来表示下面的概念。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>预测为正例 Positive</th>
+<th>预测为反例 Negative</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实际为正例</td>
+<td>TP（真正例）</td>
+<td>FN（假反例）</td>
+</tr>
+<tr>
+<td>实际为反例</td>
+<td>FP（假正例）</td>
+<td>TN（真反例）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Precision（准确率，查准率）——总样本为预测为正例<br>  $$<br>  P&#x3D;\frac{TP}{TP+FP}<br>  $$</p>
+</li>
+<li><p>Recall（召回率，查全率）——总样本为实际为正例<br>  $$<br>  R&#x3D;\frac{TP}{TP+FN}<br>  $$</p>
+</li>
+<li><p>F1 score——Precision和Recall的调和平均<br>  $$<br>  F1&#x3D;\frac{2}{\frac 1P+\frac 1Q}<br>  $$</p>
+</li>
+<li><p>在机器学习模型的迭代过程中，一个好的dev set（用来测量P和R）加上单一量化评估指标（singal real number evaluation metric）可以大大加快iterating的速度。</p>
+</li>
+</ul>
+<h3 id="Satisfy-and-Optimizing-metric（受限指标和优化指标）"><a href="#Satisfy-and-Optimizing-metric（受限指标和优化指标）" class="headerlink" title="Satisfy and Optimizing metric（受限指标和优化指标）"></a>Satisfy and Optimizing metric（受限指标和优化指标）</h3><p>在机器学习模型中会有很多指标（metrics），一般有一个Optimizing metric（优化指标）和其它一些Satisfy metric（受限指标），即在<strong>满足受限指标的条件下，调节优化指标达到最佳的效果</strong>。下面举两个栗子：</p>
+<ul>
+<li><p>针对一个classifier，我们有两个指标：accuracy（准确率）和Running time（运算时间），我们需要<br>  $$<br>  \begin{gathered}<br>  \max accuracy\<br>  s.t.\ running\ time&lt;100\ \text{ms}<br>  \end{gathered}<br>  $$<br>  即在运行时间小于100 ms前提下，最大化准确率。在这个问题中，准确率就是一个优化指标，运行时间是一个受限指标。</p>
+</li>
+<li><p>针对智能助手的唤醒词（wake word&#x2F; Trigger word），有两个指标：accuracy（准确率）和False Positive次数，我们需要<br>  $$<br>  \begin{gathered}<br>  \max accuracy\<br>  s.t.\ \text{仅出现1 FP in 24 h}<br>  \end{gathered}<br>  $$<br>  在这个问题中，准确率就是一个优化指标，False Positive次数是一个受限指标。</p>
+</li>
+</ul>
+<h3 id="Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）"><a href="#Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）" class="headerlink" title="Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）"></a>Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）</h3><ol>
+<li>Train&#x2F; dev &#x2F; test set的分布<br> 在第二门课程中已经谈到过这三个集合，这里再次强调<ul>
+<li>Development  and test sets come from <strong>same distribution.</strong></li>
+<li>我们需要从两方面考虑选择Dev set和test sets，即在未来你希望在哪些数据上有所体现，或是你认为重要的一些方面。</li>
+<li>下面的图像很生动地显示出了未好好选择Dev set和test sets的后果：类似于射箭，在测试时你要求射中左上角的靶子，而在实际应用中却要求射中右下角的靶子，这是现在不切实际的。<br>  <img alt="target" class="post-img b-lazy" data-img="/bad_target.jpg" data-index="1" data-src="/bad_target.jpg"></li>
+</ul>
+</li>
+<li>Size of dev&#x2F; test set<br> 这个问题也在第二门中谈到过了。一般我们选取较多数据作为train set，较少的数据作为dev和test set。这里主要强调的是test set。<ul>
+<li>虽然我们只选择很少的一部分作为测试集，但是既然选取了测试集，我们需要<strong>保证测试集的数量足够多，能够支撑起对于整个模型的评价</strong>，且有较高的置信度。</li>
+<li>但是没有测试集也是可以的。</li>
+<li>在学习模型中，training set用于训练模型，dev set用于调节(tune)模型参数，test set用于评估模型最后的cost。</li>
+</ul>
+</li>
+</ol>
+<h3 id="When-to-change-dev-x2F-test-sets-and-metrics"><a href="#When-to-change-dev-x2F-test-sets-and-metrics" class="headerlink" title="When to change dev&#x2F;test sets and metrics"></a>When to change dev&#x2F;test sets and metrics</h3><ul>
+<li><p>假设有两个分类器：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>错误率</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>3%</td>
+<td>出现了porn graphic</td>
+</tr>
+<tr>
+<td>B</td>
+<td>5%</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>  从指标上看来，A分类器仿佛更好，但是从主观来说我们不希望出现porn graphic，会更倾向于B。所以很容易想到，我们需要对出现porn graphic这种情况加大惩罚，所以我们采用一个单独的参数来表征<br>  $$<br>  w^{(i)}&#x3D;\left{\begin{array}{ll}<br>  1,&amp; \text { if } x^{(i)} \text { is non-porn } \<br>  10,&amp; \text { if } x^{(i)} \text { is porn }<br>  \end{array}\right.<br>  $$<br>  而我们的cost function也就变为<br>  $$<br>  J&#x3D;\frac{1}{\sum_iw^{(i)}}\sum_{i&#x3D;1}^{m_{dev}}w^{(i)}\mathscr{L}{y_{pred}^{(i)}\neq y^{(i)} }<br>  $$<br>  $w^{(i)}$起到了惩罚出现porn图片的作用。</p>
+</li>
+<li><p>同时我们也可以从“正交化”的角度来防止出现porn</p>
+<ul>
+<li>定义一个新的指标（是否porn）用来评价分类器👉<code>放置了一个靶子</code></li>
+<li>单独考虑模型是否在这个指标上做的好不好👉<code>射击靶子</code></li>
+</ul>
+</li>
+<li><p>如果模型在你的指标在验证集、测试集做得很好，但是当真正落地到应用上时并不好，这就说明你的指标或是验证集、测试集可能存在问题，需要更换。</p>
+</li>
+</ul>
+<h2 id="Comparing-to-Human-level-performance"><a href="#Comparing-to-Human-level-performance" class="headerlink" title="Comparing to Human level performance"></a>Comparing to Human level performance</h2><h3 id="Human-level-performance-amp-Avoidable-bias"><a href="#Human-level-performance-amp-Avoidable-bias" class="headerlink" title="Human level performance &amp; Avoidable bias"></a>Human level performance &amp; Avoidable bias</h3><p><img alt="human_level" class="post-img b-lazy" data-img="/human_level.jpg" data-index="2" data-src="/human_level.jpg"></p>
+<ul>
+<li>人们在处理很多事情时都很有优势，当模型比人类水准差时，你需要考虑：<ul>
+<li>通过人手动获取标签</li>
+<li>从人的角度来思考为什么错了？为什么人能分辨出来？</li>
+<li>对于bias和variance进一步分析</li>
+</ul>
+</li>
+<li>一般我们将Human level performance（人类水准）作为Bayes optimal error（贝叶斯误差）的近似估计。</li>
+<li>当出现下面情况时，误差一般是能被避免的<ul>
+<li>人类水准←→训练误差(train error)相差大：专注于bias</li>
+<li>训练误差←→验证误差(dev error)相差大：专注于variance</li>
+</ul>
+</li>
+<li>如何定义人类水准（human-level performance）？我们将人类水准定义为最有经验的一群人的误差，一般$\le 0.5%$。<br>  <img alt="error_ecample" class="post-img b-lazy" data-img="/error_analysis_ex.png" data-index="3" data-src="/error_analysis_ex.png"></li>
+<li>People are good at natural perception.</li>
+</ul>
+<h3 id="Improving-your-model-performance"><a href="#Improving-your-model-performance" class="headerlink" title="Improving your model performance"></a>Improving your model performance</h3><ol>
+<li>监督学习（supervised learning）的两个基本假设：<ul>
+<li>训练集很好地符合要求（Avoidable bias）</li>
+<li>训练集的表现很好的概括了验证集和测试集的特征（variance）</li>
+</ul>
+</li>
+<li>抑制bias和variance的方法<br> <img alt="抑制bias和variance的方法" class="post-img b-lazy" data-img="/bias_variance.png" data-index="4" data-src="/bias_variance.png"></li>
+</ol>
+<h2 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h2><h3 id="模型可能会出现的错误"><a href="#模型可能会出现的错误" class="headerlink" title="模型可能会出现的错误"></a>模型可能会出现的错误</h3><ol>
+<li>Look at der examples to evaluate ideas<ul>
+<li>从mislabeled dev set中⼿动数可以处理的照⽚，根据此确定如何处理</li>
+<li>考虑什么是重要的？</li>
+</ul>
+</li>
+<li>Evaluate multiple ideas in parallel<br> 在一个猫的分类器中，可能会出现这些错误：把狗、猫科动物当作猫，因为模糊而导致误判，我们通过列表可以并行手动识别问题，并根据比例处理这些问题。<br> <img alt="Evaluate multiple ideas in parallel" class="post-img b-lazy" data-img="/parallel.png" data-index="5" data-src="/parallel.png"></li>
+</ol>
+<h3 id="数据中可能出现的错误"><a href="#数据中可能出现的错误" class="headerlink" title="数据中可能出现的错误"></a>数据中可能出现的错误</h3><ol>
+<li>DL算法对训练集中的<strong>随机错误是比较稳健的</strong>，但是对于系统性错误鲁棒性就比较差。</li>
+<li>在验证集和测试集中误标注标签的数据：通过列表来处理，同时要注意每种错误标签的占比</li>
+<li>Correcting incorrect dev&#x2F; test set example的步骤：<ul>
+<li>对你的验证集和测试集应用同样的过程，以确保它们继续来自相同的分布。</li>
+<li>考虑检查你的算法所做的正确和错误的例子</li>
+<li>此时，训练和验证&#x2F;测试数据现在可能来自稍微不同的分布</li>
+</ul>
+</li>
+</ol>
+<h3 id="Build-your-first-system-quickly-then-iterate"><a href="#Build-your-first-system-quickly-then-iterate" class="headerlink" title="Build your first system quickly, then iterate"></a>Build your first system quickly, then iterate</h3><p>一般地，建议尽快建立模型，并开始迭代，在迭代中再去改进模型。一个系统的基本运作过程如下：</p>
+<ol>
+<li>设立验证集、测试集和评价指标</li>
+<li>快速建立初始的系统</li>
+<li>使用bias&#x2F;variance分析和error分析确定下一步的优先次序</li>
+</ol>
+<h2 id="Mismatched-training-and-dev-x2F-test-set"><a href="#Mismatched-training-and-dev-x2F-test-set" class="headerlink" title="Mismatched training and dev&#x2F;test set"></a>Mismatched training and dev&#x2F;test set</h2><h3 id="Training-and-Testing-a-different-distribution"><a href="#Training-and-Testing-a-different-distribution" class="headerlink" title="Training and Testing a different distribution"></a>Training and Testing a different distribution</h3><p>有时候获取来自同一分布的大量数据很难，我们需要使用一部分其他分布的数据，那么如何在训练、验证、测试集中分配这两部分的数据。下面有两个例子：</p>
+<p><img alt="ex1" class="post-img b-lazy" data-img="/distribution_ex1.png" data-index="6" data-src="/distribution_ex1.png"></p>
+<p>注意我们不能将同一分布、不同分布的数据合并，平均分配到训练、验证、测试集中去，而应该有倾向性地将同一分布的数据分配到验证集和测试集。</p>
+<p><img alt="ex2" class="post-img b-lazy" data-img="/distribution_ex2.png" data-index="7" data-src="/distribution_ex2.png"></p>
+<h3 id="Bias-and-Variance-with-mismatched-data-distribution"><a href="#Bias-and-Variance-with-mismatched-data-distribution" class="headerlink" title="Bias and Variance with mismatched data distribution"></a>Bias and Variance with mismatched data distribution</h3><ol>
+<li><p>利用Training-dev set<br> <img alt="Training-dev set" class="post-img b-lazy" data-img="/Training-dev_set.png" data-index="8" data-src="/Training-dev_set.png"></p>
+<ul>
+<li>和训练集来自同一分布</li>
+<li>不被用于训练</li>
+</ul>
+<p> 下面通过一组数据来了解如何利用Training-dev set分辨Bias and Variance从而处理数据来自不同分布地情况。</p>
+<p> <img alt="Training-dev set2" class="post-img b-lazy" data-img="/Training-dev_set2.png" data-index="9" data-src="/Training-dev_set2.png"></p>
+</li>
+<li><p>更一般的情况</p>
+<p> <img alt="更一般的情况" class="post-img b-lazy" data-img="/general.jpg" data-index="10" data-src="/general.jpg"></p>
+</li>
+</ol>
+<h3 id="Addressing-data-mismatch"><a href="#Addressing-data-mismatch" class="headerlink" title="Addressing data mismatch"></a>Addressing data mismatch</h3><ul>
+<li>手工处理👉需要了解训练集和验证、测试集之间的不同到底导致哪方面的问题</li>
+<li>使得训练集更类似类似于验证、测试集即收集更多类似的数据</li>
+<li>但在手工处理时，需要防止NN适应了重复性的元素，从而带来过拟合</li>
+</ul>
+<h2 id="Learning-from-multiple-tasks"><a href="#Learning-from-multiple-tasks" class="headerlink" title="Learning from multiple tasks"></a>Learning from multiple tasks</h2><h3 id="Transfer-learning"><a href="#Transfer-learning" class="headerlink" title="Transfer learning"></a>Transfer learning</h3><p><img alt="Transfer learning" class="post-img b-lazy" data-img="/transfer_learning.png" data-index="11" data-src="/transfer_learning.png"></p>
+<p>何时可以用Transfer learning？</p>
+<ul>
+<li>任务A和B的输入是一致的</li>
+<li>相比于任务B，任务A有更多的数据</li>
+</ul>
+<h3 id="Multi-task-learning"><a href="#Multi-task-learning" class="headerlink" title="Multi-task learning"></a>Multi-task learning</h3><p><img alt="Multi-task learning" class="post-img b-lazy" data-img="/multi-task.png" data-index="12" data-src="/multi-task.png"></p>
+<p>何时可以用Multi-task learning？</p>
+<ul>
+<li>在一组任务上进行训练，可以从<strong>有共享的低级特征</strong>可以从中受益。</li>
+<li>通常情况下，每个任务的数据量是<strong>相似</strong>的。</li>
+<li>可以训练<strong>一个足够大的NN</strong>，以便在所有的任务中表现良好。</li>
+<li>这在第四门CNN的目标识别中经常使用。</li>
+</ul>
+<h3 id="End-to-End-DL"><a href="#End-to-End-DL" class="headerlink" title="End to End DL"></a>End to End DL</h3><p>当一个问题有很多步骤来处理时，我们可以把整个过程看作一个黑箱，作为一个神经网络，这就是端到端学习（end-to-end deep learning）。</p>
+<ul>
+<li><p>优点：</p>
+<ul>
+<li>让数据“说话”</li>
+<li>手工处理的部分很少</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>可能需要大量的数据</li>
+<li>可能缺少了一些有益的手工处理，但是在黑箱中我们没法处理</li>
+</ul>
+</li>
+<li><p>在使用end-to-end deep learning时，我们需要考虑是否有充足的数据来实现一个足够复杂的从$X\to Y$的映射。</p>
+</li>
+<li><p>应对方法：</p>
+<ul>
+<li>使用DL学习一个个小子块；</li>
+<li>仔细选择$X\to Y$的映射，以保证你可以获得充足的数据</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>周志华著. 机器学习. 北京：清华大学出版社, 2016.01.</li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【深度学习笔记（三）】构建机器学习模型</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2021年05月04日 - 12:59:52</p>
+  <p><span>原始链接:</span><a href="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/" title="【深度学习笔记（三）】构建机器学习模型">https://levitate-qian.github.io/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="【无线通信学习笔记（四）】数字调制及其性能" href="/2021/05/05/Wireless-Communications-Ch-5-6/">
+            ← 【无线通信学习笔记（四）】数字调制及其性能
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【无线通信学习笔记（三）】无线信道的信道容量" href="/2021/05/03/Wireless-Communications-Ch-4/">
+            【无线通信学习笔记（三）】无线信道的信道容量 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Structuring-Machine-Learning-Projects-学习笔记"><span class="toc-text">Structuring Machine Learning Projects 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Orthogonalization"><span class="toc-text">Orthogonalization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-up-your-goal"><span class="toc-text">Setting up your goal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-number-evaluation-metric-（单一量化评估指标）"><span class="toc-text">Single number evaluation metric （单一量化评估指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Satisfy-and-Optimizing-metric（受限指标和优化指标）"><span class="toc-text">Satisfy and Optimizing metric（受限指标和优化指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）"><span class="toc-text">Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#When-to-change-dev-x2F-test-sets-and-metrics"><span class="toc-text">When to change dev&#x2F;test sets and metrics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparing-to-Human-level-performance"><span class="toc-text">Comparing to Human level performance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Human-level-performance-amp-Avoidable-bias"><span class="toc-text">Human level performance &amp; Avoidable bias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Improving-your-model-performance"><span class="toc-text">Improving your model performance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Analysis"><span class="toc-text">Error Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型可能会出现的错误"><span class="toc-text">模型可能会出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据中可能出现的错误"><span class="toc-text">数据中可能出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-your-first-system-quickly-then-iterate"><span class="toc-text">Build your first system quickly, then iterate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mismatched-training-and-dev-x2F-test-set"><span class="toc-text">Mismatched training and dev&#x2F;test set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Training-and-Testing-a-different-distribution"><span class="toc-text">Training and Testing a different distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bias-and-Variance-with-mismatched-data-distribution"><span class="toc-text">Bias and Variance with mismatched data distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-data-mismatch"><span class="toc-text">Addressing data mismatch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-from-multiple-tasks"><span class="toc-text">Learning from multiple tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transfer-learning"><span class="toc-text">Transfer learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-task-learning"><span class="toc-text">Multi-task learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-to-End-DL"><span class="toc-text">End to End DL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/" class="leancloud-visitors" data-flag-title="【深度学习笔记（三）】构建机器学习模型">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【深度学习笔记（三）】构建机器学习模型</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

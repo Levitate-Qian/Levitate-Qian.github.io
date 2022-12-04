@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>LaTeX札记（三）：公式 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LaTeX札记（三）：公式 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2020/07/12/latex-note-03/">
+
+	
+	<meta property="article:published_time" content="2020-07-12T09:07:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2020/07/12/latex-note-03/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2020-07-12T09:25:46.000Z">
+                    2020-07-12
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/LaTeX/">LaTeX</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">LaTeX札记（三）：公式</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2020/08/09/a72d5q.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="LaTeX-札记（三）——公式"><a href="#LaTeX-札记（三）——公式" class="headerlink" title="$\LaTeX$札记（三）——公式"></a>$\LaTeX$札记（三）——公式</h1><p>LaTeX是使用写代码的方式来排版的，而这恰恰就是让我们写文章时候一心一意只关注文章内容的绝佳方法。LaTeX比起其他排版软件最大的优势就是它的<strong>公式编辑</strong>功能。它的公式同样是通过代码来编写的，使用起来比起Word里面的通过上下间距调，通过文本框和直线调、MathType（不用TeX的情况下）优雅好多。</p>
+<p>现在越来越多的公式编辑软件也加入了对于部分$\TeX$的支持，例如</p>
+<ul>
+<li>MathType可以输入LaTeX代码啦，但是还是不能宏定义什么的；</li>
+<li>Word自带的公式也可以编辑LaTeX数学代码啦，就是在不改变原始Cambria Math的前提下，奇丑无比，但是大部分人不会改字体；</li>
+<li>甚至网站也开始支持数学公式了，但是实现途径有所不同，网页上主要通过MathJax来实现，但是在代码方面是与LaTeX基本兼容的；</li>
+</ul>
+<p>但是即使这些其他的工具能够兼容LaTeX，但仅仅是兼容而已，LaTeX的数学公式编辑功能可不仅仅是编辑，它的<strong>公式编号和对齐功能</strong>也十分强大，具体的我会在下面的文章中谈到。</p>
+<blockquote>
+<p>文章主要包括两部分：</p>
+<ul>
+<li>正统的LaTeX公式编辑</li>
+<li>奇奇怪怪LaTeX公式相关的工具和技巧</li>
+</ul>
+</blockquote>
+<p>LaTeX公式编辑其实只需要自己动手排版一篇文章，在排版的过程中，去不断的充实自己的代码库就可以啦！针对这个公式编辑，我还是只推荐lshort这份文档，基本上把最基础的公式编辑都讲到了，具体更复杂的bing一下，404一下就可以了。这里呢主要提的还是些奇淫技巧，一些平常不一定会碰到，但是遇到就很棘手的问题。</p>
+<p>公式编辑呢还是<strong>熟能生巧的问题</strong>，但是有些内容也不需要特别去背。那我手头的中文6.0版lshort来说，我觉得第四章别的部分看看就可，第52到55页（ 表4.4-表4.14）建议大家可以打下来放在手边，用到可以看看，用着用着就熟悉了。表4.2的内容（数学字母字体）其实有时候也是挺常用的。</p>
+<p>下面呢就来谈谈可能遇到的问题。</p>
+<h2 id="Part-0-准备"><a href="#Part-0-准备" class="headerlink" title="Part 0 准备"></a>Part 0 准备</h2><p>首先在写作之前我们需要引用相关的宏包，最著名的当然就是AMS宏集。AMS 宏集合是美国数学学会(American Mathematical Society) 提供的对LATEX 原生的数学公式排版的扩展，其核心是amsmath 宏包，对多行公式的排版提供了有力的支持。此外，amsfonts 宏包以及基于它的amssymb 宏包提供了丰富的数学符号；amsthm 宏包扩展了LATEX 定理证明格式。这里介绍的许多命令和环境依赖于amsmath 宏包。</p>
+<p>（注意这边的引用是在sty文件中的引用，当放置到文中引用则应该改成<code>\usepackage</code>）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\RequirePackage</span>&#123;amsfonts,amsmath,amssymb&#125; <span class="comment">% AMS-LaTeX 符号、公式</span></span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;amsthm&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Part-1-公式的编写"><a href="#Part-1-公式的编写" class="headerlink" title="Part 1 公式的编写"></a>Part 1 公式的编写</h2><p>能够掌握lshort中的公式编辑其实已经完全足够了，这里只是提示几个杂项。</p>
+<h3 id="粗斜体"><a href="#粗斜体" class="headerlink" title="粗斜体"></a>粗斜体</h3><p>在国内，我们一般使用粗斜体表示向量、矩阵等，但是这个非常难打出来。</p>
+<p>amsmath 提供了一个<code>\boldsymbol </code>命令（由调用的amsbsy 宏包提供，这个宏包已经包括在上述package中了），在公式内部将一部分符号切换为粗体。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">    <span class="keyword">\min</span> <span class="built_in">&amp;</span><span class="keyword">\,</span>J(<span class="keyword">\hat</span>&#123;<span class="keyword">\boldsymbol</span>&#123;u&#125;&#125;)=<span class="keyword">\left</span>(<span class="keyword">\boldsymbol</span>&#123;Y&#125;<span class="built_in">_</span>1-<span class="keyword">\boldsymbol</span>&#123;B&#125;<span class="keyword">\hat</span>&#123;<span class="keyword">\boldsymbol</span>&#123;u&#125;&#125;<span class="keyword">\right</span>)<span class="built_in">^</span>T<span class="keyword">\left</span>(<span class="keyword">\boldsymbol</span>&#123;Y&#125;<span class="built_in">_</span>1-<span class="keyword">\boldsymbol</span>&#123;B&#125;<span class="keyword">\hat</span>&#123;<span class="keyword">\boldsymbol</span>&#123;u&#125;&#125;<span class="keyword">\right</span>)<span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\mathrm</span>&#123;s.t.&#125; <span class="built_in">&amp;</span><span class="keyword">\,</span><span class="keyword">\hat</span>&#123;<span class="keyword">\boldsymbol</span>&#123;u&#125;&#125;=<span class="keyword">\left</span>(<span class="keyword">\hat</span>&#123;a&#125;,<span class="keyword">\hat</span>&#123;b&#125;<span class="keyword">\right</span>)<span class="built_in">^</span>T=<span class="keyword">\left</span>(<span class="keyword">\boldsymbol</span>&#123;B&#125;<span class="built_in">^</span>T<span class="keyword">\boldsymbol</span>&#123;B&#125;<span class="keyword">\right</span>)<span class="built_in">^</span>&#123;-1&#125;<span class="keyword">\boldsymbol</span>&#123;B&#125;<span class="built_in">^</span>T<span class="keyword">\boldsymbol</span>&#123;Y&#125;<span class="built_in">_</span>1</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<img alt="粗斜体" style="zoom:60%;" class="post-img b-lazy" data-img="/粗斜体.png" data-index="0" data-src="/粗斜体.png">
+
+<h3 id="算符的使用"><a href="#算符的使用" class="headerlink" title="算符的使用"></a>算符的使用</h3><p>LaTeX中的算符大多数是二元算符，除了直接用键盘可以输入的+、−、<code>*</code>、&#x2F;，其它符号用命令输入，常用的有乘号× (<code>\times</code>)、除号÷ (<code>\div</code>)、点乘· (<code>\cdot</code>)、加减号± (<code>\pm</code>) &#x2F; ∓(<code>\mp</code>) 等等。更多的见表格。</p>
+<p>在LaTeX中，有部分函数是不需要通过例如<code>\mathrm&#123;&#125;</code>来使其直立的，这些也被称为<strong>算符</strong>符号。LaTeX将数学函数的名称作为一个算符排版，字体为直立字体。其中有一部分符号在上下位置可以书写一些内容作为条件，类似于巨算符。不带上下限的算符最常见的就是三角函数、双曲三角函数等。带上下限的常用的有求极限、求确界、求最值等。利用算符<code>\arg</code>和<code>\min</code>或者<code>\max</code>，就是我们熟悉的$\arg \min$等。</p>
+<p><img alt="算符" class="post-img b-lazy" data-img="/%E7%AE%97%E7%AC%A6.png" data-index="1" data-src="/%E7%AE%97%E7%AC%A6.png"></p>
+<h3 id="行内公式中分数、巨算符的缩放"><a href="#行内公式中分数、巨算符的缩放" class="headerlink" title="行内公式中分数、巨算符的缩放"></a>行内公式中分数、巨算符的缩放</h3><p>在行内公式中，巨算符的上下标往往会被放置到右侧，同时分数（fraction）也会变小，那么如何来让巨算符显示其原来的大小呢？这里有两种方法。</p>
+<ul>
+<li><p><strong>利用巨算符、分数本身的缩放</strong></p>
+<ul>
+<li>一般地，巨算符在行间公式显示成正常大小（求和Σ和求积Π的上下标显示在上下侧），而在行内公式则显示成缩小大小（求和Σ和求积Π的上下标显示在右侧）。我们可以通过巨算符本身就带有的<code>\limits</code>（上下方）和<code>\nolimits</code>（右方）来控制；</li>
+<li>同时，分数也提供了比较方便的命令<code>\dfrac</code>（正常大小），和<code>\tfrac</code>（行内缩小版）。</li>
+</ul>
+<p>我们可以使用这些限制字符来使得巨算符和分数在公式中也能显示正常大小。</p>
+<p>这里给出一个例子</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">	<span class="keyword">\min</span> <span class="built_in">&amp;</span><span class="keyword">\,</span>Z=<span class="keyword">\sum</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;j&#125; <span class="keyword">\in</span> B(j)<span class="keyword">\\</span></span><br><span class="line">	<span class="keyword">\mathrm</span>&#123;s.t.&#125; <span class="built_in">&amp;</span><span class="keyword">\left</span><span class="keyword">\&#123;</span><span class="keyword">\begin</span>&#123;array&#125;&#123;llll&#125;</span><br><span class="line">		<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> A(i)&#125; V<span class="built_in">_</span>i y<span class="built_in">_</span>&#123;ij&#125; <span class="keyword">\le</span> <span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;j <span class="keyword">\in</span> A(i)&#125; E<span class="built_in">_</span>j x<span class="built_in">_</span>j,<span class="keyword">\\</span></span><br><span class="line">		<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;j <span class="keyword">\in</span> B(i)&#125; y<span class="built_in">_</span>&#123;ij&#125; <span class="keyword">\ge</span> 1, <span class="keyword">\forall</span> i<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, <span class="keyword">\forall</span> j <span class="keyword">\in</span> B(j), <span class="keyword">\\</span></span><br><span class="line">		<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> A(i)&#125; x<span class="built_in">_</span>j <span class="keyword">\ge</span> 1, <span class="keyword">\forall</span> i <span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, <span class="keyword">\\</span></span><br><span class="line">		y<span class="built_in">_</span>&#123;ij&#125;<span class="keyword">\le</span> x<span class="built_in">_</span>j, <span class="keyword">\forall</span> i<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;I&#125;, j<span class="keyword">\in</span> <span class="keyword">\mathbb</span>&#123;J&#125;. <span class="keyword">\\</span></span><br><span class="line">	<span class="keyword">\end</span>&#123;array&#125;<span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="巨算符2" class="post-img b-lazy" data-img="/%E5%B7%A8%E7%AE%97%E7%AC%A62.png" data-index="2" data-src="/%E5%B7%A8%E7%AE%97%E7%AC%A62.png"></p>
+</li>
+<li><p><strong>使用万能的<code>\displaystyle</code>命令</strong></p>
+<p>在行内公式出现前使用<code>\displaystyle</code>命令，即可将行内公式完全转化为行间公式，不需要单独调整巨算符和分数的大小，但是行间距会有一定的问题，显得比较局促。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;<span class="keyword">\left</span><span class="keyword">\&#123;</span><span class="keyword">\begin</span>&#123;array&#125;&#123;l&#125;</span><br><span class="line">    <span class="keyword">\theta</span><span class="built_in">_</span>&#123;1&#125;=<span class="keyword">\displaystyle</span><span class="keyword">\frac</span>&#123;1&#125;&#123;L-2&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>&#123;L-2&#125; <span class="keyword">\Theta</span><span class="keyword">\left</span>(D<span class="built_in">_</span>&#123;i&#125;, D<span class="built_in">_</span>&#123;i+1&#125;<span class="keyword">\right</span>) <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\theta</span><span class="built_in">_</span>&#123;2&#125;=<span class="keyword">\displaystyle</span><span class="keyword">\frac</span>&#123;1&#125;&#123;L-3&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>&#123;L-3&#125; <span class="keyword">\Theta</span><span class="keyword">\left</span>(D<span class="built_in">_</span>&#123;i&#125;, D<span class="built_in">_</span>&#123;i+2&#125;<span class="keyword">\right</span>) <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\theta</span><span class="built_in">_</span>&#123;3&#125;=<span class="keyword">\displaystyle</span><span class="keyword">\frac</span>&#123;1&#125;&#123;L-4&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>&#123;L-4&#125; <span class="keyword">\Theta</span><span class="keyword">\left</span>(D<span class="built_in">_</span>&#123;i&#125;, D<span class="built_in">_</span>&#123;i+3&#125;<span class="keyword">\right</span>) <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\dots</span>  <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\dots</span>  <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\theta</span><span class="built_in">_</span>&#123;<span class="keyword">\lambda</span>&#125;=<span class="keyword">\displaystyle</span><span class="keyword">\frac</span>&#123;1&#125;&#123;L-1-<span class="keyword">\lambda</span>&#125; <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>&#123;L-1-<span class="keyword">\lambda</span>&#125; <span class="keyword">\Theta</span><span class="keyword">\left</span>(D<span class="built_in">_</span>&#123;i&#125;, D<span class="built_in">_</span>&#123;i+<span class="keyword">\lambda</span>&#125;<span class="keyword">\right</span>)</span><br><span class="line">    <span class="keyword">\end</span>&#123;array&#125;<span class="keyword">\right</span>.</span><br><span class="line">    <span class="keyword">\quad</span> (<span class="keyword">\lambda</span>&lt;L-1)</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="巨算符3" class="post-img b-lazy" data-img="/%E5%B7%A8%E7%AE%97%E7%AC%A63.png" data-index="3" data-src="/%E5%B7%A8%E7%AE%97%E7%AC%A63.png"></p>
+</li>
+</ul>
+<blockquote>
+<p>❗值得注意的是</p>
+<ol>
+<li><p>在array、cases等环境内同样被认为是行内公式</p>
+</li>
+<li><p>这两者看似都是转化为行间公式其实是有所不同的，他们巨算符的大小是有区别的。</p>
+<p><img alt="巨算符4" class="post-img b-lazy" data-img="/%E5%B7%A8%E7%AE%97%E7%AC%A64.png" data-index="4" data-src="/%E5%B7%A8%E7%AE%97%E7%AC%A64.png"></p>
+<p>在文章中其实更加明显，使用<code>\displaystyle</code>命令的巨算符完全是行间公式大小的，而使用<code>\limits</code>命令的还是会比行间公式的略小一点。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="矩阵、数组"><a href="#矩阵、数组" class="headerlink" title="矩阵、数组"></a>矩阵、数组</h3><h4 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h4><p>矩阵的类型有很多这里就不多加赘述的给出常见的矩阵类型了。amsmath 宏包还直接提供了多种排版矩阵的环境，包括不带定界符的matrix，以及带各种定界符的矩阵pmatrix（**(<strong>）、bmatrix（</strong>[<strong>）、Bmatrix（</strong>{<strong>）、vmatrix（</strong>|<strong>）、Vmatrix（</strong>||**）。</p>
+<p>这里再给出一种比较特别的矩阵，它的行列分别有行标和列标。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;<span class="keyword">\label</span>&#123;Eq:matrix&#125;</span><br><span class="line">    <span class="keyword">\bordermatrix</span>&#123;<span class="comment">%</span></span><br><span class="line">           	  <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>1&#125;       <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>2&#125;       <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>3&#125;     <span class="built_in">&amp;</span><span class="built_in">_</span>&#123;C<span class="built_in">_</span>4&#125;<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>1&#125;    <span class="built_in">&amp;</span> 1            <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;  <span class="built_in">&amp;</span>3           <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>2&#125;    <span class="built_in">&amp;</span> 2            <span class="built_in">&amp;</span> 1            <span class="built_in">&amp;</span>4           <span class="built_in">&amp;</span> 1<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>3&#125;    <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;3&#125;  <span class="built_in">&amp;</span><span class="keyword">\frac</span>&#123;1&#125;&#123;4&#125;   <span class="built_in">&amp;</span>1           <span class="built_in">&amp;</span><span class="keyword">\frac</span>&#123;1&#125;&#123;5&#125;<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>4&#125;    <span class="built_in">&amp;</span> 2            <span class="built_in">&amp;</span> 1            <span class="built_in">&amp;</span>5           <span class="built_in">&amp;</span> 1</span><br><span class="line">    &#125;,<span class="keyword">\qquad</span></span><br><span class="line">    <span class="keyword">\bordermatrix</span>&#123;<span class="comment">%</span></span><br><span class="line">              <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>5&#125;       <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>6&#125;       <span class="built_in">&amp;</span> <span class="built_in">_</span>&#123;C<span class="built_in">_</span>7&#125;     <span class="built_in">&amp;</span><span class="built_in">_</span>&#123;C<span class="built_in">_</span>8&#125;<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>5&#125;    <span class="built_in">&amp;</span> 1            <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;5&#125;  <span class="built_in">&amp;</span>2           <span class="built_in">&amp;</span> 2<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>6&#125;    <span class="built_in">&amp;</span> 5            <span class="built_in">&amp;</span> 1            <span class="built_in">&amp;</span>4           <span class="built_in">&amp;</span> 4<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>7&#125;    <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;  <span class="built_in">&amp;</span><span class="keyword">\frac</span>&#123;1&#125;&#123;4&#125;   <span class="built_in">&amp;</span>1           <span class="built_in">&amp;</span> 1<span class="keyword">\cr</span></span><br><span class="line">    <span class="built_in">_</span>&#123;C<span class="built_in">_</span>8&#125;    <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;  <span class="built_in">&amp;</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;4&#125;  <span class="built_in">&amp;</span>1           <span class="built_in">&amp;</span> 1</span><br><span class="line">    &#125;.</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="矩阵" class="post-img b-lazy" data-img="/%E7%9F%A9%E9%98%B5.png" data-index="5" data-src="/%E7%9F%A9%E9%98%B5.png"></p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>数组最常用的其实也就是一个构建大括号条件格式。基本格式再lshort上也有，摘录在这里。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\[</span> |x| = <span class="keyword">\left</span><span class="keyword">\&#123;</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;rl&#125;</span><br><span class="line">-x <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x &lt; 0,<span class="keyword">\\</span></span><br><span class="line">0 <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x = 0,<span class="keyword">\\</span></span><br><span class="line">x <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x &gt; 0.</span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125; <span class="keyword">\right</span>. <span class="keyword">\]</span></span><br></pre></td></tr></table></figure>
+
+<p><img alt="array" class="post-img b-lazy" data-img="/array.png" data-index="6" data-src="/array.png"></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\[</span> |x| =</span><br><span class="line"><span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">-x <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x &lt; 0,<span class="keyword">\\</span></span><br><span class="line">0 <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x = 0,<span class="keyword">\\</span></span><br><span class="line">x <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; x &gt; 0.</span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125; <span class="keyword">\]</span></span><br></pre></td></tr></table></figure>
+
+<p><img alt="cases" class="post-img b-lazy" data-img="/cases.png" data-index="7" data-src="/cases.png"></p>
+<h2 id="Part-2-公式的对齐与编号"><a href="#Part-2-公式的对齐与编号" class="headerlink" title="Part 2 公式的对齐与编号"></a>Part 2 公式的对齐与编号</h2><p>公式的编号是针对行间公式来说的，在科技论文和相关书籍中，编号能我们快速找到上下文需要对应的公式，在LaTeX制作的PDF版文档中则更胜一筹，你要你正确使用交叉引用，轻轻一点你就找到需要的公式啦！</p>
+<h3 id="基础中的基础"><a href="#基础中的基础" class="headerlink" title="基础中的基础"></a>基础中的基础</h3><p>行内公式一般利用<code>$</code>包裹即可。比如这个例子<code>$\Delta=b^2-4ac$</code>，即$\Delta&#x3D;b^2-4ac$。</p>
+<p>单独成行的行间公式在LaTeX里由equation 环境包裹。equation 环境为公式自动生成一个编号，这个编号可以用<code>\label </code>和<code>\ref </code>生成交叉引用，amsmath 的<code>\eqref </code>命令甚至为引用自动加上圆括号；还可以用<code>\tag </code>命令手动修改公式的编号，或者用<code>\notag </code>命令取消为公式编号（与之基本等效的命令是\nonumber）。</p>
+<p>不带编号的行间公式有以下几种方式生成：</p>
+<ul>
+<li>用<code>\[</code>和<code>\]</code>包裹</li>
+<li>用双美元符号包裹，即<code>$$</code>和<code>$$</code>，这种在Markdown中是最常用的（Markdown仅支持采用美元符号引出LaTeX数学公式，使用单、双来区分行内和行间公式）</li>
+<li>使用displaymath环境</li>
+<li>使用<code>equation*</code>环境</li>
+</ul>
+<h3 id="对齐与编号"><a href="#对齐与编号" class="headerlink" title="对齐与编号"></a>对齐与编号</h3><p>谈到对齐不得不说的就是align和gather两大家族环境（姑且成为家族）。align这类环境重点就是<strong>按符号&amp;对齐</strong>，gather这类环境重要的就是<strong>居中对齐</strong>。说到这里大家可能还无法理解，看了后续的例子就懂啦。</p>
+<h4 id="基础例子"><a href="#基础例子" class="headerlink" title="基础例子"></a>基础例子</h4><p>基本的例子就是下面这两个</p>
+<ol>
+<li><strong>利用align环境使两个符号处对齐。</strong>我们注意到公式在<code>&amp;</code>符号处对齐了，而公示的换行则使用与表格类似<code>\\</code>换行。</li>
+</ol>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> = b + c <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span> = d + e</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="align1" class="post-img b-lazy" data-img="/align1.png" data-index="8" data-src="/align1.png"></p>
+<ol start="2">
+<li><strong>利用gather环境进行公式的简单罗列。</strong>有时候我们不需要按照等号或其他符号进行对齐，或者对齐后反而会使部分公式超出边距。（由于我不需要编号这里用的是gathered环境，其实也可以用<code>gather*</code>环境）</li>
+</ol>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">\[</span><span class="keyword">\begin</span>&#123;gathered&#125;</span><br><span class="line">     f(t-t<span class="built_in">_</span>0)<span class="keyword">\varepsilon</span>(t-t<span class="built_in">_</span>0)<span class="keyword">\llra</span> <span class="keyword">\mathrm</span>&#123;e&#125;<span class="built_in">^</span>&#123;-st<span class="built_in">_</span>0&#125;F(s)<span class="keyword">\\</span></span><br><span class="line">     (<span class="keyword">\Re</span>[s]&gt;<span class="keyword">\sigma</span><span class="built_in">_</span>0)</span><br><span class="line"> <span class="keyword">\end</span>&#123;gathered&#125;<span class="keyword">\]</span></span><br><span class="line"><span class="comment">% 下面这个形式与之等价</span></span><br><span class="line"> <span class="keyword">\begin</span>&#123;gather*&#125;</span><br><span class="line">     f(t-t<span class="built_in">_</span>0)<span class="keyword">\varepsilon</span>(t-t<span class="built_in">_</span>0)<span class="keyword">\llra</span> <span class="keyword">\mathrm</span>&#123;e&#125;<span class="built_in">^</span>&#123;-st<span class="built_in">_</span>0&#125;F(s)<span class="keyword">\\</span></span><br><span class="line">     (<span class="keyword">\Re</span>[s]&gt;<span class="keyword">\sigma</span><span class="built_in">_</span>0)</span><br><span class="line"> <span class="keyword">\end</span>&#123;gather*&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="gather1" class="post-img b-lazy" data-img="/gather1.png" data-index="9" data-src="/gather1.png"></p>
+<h4 id="2×3-x3D-6种派生环境"><a href="#2×3-x3D-6种派生环境" class="headerlink" title="2×3&#x3D;6种派生环境"></a>2×3&#x3D;6种派生环境</h4><p>他们两个分别可以派生出三种环境</p>
+<ul>
+<li><p>不加任何后缀，即align环境和gather环境。</p>
+<ul>
+<li>已经囊括了数学环境，不需要在外层进一步添加类似equation环境等数学环境。</li>
+</ul>
+</li>
+<li><p>加<code>*</code>后缀，即<code>align*</code>和<code>gather*</code>环境</p>
+<ul>
+<li>同样已经囊括数学环境，但是他不会对公式进行编号，即带<code>*</code>环境的最常见用法。</li>
+</ul>
+</li>
+<li><p>加<code>ed</code>后缀，即aligned和gathered环境</p>
+<ul>
+<li><p><strong>不包括数学环境</strong>，需要在外面再套一层数学环境的壳。</p>
+</li>
+<li><p>如果使用带编号的如equation环境，则变为多个公式共用一个编号。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\\</span></span><br><span class="line">d <span class="built_in">&amp;</span>= e + f + g <span class="keyword">\\</span></span><br><span class="line">h + i <span class="built_in">&amp;</span>= j + k <span class="keyword">\\</span></span><br><span class="line">l + m <span class="built_in">&amp;</span>= n</span><br><span class="line"><span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="align2" class="post-img b-lazy" data-img="/align2.png" data-index="10" data-src="/align2.png"></p>
+</li>
+<li><p>如果使用不带编号的如<code>\[</code>和<code>\]</code>包裹，则和带<code>*</code>环境完全一致。也就是上面我举得那个例子。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="归纳总结"><a href="#归纳总结" class="headerlink" title="归纳总结"></a>归纳总结</h4><p>以下有部分摘自lshort。</p>
+<ol>
+<li><p>align 环境会给每行公式都编号。我们仍然可以用<code>\notag </code>去掉某行的编号。在以下的例子，为了对齐加号，我们将分隔符放在等号右边，这时需要给等号后添加一对括号{} 以产生正常的间距：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a =&#123;&#125; <span class="built_in">&amp;</span> b + c <span class="keyword">\\</span></span><br><span class="line">=&#123;&#125; <span class="built_in">&amp;</span> d + e + f + g + h + i</span><br><span class="line">+ j + k + l <span class="keyword">\notag</span> <span class="keyword">\\</span></span><br><span class="line"><span class="built_in">&amp;</span> + m + n + o <span class="keyword">\\</span></span><br><span class="line">=&#123;&#125; <span class="built_in">&amp;</span> p + q + r + s</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="align3" class="post-img b-lazy" data-img="/align3.png" data-index="11" data-src="/align3.png"></p>
+</li>
+<li><p>align 还能够对齐多组公式，除等号前的<code>&amp; </code>之外，公式之间也用<code>&amp; </code>分隔：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>=1 <span class="built_in">&amp;</span> b <span class="built_in">&amp;</span>=2 <span class="built_in">&amp;</span> c <span class="built_in">&amp;</span>=3 <span class="keyword">\\</span></span><br><span class="line">d <span class="built_in">&amp;</span>=-1 <span class="built_in">&amp;</span> e <span class="built_in">&amp;</span>=-2 <span class="built_in">&amp;</span> f <span class="built_in">&amp;</span>=-5</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img alt="align4" class="post-img b-lazy" data-img="/align4.png" data-index="12" data-src="/align4.png"></p>
+</li>
+<li><p>多行对齐的且不需要编号的情况下，<code>\[</code>+aligned环境和<code>align*</code>环境完全一致。</p>
+</li>
+<li><p>多行对齐带编号的情况</p>
+<ul>
+<li>在使用多行公式<strong>每行都需要编号时</strong>使用基础的不加后缀的align和gather环境；</li>
+<li>在多行公式<strong>只有最后一行公式需要编号</strong>时使用基础的不加后缀的align和gather环境，并使用<code>\notag </code>去掉某行的编号；当然这种情况也可以使用multline环境（详情请参考刘海洋老师的《LaTeX入门》）</li>
+<li>在<strong>多行公式共用编号</strong>的情况下，使用后缀<code>ed</code>环境辅以外部包裹equation环境。</li>
+</ul>
+</li>
+</ol>
+<h3 id="其他杂类"><a href="#其他杂类" class="headerlink" title="其他杂类"></a>其他杂类</h3><p>此外我还遇到过的一些公式编号相关的内容在这边一并写一下。</p>
+<h4 id="共用主编号的子公式编号"><a href="#共用主编号的子公式编号" class="headerlink" title="共用主编号的子公式编号"></a>共用主编号的子公式编号</h4><p>在电磁场中，电位函数的边界条件常常需要用到子公式这一概念，即(6a)，(6b)……。这里给出一个案例：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;subequations&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;alignat&#125;&#123;1&#125;</span><br><span class="line">        V(x,y,z)<span class="built_in">&amp;</span>=V(x,y),<span class="keyword">\label</span>&#123;subeq:8a&#125;<span class="keyword">\\</span></span><br><span class="line">        V(x,0)<span class="built_in">&amp;</span>=V<span class="built_in">_</span>0 <span class="keyword">\sin</span> <span class="keyword">\frac</span>&#123;3<span class="keyword">\pi</span> x&#125;&#123;a&#125;,<span class="keyword">\label</span>&#123;subeq:8b&#125;<span class="keyword">\\</span></span><br><span class="line">        V(x,<span class="keyword">\infty</span>)<span class="built_in">&amp;</span>=0,<span class="keyword">\label</span>&#123;subeq:8c&#125;<span class="keyword">\\</span></span><br><span class="line">        V(0,y)<span class="built_in">&amp;</span>=0,<span class="keyword">\label</span>&#123;subeq:8d&#125;<span class="keyword">\\</span></span><br><span class="line">        V(a,y)<span class="built_in">&amp;</span>=0.<span class="keyword">\label</span>&#123;subeq:8e&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;alignat&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;subequations&#125;</span><br></pre></td></tr></table></figure>
+
+<img alt="subequations" style="zoom:50%;" class="post-img b-lazy" data-img="/subequations.png" data-index="13" data-src="/subequations.png">
+
+<p>这里使用到的是subequations环境，他同样已经包括了数学环境，不需要在外面再套equation环境。同时我们还初次碰到了alignat环境，它的参数表示的是几栏的意思。</p>
+<blockquote>
+<p>这里写的内容都是我亲身碰到，并尝试过正确的方法。部分代码需要引用宏包，这里也不多说了。如果遇到其他的问题，不妨去刘海洋老师的《LaTeX入门》上找找，也可以在网络上找一找，这里不再多加赘述。</p>
+</blockquote>
+<hr>
+<h2 id="Part-3-奇奇怪怪LaTeX公式相关的工具和技巧"><a href="#Part-3-奇奇怪怪LaTeX公式相关的工具和技巧" class="headerlink" title="Part 3 奇奇怪怪LaTeX公式相关的工具和技巧"></a>Part 3 奇奇怪怪LaTeX公式相关的工具和技巧</h2><h3 id="懒人工具、小白助手——Mathpix-Snip"><a href="#懒人工具、小白助手——Mathpix-Snip" class="headerlink" title="懒人工具、小白助手——Mathpix Snip"></a>懒人工具、小白助手——Mathpix Snip</h3><p>同样地，在文章的最前面推荐一个工具，那就是大名鼎鼎的Mathpix Snip（👉<a href="https://mathpix.com/" target="_blank" rel="noopener">戳这边去官网</a>）。这个小软件可以实现截图转LaTeX公式，甚至它能够生成内联公式、行间公式等不同格式供你选择。</p>
+<p>使用方法如下：</p>
+<p><img alt="mathpix1" class="post-img b-lazy" data-img="/mathpix1.png" data-index="14" data-src="/mathpix1.png"></p>
+<p>同时最近它还支持了许多新特性，比如</p>
+<p><img alt="mathpix2" class="post-img b-lazy" data-img="/mathpix2.png" data-index="15" data-src="/mathpix2.png"></p>
+<p>但是美中不足的是，现在这个软件免费版每月只能识别50次，学生版凭学生邮箱可以识别100次。虽然有所限制，但是这个数量对于大部分不算特别常用人还是够用了。一般我只会在一些比较复杂的公式才用这个软件，简单的不如手撸代码😏。国产的部分OCR软件据说也有这样的功能了，我没用过，需要的同学可以到网上找找。</p>
+<h3 id="好用的技能——MathType公式与LaTeX代码的互转"><a href="#好用的技能——MathType公式与LaTeX代码的互转" class="headerlink" title="好用的技能——MathType公式与LaTeX代码的互转"></a>好用的技能——MathType公式与LaTeX代码的互转</h3><p>有时候我们需要把别人在Word中写好的带有LaTeX公式文章贴到LaTeX里面，这就遇到了一个问题。MathType编辑的公式怎么贴过去呢。</p>
+<h4 id="笨办法"><a href="#笨办法" class="headerlink" title="笨办法"></a>笨办法</h4><p>一种比较笨的办法就是先在MathType里面设置好粘贴的选项，然后一个一个贴。具体操作就是</p>
+<ul>
+<li><p>打开公式编辑器</p>
+</li>
+<li><p>“预置”菜单中选择“剪切和复制预置“</p>
+</li>
+<li><p>在弹出的对话框中将对象选为”MathML或TeX“里面随便选一个就好</p>
+<img alt="mathtype1" style="zoom:60%;" class="post-img b-lazy" data-img="/mathtype1.png" data-index="16" data-src="/mathtype1.png"></li>
+</ul>
+<h4 id="好办法"><a href="#好办法" class="headerlink" title="好办法"></a>好办法</h4><p>当然，我写博客怎么会就写这么一个本办法就出来招摇混骗呢，当然是有别的好办法咯。具体方法就是</p>
+<ul>
+<li>选中需要转换的段落</li>
+<li>按下键盘上的“Alt+\”</li>
+<li>奇迹发生了，一段可以直接贴到LaTeX里面的文章出现啦！</li>
+</ul>
+<img alt="mathtype2" style="zoom:60%;" class="post-img b-lazy" data-img="/mathtype2.png" data-index="17" data-src="/mathtype2.png">
+
+<h3 id="奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛"><a href="#奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛" class="headerlink" title="奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛"></a>奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛</h3><img alt="正经的知识" style="zoom:67%;" class="post-img b-lazy" data-img="/正经的知识.jpg" data-index="18" data-src="/正经的知识.jpg">
+
+<blockquote>
+<p>众所周知，生活在蓝星的微信公众平台是一种很奇特的编辑器，他啥排版、美化功能都没有，只能靠排版功能孱弱的秀米、135编辑器加持，更不要说加上对于数学公式的支持了。微信公众号，性格强硬，谁都不能驯服它。不过，记录历史我们是专业的。冒着生命危险，我们有幸记录下了，人类早期驯服野生微信公众平台的珍贵影像。哦，看呀，这个编辑器正在想尽办法，加入微信公众平台对数学公式的支持呢！……这就是大自然的力量，这就是人类的伟大。</p>
+<p>——人类早期驯服之微信公众平台（灵感来源：b站up主人类早期驯服）</p>
+</blockquote>
+<p>以上纯属胡扯，但是确实有一个编辑器在与微信公众平台的“不争”做着斗争，他就是Mdnice（👉<a href="https://mdnice.com/" target="_blank" rel="noopener">戳这边去看看</a>），他将数学公式转为矢量图放在微信公众平台中，比较好的解决了公众号的公式编辑问题。他还支持导出到知乎等平台。而且这个编辑器还有一个插件支持直接在微信平台编辑，保证公式的完整性。</p>
+<p><img alt="mdnice" class="post-img b-lazy" data-img="/mdnice.png" data-index="19" data-src="/mdnice.png"></p>
+<p>同时，mdnice的开始文档还是一个非常好的Markdown教学文案，想学Markdown的同学也可以看着那个文档学。一不小心关掉了，还可以再开哦。</p>
+<p><img alt="mdnice2" class="post-img b-lazy" data-img="/mdnice2.png" data-index="20" data-src="/mdnice2.png"></p>
+<p>这边另外给出两篇使用mdnice编辑的公众号推文。是不是感觉很惊艳呢！我觉得全栈蓝这个主题真的很对我胃口。</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/Huf5XjPxiea7rtQNShJWoA" target="_blank" rel="noopener">书院小课堂 | 模电例题</a></li>
+<li><a href="https://mp.weixin.qq.com/s/mAFWPFsGrWyElko3L4vfjA" target="_blank" rel="noopener">书院小课堂 | 电磁场例题</a></li>
+</ul>
+<h3 id="最后一个——在线LaTeX数学公式编辑器"><a href="#最后一个——在线LaTeX数学公式编辑器" class="headerlink" title="最后一个——在线LaTeX数学公式编辑器"></a>最后一个——在线LaTeX数学公式编辑器</h3><p>这是我在b站上看到的一个up主的在线LaTeX公式编辑器（👉<a href="https://www.texlive.com/" target="_blank" rel="noopener">戳这边看</a>），还有好多别的up主也安利过这个网站。没有具体用过，但觉得还是挺不错的。</p>
+<iframe width="800" height="450" src="//player.bilibili.com/player.html?aid=838558395&bvid=BV14g4y1q7pb&cid=203131698&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>主界面是这样的</p>
+<p><img alt="latexlive" class="post-img b-lazy" data-img="/latexlive.png" data-index="21" data-src="/latexlive.png"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>CTEX 开发小组.一份（不太）简短的$\LaTeX2\varepsilon$介绍(中文版本：6.0)[EB&#x2F;OL].<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf</a>. 2018-09（最新的是2019-04的6.0.1版本）</li>
+<li>刘海洋.LaTeX入门[M].北京：电子工业出版社.2013.</li>
+<li>Mathpix. <a href="https://mathpix.com/" target="_blank" rel="noopener">https://mathpix.com/</a></li>
+<li>Mdnice. <a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a></li>
+<li>妈咪说MommyTalk. 如何优雅的编辑数学公式？LaTeX公式入门[V&#x2F;OL].<a href="https://www.bilibili.com/video/BV14g4y1q7pb?from=search&amp;seid=3393676273831028218" target="_blank" rel="noopener">https://www.bilibili.com/video/BV14g4y1q7pb?from=search&amp;seid=3393676273831028218</a>. 2020-06-18&#x2F;2020-07-12</li>
+<li>在线LaTeX公式编辑器. <a href="https://www.texlive.com/" target="_blank" rel="noopener">https://www.texlive.com/</a></li>
+</ol>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>LaTeX札记（三）：公式</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2020年07月12日 - 09:25:46</p>
+  <p><span>原始链接:</span><a href="/2020/07/12/latex-note-03/" title="LaTeX札记（三）：公式">https://levitate-qian.github.io/2020/07/12/latex-note-03/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2020/07/12/latex-note-03/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="如何优雅的书写LaTeX论文" href="/2020/07/21/latex-vscode/">
+            ← 如何优雅的书写LaTeX论文
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="LaTeX札记（二）：表格" href="/2020/07/06/latex-note-02/">
+            LaTeX札记（二）：表格 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LaTeX-札记（三）——公式"><span class="toc-text">$\LaTeX$札记（三）——公式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-0-准备"><span class="toc-text">Part 0 准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-1-公式的编写"><span class="toc-text">Part 1 公式的编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#粗斜体"><span class="toc-text">粗斜体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算符的使用"><span class="toc-text">算符的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行内公式中分数、巨算符的缩放"><span class="toc-text">行内公式中分数、巨算符的缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵、数组"><span class="toc-text">矩阵、数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#矩阵"><span class="toc-text">矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-2-公式的对齐与编号"><span class="toc-text">Part 2 公式的对齐与编号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础中的基础"><span class="toc-text">基础中的基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对齐与编号"><span class="toc-text">对齐与编号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基础例子"><span class="toc-text">基础例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2×3-x3D-6种派生环境"><span class="toc-text">2×3&#x3D;6种派生环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#归纳总结"><span class="toc-text">归纳总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他杂类"><span class="toc-text">其他杂类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#共用主编号的子公式编号"><span class="toc-text">共用主编号的子公式编号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-3-奇奇怪怪LaTeX公式相关的工具和技巧"><span class="toc-text">Part 3 奇奇怪怪LaTeX公式相关的工具和技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#懒人工具、小白助手——Mathpix-Snip"><span class="toc-text">懒人工具、小白助手——Mathpix Snip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好用的技能——MathType公式与LaTeX代码的互转"><span class="toc-text">好用的技能——MathType公式与LaTeX代码的互转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#笨办法"><span class="toc-text">笨办法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#好办法"><span class="toc-text">好办法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛"><span class="toc-text">奇怪的知识增加啦！——那么微信公众号里面能打LaTeX公式嘛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后一个——在线LaTeX数学公式编辑器"><span class="toc-text">最后一个——在线LaTeX数学公式编辑器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/08/24/undergraduate-media-achievements/">本科期间推文、视频等汇总</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 15.67px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2022</a>
+			
+				
+			        <span hidden="true" id="/2020/07/12/latex-note-03/" class="leancloud-visitors" data-flag-title="LaTeX札记（三）：公式">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">LaTeX札记（三）：公式</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
