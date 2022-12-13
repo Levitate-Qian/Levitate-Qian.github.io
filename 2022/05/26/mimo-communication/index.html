@@ -174,7 +174,8 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
             
             <div class="post-full-content">
                 <article id="photoswipe" class="markdown-body">
-                    <h1 id="【MIMO通信学习笔记】Foundations-of-MIMO-Communication"><a href="#【MIMO通信学习笔记】Foundations-of-MIMO-Communication" class="headerlink" title="【MIMO通信学习笔记】Foundations of MIMO Communication"></a>【MIMO通信学习笔记】Foundations of MIMO Communication</h1><blockquote>
+                    <h1 id="mimo通信学习笔记foundations-of-mimo-communication"><a class="markdownIt-Anchor" href="#mimo通信学习笔记foundations-of-mimo-communication"></a> 【MIMO通信学习笔记】Foundations of MIMO Communication</h1>
+<blockquote>
 <p>本文是<em>Foundations of MIMO Communication</em>(Robert W. Heath Jr. and Angel Lozano, 2018)笔记的总结帖。总算是在答辩完后三天看完了，没拖到研究生，</p>
 <p>之前想过看好几本无线通信、MIMO的书，但都没能看完。。</p>
 <ul>
@@ -188,10 +189,131 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <p>一些材料可以在这边下：<a href="https://www.cambridge.org/core/books/foundations-of-mimo-communication/D1D999D61E48C62C44240EF2341A29A1" target="_blank" rel="noopener">Foundations of MIMO Communication (cambridge.org)</a>，<a href="https://www.cambridge.org/us/academic/subjects/engineering/wireless-communications/foundations-mimo-communication?format=HB" target="_blank" rel="noopener">Foundations mimo communication | Wireless communications | Cambridge University Press</a></p>
 </blockquote>
 <p>目录：</p>
-<p><strong>Part I: Wireless Communication Theory（第一部分：无线通信原理）	1</strong><br>1 A primer on information theory and MMSE estimation（信息论与MMSE估计初步）	3<br>    1.1 Introduction	3<br>    1.2 Signal distributions	4<br>    1.3 Information content	6<br>    1.4 Information dependence	11<br>    1.5 Reliable communication	17<br>    1.6 MMSE estimation	39<br>    1.7 LMMSE estimation	47<br>    1.8 Summary	51<br>    Problems	51<br>2 A signal processing perspective（信号处理的角度）	57<br>    2.1 Introduction	57<br>    2.2 Signal, channel, and noise representations	58<br>    2.3 Signal, channel, and noise representations: extension to MIMO	77<br>    2.4 Linear channel equalization	87<br>    2.5 Single-carrier frequency-domain equalization	98<br>    2.6 OFDM	104<br>    2.7 Channel estimation	110<br>    2.8 Summary and outlook	122<br>    Problems	124<br>3 Channel modeling（信道建模）	131<br>    3.1 Introduction	131<br>    3.2 Preliminaries	132<br>    3.3 Large-scale phenomena	135<br>    3.4 Small-scale fading	143<br>    3.5 Interlude: essential notions of antenna arrays	170<br>    3.6 Modeling of MIMO channels	175<br>    3.7 Channel estimation revisited	192<br>    3.8 MIMO channel models in standards	199<br>    3.9 Summary and outlook	202<br>    Problems	205<br>4 Single-user SISO（单用户SISO）	209<br>    4.1 Introduction	209<br>    4.2 Interplay of bit rate, power, and bandwidth	209<br>    4.3 AWGN channel	220<br>    4.4 Frequency-selective channel	228<br>    4.5 Frequency-flat fading channel	244<br>    4.6 Frequency-selective fading channel	267<br>    4.7 Which fading setting applies?	268<br>    4.8 Pilot-assisted communication	271<br>    4.9 Channels with interference	279<br>    4.10 Summary and outlook	284<br>    Problems	287</p>
-<p><strong>Part II: Single-user MIMO（单用户MIMO系统）	295</strong><br>5 SU-MIMO with optimum receivers（最佳接收机的单用户MIMO系统）	297<br>    5.1 Introduction	297<br>    5.2 Initial considerations	298<br>    5.3 CSIR and CSIT	301<br>    5.4 No CSIT	311<br>    5.5 No CSI	338<br>    5.6 Pilot-assisted communication	341<br>    5.7 Channels with interference	345<br>    5.8 Optimum transmitter and receiver structures	348<br>    5.9 Link adaptation	358<br>    5.10 Reciprocity and CSI feedback	361<br>    5.11 Summary and outlook	374<br>    Problems	378<br>6 SU-MIMO with linear receivers（线性接收机的单用户MIMO系统）	386<br>    6.1 Introduction	386<br>    6.2 General characteristics of linear MIMO receivers	387<br>    6.3 Linear ZF receiver	388<br>    6.4 LMMSE receiver	396<br>    6.5 Relationship between the LMMSE and the optimum receiver	407<br>    6.6 Summary and outlook	408<br>    Problems	410</p>
-<p><strong>Part III: Multiuser MIMO（多用户MIMO系统）	413</strong><br>7 Multiuser communication prelude（多用户通信序曲）	415<br>    7.1 Introduction	415<br>    7.2 Spectral efficiency region	416<br>    7.3 Orthogonal channel sharing	418<br>    7.4 Non-orthogonal channel sharing	420<br>    7.5 Scalar metrics	422<br>    7.6 User selection and resource allocation	426<br>    7.7 Low-SNR regime	429<br>    7.8 Summary and outlook	431<br>    Problems	433<br>8 MU-MIMO with optimum transceivers（最佳收发信机的多用户MIMO系统）	436<br>    8.1 Introduction	436<br>    8.2 The multiple-access channel	437<br>    8.3 Multiple-access channel with CSIR and CSIT	440<br>    8.4 Multiple-access channel with no CSIT	457<br>    8.5 Multiple-access channel with no CSI	460<br>    8.6 Pilot-assisted multiple-access channel	461<br>    8.7 Duality between the multiple access and broadcast channels	462<br>    8.8 The broadcast channel	467<br>    8.9 Broadcast channel with CSIR and CSIT	469<br>    8.10 Broadcast channel with no CSIT	487<br>    8.11 Summary and outlook	490<br>    Problems	490<br>9 MU-MIMO with linear transceivers（线性收发信机的多用户MIMO系统）	497<br>    9.1 Introduction	497<br>    9.2 Linear receivers for the multiple-access channel	498<br>    9.3 Linear ZF receiver for the multiple-access channel	500<br>    9.4 LMMSE receiver for the multiple-access channel	507<br>    9.5 Duality with linear transceivers	514<br>    9.6 Linear transmitters for the broadcast channel	516<br>    9.7 Linear ZF transmitter for the MU-MISO broadcast channel	517<br>    9.8 Block-diagonalization for the broadcast channel	554<br>    9.9 Regularized ZF transmitter for the broadcast channel	562<br>    9.10 Summary and outlook	571<br>    Problems	574<br>10 Massive MIMO（大规模MIMO系统）	578<br>    10.1 Introduction	578<br>    10.2 Going massive	579<br>    10.3 Reverse-link channel estimation	582<br>    10.4 Reverse-link data transmission	587<br>    10.5 Forward-link data transmission	615<br>    10.6 Mitigation of pilot contamination	623<br>    10.7 Practical considerations	628<br>    10.8 Summary and outlook	631<br>    Problems	636<br>11 Afterword	643<br>    11.1 Beyond cellular	643<br>    11.2 Beyond wireless	644</p>
-<p><strong>Appendices	647</strong><br>Appendix A: Transforms	649<br>Appendix B: Matrix algebra	653<br>Appendix C: Random variables and processes	661<br>Appendix D: Gradient operator	674<br>Appendix E: Special functions	676<br>Appendix F: Landau symbols	680<br>Appendix G: Convex optimization	681<br>References	685<br>Index	752</p>
+<p><strong>Part I: Wireless Communication Theory（第一部分：无线通信原理）	1</strong><br>
+1 A primer on information theory and MMSE estimation（信息论与MMSE估计初步）	3<br>
+1.1 Introduction	3<br>
+1.2 Signal distributions	4<br>
+1.3 Information content	6<br>
+1.4 Information dependence	11<br>
+1.5 Reliable communication	17<br>
+1.6 MMSE estimation	39<br>
+1.7 LMMSE estimation	47<br>
+1.8 Summary	51<br>
+Problems	51<br>
+2 A signal processing perspective（信号处理的角度）	57<br>
+2.1 Introduction	57<br>
+2.2 Signal, channel, and noise representations	58<br>
+2.3 Signal, channel, and noise representations: extension to MIMO	77<br>
+2.4 Linear channel equalization	87<br>
+2.5 Single-carrier frequency-domain equalization	98<br>
+2.6 OFDM	104<br>
+2.7 Channel estimation	110<br>
+2.8 Summary and outlook	122<br>
+Problems	124<br>
+3 Channel modeling（信道建模）	131<br>
+3.1 Introduction	131<br>
+3.2 Preliminaries	132<br>
+3.3 Large-scale phenomena	135<br>
+3.4 Small-scale fading	143<br>
+3.5 Interlude: essential notions of antenna arrays	170<br>
+3.6 Modeling of MIMO channels	175<br>
+3.7 Channel estimation revisited	192<br>
+3.8 MIMO channel models in standards	199<br>
+3.9 Summary and outlook	202<br>
+Problems	205<br>
+4 Single-user SISO（单用户SISO）	209<br>
+4.1 Introduction	209<br>
+4.2 Interplay of bit rate, power, and bandwidth	209<br>
+4.3 AWGN channel	220<br>
+4.4 Frequency-selective channel	228<br>
+4.5 Frequency-flat fading channel	244<br>
+4.6 Frequency-selective fading channel	267<br>
+4.7 Which fading setting applies?	268<br>
+4.8 Pilot-assisted communication	271<br>
+4.9 Channels with interference	279<br>
+4.10 Summary and outlook	284<br>
+Problems	287</p>
+<p><strong>Part II: Single-user MIMO（单用户MIMO系统）	295</strong><br>
+5 SU-MIMO with optimum receivers（最佳接收机的单用户MIMO系统）	297<br>
+5.1 Introduction	297<br>
+5.2 Initial considerations	298<br>
+5.3 CSIR and CSIT	301<br>
+5.4 No CSIT	311<br>
+5.5 No CSI	338<br>
+5.6 Pilot-assisted communication	341<br>
+5.7 Channels with interference	345<br>
+5.8 Optimum transmitter and receiver structures	348<br>
+5.9 Link adaptation	358<br>
+5.10 Reciprocity and CSI feedback	361<br>
+5.11 Summary and outlook	374<br>
+Problems	378<br>
+6 SU-MIMO with linear receivers（线性接收机的单用户MIMO系统）	386<br>
+6.1 Introduction	386<br>
+6.2 General characteristics of linear MIMO receivers	387<br>
+6.3 Linear ZF receiver	388<br>
+6.4 LMMSE receiver	396<br>
+6.5 Relationship between the LMMSE and the optimum receiver	407<br>
+6.6 Summary and outlook	408<br>
+Problems	410</p>
+<p><strong>Part III: Multiuser MIMO（多用户MIMO系统）	413</strong><br>
+7 Multiuser communication prelude（多用户通信序曲）	415<br>
+7.1 Introduction	415<br>
+7.2 Spectral efficiency region	416<br>
+7.3 Orthogonal channel sharing	418<br>
+7.4 Non-orthogonal channel sharing	420<br>
+7.5 Scalar metrics	422<br>
+7.6 User selection and resource allocation	426<br>
+7.7 Low-SNR regime	429<br>
+7.8 Summary and outlook	431<br>
+Problems	433<br>
+8 MU-MIMO with optimum transceivers（最佳收发信机的多用户MIMO系统）	436<br>
+8.1 Introduction	436<br>
+8.2 The multiple-access channel	437<br>
+8.3 Multiple-access channel with CSIR and CSIT	440<br>
+8.4 Multiple-access channel with no CSIT	457<br>
+8.5 Multiple-access channel with no CSI	460<br>
+8.6 Pilot-assisted multiple-access channel	461<br>
+8.7 Duality between the multiple access and broadcast channels	462<br>
+8.8 The broadcast channel	467<br>
+8.9 Broadcast channel with CSIR and CSIT	469<br>
+8.10 Broadcast channel with no CSIT	487<br>
+8.11 Summary and outlook	490<br>
+Problems	490<br>
+9 MU-MIMO with linear transceivers（线性收发信机的多用户MIMO系统）	497<br>
+9.1 Introduction	497<br>
+9.2 Linear receivers for the multiple-access channel	498<br>
+9.3 Linear ZF receiver for the multiple-access channel	500<br>
+9.4 LMMSE receiver for the multiple-access channel	507<br>
+9.5 Duality with linear transceivers	514<br>
+9.6 Linear transmitters for the broadcast channel	516<br>
+9.7 Linear ZF transmitter for the MU-MISO broadcast channel	517<br>
+9.8 Block-diagonalization for the broadcast channel	554<br>
+9.9 Regularized ZF transmitter for the broadcast channel	562<br>
+9.10 Summary and outlook	571<br>
+Problems	574<br>
+10 Massive MIMO（大规模MIMO系统）	578<br>
+10.1 Introduction	578<br>
+10.2 Going massive	579<br>
+10.3 Reverse-link channel estimation	582<br>
+10.4 Reverse-link data transmission	587<br>
+10.5 Forward-link data transmission	615<br>
+10.6 Mitigation of pilot contamination	623<br>
+10.7 Practical considerations	628<br>
+10.8 Summary and outlook	631<br>
+Problems	636<br>
+11 Afterword	643<br>
+11.1 Beyond cellular	643<br>
+11.2 Beyond wireless	644</p>
+<p><strong>Appendices	647</strong><br>
+Appendix A: Transforms	649<br>
+Appendix B: Matrix algebra	653<br>
+Appendix C: Random variables and processes	661<br>
+Appendix D: Gradient operator	674<br>
+Appendix E: Special functions	676<br>
+Appendix F: Landau symbols	680<br>
+Appendix G: Convex optimization	681<br>
+References	685<br>
+Index	752</p>
 
                 </article>
                 <ul class="tags-postTags">
@@ -283,7 +405,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
     </div>
     <div class="toc-main">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【MIMO通信学习笔记】Foundations-of-MIMO-Communication"><span class="toc-text">【MIMO通信学习笔记】Foundations of MIMO Communication</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mimo通信学习笔记foundations-of-mimo-communication"><span class="toc-text"> 【MIMO通信学习笔记】Foundations of MIMO Communication</span></a></li></ol>
     
     </div>
 </div>

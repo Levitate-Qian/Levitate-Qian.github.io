@@ -184,32 +184,38 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <li>Sequence Model（序列模型）</li>
 </ul>
 </blockquote>
-<h1 id="Structuring-Machine-Learning-Projects-学习笔记"><a href="#Structuring-Machine-Learning-Projects-学习笔记" class="headerlink" title="Structuring Machine Learning Projects 学习笔记"></a>Structuring Machine Learning Projects 学习笔记</h1><p>第三门课程主要介绍Machine Learning的一些模型评估方法。</p>
+<h1 id="structuring-machine-learning-projects-学习笔记"><a class="markdownIt-Anchor" href="#structuring-machine-learning-projects-学习笔记"></a> Structuring Machine Learning Projects 学习笔记</h1>
+<p>第三门课程主要介绍Machine Learning的一些模型评估方法。</p>
 <ul>
 <li>Introduction to ML Strategy</li>
 <li>Setting up your goal</li>
 <li>Comparing to Human level performance</li>
 <li>Error Analysis</li>
-<li>Mismatched training and dev&#x2F;test set</li>
+<li>Mismatched training and dev/test set</li>
 <li>Learing from multiple tasks</li>
 <li>End to End deep learning</li>
 </ul>
 <p>在使用机器学习模型训练模型遇到问题时，我们可能会有以下一些想法。但是我们并不能确定哪个能够改善我们的模型，本课程主要就是分析在哪些情况下使用哪些方法比较好。</p>
-<p><img alt="ideas" class="post-img b-lazy" data-img="/ML_strategy.jpg" data-index="0" data-src="/ML_strategy.jpg"></p>
-<h2 id="Orthogonalization"><a href="#Orthogonalization" class="headerlink" title="Orthogonalization"></a>Orthogonalization</h2><ul>
-<li><p>正交化的思想可以看作设计旋钮(knobs)时，每个旋钮只控制一件事。</p>
+<p><img alt="ideas" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/ML_strategy.jpg" data-index="0" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/ML_strategy.jpg"></p>
+<h2 id="orthogonalization"><a class="markdownIt-Anchor" href="#orthogonalization"></a> Orthogonalization</h2>
+<ul>
+<li>
+<p>正交化的思想可以看作设计旋钮(knobs)时，每个旋钮只控制一件事。</p>
 </li>
-<li><p>在ML项目中如何使用“正交化”优化我们的思考过程呢？在ML项目中我们主要要完善四个问题：</p>
+<li>
+<p>在ML项目中如何使用“正交化”优化我们的思考过程呢？在ML项目中我们主要要完善四个问题：</p>
 <ul>
 <li>Fit training set well on cost function, 否则我们需要bigger network, Adam……</li>
 <li>Fit dev set well on cost function, 否则我们需要Regularization, Bigger training set……</li>
 <li>Fit test set well on cost function, 否则我们需要bigger dev set……</li>
 <li>Performs well in real world, 否则我们需要改变dev set或是cost function</li>
 </ul>
-<p>  上面我们谈到的<em>Fit well on cost function</em>指的是达到Human level performance.</p>
+<p>上面我们谈到的<em>Fit well on cost function</em>指的是达到Human level performance.</p>
 </li>
 </ul>
-<h2 id="Setting-up-your-goal"><a href="#Setting-up-your-goal" class="headerlink" title="Setting up your goal"></a>Setting up your goal</h2><h3 id="Single-number-evaluation-metric-（单一量化评估指标）"><a href="#Single-number-evaluation-metric-（单一量化评估指标）" class="headerlink" title="Single number evaluation metric （单一量化评估指标）"></a>Single number evaluation metric （单一量化评估指标）</h3><p>对学习模型的泛化能力进行评估，需要有衡量模型泛化能力的指标，也就是性能度量。这里我们使用🍉西瓜书中一套符号来表示下面的概念。</p>
+<h2 id="setting-up-your-goal"><a class="markdownIt-Anchor" href="#setting-up-your-goal"></a> Setting up your goal</h2>
+<h3 id="single-number-evaluation-metric-单一量化评估指标"><a class="markdownIt-Anchor" href="#single-number-evaluation-metric-单一量化评估指标"></a> Single number evaluation metric （单一量化评估指标）</h3>
+<p>对学习模型的泛化能力进行评估，需要有衡量模型泛化能力的指标，也就是性能度量。这里我们使用🍉西瓜书中一套符号来表示下面的概念。</p>
 <table>
 <thead>
 <tr>
@@ -218,7 +224,8 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <th>预测为反例 Negative</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>实际为正例</td>
 <td>TP（真正例）</td>
 <td>FN（假反例）</td>
@@ -228,40 +235,74 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <td>FP（假正例）</td>
 <td>TN（真反例）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ul>
-<li><p>Precision（准确率，查准率）——总样本为预测为正例<br>  $$<br>  P&#x3D;\frac{TP}{TP+FP}<br>  $$</p>
+<li>
+<p>Precision（准确率，查准率）——总样本为预测为正例</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">P=\frac{TP}{TP+FP}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 </li>
-<li><p>Recall（召回率，查全率）——总样本为实际为正例<br>  $$<br>  R&#x3D;\frac{TP}{TP+FN}<br>  $$</p>
+<li>
+<p>Recall（召回率，查全率）——总样本为实际为正例</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>R</mi><mo>=</mo><mfrac><mrow><mi>T</mi><mi>P</mi></mrow><mrow><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">R=\frac{TP}{TP+FN}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1296600000000003em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 </li>
-<li><p>F1 score——Precision和Recall的调和平均<br>  $$<br>  F1&#x3D;\frac{2}{\frac 1P+\frac 1Q}<br>  $$</p>
+<li>
+<p>F1 score——Precision和Recall的调和平均</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>F</mi><mn>1</mn><mo>=</mo><mfrac><mn>2</mn><mrow><mfrac><mn>1</mn><mi>P</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>Q</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">F1=\frac{2}{\frac 1P+\frac 1Q}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.537656em;vertical-align:-1.216216em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.264892em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.216216em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 </li>
-<li><p>在机器学习模型的迭代过程中，一个好的dev set（用来测量P和R）加上单一量化评估指标（singal real number evaluation metric）可以大大加快iterating的速度。</p>
+<li>
+<p>在机器学习模型的迭代过程中，一个好的dev set（用来测量P和R）加上单一量化评估指标（singal real number evaluation metric）可以大大加快iterating的速度。</p>
 </li>
 </ul>
-<h3 id="Satisfy-and-Optimizing-metric（受限指标和优化指标）"><a href="#Satisfy-and-Optimizing-metric（受限指标和优化指标）" class="headerlink" title="Satisfy and Optimizing metric（受限指标和优化指标）"></a>Satisfy and Optimizing metric（受限指标和优化指标）</h3><p>在机器学习模型中会有很多指标（metrics），一般有一个Optimizing metric（优化指标）和其它一些Satisfy metric（受限指标），即在<strong>满足受限指标的条件下，调节优化指标达到最佳的效果</strong>。下面举两个栗子：</p>
+<h3 id="satisfy-and-optimizing-metric受限指标和优化指标"><a class="markdownIt-Anchor" href="#satisfy-and-optimizing-metric受限指标和优化指标"></a> Satisfy and Optimizing metric（受限指标和优化指标）</h3>
+<p>在机器学习模型中会有很多指标（metrics），一般有一个Optimizing metric（优化指标）和其它一些Satisfy metric（受限指标），即在<strong>满足受限指标的条件下，调节优化指标达到最佳的效果</strong>。下面举两个栗子：</p>
 <ul>
-<li><p>针对一个classifier，我们有两个指标：accuracy（准确率）和Running time（运算时间），我们需要<br>  $$<br>  \begin{gathered}<br>  \max accuracy\<br>  s.t.\ running\ time&lt;100\ \text{ms}<br>  \end{gathered}<br>  $$<br>  即在运行时间小于100 ms前提下，最大化准确率。在这个问题中，准确率就是一个优化指标，运行时间是一个受限指标。</p>
+<li>
+<p>针对一个classifier，我们有两个指标：accuracy（准确率）和Running time（运算时间），我们需要</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>max</mi><mo>⁡</mo><mi>a</mi><mi>c</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>y</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>s</mi><mi mathvariant="normal">.</mi><mi>t</mi><mi mathvariant="normal">.</mi><mtext> </mtext><mi>r</mi><mi>u</mi><mi>n</mi><mi>n</mi><mi>i</mi><mi>n</mi><mi>g</mi><mtext> </mtext><mi>t</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>&lt;</mo><mn>100</mn><mtext> ms</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{gathered}
+\max accuracy\\ 
+s.t.\ running\ time&lt;100\ \text{ms}
+\end{gathered}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000000000000004em;vertical-align:-1.2500000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">max</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="mord">.</span><span class="mord mathnormal">t</span><span class="mord">.</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">n</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mspace"> </span><span class="mord text"><span class="mord">ms</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>即在运行时间小于100 ms前提下，最大化准确率。在这个问题中，准确率就是一个优化指标，运行时间是一个受限指标。</p>
 </li>
-<li><p>针对智能助手的唤醒词（wake word&#x2F; Trigger word），有两个指标：accuracy（准确率）和False Positive次数，我们需要<br>  $$<br>  \begin{gathered}<br>  \max accuracy\<br>  s.t.\ \text{仅出现1 FP in 24 h}<br>  \end{gathered}<br>  $$<br>  在这个问题中，准确率就是一个优化指标，False Positive次数是一个受限指标。</p>
+<li>
+<p>针对智能助手的唤醒词（wake word/ Trigger word），有两个指标：accuracy（准确率）和False Positive次数，我们需要</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>max</mi><mo>⁡</mo><mi>a</mi><mi>c</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>y</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>s</mi><mi mathvariant="normal">.</mi><mi>t</mi><mi mathvariant="normal">.</mi><mtext> 仅出现1 FP in 24 h</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{gathered}
+\max accuracy\\ 
+s.t.\ \text{仅出现1 FP in 24 h}
+\end{gathered}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0000000000000004em;vertical-align:-1.2500000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">max</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="mord">.</span><span class="mord mathnormal">t</span><span class="mord">.</span><span class="mspace"> </span><span class="mord text"><span class="mord cjk_fallback">仅出现</span><span class="mord">1 FP in 24 h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>在这个问题中，准确率就是一个优化指标，False Positive次数是一个受限指标。</p>
 </li>
 </ul>
-<h3 id="Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）"><a href="#Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）" class="headerlink" title="Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）"></a>Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）</h3><ol>
-<li>Train&#x2F; dev &#x2F; test set的分布<br> 在第二门课程中已经谈到过这三个集合，这里再次强调<ul>
+<h3 id="train-dev-test-set训练集-验证集-测试集"><a class="markdownIt-Anchor" href="#train-dev-test-set训练集-验证集-测试集"></a> Train/ dev / test set（训练集、验证集、测试集）</h3>
+<ol>
+<li>Train/ dev / test set的分布<br>
+在第二门课程中已经谈到过这三个集合，这里再次强调
+<ul>
 <li>Development  and test sets come from <strong>same distribution.</strong></li>
 <li>我们需要从两方面考虑选择Dev set和test sets，即在未来你希望在哪些数据上有所体现，或是你认为重要的一些方面。</li>
-<li>下面的图像很生动地显示出了未好好选择Dev set和test sets的后果：类似于射箭，在测试时你要求射中左上角的靶子，而在实际应用中却要求射中右下角的靶子，这是现在不切实际的。<br>  <img alt="target" class="post-img b-lazy" data-img="/bad_target.jpg" data-index="1" data-src="/bad_target.jpg"></li>
+<li>下面的图像很生动地显示出了未好好选择Dev set和test sets的后果：类似于射箭，在测试时你要求射中左上角的靶子，而在实际应用中却要求射中右下角的靶子，这是现在不切实际的。<br>
+<img alt="target" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/bad_target.jpg" data-index="1" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/bad_target.jpg"></li>
 </ul>
 </li>
-<li>Size of dev&#x2F; test set<br> 这个问题也在第二门中谈到过了。一般我们选取较多数据作为train set，较少的数据作为dev和test set。这里主要强调的是test set。<ul>
+<li>Size of dev/ test set<br>
+这个问题也在第二门中谈到过了。一般我们选取较多数据作为train set，较少的数据作为dev和test set。这里主要强调的是test set。
+<ul>
 <li>虽然我们只选择很少的一部分作为测试集，但是既然选取了测试集，我们需要<strong>保证测试集的数量足够多，能够支撑起对于整个模型的评价</strong>，且有较高的置信度。</li>
 <li>但是没有测试集也是可以的。</li>
 <li>在学习模型中，training set用于训练模型，dev set用于调节(tune)模型参数，test set用于评估模型最后的cost。</li>
 </ul>
 </li>
 </ol>
-<h3 id="When-to-change-dev-x2F-test-sets-and-metrics"><a href="#When-to-change-dev-x2F-test-sets-and-metrics" class="headerlink" title="When to change dev&#x2F;test sets and metrics"></a>When to change dev&#x2F;test sets and metrics</h3><ul>
-<li><p>假设有两个分类器：</p>
+<h3 id="when-to-change-devtest-sets-and-metrics"><a class="markdownIt-Anchor" href="#when-to-change-devtest-sets-and-metrics"></a> When to change dev/test sets and metrics</h3>
+<ul>
+<li>
+<p>假设有两个分类器：</p>
 <table>
 <thead>
 <tr>
@@ -270,7 +311,8 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <th>问题</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>A</td>
 <td>3%</td>
 <td>出现了porn graphic</td>
@@ -280,96 +322,134 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <td>5%</td>
 <td></td>
 </tr>
-</tbody></table>
-<p>  从指标上看来，A分类器仿佛更好，但是从主观来说我们不希望出现porn graphic，会更倾向于B。所以很容易想到，我们需要对出现porn graphic这种情况加大惩罚，所以我们采用一个单独的参数来表征<br>  $$<br>  w^{(i)}&#x3D;\left{\begin{array}{ll}<br>  1,&amp; \text { if } x^{(i)} \text { is non-porn } \<br>  10,&amp; \text { if } x^{(i)} \text { is porn }<br>  \end{array}\right.<br>  $$<br>  而我们的cost function也就变为<br>  $$<br>  J&#x3D;\frac{1}{\sum_iw^{(i)}}\sum_{i&#x3D;1}^{m_{dev}}w^{(i)}\mathscr{L}{y_{pred}^{(i)}\neq y^{(i)} }<br>  $$<br>  $w^{(i)}$起到了惩罚出现porn图片的作用。</p>
+</tbody>
+</table>
+<p>从指标上看来，A分类器仿佛更好，但是从主观来说我们不希望出现porn graphic，会更倾向于B。所以很容易想到，我们需要对出现porn graphic这种情况加大惩罚，所以我们采用一个单独的参数来表征</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.15999999999999992em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>1</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext> if </mtext><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mtext> is non-porn </mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>10</mn><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext> if </mtext><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mtext> is porn </mtext></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">w^{(i)}=\left\{\begin{array}{ll}
+1,&amp; \text { if } x^{(i)} \text { is non-porn } \\
+10,&amp; \text { if } x^{(i)} \text { is porn }
+\end{array}\right.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.938em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.4960000000000004em;vertical-align:-0.9980000000000004em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">{</span></span><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.498em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span></span></span><span style="top:-2.3619999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">0</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9980000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.498em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord"> if </span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mord text"><span class="mord"> is non-porn </span></span></span></span><span style="top:-2.3619999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord"> if </span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mord text"><span class="mord"> is porn </span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9980000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>而我们的cost function也就变为</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mrow><munder><mo>∑</mo><mi>i</mi></munder><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>m</mi><mrow><mi>d</mi><mi>e</mi><mi>v</mi></mrow></msub></munderover><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mi mathvariant="script">L</mi><mo stretchy="false">{</mo><msubsup><mi>y</mi><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>d</mi></mrow><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msubsup><mo mathvariant="normal">≠</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">J=\frac{1}{\sum_iw^{(i)}}\sum_{i=1}^{m_{dev}}w^{(i)}\mathscr{L}\{y_{pred}^{(i)}\neq y^{(i)} \}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.945926em;vertical-align:-1.277669em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.2960000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16195399999999993em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.814em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0037099999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6682570000000003em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.316865em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathscr" style="margin-right:0.19189em;">L</span></span><span class="mopen">{</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.3986920000000005em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">d</span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4374159999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.188em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">w^{(i)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>起到了惩罚出现porn图片的作用。</p>
 </li>
-<li><p>同时我们也可以从“正交化”的角度来防止出现porn</p>
+<li>
+<p>同时我们也可以从“正交化”的角度来防止出现porn</p>
 <ul>
 <li>定义一个新的指标（是否porn）用来评价分类器👉<code>放置了一个靶子</code></li>
 <li>单独考虑模型是否在这个指标上做的好不好👉<code>射击靶子</code></li>
 </ul>
 </li>
-<li><p>如果模型在你的指标在验证集、测试集做得很好，但是当真正落地到应用上时并不好，这就说明你的指标或是验证集、测试集可能存在问题，需要更换。</p>
+<li>
+<p>如果模型在你的指标在验证集、测试集做得很好，但是当真正落地到应用上时并不好，这就说明你的指标或是验证集、测试集可能存在问题，需要更换。</p>
 </li>
 </ul>
-<h2 id="Comparing-to-Human-level-performance"><a href="#Comparing-to-Human-level-performance" class="headerlink" title="Comparing to Human level performance"></a>Comparing to Human level performance</h2><h3 id="Human-level-performance-amp-Avoidable-bias"><a href="#Human-level-performance-amp-Avoidable-bias" class="headerlink" title="Human level performance &amp; Avoidable bias"></a>Human level performance &amp; Avoidable bias</h3><p><img alt="human_level" class="post-img b-lazy" data-img="/human_level.jpg" data-index="2" data-src="/human_level.jpg"></p>
+<h2 id="comparing-to-human-level-performance"><a class="markdownIt-Anchor" href="#comparing-to-human-level-performance"></a> Comparing to Human level performance</h2>
+<h3 id="human-level-performance-avoidable-bias"><a class="markdownIt-Anchor" href="#human-level-performance-avoidable-bias"></a> Human level performance &amp; Avoidable bias</h3>
+<p><img alt="human_level" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/human_level.jpg" data-index="2" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/human_level.jpg"></p>
 <ul>
-<li>人们在处理很多事情时都很有优势，当模型比人类水准差时，你需要考虑：<ul>
+<li>人们在处理很多事情时都很有优势，当模型比人类水准差时，你需要考虑：
+<ul>
 <li>通过人手动获取标签</li>
 <li>从人的角度来思考为什么错了？为什么人能分辨出来？</li>
 <li>对于bias和variance进一步分析</li>
 </ul>
 </li>
 <li>一般我们将Human level performance（人类水准）作为Bayes optimal error（贝叶斯误差）的近似估计。</li>
-<li>当出现下面情况时，误差一般是能被避免的<ul>
+<li>当出现下面情况时，误差一般是能被避免的
+<ul>
 <li>人类水准←→训练误差(train error)相差大：专注于bias</li>
 <li>训练误差←→验证误差(dev error)相差大：专注于variance</li>
 </ul>
 </li>
-<li>如何定义人类水准（human-level performance）？我们将人类水准定义为最有经验的一群人的误差，一般$\le 0.5%$。<br>  <img alt="error_ecample" class="post-img b-lazy" data-img="/error_analysis_ex.png" data-index="3" data-src="/error_analysis_ex.png"></li>
+<li>如何定义人类水准（human-level performance）？我们将人类水准定义为最有经验的一群人的误差，一般<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0.5</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\le 0.5\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mord">%</span></span></span></span>。<br>
+<img alt="error_ecample" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/error_analysis_ex.png" data-index="3" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/error_analysis_ex.png"></li>
 <li>People are good at natural perception.</li>
 </ul>
-<h3 id="Improving-your-model-performance"><a href="#Improving-your-model-performance" class="headerlink" title="Improving your model performance"></a>Improving your model performance</h3><ol>
-<li>监督学习（supervised learning）的两个基本假设：<ul>
+<h3 id="improving-your-model-performance"><a class="markdownIt-Anchor" href="#improving-your-model-performance"></a> Improving your model performance</h3>
+<ol>
+<li>监督学习（supervised learning）的两个基本假设：
+<ul>
 <li>训练集很好地符合要求（Avoidable bias）</li>
 <li>训练集的表现很好的概括了验证集和测试集的特征（variance）</li>
 </ul>
 </li>
-<li>抑制bias和variance的方法<br> <img alt="抑制bias和variance的方法" class="post-img b-lazy" data-img="/bias_variance.png" data-index="4" data-src="/bias_variance.png"></li>
+<li>抑制bias和variance的方法<br>
+<img alt="抑制bias和variance的方法" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/bias_variance.png" data-index="4" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/bias_variance.png"></li>
 </ol>
-<h2 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h2><h3 id="模型可能会出现的错误"><a href="#模型可能会出现的错误" class="headerlink" title="模型可能会出现的错误"></a>模型可能会出现的错误</h3><ol>
-<li>Look at der examples to evaluate ideas<ul>
+<h2 id="error-analysis"><a class="markdownIt-Anchor" href="#error-analysis"></a> Error Analysis</h2>
+<h3 id="模型可能会出现的错误"><a class="markdownIt-Anchor" href="#模型可能会出现的错误"></a> 模型可能会出现的错误</h3>
+<ol>
+<li>Look at der examples to evaluate ideas
+<ul>
 <li>从mislabeled dev set中⼿动数可以处理的照⽚，根据此确定如何处理</li>
 <li>考虑什么是重要的？</li>
 </ul>
 </li>
-<li>Evaluate multiple ideas in parallel<br> 在一个猫的分类器中，可能会出现这些错误：把狗、猫科动物当作猫，因为模糊而导致误判，我们通过列表可以并行手动识别问题，并根据比例处理这些问题。<br> <img alt="Evaluate multiple ideas in parallel" class="post-img b-lazy" data-img="/parallel.png" data-index="5" data-src="/parallel.png"></li>
+<li>Evaluate multiple ideas in parallel<br>
+在一个猫的分类器中，可能会出现这些错误：把狗、猫科动物当作猫，因为模糊而导致误判，我们通过列表可以并行手动识别问题，并根据比例处理这些问题。<br>
+<img alt="Evaluate multiple ideas in parallel" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/parallel.png" data-index="5" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/parallel.png"></li>
 </ol>
-<h3 id="数据中可能出现的错误"><a href="#数据中可能出现的错误" class="headerlink" title="数据中可能出现的错误"></a>数据中可能出现的错误</h3><ol>
+<h3 id="数据中可能出现的错误"><a class="markdownIt-Anchor" href="#数据中可能出现的错误"></a> 数据中可能出现的错误</h3>
+<ol>
 <li>DL算法对训练集中的<strong>随机错误是比较稳健的</strong>，但是对于系统性错误鲁棒性就比较差。</li>
 <li>在验证集和测试集中误标注标签的数据：通过列表来处理，同时要注意每种错误标签的占比</li>
-<li>Correcting incorrect dev&#x2F; test set example的步骤：<ul>
+<li>Correcting incorrect dev/ test set example的步骤：
+<ul>
 <li>对你的验证集和测试集应用同样的过程，以确保它们继续来自相同的分布。</li>
 <li>考虑检查你的算法所做的正确和错误的例子</li>
-<li>此时，训练和验证&#x2F;测试数据现在可能来自稍微不同的分布</li>
+<li>此时，训练和验证/测试数据现在可能来自稍微不同的分布</li>
 </ul>
 </li>
 </ol>
-<h3 id="Build-your-first-system-quickly-then-iterate"><a href="#Build-your-first-system-quickly-then-iterate" class="headerlink" title="Build your first system quickly, then iterate"></a>Build your first system quickly, then iterate</h3><p>一般地，建议尽快建立模型，并开始迭代，在迭代中再去改进模型。一个系统的基本运作过程如下：</p>
+<h3 id="build-your-first-system-quickly-then-iterate"><a class="markdownIt-Anchor" href="#build-your-first-system-quickly-then-iterate"></a> Build your first system quickly, then iterate</h3>
+<p>一般地，建议尽快建立模型，并开始迭代，在迭代中再去改进模型。一个系统的基本运作过程如下：</p>
 <ol>
 <li>设立验证集、测试集和评价指标</li>
 <li>快速建立初始的系统</li>
-<li>使用bias&#x2F;variance分析和error分析确定下一步的优先次序</li>
+<li>使用bias/variance分析和error分析确定下一步的优先次序</li>
 </ol>
-<h2 id="Mismatched-training-and-dev-x2F-test-set"><a href="#Mismatched-training-and-dev-x2F-test-set" class="headerlink" title="Mismatched training and dev&#x2F;test set"></a>Mismatched training and dev&#x2F;test set</h2><h3 id="Training-and-Testing-a-different-distribution"><a href="#Training-and-Testing-a-different-distribution" class="headerlink" title="Training and Testing a different distribution"></a>Training and Testing a different distribution</h3><p>有时候获取来自同一分布的大量数据很难，我们需要使用一部分其他分布的数据，那么如何在训练、验证、测试集中分配这两部分的数据。下面有两个例子：</p>
-<p><img alt="ex1" class="post-img b-lazy" data-img="/distribution_ex1.png" data-index="6" data-src="/distribution_ex1.png"></p>
+<h2 id="mismatched-training-and-devtest-set"><a class="markdownIt-Anchor" href="#mismatched-training-and-devtest-set"></a> Mismatched training and dev/test set</h2>
+<h3 id="training-and-testing-a-different-distribution"><a class="markdownIt-Anchor" href="#training-and-testing-a-different-distribution"></a> Training and Testing a different distribution</h3>
+<p>有时候获取来自同一分布的大量数据很难，我们需要使用一部分其他分布的数据，那么如何在训练、验证、测试集中分配这两部分的数据。下面有两个例子：</p>
+<p><img alt="ex1" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/distribution_ex1.png" data-index="6" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/distribution_ex1.png"></p>
 <p>注意我们不能将同一分布、不同分布的数据合并，平均分配到训练、验证、测试集中去，而应该有倾向性地将同一分布的数据分配到验证集和测试集。</p>
-<p><img alt="ex2" class="post-img b-lazy" data-img="/distribution_ex2.png" data-index="7" data-src="/distribution_ex2.png"></p>
-<h3 id="Bias-and-Variance-with-mismatched-data-distribution"><a href="#Bias-and-Variance-with-mismatched-data-distribution" class="headerlink" title="Bias and Variance with mismatched data distribution"></a>Bias and Variance with mismatched data distribution</h3><ol>
-<li><p>利用Training-dev set<br> <img alt="Training-dev set" class="post-img b-lazy" data-img="/Training-dev_set.png" data-index="8" data-src="/Training-dev_set.png"></p>
+<p><img alt="ex2" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/distribution_ex2.png" data-index="7" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/distribution_ex2.png"></p>
+<h3 id="bias-and-variance-with-mismatched-data-distribution"><a class="markdownIt-Anchor" href="#bias-and-variance-with-mismatched-data-distribution"></a> Bias and Variance with mismatched data distribution</h3>
+<ol>
+<li>
+<p>利用Training-dev set<br>
+<img alt="Training-dev set" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/Training-dev_set.png" data-index="8" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/Training-dev_set.png"></p>
 <ul>
 <li>和训练集来自同一分布</li>
 <li>不被用于训练</li>
 </ul>
-<p> 下面通过一组数据来了解如何利用Training-dev set分辨Bias and Variance从而处理数据来自不同分布地情况。</p>
-<p> <img alt="Training-dev set2" class="post-img b-lazy" data-img="/Training-dev_set2.png" data-index="9" data-src="/Training-dev_set2.png"></p>
+<p>下面通过一组数据来了解如何利用Training-dev set分辨Bias and Variance从而处理数据来自不同分布地情况。</p>
+<p><img alt="Training-dev set2" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/Training-dev_set2.png" data-index="9" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/Training-dev_set2.png"></p>
 </li>
-<li><p>更一般的情况</p>
-<p> <img alt="更一般的情况" class="post-img b-lazy" data-img="/general.jpg" data-index="10" data-src="/general.jpg"></p>
+<li>
+<p>更一般的情况</p>
+<p><img alt="更一般的情况" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/general.jpg" data-index="10" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/general.jpg"></p>
 </li>
 </ol>
-<h3 id="Addressing-data-mismatch"><a href="#Addressing-data-mismatch" class="headerlink" title="Addressing data mismatch"></a>Addressing data mismatch</h3><ul>
+<h3 id="addressing-data-mismatch"><a class="markdownIt-Anchor" href="#addressing-data-mismatch"></a> Addressing data mismatch</h3>
+<ul>
 <li>手工处理👉需要了解训练集和验证、测试集之间的不同到底导致哪方面的问题</li>
 <li>使得训练集更类似类似于验证、测试集即收集更多类似的数据</li>
 <li>但在手工处理时，需要防止NN适应了重复性的元素，从而带来过拟合</li>
 </ul>
-<h2 id="Learning-from-multiple-tasks"><a href="#Learning-from-multiple-tasks" class="headerlink" title="Learning from multiple tasks"></a>Learning from multiple tasks</h2><h3 id="Transfer-learning"><a href="#Transfer-learning" class="headerlink" title="Transfer learning"></a>Transfer learning</h3><p><img alt="Transfer learning" class="post-img b-lazy" data-img="/transfer_learning.png" data-index="11" data-src="/transfer_learning.png"></p>
+<h2 id="learning-from-multiple-tasks"><a class="markdownIt-Anchor" href="#learning-from-multiple-tasks"></a> Learning from multiple tasks</h2>
+<h3 id="transfer-learning"><a class="markdownIt-Anchor" href="#transfer-learning"></a> Transfer learning</h3>
+<p><img alt="Transfer learning" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/transfer_learning.png" data-index="11" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/transfer_learning.png"></p>
 <p>何时可以用Transfer learning？</p>
 <ul>
 <li>任务A和B的输入是一致的</li>
 <li>相比于任务B，任务A有更多的数据</li>
 </ul>
-<h3 id="Multi-task-learning"><a href="#Multi-task-learning" class="headerlink" title="Multi-task learning"></a>Multi-task learning</h3><p><img alt="Multi-task learning" class="post-img b-lazy" data-img="/multi-task.png" data-index="12" data-src="/multi-task.png"></p>
+<h3 id="multi-task-learning"><a class="markdownIt-Anchor" href="#multi-task-learning"></a> Multi-task learning</h3>
+<p><img alt="Multi-task learning" class="post-img b-lazy" data-img="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/multi-task.png" data-index="12" data-src="/2021/05/04/DL-Coursera-3-Structuring-Machine-Learning-Projects/multi-task.png"></p>
 <p>何时可以用Multi-task learning？</p>
 <ul>
 <li>在一组任务上进行训练，可以从<strong>有共享的低级特征</strong>可以从中受益。</li>
@@ -377,30 +457,36 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <li>可以训练<strong>一个足够大的NN</strong>，以便在所有的任务中表现良好。</li>
 <li>这在第四门CNN的目标识别中经常使用。</li>
 </ul>
-<h3 id="End-to-End-DL"><a href="#End-to-End-DL" class="headerlink" title="End to End DL"></a>End to End DL</h3><p>当一个问题有很多步骤来处理时，我们可以把整个过程看作一个黑箱，作为一个神经网络，这就是端到端学习（end-to-end deep learning）。</p>
+<h3 id="end-to-end-dl"><a class="markdownIt-Anchor" href="#end-to-end-dl"></a> End to End DL</h3>
+<p>当一个问题有很多步骤来处理时，我们可以把整个过程看作一个黑箱，作为一个神经网络，这就是端到端学习（end-to-end deep learning）。</p>
 <ul>
-<li><p>优点：</p>
+<li>
+<p>优点：</p>
 <ul>
 <li>让数据“说话”</li>
 <li>手工处理的部分很少</li>
 </ul>
 </li>
-<li><p>缺点：</p>
+<li>
+<p>缺点：</p>
 <ul>
 <li>可能需要大量的数据</li>
 <li>可能缺少了一些有益的手工处理，但是在黑箱中我们没法处理</li>
 </ul>
 </li>
-<li><p>在使用end-to-end deep learning时，我们需要考虑是否有充足的数据来实现一个足够复杂的从$X\to Y$的映射。</p>
+<li>
+<p>在使用end-to-end deep learning时，我们需要考虑是否有充足的数据来实现一个足够复杂的从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>的映射。</p>
 </li>
-<li><p>应对方法：</p>
+<li>
+<p>应对方法：</p>
 <ul>
 <li>使用DL学习一个个小子块；</li>
-<li>仔细选择$X\to Y$的映射，以保证你可以获得充足的数据</li>
+<li>仔细选择<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\to Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>的映射，以保证你可以获得充足的数据</li>
 </ul>
 </li>
 </ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<h2 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h2>
+<ol>
 <li>周志华著. 机器学习. 北京：清华大学出版社, 2016.01.</li>
 </ol>
 
@@ -408,11 +494,11 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
                 <ul class="tags-postTags">
                     
                     <li>
-                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+                        <a href="/tags/AI/" rel="tag"># AI</a>
                     </li>
                     
                     <li>
-                        <a href="/tags/AI/" rel="tag"># AI</a>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
                     </li>
                     
                     <li>
@@ -498,7 +584,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
     </div>
     <div class="toc-main">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Structuring-Machine-Learning-Projects-学习笔记"><span class="toc-text">Structuring Machine Learning Projects 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Orthogonalization"><span class="toc-text">Orthogonalization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-up-your-goal"><span class="toc-text">Setting up your goal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-number-evaluation-metric-（单一量化评估指标）"><span class="toc-text">Single number evaluation metric （单一量化评估指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Satisfy-and-Optimizing-metric（受限指标和优化指标）"><span class="toc-text">Satisfy and Optimizing metric（受限指标和优化指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Train-x2F-dev-x2F-test-set（训练集、验证集、测试集）"><span class="toc-text">Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#When-to-change-dev-x2F-test-sets-and-metrics"><span class="toc-text">When to change dev&#x2F;test sets and metrics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparing-to-Human-level-performance"><span class="toc-text">Comparing to Human level performance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Human-level-performance-amp-Avoidable-bias"><span class="toc-text">Human level performance &amp; Avoidable bias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Improving-your-model-performance"><span class="toc-text">Improving your model performance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Analysis"><span class="toc-text">Error Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型可能会出现的错误"><span class="toc-text">模型可能会出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据中可能出现的错误"><span class="toc-text">数据中可能出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-your-first-system-quickly-then-iterate"><span class="toc-text">Build your first system quickly, then iterate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mismatched-training-and-dev-x2F-test-set"><span class="toc-text">Mismatched training and dev&#x2F;test set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Training-and-Testing-a-different-distribution"><span class="toc-text">Training and Testing a different distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bias-and-Variance-with-mismatched-data-distribution"><span class="toc-text">Bias and Variance with mismatched data distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Addressing-data-mismatch"><span class="toc-text">Addressing data mismatch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learning-from-multiple-tasks"><span class="toc-text">Learning from multiple tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transfer-learning"><span class="toc-text">Transfer learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-task-learning"><span class="toc-text">Multi-task learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-to-End-DL"><span class="toc-text">End to End DL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#structuring-machine-learning-projects-学习笔记"><span class="toc-text"> Structuring Machine Learning Projects 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#orthogonalization"><span class="toc-text"> Orthogonalization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setting-up-your-goal"><span class="toc-text"> Setting up your goal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#single-number-evaluation-metric-单一量化评估指标"><span class="toc-text"> Single number evaluation metric （单一量化评估指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#satisfy-and-optimizing-metric受限指标和优化指标"><span class="toc-text"> Satisfy and Optimizing metric（受限指标和优化指标）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#train-dev-test-set训练集-验证集-测试集"><span class="toc-text"> Train&#x2F; dev &#x2F; test set（训练集、验证集、测试集）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#when-to-change-devtest-sets-and-metrics"><span class="toc-text"> When to change dev&#x2F;test sets and metrics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#comparing-to-human-level-performance"><span class="toc-text"> Comparing to Human level performance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#human-level-performance-avoidable-bias"><span class="toc-text"> Human level performance &amp; Avoidable bias</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#improving-your-model-performance"><span class="toc-text"> Improving your model performance</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#error-analysis"><span class="toc-text"> Error Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型可能会出现的错误"><span class="toc-text"> 模型可能会出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据中可能出现的错误"><span class="toc-text"> 数据中可能出现的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-your-first-system-quickly-then-iterate"><span class="toc-text"> Build your first system quickly, then iterate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mismatched-training-and-devtest-set"><span class="toc-text"> Mismatched training and dev&#x2F;test set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#training-and-testing-a-different-distribution"><span class="toc-text"> Training and Testing a different distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bias-and-variance-with-mismatched-data-distribution"><span class="toc-text"> Bias and Variance with mismatched data distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#addressing-data-mismatch"><span class="toc-text"> Addressing data mismatch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#learning-from-multiple-tasks"><span class="toc-text"> Learning from multiple tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#transfer-learning"><span class="toc-text"> Transfer learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#multi-task-learning"><span class="toc-text"> Multi-task learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#end-to-end-dl"><span class="toc-text"> End to End DL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text"> 参考文献</span></a></li></ol></li></ol>
     
     </div>
 </div>

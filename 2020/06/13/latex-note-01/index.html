@@ -174,150 +174,189 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
             
             <div class="post-full-content">
                 <article id="photoswipe" class="markdown-body">
-                    <h1 id="LaTeX-札记（一）——插入动画"><a href="#LaTeX-札记（一）——插入动画" class="headerlink" title="$\LaTeX$札记（一）——插入动画"></a>$\LaTeX$札记（一）——插入动画</h1><blockquote>
+                    <h1 id="latex札记一插入动画"><a class="markdownIt-Anchor" href="#latex札记一插入动画"></a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>札记（一）——插入动画</h1>
+<blockquote>
 <p>⚠新坑警告</p>
 <p>准备把学习LaTeX过程中探索到的一些有用的、好玩的方法都记录下来。</p>
 <p>同时还有新坑：“MATLAB札记”</p>
 </blockquote>
-<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>记得在刚开学的时候，看到一个信号老师公众号，分享了一个其他学校的信号幻灯片。那篇文章的主旨不是讲那个幻灯片怎么样，但我一看发现是用$\LaTeX$写的，居然还说有动画，我就在想这是怎么实现的呢？$\LaTeX$生成的不都是PDF嘛，怎么会动呢？但是我依稀记得，Adobe Acrobat是可以导入swf动画的，所以应该是可以实现的。当时没多想，直到……</p>
+<h2 id="引入"><a class="markdownIt-Anchor" href="#引入"></a> 引入</h2>
+<p>记得在刚开学的时候，看到一个信号老师公众号，分享了一个其他学校的信号幻灯片。那篇文章的主旨不是讲那个幻灯片怎么样，但我一看发现是用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>写的，居然还说有动画，我就在想这是怎么实现的呢？<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>生成的不都是PDF嘛，怎么会动呢？但是我依稀记得，Adobe Acrobat是可以导入swf动画的，所以应该是可以实现的。当时没多想，直到……</p>
 <p>做电磁场实验的时候实验3、4，其实都是动态的过程，一个是电磁波的透射与反射实验、还有一个是电磁波的极化。虽然题目要求的是截三张图即可，但是我还是想试试，在PDF里怎么搞个动画，所以就有了这篇文章。</p>
 <blockquote>
 <p>总体大概是这么些步骤：</p>
 <ul>
-<li><p>Step 0：获得一组动画</p>
+<li>
+<p>Step 0：获得一组动画</p>
 </li>
-<li><p>Step 1：转图片格式</p>
+<li>
+<p>Step 1：转图片格式</p>
 </li>
-<li><p>Step 2：在导言区引入<code>animate</code></p>
+<li>
+<p>Step 2：在导言区引入<code>animate</code></p>
 </li>
-<li><p>Step 3：在正文中使用<code>animate</code>创建动画</p>
+<li>
+<p>Step 3：在正文中使用<code>animate</code>创建动画</p>
 </li>
 </ul>
 </blockquote>
-<h2 id="前期准备——转图片格式"><a href="#前期准备——转图片格式" class="headerlink" title="前期准备——转图片格式"></a>前期准备——转图片格式</h2><h3 id="Step-0：获得一组动画"><a href="#Step-0：获得一组动画" class="headerlink" title="Step 0：获得一组动画"></a>Step 0：获得一组动画</h3><p>这个前期准备可能会是<strong>MATLAB札记</strong>的第一篇文章，会谈谈怎么从MATLAB中导出GIF动画。</p>
+<h2 id="前期准备转图片格式"><a class="markdownIt-Anchor" href="#前期准备转图片格式"></a> 前期准备——转图片格式</h2>
+<h3 id="step-0获得一组动画"><a class="markdownIt-Anchor" href="#step-0获得一组动画"></a> Step 0：获得一组动画</h3>
+<p>这个前期准备可能会是<strong>MATLAB札记</strong>的第一篇文章，会谈谈怎么从MATLAB中导出GIF动画。</p>
 <p><strong>假设我们已经获得了一个GIF动画，或者获得了一组视频，这是前提条件。</strong></p>
-<h3 id="Step-1：转图片格式"><a href="#Step-1：转图片格式" class="headerlink" title="Step 1：转图片格式"></a>Step 1：转图片格式</h3><p>需要注意的是，在$\LaTeX$中使用<code>animate宏包</code>插入的实际上是一组带编号的图像序列，而非是真正意义上的GIF动画或者视频。</p>
+<h3 id="step-1转图片格式"><a class="markdownIt-Anchor" href="#step-1转图片格式"></a> Step 1：转图片格式</h3>
+<p>需要注意的是，在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>中使用<code>animate宏包</code>插入的实际上是一组带编号的图像序列，而非是真正意义上的GIF动画或者视频。</p>
 <p>分不同的格式，可以用两种方法来解决。</p>
-<h4 id="GIF转图片序列"><a href="#GIF转图片序列" class="headerlink" title="GIF转图片序列"></a>GIF转图片序列</h4><p>这里使用的软件叫做 <a href="https://www.imagemagick.org/script/index.php" target="_blank" rel="noopener">ImageMagick</a> ，这是一个开源软件，但是他是使用命令行指令进行操作的。</p>
+<h4 id="gif转图片序列"><a class="markdownIt-Anchor" href="#gif转图片序列"></a> GIF转图片序列</h4>
+<p>这里使用的软件叫做 <a href="https://www.imagemagick.org/script/index.php" target="_blank" rel="noopener">ImageMagick</a> ，这是一个开源软件，但是他是使用命令行指令进行操作的。</p>
 <p>安装好 <code>ImageMagick</code> 之后，我们就可以用它提供的 <code>convert</code> 命令将 GIF 格式的动图逐帧地切分成一系列图片了。假设你的目标图片是 <code>lab031.gif</code>，那么使用如下命令可以得到一系列图片：<code>lab031-0.png</code>, <code>lab031-1.png</code>, <code>lab031-2.png</code>, …</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magick convert lab031.gif -coalesce lab031.png</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magick convert lab031.gif -coalesce lab031.png</span><br></pre></td></tr></table></figure>
 <p><em>值得注意的是，在使用这条指令的时候需要先将命令行定位到GIF动画所在的文件夹目录下，不然也找不到啊。</em></p>
 <p>这样我们就从GIF获得了图片序列。</p>
-<h4 id="视频转图片序列"><a href="#视频转图片序列" class="headerlink" title="视频转图片序列"></a>视频转图片序列</h4><blockquote>
-<p> 关于为什么会出现视频格式：在实验四中，我制作了一个GUI界面，但是GUI界面我并没有找到可以内部录制GIF动画的较好的方法，所以这里只好先录屏，再转图片序列咯。当然还可以再多一步，视频-&gt;GIF（用格式工厂）-&gt;图片序列（用上面的方法）。</p>
+<h4 id="视频转图片序列"><a class="markdownIt-Anchor" href="#视频转图片序列"></a> 视频转图片序列</h4>
+<blockquote>
+<p>关于为什么会出现视频格式：在实验四中，我制作了一个GUI界面，但是GUI界面我并没有找到可以内部录制GIF动画的较好的方法，所以这里只好先录屏，再转图片序列咯。当然还可以再多一步，视频-&gt;GIF（用格式工厂）-&gt;图片序列（用上面的方法）。</p>
 </blockquote>
 <p>这里我使用的是Pr软件。虽然Pr很不稳定，但是还是能用的。这边的操作不复杂，基本不用担心电脑会不会炸。</p>
 <ul>
-<li><p>菜单栏：文件-&gt;导出-&gt;<code>媒体</code></p>
+<li>
+<p>菜单栏：文件-&gt;导出-&gt;<code>媒体</code></p>
 </li>
-<li><p><code>格式</code>中选择PNG，<code>预设</code>不用管</p>
+<li>
+<p><code>格式</code>中选择PNG，<code>预设</code>不用管</p>
 </li>
-<li><p>下面<code>视频</code>选项中，可以在看得清画面的情况将宽，高调的尽量小，防止导出的PNG序列质量太高，导致最终整个PDF的大小太大。</p>
+<li>
+<p>下面<code>视频</code>选项中，可以在看得清画面的情况将宽，高调的尽量小，防止导出的PNG序列质量太高，导致最终整个PDF的大小太大。</p>
 </li>
-<li><p>还是<code>视频</code>选项中，把帧速率设的尽量小，比如我1分半钟的视频，帧速率为1，导出的PNG序列就是90张，过多的图片可能会使PDF中的动画变得更流畅，但是带来的问题就是它的大小会很大。（❗值得注意的是，Pr导出的图像即使画面尺寸不大，大小还是比较大的，所以需要注意一下图像质量和帧率的问题）</p>
-<p><img alt="视频转序列" class="post-img b-lazy" data-img="/%E8%A7%86%E9%A2%91%E8%BD%AC%E5%BA%8F%E5%88%97.png" data-index="0" data-src="/%E8%A7%86%E9%A2%91%E8%BD%AC%E5%BA%8F%E5%88%97.png"></p>
+<li>
+<p>还是<code>视频</code>选项中，把帧速率设的尽量小，比如我1分半钟的视频，帧速率为1，导出的PNG序列就是90张，过多的图片可能会使PDF中的动画变得更流畅，但是带来的问题就是它的大小会很大。（❗值得注意的是，Pr导出的图像即使画面尺寸不大，大小还是比较大的，所以需要注意一下图像质量和帧率的问题）</p>
+<p><img alt="视频转序列" class="post-img b-lazy" data-img="/2020/06/13/latex-note-01/%E8%A7%86%E9%A2%91%E8%BD%AC%E5%BA%8F%E5%88%97.png" data-index="0" data-src="/2020/06/13/latex-note-01/%E8%A7%86%E9%A2%91%E8%BD%AC%E5%BA%8F%E5%88%97.png"></p>
 </li>
 </ul>
 <p>当然格式工厂的方法也是可行的，但格式工厂对于视频的质量压缩的实在是太多了。</p>
-<img alt="格式工厂1" style="zoom: 50%;" class="post-img b-lazy" data-img="/格式工厂1.png" data-index="1" data-src="/格式工厂1.png">
-
-
-
-<h2 id="关键步骤——animate宏包的使用"><a href="#关键步骤——animate宏包的使用" class="headerlink" title="关键步骤——animate宏包的使用"></a>关键步骤——<code>animate宏包</code>的使用</h2><h3 id="Step-2：在导言区引入animate"><a href="#Step-2：在导言区引入animate" class="headerlink" title="Step 2：在导言区引入animate"></a>Step 2：在导言区引入<code>animate</code></h3><p>和其它宏包一样，在 $\LaTeX$的导言区中使用 <code>\usepackage[&lt;options&gt;]&#123;animate&#125;</code> 即可引入 <code>animate</code> 宏包。</p>
+<img alt="格式工厂1" style="zoom: 50%;" class="post-img b-lazy" data-img="/2020/06/13/latex-note-01/格式工厂1.png" data-index="1" data-src="/2020/06/13/latex-note-01/格式工厂1.png">
+<h2 id="关键步骤animate宏包的使用"><a class="markdownIt-Anchor" href="#关键步骤animate宏包的使用"></a> 关键步骤——<code>animate宏包</code>的使用</h2>
+<h3 id="step-2在导言区引入animate"><a class="markdownIt-Anchor" href="#step-2在导言区引入animate"></a> Step 2：在导言区引入<code>animate</code></h3>
+<p>和其它宏包一样，在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>的导言区中使用 <code>\usepackage[&lt;options&gt;]{animate}</code> 即可引入 <code>animate</code> 宏包。</p>
 <p>❗值得注意的是</p>
 <ul>
 <li>必须在引入 <code>animate</code> 宏包之前，引入 <code>graphicx</code> 宏包。</li>
 <li>使用 <code>animate</code> 宏包创建动画，也需要两次编译（第一次创建 JavaScript 内容，第二次在具体位置插入内容），这是由于交叉引用导致的。</li>
 </ul>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 在导言区插入以下代码</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;animate&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Step-3：在正文中使用animate创建动画"><a href="#Step-3：在正文中使用animate创建动画" class="headerlink" title="Step 3：在正文中使用animate创建动画"></a>Step 3：在正文中使用<code>animate</code>创建动画</h3><p><code>animate</code>提供的 <code>\animategraphics</code>语句用于在LaTeX中插入一组PNG序列。其基本应用形式为</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\animategraphics</span>[&lt;options&gt;]&#123;&lt;frame rate&gt;&#125;&#123;&lt;file basename&gt;&#125;&#123;&lt;first&gt;&#125;&#123;&lt;last&gt;&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 在导言区插入以下代码</span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;graphicx&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;animate&#125;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="step-3在正文中使用animate创建动画"><a class="markdownIt-Anchor" href="#step-3在正文中使用animate创建动画"></a> Step 3：在正文中使用<code>animate</code>创建动画</h3>
+<p><code>animate</code>提供的 <code>\animategraphics</code>语句用于在LaTeX中插入一组PNG序列。其基本应用形式为</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">animategraphics</span><span class="string">[&lt;options&gt;]</span><span class="string">&#123;&lt;frame rate&gt;&#125;</span><span class="string">&#123;&lt;file basename&gt;&#125;</span><span class="string">&#123;&lt;first&gt;&#125;</span><span class="string">&#123;&lt;last&gt;&#125;</span></span></span><br></pre></td></tr></table></figure>
 <p>这个命令的使用其实和普通插入图片的指令<code>\includegraphics</code>和插入小图的<code>\subfigure</code>的应用场景是一致的。就是嵌套在<code>figure</code>环境中使用。</p>
-<h4 id="各成分的含义："><a href="#各成分的含义：" class="headerlink" title="各成分的含义："></a>各成分的含义：</h4><ul>
-<li><p><code>&lt;frame rate&gt;</code>：帧速率，差不多就是帧率的意思，即一秒钟多少张PNG</p>
+<h4 id="各成分的含义"><a class="markdownIt-Anchor" href="#各成分的含义"></a> 各成分的含义：</h4>
+<ul>
+<li>
+<p><code>&lt;frame rate&gt;</code>：帧速率，差不多就是帧率的意思，即一秒钟多少张PNG</p>
 </li>
-<li><p><code>&lt;file basename&gt;</code>：图片序列前缀</p>
+<li>
+<p><code>&lt;file basename&gt;</code>：图片序列前缀</p>
 </li>
-<li><p><code>&lt;first&gt;</code>和<code>&lt;last&gt;</code>：图片序列序号范围</p>
+<li>
+<p><code>&lt;first&gt;</code>和<code>&lt;last&gt;</code>：图片序列序号范围</p>
 <ul>
 <li>❗使用 ImageMagick和Pr导出的图片序列编号类型并不一样，但是无伤大雅。ImageMagick导出的是自然数编号（例如1-90），而Pr导出的是固定位数编号（例如00-90，或者000-121）之类的。填写这两个{}内容是尊重事实即可，不需要做出调整。</li>
 </ul>
 </li>
-<li><p><code>&lt;options&gt;</code>：可选项（摘自<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">参考文献2</a>，见下面叙述）</p>
+<li>
+<p><code>&lt;options&gt;</code>：可选项（摘自<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">参考文献2</a>，见下面叙述）</p>
 </li>
 </ul>
-<h4 id="部分可选项"><a href="#部分可选项" class="headerlink" title="部分可选项"></a>部分可选项</h4><blockquote>
+<h4 id="部分可选项"><a class="markdownIt-Anchor" href="#部分可选项"></a> 部分可选项</h4>
+<blockquote>
 <ul>
-<li><p><strong>只能用于接口的选项</strong></p>
+<li>
+<p><strong>只能用于接口的选项</strong></p>
 <p>这里的接口指的是 <code>animate</code> 宏包提供的用户接口。例如我们已经见过的 <code>\animategraphics</code> 命令，以及下一节会介绍的 <code>animateinline</code> 环境。</p>
 </li>
-<li><p><code>label=&lt;label text&gt;</code>：为 <code>animate</code> 对象指定唯一的标签，可用于之后的 JavaScript 控制。</p>
+<li>
+<p><code>label=&lt;label text&gt;</code>：为 <code>animate</code> 对象指定唯一的标签，可用于之后的 JavaScript 控制。</p>
 </li>
-<li><p><code>every=&lt;num&gt;</code>：只为每个第 <code>&lt;num&gt;</code> 帧构建动画，而忽略剩余的帧。</p>
+<li>
+<p><code>every=&lt;num&gt;</code>：只为每个第 <code>&lt;num&gt;</code> 帧构建动画，而忽略剩余的帧。</p>
 </li>
-<li><p><strong>二者皆适用的选项</strong></p>
+<li>
+<p><strong>二者皆适用的选项</strong></p>
 <ul>
 <li><code>type=&lt;type name&gt;</code>：使用指定的图片类型（而不按照前面提到的顺序搜索）。</li>
 </ul>
 </li>
-<li><p><code>poster[= first | &lt;num&gt; | last | none]</code>：指定用于打印和默认展示的动画帧，默认是第一帧。</p>
+<li>
+<p><code>poster[= first | &lt;num&gt; | last | none]</code>：指定用于打印和默认展示的动画帧，默认是第一帧。</p>
 </li>
-<li><p><code>autopause</code>：当动画所在页不再呈现时，自动暂停动画。</p>
+<li>
+<p><code>autopause</code>：当动画所在页不再呈现时，自动暂停动画。</p>
 </li>
-<li><p><code>autoresume</code>：当被暂停的动画重新呈现时，自动恢复播放。</p>
+<li>
+<p><code>autoresume</code>：当被暂停的动画重新呈现时，自动恢复播放。</p>
 </li>
-<li><p><code>autoplay</code>：当动画所在页在 PDF 阅读器中呈现时，自动播放动画。</p>
+<li>
+<p><code>autoplay</code>：当动画所在页在 PDF 阅读器中呈现时，自动播放动画。</p>
 </li>
-<li><p><code>loop</code>：播放到最后一帧时，从第一帧开始继续播放；如此往复。</p>
+<li>
+<p><code>loop</code>：播放到最后一帧时，从第一帧开始继续播放；如此往复。</p>
 </li>
-<li><p><code>palindrome</code>：播放到最后一帧时，逐帧倒退；如此往复。</p>
+<li>
+<p><code>palindrome</code>：播放到最后一帧时，逐帧倒退；如此往复。</p>
 </li>
-<li><p><code>step</code>：忽略 <code>frame rate</code>，只在每次点击鼠标时播放一帧。</p>
+<li>
+<p><code>step</code>：忽略 <code>frame rate</code>，只在每次点击鼠标时播放一帧。</p>
 </li>
-<li><p><code>width=&lt;h-size&gt;, height=&lt;v-size&gt;, totalheight=&lt;v-size&gt;, keepaspectratio</code>：按绝对长度缩放动画的大小。</p>
+<li>
+<p><code>width=&lt;h-size&gt;, height=&lt;v-size&gt;, totalheight=&lt;v-size&gt;, keepaspectratio</code>：按绝对长度缩放动画的大小。</p>
 </li>
-<li><p><code>scale=&lt;factor&gt;</code>：按比例缩放动画的大小。</p>
+<li>
+<p><code>scale=&lt;factor&gt;</code>：按比例缩放动画的大小。</p>
 </li>
-<li><p><code>controls</code>：展示用于控制动画的按钮。</p>
+<li>
+<p><code>controls</code>：展示用于控制动画的按钮。</p>
 </li>
-<li><p><code>begin=&lt;begin content&gt;</code></p>
+<li>
+<p><code>begin=&lt;begin content&gt;</code></p>
 </li>
 </ul>
 </blockquote>
-<h2 id="例子（来自电磁场实验3）"><a href="#例子（来自电磁场实验3）" class="headerlink" title="例子（来自电磁场实验3）"></a>例子（来自电磁场实验3）</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 导言区引用以下代码</span></span><br><span class="line"><span class="comment">% \usepackage&#123;graphicx&#125;</span></span><br><span class="line"><span class="comment">% \usepackage&#123;animate&#125;</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\animategraphics</span>[autoplay,loop,controls,width=.7<span class="keyword">\textwidth</span>]&#123;24&#125;&#123;./lab032/lab032-&#125;&#123;0&#125;&#123;361&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;向理想导体垂直入射随相位变化的GIF动画&#125;	</span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:gif2&#125;	</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码表示帧率为24帧每秒，它的文件来源于图片目录下的lab032文件夹中<code>lab032-</code>为前缀的图片序列，共有0-361总共362张图组成。同时，它具有自动播放、重复播放、具有控制按钮这三个选项，同时所占页宽为0.7倍页宽。下面三张图体现了从GIF到PNG序列再到$\LaTeX$中文件的变化。</p>
-<p><img alt="lab032" class="post-img b-lazy" data-img="/lab032.gif" data-index="2" data-src="/lab032.gif"></p>
-<p><img alt="lab032图片序列" class="post-img b-lazy" data-img="/lab032%E5%9B%BE%E7%89%87%E5%BA%8F%E5%88%97.png" data-index="3" data-src="/lab032%E5%9B%BE%E7%89%87%E5%BA%8F%E5%88%97.png"></p>
-<p><img alt="EDA_WF_03" class="post-img b-lazy" data-img="/EDA_WF_03.gif" data-index="4" data-src="/EDA_WF_03.gif"></p>
+<h2 id="例子来自电磁场实验3"><a class="markdownIt-Anchor" href="#例子来自电磁场实验3"></a> 例子（来自电磁场实验3）</h2>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 导言区引用以下代码</span></span><br><span class="line"><span class="comment">% \usepackage&#123;graphicx&#125;</span></span><br><span class="line"><span class="comment">% \usepackage&#123;animate&#125;</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[htbp]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">centering</span></span></span><br><span class="line">    <span class="tag">\<span class="name">animategraphics</span><span class="string">[autoplay,loop,controls,width=.7\textwidth]</span><span class="string">&#123;24&#125;</span><span class="string">&#123;./lab032/lab032-&#125;</span><span class="string">&#123;0&#125;</span><span class="string">&#123;361&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">caption</span><span class="string">&#123;向理想导体垂直入射随相位变化的GIF动画&#125;</span></span>	</span><br><span class="line">    <span class="tag">\<span class="name">label</span><span class="string">&#123;fig:gif2&#125;</span></span>	</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>这段代码表示帧率为24帧每秒，它的文件来源于图片目录下的lab032文件夹中<code>lab032-</code>为前缀的图片序列，共有0-361总共362张图组成。同时，它具有自动播放、重复播放、具有控制按钮这三个选项，同时所占页宽为0.7倍页宽。下面三张图体现了从GIF到PNG序列再到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>中文件的变化。</p>
+<p><img alt="lab032" class="post-img b-lazy" data-img="/2020/06/13/latex-note-01/lab032.gif" data-index="2" data-src="/2020/06/13/latex-note-01/lab032.gif"></p>
+<p><img alt="lab032图片序列" class="post-img b-lazy" data-img="/2020/06/13/latex-note-01/lab032%E5%9B%BE%E7%89%87%E5%BA%8F%E5%88%97.png" data-index="3" data-src="/2020/06/13/latex-note-01/lab032%E5%9B%BE%E7%89%87%E5%BA%8F%E5%88%97.png"></p>
+<p><img alt="EDA_WF_03" class="post-img b-lazy" data-img="/2020/06/13/latex-note-01/EDA_WF_03.gif" data-index="4" data-src="/2020/06/13/latex-note-01/EDA_WF_03.gif"></p>
 <p>（这个格式工厂转的有点问题）</p>
 <p>下面这一排按钮不出意外的话，分别表示⏮回到开头，⏪上一帧，⏸暂停（长按才行，不然只会顿一下），⏩下一帧，⏭最后一帧，后三个按钮分别是➖降低帧率、🔛恢复设定的帧率、➕提高帧率。</p>
-<h2 id="一些注意事项"><a href="#一些注意事项" class="headerlink" title="一些注意事项"></a>一些注意事项</h2><ol>
-<li><p>这个功能稍有点复杂，但是应用起来的效果还是很不错的。但是这个功能还是很鸡肋的。这个需要支持Javascript的PDF阅读器，网上整理的有这些</p>
+<h2 id="一些注意事项"><a class="markdownIt-Anchor" href="#一些注意事项"></a> 一些注意事项</h2>
+<ol>
+<li>
+<p>这个功能稍有点复杂，但是应用起来的效果还是很不错的。但是这个功能还是很鸡肋的。这个需要支持Javascript的PDF阅读器，网上整理的有这些</p>
 <ul>
-<li><p>Adobe Acrobat &#x2F; Reader</p>
+<li>
+<p>Adobe Acrobat / Reader</p>
 </li>
-<li><p>PDF-XChange</p>
+<li>
+<p>PDF-XChange</p>
 </li>
-<li><p>Foxit Reader</p>
+<li>
+<p>Foxit Reader</p>
 </li>
 </ul>
-<p>我目前主要使用的是Adobe Acrobat DC，所以打开没问题。但我vscode里$\LaTeX$环境配套的Sumatra PDF就根本无法播放这个动画。所以很大程度上只能自娱自乐。</p>
+<p>我目前主要使用的是Adobe Acrobat DC，所以打开没问题。但我vscode里<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>环境配套的Sumatra PDF就根本无法播放这个动画。所以很大程度上只能自娱自乐。</p>
 <p>还有同学指出福昕阅读器对于这个的支持也不是很好，一卡一卡的。还有人用iPad上的PDF Expert打开直接死机。所以不到迫不得已我也不会用。</p>
 </li>
-<li><p>这个功能用在$\LaTeX$制作Beamer过程中应该还是很不错的。可以在幻灯片中清楚的显示动画效果。</p>
+<li>
+<p>这个功能用在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>制作Beamer过程中应该还是很不错的。可以在幻灯片中清楚的显示动画效果。</p>
 </li>
-<li><p>不是很推荐用格式工厂转，噪点奇多无比，可以试试网上的一些在线转换工具。</p>
+<li>
+<p>不是很推荐用格式工厂转，噪点奇多无比，可以试试网上的一些在线转换工具。</p>
 </li>
 </ol>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li>林特斯9527.LaTeX 中插入GIF图片[EB&#x2F;OL].<a href="https://www.cnblogs.com/LinTeX9527/p/11122268.html" target="_blank" rel="noopener">https://www.cnblogs.com/LinTeX9527/p/11122268.html</a>.2019-07-02&#x2F;2020-05-12 .</li>
-<li>始终.LaTeX 黑魔法（四）：插入动画（animate 宏包教程）[EB&#x2F;OL].<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">https://liam.page/2017/08/10/importing-animate-in-LaTeX/</a>.2017-08-10&#x2F;2020-05-12.</li>
+<h2 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h2>
+<ol>
+<li>林特斯9527.LaTeX 中插入GIF图片[EB/OL].<a href="https://www.cnblogs.com/LinTeX9527/p/11122268.html" target="_blank" rel="noopener">https://www.cnblogs.com/LinTeX9527/p/11122268.html</a>.2019-07-02/2020-05-12 .</li>
+<li>始终.LaTeX 黑魔法（四）：插入动画（animate 宏包教程）[EB/OL].<a href="https://liam.page/2017/08/10/importing-animate-in-LaTeX/" target="_blank" rel="noopener">https://liam.page/2017/08/10/importing-animate-in-LaTeX/</a>.2017-08-10/2020-05-12.</li>
 </ol>
 
                 </article>
@@ -406,7 +445,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
     </div>
     <div class="toc-main">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LaTeX-札记（一）——插入动画"><span class="toc-text">$\LaTeX$札记（一）——插入动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前期准备——转图片格式"><span class="toc-text">前期准备——转图片格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-0：获得一组动画"><span class="toc-text">Step 0：获得一组动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1：转图片格式"><span class="toc-text">Step 1：转图片格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GIF转图片序列"><span class="toc-text">GIF转图片序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视频转图片序列"><span class="toc-text">视频转图片序列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键步骤——animate宏包的使用"><span class="toc-text">关键步骤——animate宏包的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2：在导言区引入animate"><span class="toc-text">Step 2：在导言区引入animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3：在正文中使用animate创建动画"><span class="toc-text">Step 3：在正文中使用animate创建动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#各成分的含义："><span class="toc-text">各成分的含义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分可选项"><span class="toc-text">部分可选项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子（来自电磁场实验3）"><span class="toc-text">例子（来自电磁场实验3）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些注意事项"><span class="toc-text">一些注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#latex札记一插入动画"><span class="toc-text"> LaTeX\LaTeXLATE​X札记（一）——插入动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-text"> 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前期准备转图片格式"><span class="toc-text"> 前期准备——转图片格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step-0获得一组动画"><span class="toc-text"> Step 0：获得一组动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-1转图片格式"><span class="toc-text"> Step 1：转图片格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gif转图片序列"><span class="toc-text"> GIF转图片序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视频转图片序列"><span class="toc-text"> 视频转图片序列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键步骤animate宏包的使用"><span class="toc-text"> 关键步骤——animate宏包的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#step-2在导言区引入animate"><span class="toc-text"> Step 2：在导言区引入animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#step-3在正文中使用animate创建动画"><span class="toc-text"> Step 3：在正文中使用animate创建动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#各成分的含义"><span class="toc-text"> 各成分的含义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分可选项"><span class="toc-text"> 部分可选项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子来自电磁场实验3"><span class="toc-text"> 例子（来自电磁场实验3）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些注意事项"><span class="toc-text"> 一些注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text"> 参考文献</span></a></li></ol></li></ol>
     
     </div>
 </div>
