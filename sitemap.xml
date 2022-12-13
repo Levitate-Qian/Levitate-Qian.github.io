@@ -430,13 +430,6 @@
   </url>
   
   <url>
-    <loc>https://levitate-qian.github.io/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://levitate-qian.github.io/tags/AI/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -459,13 +452,6 @@
   
   <url>
     <loc>https://levitate-qian.github.io/tags/%E5%A4%A7%E5%AD%A6/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://levitate-qian.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -507,21 +493,14 @@
   </url>
   
   <url>
+    <loc>https://levitate-qian.github.io/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://levitate-qian.github.io/tags/MATLAB/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://levitate-qian.github.io/tags/iPad/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://levitate-qian.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -542,7 +521,14 @@
   </url>
   
   <url>
-    <loc>https://levitate-qian.github.io/tags/MIMO/</loc>
+    <loc>https://levitate-qian.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://levitate-qian.github.io/tags/iPad/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -556,7 +542,21 @@
   </url>
   
   <url>
+    <loc>https://levitate-qian.github.io/tags/MIMO/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://levitate-qian.github.io/tags/%E9%A2%84%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://levitate-qian.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -572,13 +572,6 @@
   </url>
   
   <url>
-    <loc>https://levitate-qian.github.io/categories/%E5%AE%9E%E9%AA%8C/</loc>
-    <lastmod>2022-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://levitate-qian.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -587,6 +580,13 @@
   
   <url>
     <loc>https://levitate-qian.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://levitate-qian.github.io/categories/%E5%AE%9E%E9%AA%8C/</loc>
     <lastmod>2022-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
