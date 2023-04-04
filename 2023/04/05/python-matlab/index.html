@@ -178,7 +178,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <p>最近科研中需要联合使用Python和MATLAB，所以写下这篇博客记录一下中间踩坑的历程，也希望能对后续的有相同疑惑的同学有所帮助吧~</p>
 <h2 id="缘起"><a class="markdownIt-Anchor" href="#缘起"></a> 缘起</h2>
 <p>目前的项目需要搭建一个搭建一个多用户MIMO-OFDM上行链路的系统（当然不只是基本的系统，多的和这个问题没多大关系，就不说了），并且在其中应用AI对其中的部分模块进行深度学习训练，或者对多模块进行联合优化。</p>
-<p>我们知道MATLAB中有5g对应的包，安装后拥有丰富的库函数实现5gnr链路级仿真的各个功能。（当然我们也尝试过<a href="https://github.com/NVlabs/sionna" target="_blank" rel="noopener">sionna</a>，但是部分模块感觉总有点问题，而且他是用tensorflow写的，有点反人类。）因此，我们非AI的基线使用MATLAB写成。</p>
+<p>我们知道MATLAB中有<a href="https://ww2.mathworks.cn/products/5g.html" target="_blank" rel="noopener">5g对应的toolbox</a>，安装后拥有丰富的库函数实现5gnr链路级仿真的各个功能。（当然我们也尝试过<a href="https://github.com/NVlabs/sionna" target="_blank" rel="noopener">sionna</a>，但是部分模块感觉总有点问题，而且他是用tensorflow写的，有点反人类。）因此，我们非AI的基线使用MATLAB写成。</p>
 <p>但我们的项目中需要“深度学习”的加入，而MATLAB对深度学习的支持还不是非常的完善。所以我们选用Pytorch进行部分“黑盒/半黑盒”网络的训练。</p>
 <p><strong>于是，如何将Pytorch中训练好的网络同MATLAB搭建好的系统就是一个大问题！</strong></p>
 <p>下面首先介绍一下“Python和MATLAB协同操作的方式”，接着叙述一下目前采取的方式和其中的坑。</p>
@@ -310,6 +310,39 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
     </div>
     
     
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>【科研札记】Python和MATLAB的协同使用</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2023年04月04日 - 20:41:37</p>
+  <p><span>原始链接:</span><a href="/2023/04/05/python-matlab/" title="【科研札记】Python和MATLAB的协同使用">https://levitate-qian.github.io/2023/04/05/python-matlab/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2023/04/05/python-matlab/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
     
     
 
