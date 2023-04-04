@@ -279,7 +279,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <p>【函数和句柄类的改写】参考第二部分</p>
 </li>
 <li>
-<p>【数据的转换】<a href="https://ww2.mathworks.cn/help/matlab/matlab-engine-for-python.html" target="_blank" rel="noopener">从 Python 中调用 MATLAB - MATLAB &amp; Simulink - MathWorks 中国</a>，可以参考下面这几个文档，其实最常用的就是把list转换为matlab数组格式<code>matlab.double(XXX)</code>，复数的话记得变成<code>matlab.double(XXX, is_complex*=True)</code>，如果你之前是numpy格式，那么需要先变成list（r2023a貌似不需要这一步了），即<code>matlab.double(XXX.tolist(), *is_complex*=True)</code>，如果是cuda上torch的tensor的话那就再加一步<code>XXX.cpu().detach().numpy()</code>。<br>
+<p>【数据的转换】<a href="https://ww2.mathworks.cn/help/matlab/matlab-engine-for-python.html" target="_blank" rel="noopener">从 Python 中调用 MATLAB - MATLAB &amp; Simulink - MathWorks 中国</a>，可以参考下面这几个文档，其实最常用的就是把list转换为matlab数组格式<code>matlab.double(XXX)</code>，复数的话记得变成<code>matlab.double(XXX, is_complex=True)</code>，如果你之前是numpy格式，那么需要先变成list（r2023a貌似不需要这一步了），即<code>matlab.double(XXX.tolist(), is_complex=True)</code>，如果是cuda上torch的tensor的话那就再加一步<code>XXX.cpu().detach().numpy()</code>。<br>
 <img alt="image-20230404212334542" class="post-img b-lazy" data-img="/2023/04/05/python-matlab/image-20230404212334542.png" data-index="1" data-src="/2023/04/05/python-matlab/image-20230404212334542.png"></p>
 </li>
 </ul>
@@ -289,7 +289,7 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
 <li>【小坑】注意matlab有多个输出时，需要加上l类似<code>nargout=3</code>这样的选项。</li>
 <li>【小坑】如果想把python类传给matlab作为matlab句柄类，里面的数据中不能出现numpy格式（r2023a可能没有这个问题了），请在需要回传给matlab的类中使用list存储数据。</li>
 <li>【技巧】一些懒得改写的matlab代码（如自己也搞不清维度的reshape，各种matlab库函数的操作），其实可以自行封装成一个函数，直接调用你封装的函数即可</li>
-<li>【技巧】matlab.double类型数组转化成numpy格式，直接<code>np.array(XXX, *dtype*=np.complex64)</code></li>
+<li>【技巧】matlab.double类型数组转化成numpy格式，直接<code>np.array(XXX, dtype=np.complex64)</code></li>
 <li>【技巧】numpy官方提供了matlab入门numpy用法的指南，改写可以参考<a href="https://numpy.org/doc/1.23/user/numpy-for-matlab-users.html" target="_blank" rel="noopener">NumPy for MATLAB users — NumPy v1.23 Manual</a></li>
 <li>【最大的技巧】<strong>勤问new bing！</strong> 真的很强，甚至可以帮你改写代码！</li>
 </ul>
