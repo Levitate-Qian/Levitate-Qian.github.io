@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【科研札记】Python和MATLAB的协同使用 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【科研札记】Python和MATLAB的协同使用 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2023/04/05/python-matlab/">
+
+	
+	<meta property="article:published_time" content="2023-04-04T20:04:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2023/04/05/python-matlab/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/22378236" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2023-04-04T20:41:37.000Z">
+                    2023-04-04
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【科研札记】Python和MATLAB的协同使用</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2023/04/04/pp5VTbt.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="python和matlab的协同使用"><a class="markdownIt-Anchor" href="#python和matlab的协同使用"></a> Python和MATLAB的协同使用</h1>
+<p>最近科研中需要联合使用Python和MATLAB，所以写下这篇博客记录一下中间踩坑的历程，也希望能对后续的有相同疑惑的同学有所帮助吧~</p>
+<h2 id="缘起"><a class="markdownIt-Anchor" href="#缘起"></a> 缘起</h2>
+<p>目前的项目需要搭建一个搭建一个多用户MIMO-OFDM上行链路的系统（当然不只是基本的系统，多的和这个问题没多大关系，就不说了），并且在其中应用AI对其中的部分模块进行深度学习训练，或者对多模块进行联合优化。</p>
+<p>我们知道MATLAB中有5g对应的包，安装后拥有丰富的库函数实现5gnr链路级仿真的各个功能。（当然我们也尝试过<a href="https://github.com/NVlabs/sionna" target="_blank" rel="noopener">sionna</a>，但是部分模块感觉总有点问题，而且他是用tensorflow写的，有点反人类。）因此，我们非AI的基线使用MATLAB写成。</p>
+<p>但我们的项目中需要“深度学习”的加入，而MATLAB对深度学习的支持还不是非常的完善。所以我们选用Pytorch进行部分“黑盒/半黑盒”网络的训练。</p>
+<p><strong>于是，如何将Pytorch中训练好的网络同MATLAB搭建好的系统就是一个大问题！</strong></p>
+<p>下面首先介绍一下“Python和MATLAB协同操作的方式”，接着叙述一下目前采取的方式和其中的坑。</p>
+<h2 id="协同方式"><a class="markdownIt-Anchor" href="#协同方式"></a> 协同方式</h2>
+<p>首先介绍一下，Python和MATLAB协同操作的方式，主要包含两大类：</p>
+<ul>
+<li>Matlab应用于Python——即在Python函数中调用MATLAB代码</li>
+<li>Python应用于Matlab——即在MATLAB中调用已经训练好的tensorflow/pytorch/onnx</li>
+</ul>
+<h3 id="matlab应用于python"><a class="markdownIt-Anchor" href="#matlab应用于python"></a> Matlab应用于Python</h3>
+<h4 id="两种思路"><a class="markdownIt-Anchor" href="#两种思路"></a> 两种思路</h4>
+<ol>
+<li>在python中使用<code>matlab.engine</code>，即使用MATLAB Engine API for Python，实际上调用matlab本身。</li>
+<li>将matlab函数单独打包为python库进行安装，即使用MATLAB Compiler SDK，实际上调用matlab runtime。</li>
+</ol>
+<p>但是两者存在至关重要的区别</p>
+<ul>
+<li>MATLAB Engine API for Python 允许使用工作区(workspace)，而 MATLAB Compiler SDK for Python 没有。因此，不能使用 MATLAB  Compiler SDK for Python 调用 MATLAB 类（句柄）</li>
+<li>而我们的代码中存在大量的matlab类，如解码等</li>
+</ul>
+<p>因此目前主要考虑使用MATLAB Engine API，其基本使用方法如<a href="https://ww2.mathworks.cn/help/matlab/matlab-engine-for-python.html?s_tid=CRUX_lftnav" target="_blank" rel="noopener">文档</a>所示，matlab R2022a只支持Python 2.7/3.8/3.9。目前已基本测试能够在python中完成目前SIP的非AI系统matlab代码中的模块，且结果正确。后续迁移过程中，只是需要一定的<a href="https://ww2.mathworks.cn/help/matlab/matlab_external/matlab-arrays-as-python-variables.html" target="_blank" rel="noopener">数据类型转换</a>。</p>
+<p>目前主要存在的问题是，不论是调用<code>matlab.engine</code>还是使用Compiler SDK，在python看来，matlab代码部分类似于一个黑盒，无法实施反向传播，还没有找到很好的解决方式。</p>
+<h4 id="两个例子"><a class="markdownIt-Anchor" href="#两个例子"></a> 两个例子</h4>
+<h5 id="nrulschdecoder_llrmatlab句柄类"><a class="markdownIt-Anchor" href="#nrulschdecoder_llrmatlab句柄类"></a> <code>nrULSCHDecoder_llr</code>——MATLAB句柄（类）</h5>
+<ol>
+<li>
+<p>engine API（类里面的function带点的不能用，需要在method中定义新函数以改变内部的property，.m文件需在同一文件夹下）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matlab.engine</span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> sio</span><br><span class="line">L_emap111 = sio.loadmat(<span class="string">'D:/MATLAB_drive/5g_local/Baseline/sip_qpsk_449/nrULSCHDecoder_llr/for_redistribution_files_only/L_Emap.mat'</span>)[<span class="string">'L_emap111'</span>]</span><br><span class="line">L_emap111=matlab.double(L_emap111.tolist())</span><br><span class="line"></span><br><span class="line">eng = matlab.engine.start_matlab()</span><br><span class="line">decodeULSCH = eng.nrULSCHDecoder_llr()</span><br><span class="line">eng.setTargetCodeRate(decodeULSCH,<span class="number">0.587890625</span>,nargout=<span class="number">0</span>)</span><br><span class="line">eng.setLDPCDecodingAlgorithm(decodeULSCH,<span class="string">'Belief propagation'</span>,nargout=<span class="number">0</span>)</span><br><span class="line">eng.setMaximumLDPCIterationCount(decodeULSCH,<span class="number">40</span>,nargout=<span class="number">0</span>)</span><br><span class="line">eng.setTransportBlockLength(decodeULSCH,<span class="number">2976</span>,nargout=<span class="number">0</span>)</span><br><span class="line">a = eng.step(decodeULSCH,L_emap111,<span class="string">'QPSK'</span>,<span class="number">1</span>,<span class="number">0</span>,nargout=<span class="number">4</span>)</span><br><span class="line">print(a[<span class="number">0</span>].size)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Compiler SDK——不支持</p>
+</li>
+</ol>
+<h5 id="nrequalizemmse_itermatlab函数"><a class="markdownIt-Anchor" href="#nrequalizemmse_itermatlab函数"></a> <code>nrEqualizeMMSE_iter</code>——MATLAB函数</h5>
+<ol>
+<li>engine API</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> sio</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matlab.engine</span><br><span class="line">eng = matlab.engine.start_matlab()</span><br><span class="line"></span><br><span class="line">h = sio.loadmat(<span class="string">'D:/MATLAB_drive/5g_local/Baseline/sip_qpsk_449/puschHest.mat'</span>)[<span class="string">'h'</span>]</span><br><span class="line">rx4Eq_iter = sio.loadmat(<span class="string">'D:/MATLAB_drive/5g_local/Baseline/sip_qpsk_449/rx4Eq_iter.mat'</span>)[<span class="string">'rx4Eq_iter'</span>]</span><br><span class="line"></span><br><span class="line">h=matlab.double(h.tolist(), is_complex=<span class="literal">True</span>)</span><br><span class="line">rx4Eq_iter=matlab.double(rx4Eq_iter.tolist(), is_complex=<span class="literal">True</span>)</span><br><span class="line">t =eng.nrEqualizeMMSE_iter(rx4Eq_iter,h,<span class="number">0.0355</span>,nargout=<span class="number">2</span>)</span><br><span class="line">print(t[<span class="number">0</span>].size)</span><br><span class="line">print(eng.mean(t[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Compiler SDK</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nrEqualizeMMSE_iter</span><br><span class="line"><span class="keyword">import</span> matlab</span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> sio</span><br><span class="line"></span><br><span class="line">a = nrEqualizeMMSE_iter.initialize()</span><br><span class="line">h = sio.loadmat(<span class="string">'D:/MATLAB_drive/5g_local/Baseline/sip_qpsk_449/puschHest.mat'</span>)[<span class="string">'h'</span>]</span><br><span class="line">rx4Eq_iter = sio.loadmat(<span class="string">'D:/MATLAB_drive/5g_local/Baseline/sip_qpsk_449/rx4Eq_iter.mat'</span>)[<span class="string">'rx4Eq_iter'</span>]</span><br><span class="line"></span><br><span class="line">h=matlab.double(h.tolist(), is_complex=<span class="literal">True</span>)</span><br><span class="line">rx4Eq_iter=matlab.double(rx4Eq_iter.tolist(), is_complex=<span class="literal">True</span>)</span><br><span class="line">t =a.nrEqualizeMMSE_iter(rx4Eq_iter,h,<span class="number">0.0355</span>,nargout=<span class="number">2</span>)</span><br><span class="line">print(t[<span class="number">0</span>].size)</span><br><span class="line"></span><br><span class="line">a.terminate()</span><br></pre></td></tr></table></figure>
+<h3 id="python应用于matlab"><a class="markdownIt-Anchor" href="#python应用于matlab"></a> Python应用于Matlab</h3>
+<p>基本的思路有三种，但各有利弊：</p>
+<ul>
+<li>Using models created in MATLAB using <a href="https://www.mathworks.com/products/deep-learning.html" target="_blank" rel="noopener">Deep Learning Toolbox™</a></li>
+<li><a href="https://www.mathworks.com/help/deeplearning/deep-learning-import-and-export.html" target="_blank" rel="noopener">Converting</a> models from other frameworks into MATLAB</li>
+<li>Co-executing models from other frameworks with MATLAB</li>
+</ul>
+<p>例如matlab也提供了通信中的<a href="https://github.com/matlab-deep-learning/CSINet-Channel-Compression-in-MATLAB-Using-Keras" target="_blank" rel="noopener">CSINet</a>将Tensorflow框架和Matlab框架协同处理的方式，但matlab在其中的功能也仅是生成信道和仿真，matlab并未牵涉到反向传播的问题。</p>
+<p><img alt="灰色为keras处理，蓝色为matlab处理" class="post-img b-lazy" data-img="/2023/04/05/python-matlab/image-20230404204724747.png" data-index="0" data-src="/2023/04/05/python-matlab/image-20230404204724747.png"></p>
+<p>所以将python应用于matlab的方法，实际上和matlab应用于python存在类似的问题。</p>
+<p>我也尝试将Pytorch训练好的网络，利用MATLAB r2023a中的库进行迁移，但是中途报错了，那个错误我也看不太懂，5555，所以这条路我们也弃用了！</p>
+<h2 id="目前采取的方式和其中的坑"><a class="markdownIt-Anchor" href="#目前采取的方式和其中的坑"></a> 目前采取的方式和其中的坑</h2>
+<p>目前采用的方式是利用Python，采用engine api的方式<em>重写</em>之前MATLAB整体的系统，并将Pytorch训练好的网络嵌入进该系统中。</p>
+<p>——是的，我们还是没法对matlab函数进行反向传播。</p>
+<p>——但是不要慌，<em>重写</em>不是从头开始，我们只是把大体框架用Python来写，其中复杂的打个包作为matlab函数调用就好了。</p>
+<h3 id="安装matlab-engine-api"><a class="markdownIt-Anchor" href="#安装matlab-engine-api"></a> 安装matlab engine api</h3>
+<ol>
+<li>
+<p>按照matlab的要求在你的本地电脑或是服务器上安装“MATLAB”本体，如何在服务器上安装matlab，建议找学长（逃，我也不会，学长搞了好久）。</p>
+</li>
+<li>
+<p>在对应的python环境中安装matlabengineforpython，具体可以参考<a href="https://ww2.mathworks.cn/help/matlab/matlab_external/python-setup-script-to-install-matlab-engine-api.html" target="_blank" rel="noopener">这个</a>。（其实就相当于给Python安装了一个库），<code>conda list</code>后出现这个基本上就是安装好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matlabengineforpython     R2022a                   pypi_0    pypi</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="利用engine-api方式将matlab主函数改写为python主函数"><a class="markdownIt-Anchor" href="#利用engine-api方式将matlab主函数改写为python主函数"></a> 利用engine api方式将matlab主函数改写为python主函数</h3>
+<ul>
+<li>
+<p>使用engine api最基础的几个步骤就是：调用库、开启引擎、退出引擎</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matlab.engine</span><br><span class="line">eng = matlab.engine.start_matlab()</span><br><span class="line">eng.quit()</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>那么，我们需要把我们所有调用到的自己写的函数统统都放在主函数同一文件夹下吗？我之前是这么做的，但我问了问全知全能的new bing，他告诉我这样做就可以把函数目录添加到matlab路径中了，果然很好用！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">folder_path = os.path.join(os.getcwd(), <span class="string">'../matlab_test'</span>)</span><br><span class="line">eng.addpath(folder_path)</span><br><span class="line">eng.rmpath(folder_path)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>【matlab句柄的改写】建议直接建一个Python类与之相对应</p>
+</li>
+<li>
+<p>【matlab结构体数组的改写】直接给一个实例吧，*我也忘了当时怎么想的了，反正成功了！*没记错的话，是利用matlab输出数量不确定的函数的方式化解了结构体数组无法从matlab传播给Python的问题。</p>
+<ul>
+<li>
+<p>原始的函数</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">channels</span> = <span class="title">hMultiUserChannels</span><span class="params">(delayProfile,delaySpread,maximumDopplerShift,bsAntSize,ueAntSizes)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Create empty output structures</span></span><br><span class="line">    numUEs = <span class="built_in">size</span>(ueAntSizes,<span class="number">1</span>);</span><br><span class="line">    channels = <span class="built_in">repmat</span>(struct(<span class="string">'channel'</span>,[],<span class="string">'chInfo'</span>,[],<span class="string">'pathFilters'</span>,[]),<span class="number">1</span>,numUEs);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Create a CDL channel model object configured with the desired delay</span></span><br><span class="line">    <span class="comment">% profile, delay spread and Doppler frequency</span></span><br><span class="line">    channel = nrCDLChannel;</span><br><span class="line">    channel.DelayProfile = delayProfile;</span><br><span class="line">    channel.DelaySpread = delaySpread;</span><br><span class="line">    channel.MaximumDopplerShift = maximumDopplerShift;</span><br><span class="line">    channel.CarrierFrequency = <span class="number">2.6e9</span>;</span><br><span class="line">    channel.SampleRate = <span class="number">7680000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Set the base station antenna array size. Initially, the channel</span></span><br><span class="line">    <span class="comment">% operates in the UL direction, therefore the transmit antenna array</span></span><br><span class="line">    <span class="comment">% corresponds to the base station, while the receive antenna array</span></span><br><span class="line">    <span class="comment">% corresponds to the UE</span></span><br><span class="line">    channel.ReceiveAntennaArray.Size = [bsAntSize <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Configure channel filtering:</span></span><br><span class="line">    <span class="comment">% * For ChannelFiltering = true, the transmit resource grid will be</span></span><br><span class="line">    <span class="comment">%   OFDM modulated, filtered by the channel impulse repsonse, and</span></span><br><span class="line">    <span class="comment">%   OFDM demodulated to produce the receive resource grid</span></span><br><span class="line">    <span class="comment">% * For ChannelFiltering = false, the channel will be applied to the</span></span><br><span class="line">    <span class="comment">%   transmit resource grid in the frequency domain to produce the</span></span><br><span class="line">    <span class="comment">%   receive resource grid</span></span><br><span class="line">    <span class="comment">% ChannelFiltering = false is faster, at the expense of not modelling</span></span><br><span class="line">    <span class="comment">% channel variation (and loss of orthogonality) due to Doppler across</span></span><br><span class="line">    <span class="comment">% the duration of each OFDM symbol</span></span><br><span class="line">    channel.ChannelFiltering = <span class="built_in">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Configure a set of azimuth and zenith angle offsets, used to adjust</span></span><br><span class="line">    <span class="comment">% the angles of departure of the channel for each UE. This simulates</span></span><br><span class="line">    <span class="comment">% the effect of different UEs being in different locations in the</span></span><br><span class="line">    <span class="comment">% environment around the base station</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Azimuth offsets: assume a 120 degree wide sector, offset values</span></span><br><span class="line">    <span class="comment">% are spread between (-60,60)</span></span><br><span class="line">    offsetsAoD = (<span class="built_in">rand</span>([<span class="number">1</span> numUEs])<span class="number">-0.5</span>) * <span class="number">120</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Elevation offsets: assume a tower height of 30m above the UE and</span></span><br><span class="line">    <span class="comment">% cell radius of 600m, with UEs between 150m and 600m from the cell</span></span><br><span class="line">    <span class="comment">% centre</span></span><br><span class="line">    range = <span class="number">150</span> + (<span class="built_in">rand</span>([<span class="number">1</span> numUEs]) * <span class="number">450</span>);</span><br><span class="line">    offsetsZoD = <span class="built_in">atand</span>(<span class="number">30</span> ./ range);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% For each UE</span></span><br><span class="line">    <span class="keyword">for</span> ue = <span class="number">1</span>:numUEs</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Create a copy of the original channel</span></span><br><span class="line">        cdl = copyCDL(channel);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Set the UE antenna array size</span></span><br><span class="line">        cdl.TransmitAntennaArray.Size = [ueAntSizes(ue,:) <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Configure the channel seed based on the UE number</span></span><br><span class="line">        <span class="comment">% (results in independent fading for each UE)</span></span><br><span class="line">        cdl.Seed = <span class="number">73</span> + (ue - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Configure the azimuth and zenith angle offsets for this UE</span></span><br><span class="line">        cdl.AnglesAoD(:) = cdl.AnglesAoD(:) + offsetsAoD(ue);</span><br><span class="line">        cdl.AnglesZoD(:) = cdl.AnglesZoD(:) + offsetsZoD(ue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Record the channel object and channel information in the output</span></span><br><span class="line">        channels(ue).channel = cdl;</span><br><span class="line">        channels(ue).chInfo = info(cdl);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>改写后的函数</p>
+<p>matlab中函数改写：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">varargout</span> = <span class="title">hMultiUserChannels_py</span><span class="params">(delayProfile,delaySpread,maximumDopplerShift,bsAntSize,ueAntSizes,numUEs)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">% Create empty output structures</span></span><br><span class="line">    numUEs = numUEs;</span><br><span class="line">    channels = <span class="built_in">repmat</span>(struct(<span class="string">'channel'</span>,[],<span class="string">'chInfo'</span>,[],<span class="string">'pathFilters'</span>,[]),<span class="number">1</span>,numUEs);</span><br><span class="line">    varargout = cell(<span class="number">1</span>, numUEs);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Create a CDL channel model object configured with the desired delay</span></span><br><span class="line">    <span class="comment">% profile, delay spread and Doppler frequency</span></span><br><span class="line">    channel = nrCDLChannel;</span><br><span class="line">    channel.DelayProfile = delayProfile;</span><br><span class="line">    channel.DelaySpread = delaySpread;</span><br><span class="line">    channel.MaximumDopplerShift = maximumDopplerShift;</span><br><span class="line">    channel.CarrierFrequency = <span class="number">2.6e9</span>;</span><br><span class="line">    channel.SampleRate = <span class="number">7680000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Set the base station antenna array size. Initially, the channel</span></span><br><span class="line">    <span class="comment">% operates in the UL direction, therefore the transmit antenna array</span></span><br><span class="line">    <span class="comment">% corresponds to the base station, while the receive antenna array</span></span><br><span class="line">    <span class="comment">% corresponds to the UE</span></span><br><span class="line">    channel.ReceiveAntennaArray.Size = [bsAntSize <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Configure channel filtering:</span></span><br><span class="line">    <span class="comment">% * For ChannelFiltering = true, the transmit resource grid will be</span></span><br><span class="line">    <span class="comment">%   OFDM modulated, filtered by the channel impulse repsonse, and</span></span><br><span class="line">    <span class="comment">%   OFDM demodulated to produce the receive resource grid</span></span><br><span class="line">    <span class="comment">% * For ChannelFiltering = false, the channel will be applied to the</span></span><br><span class="line">    <span class="comment">%   transmit resource grid in the frequency domain to produce the</span></span><br><span class="line">    <span class="comment">%   receive resource grid</span></span><br><span class="line">    <span class="comment">% ChannelFiltering = false is faster, at the expense of not modelling</span></span><br><span class="line">    <span class="comment">% channel variation (and loss of orthogonality) due to Doppler across</span></span><br><span class="line">    <span class="comment">% the duration of each OFDM symbol</span></span><br><span class="line">    channel.ChannelFiltering = <span class="built_in">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Configure a set of azimuth and zenith angle offsets, used to adjust</span></span><br><span class="line">    <span class="comment">% the angles of departure of the channel for each UE. This simulates</span></span><br><span class="line">    <span class="comment">% the effect of different UEs being in different locations in the</span></span><br><span class="line">    <span class="comment">% environment around the base station</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">% Azimuth offsets: assume a 120 degree wide sector, offset values</span></span><br><span class="line">    <span class="comment">% are spread between (-60,60)</span></span><br><span class="line">    offsetsAoD = (<span class="built_in">rand</span>([<span class="number">1</span> numUEs])<span class="number">-0.5</span>) * <span class="number">120</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">% Elevation offsets: assume a tower height of 30m above the UE and</span></span><br><span class="line">    <span class="comment">% cell radius of 600m, with UEs between 150m and 600m from the cell</span></span><br><span class="line">    <span class="comment">% centre</span></span><br><span class="line">    range = <span class="number">150</span> + (<span class="built_in">rand</span>([<span class="number">1</span> numUEs]) * <span class="number">450</span>);</span><br><span class="line">    offsetsZoD = <span class="built_in">atand</span>(<span class="number">30</span> ./ range);</span><br><span class="line"></span><br><span class="line">    <span class="comment">% For each UE</span></span><br><span class="line">    <span class="keyword">for</span> ue = <span class="number">1</span>:numUEs</span><br><span class="line">        varargout&#123;ue&#125; = struct(<span class="string">'channel'</span>,[],<span class="string">'chInfo'</span>,[],<span class="string">'pathFilters'</span>,[]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Create a copy of the original channel</span></span><br><span class="line">        cdl = copyCDL(channel);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Set the UE antenna array size</span></span><br><span class="line">        cdl.TransmitAntennaArray.Size = [ueAntSizes(ue,:) <span class="number">1</span> <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Configure the channel seed based on the UE number</span></span><br><span class="line">        <span class="comment">% (results in independent fading for each UE)</span></span><br><span class="line">        cdl.Seed = <span class="number">73</span> + (ue - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Configure the azimuth and zenith angle offsets for this UE</span></span><br><span class="line">        cdl.AnglesAoD(:) = cdl.AnglesAoD(:) + offsetsAoD(ue);</span><br><span class="line">        cdl.AnglesZoD(:) = cdl.AnglesZoD(:) + offsetsZoD(ue);</span><br><span class="line"></span><br><span class="line">        <span class="comment">% Record the channel object and channel information in the output</span></span><br><span class="line">        channels(ue).channel = cdl;</span><br><span class="line">        varargout&#123;ue&#125;.channel = channels(ue).channel;</span><br><span class="line">        channels(ue).chInfo = info(cdl);</span><br><span class="line">        varargout&#123;ue&#125;.chInfo = channels(ue).chInfo;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>Python中调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">simParaChannels = []</span><br><span class="line">temp = eng.hMultiUserChannels_py(simPara.delayProfile, simPara.delaySpread, simPara.maximumDopplerShift, matlab.double(simPara.bsAntSize), matlab.double(simPara.ueAntSize),matlab.double(simPara.numUe),nargout=simPara.numUe)</span><br><span class="line"><span class="keyword">for</span> ue <span class="keyword">in</span> range(simPara.numUe):</span><br><span class="line">        simParaChannels.append(temp[ue])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>【函数和句柄类的改写】参考第二部分</p>
+</li>
+<li>
+<p>【数据的转换】<a href="https://ww2.mathworks.cn/help/matlab/matlab-engine-for-python.html" target="_blank" rel="noopener">从 Python 中调用 MATLAB - MATLAB &amp; Simulink - MathWorks 中国</a>，可以参考下面这几个文档，其实最常用的就是把list转换为matlab数组格式<code>matlab.double(XXX)</code>，复数的话记得变成<code>matlab.double(XXX, is_complex*=True)</code>，如果你之前是numpy格式，那么需要先变成list（r2023a貌似不需要这一步了），即<code>matlab.double(XXX.tolist(), *is_complex*=True)</code>，如果是cuda上torch的tensor的话那就再加一步<code>XXX.cpu().detach().numpy()</code>。<br>
+<img alt="image-20230404212334542" class="post-img b-lazy" data-img="/2023/04/05/python-matlab/image-20230404212334542.png" data-index="1" data-src="/2023/04/05/python-matlab/image-20230404212334542.png"></p>
+</li>
+</ul>
+<h3 id="技巧和坑"><a class="markdownIt-Anchor" href="#技巧和坑"></a> 技巧和坑</h3>
+<ul>
+<li>【大坑】matlab和Python的行列排列顺序不同，<strong>reshape格外注意！！！</strong></li>
+<li>【小坑】注意matlab有多个输出时，需要加上l类似<code>nargout=3</code>这样的选项。</li>
+<li>【小坑】如果想把python类传给matlab作为matlab句柄类，里面的数据中不能出现numpy格式（r2023a可能没有这个问题了），请在需要回传给matlab的类中使用list存储数据。</li>
+<li>【技巧】一些懒得改写的matlab代码（如自己也搞不清维度的reshape，各种matlab库函数的操作），其实可以自行封装成一个函数，直接调用你封装的函数即可</li>
+<li>【技巧】matlab.double类型数组转化成numpy格式，直接<code>np.array(XXX, *dtype*=np.complex64)</code></li>
+<li>【技巧】numpy官方提供了matlab入门numpy用法的指南，改写可以参考<a href="https://numpy.org/doc/1.23/user/numpy-for-matlab-users.html" target="_blank" rel="noopener">NumPy for MATLAB users — NumPy v1.23 Manual</a></li>
+<li>【最大的技巧】<strong>勤问new bing！</strong> 真的很强，甚至可以帮你改写代码！</li>
+</ul>
+<blockquote>
+<p>最后，感谢new bing给我这篇文章的各种帮助！！！</p>
+</blockquote>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【持续更新】研究生期间笔记整理" href="/2022/12/05/SEU-note/">
+            【持续更新】研究生期间笔记整理 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python和matlab的协同使用"><span class="toc-text"> Python和MATLAB的协同使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缘起"><span class="toc-text"> 缘起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协同方式"><span class="toc-text"> 协同方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#matlab应用于python"><span class="toc-text"> Matlab应用于Python</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#两种思路"><span class="toc-text"> 两种思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两个例子"><span class="toc-text"> 两个例子</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nrulschdecoder_llrmatlab句柄类"><span class="toc-text"> nrULSCHDecoder_llr——MATLAB句柄（类）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nrequalizemmse_itermatlab函数"><span class="toc-text"> nrEqualizeMMSE_iter——MATLAB函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python应用于matlab"><span class="toc-text"> Python应用于Matlab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目前采取的方式和其中的坑"><span class="toc-text"> 目前采取的方式和其中的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装matlab-engine-api"><span class="toc-text"> 安装matlab engine api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用engine-api方式将matlab主函数改写为python主函数"><span class="toc-text"> 利用engine api方式将matlab主函数改写为python主函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技巧和坑"><span class="toc-text"> 技巧和坑</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2023/04/05/python-matlab/">【科研札记】Python和MATLAB的协同使用</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【持续更新】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/09/17/git-ssh/">git基本操作整理与VScode ssh配置远程服务器</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 17.33px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.67px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.67px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.33px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.33px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.67px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 20.67px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 17.33px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.67px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.67px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 17.33px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2023</a>
+			
+				
+			        <span hidden="true" id="/2023/04/05/python-matlab/" class="leancloud-visitors" data-flag-title="【科研札记】Python和MATLAB的协同使用">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【科研札记】Python和MATLAB的协同使用</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
