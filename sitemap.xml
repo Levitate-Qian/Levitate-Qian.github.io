@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://levitate-qian.github.io/2022/12/05/SEU-note/</loc>
+    
+    <lastmod>2023-05-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://levitate-qian.github.io/2020/12/01/latex-lecture/</loc>
     
     <lastmod>2023-05-08</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://levitate-qian.github.io/about/index.html</loc>
-    
-    <lastmod>2023-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://levitate-qian.github.io/2022/12/05/SEU-note/</loc>
     
     <lastmod>2023-04-04</lastmod>
     
