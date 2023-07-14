@@ -190,7 +190,7 @@ ul {
 }
 
 .site-description {
-  font-family: "霞鹜文楷","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "京華老宋体_KingHwa_OldSong","霞鹜文楷","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 2.2rem;
   font-weight: 300;
   z-index: 10;
@@ -1885,7 +1885,7 @@ h5.md-focus.md-heading:before {
   font-family: 'Avenir Next LT Pro','Avenir Next',"霞鹜文楷",'Adobe Kaiti Std','楷体','Kaiti SC','楷体_GB2312';
   text-size-adjust: 100%;
   line-height: 1.55em;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 6px;
   color: var(--body-color);
   font-style: normal;
