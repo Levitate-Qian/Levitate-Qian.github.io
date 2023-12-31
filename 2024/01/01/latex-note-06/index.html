@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>LaTeX札记（六）：MATLAB与TikZ绘图 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LaTeX札记（六）：MATLAB与TikZ绘图 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2024/01/01/latex-note-06/">
+
+	
+	<meta property="article:published_time" content="2023-12-31T19:12:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2024/01/01/latex-note-06/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2023-12-31T19:41:52.000Z">
+                    2023-12-31
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/LaTeX/">LaTeX</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">LaTeX札记（六）：MATLAB与TikZ绘图</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s11.ax1x.com/2023/12/31/piOTe4x.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="latex札记六matlab与tikz绘图"><a class="markdownIt-Anchor" href="#latex札记六matlab与tikz绘图"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord text"><span class="mord textrm sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord text"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>札记（六）——MATLAB与TikZ绘图</h1>
+<p>在跨年前夜水一片博客，2023年没怎么写博客，因为没有什么可写的~ 祝大家新年快乐哦！</p>
+<p>该博客都是一些自己的探索和方法，如果有错误、缺漏、不足，欢迎在评论区指出！</p>
+<p>这篇札记主要分为以下几个方面：</p>
+<ol>
+<li>如何将MATLAB画的图导出为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord text"><span class="mord textrm sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord text"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>中画图的Ti<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>Z代码</li>
+<li>如何在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>LaTeX</mtext></mrow><annotation encoding="application/x-tex">\LaTeX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.89883em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.68333em;"><span style="top:-2.904999em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord text"><span class="mord textrm sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.46782999999999997em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord text"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>中画图代码进行一些修饰和改进</li>
+<li>如何将论文中所有采用Ti<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>Z的绘图保存为PDF图片，方便后续交稿等操作</li>
+</ol>
+<p>首先回答一个问题——<strong>“为什么想要把MALTAB画好的图多此一举地转为TikZ？”</strong></p>
+<ul>
+<li>TikZ是MATLAB比较原生的绘图方式，所以画图的字体什么的会比较贴近于正文，同时不同图片大小也方便统一。</li>
+<li>如果我们需要增加/删减图片的某条线，修改图片某个图例等。
+<ul>
+<li>如果采用MATLAB导出的方式，工作流是“修改MATLAB画图代码=&gt;导出PDF/EPS=&gt;删减白边=&gt;重新复制到LaTeX文档目录下”；</li>
+<li>然而如果采用TikZ的方式，我们只需要在第一次复制到相应的文档目录，调整好尺寸大小，后续的几乎所有操作都可以在LaTeX编辑器中完成，而不需要再大费周折从MATLAB导出。</li>
+</ul>
+</li>
+</ul>
+<h2 id="导出matlab绘图至tikz"><a class="markdownIt-Anchor" href="#导出matlab绘图至tikz"></a> 导出MATLAB绘图至TikZ</h2>
+<p>这里要使用一个MATLAB脚本<code>matlab2tikz</code>：下载链接🔗<a href="https://github.com/matlab2tikz/matlab2tikz" target="_blank" rel="noopener">GitHub - matlab2tikz/matlab2tikz: This program converts MATLAB®/Octave figures to TikZ/pgfplots figures for smooth integration into LaTeX.</a></p>
+<ul>
+<li>
+<p>首先按照网站Installation部分的安装<code>matlab2tikz</code></p>
+<ul>
+<li>把它完整下载到本地。</li>
+<li>下载完成后，将下载获得的文件夹中的<code>\src</code>文件夹添加到<code>matlab</code>路径中。如<code>addpath('你的目录\src')</code></li>
+</ul>
+</li>
+<li>
+<p>在你所需绘图的图片下方输入该命令</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matlab2tikz(<span class="string">'ABCDE.tex'</span>);</span><br></pre></td></tr></table></figure>
+<p>或者（不显示一长串的说明）</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matlab2tikz(<span class="string">'plot_rebuttal/ABCDE.tex'</span>,<span class="string">'showInfo'</span>,<span class="built_in">false</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>于是你会在你的当前目录下，或者对应文件夹下找到生成的<code>ABCDE.tex</code>文件，这个文件就是tikz的画图函数。主要包含以下一些</p>
+<ul>
+<li>颜色的定义<code>\definecolor</code></li>
+<li><code>\begin{tikzpicture}</code> tikz画图环境</li>
+<li><code>\begin{axis}</code> axis坐标环境：在axis环境中主要包括坐标区域和legend的定义，以及各个线条的坐标数值。</li>
+</ul>
+</li>
+<li>
+<p>将这个放置到latex项目的对应路径下，即可在论文中引用它。</p>
+<ul>
+<li>
+<p>注意在最开始的导言区需要引用以下宏包和指令，大家也可以直接粘贴上述生成<code>.tex</code>文档时matlab中的输出：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;pgfplots&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">pgfplotsset</span><span class="string">&#123;compat=newest&#125;</span></span></span><br><span class="line"><span class="comment">%% the following commands are needed for some MATLAB2tikz features</span></span><br><span class="line"><span class="tag">\<span class="name">usetikzlibrary</span><span class="string">&#123;plotmarks&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">usetikzlibrary</span><span class="string">&#123;arrows.meta&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">usepgfplotslibrary</span><span class="string">&#123;patchplots&#125;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>与普通图片相同的是——我们同样需要在<code>figure</code>环境中引用他</p>
+</li>
+<li>
+<p>与普通图片不同的是——我们不再采用类似<code>\includegraphics[width=.9\linewidth]{img/BCDEF.pdf}</code>的形式来引用图片，而利用类似文件嵌套的形式<code>\input{img/ABCDE}</code>来引用图片，注意到这里我们不需要加入后缀<code>.tex</code>。注意到这里我们不能加入对于大小的控制，对于大小的控制我们会在第二节中阐述。</p>
+</li>
+<li>
+<p>给出两个例子：<br>
+①全图形式：和普通的图片类似，只是<code>\includegraphics</code>变为<code>\input</code></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[htbp]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">centering</span></span></span><br><span class="line">    <span class="tag">\<span class="name">input</span><span class="string">&#123;main/chapter4/figures/AAAA&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">caption</span><span class="string">&#123;OFDM-AAAA&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">label</span><span class="string">&#123;fig:postion&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>②子图形式（<code>figure*</code>是IEEEtran格式定义的环境，大家用普通的figure环境即可，<code>\subfloat</code>需要引用<code>subcaption</code>宏包；此外大家也可以直接把子图的注释直接写在<code>[]</code>中）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure*&#125;</span><span class="string">[t]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">subfloat</span><span class="string">[]</span><span class="string">&#123;\input&#123;img/3a_throughput&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;fig:aaa&#125;</span></span>&#125;<span class="tag">\<span class="name">hfill</span></span></span><br><span class="line">    <span class="tag">\<span class="name">subfloat</span><span class="string">[]</span><span class="string">&#123;\input&#123;img/3b&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;fig:bbb&#125;</span></span>&#125;<span class="tag">\<span class="name">hfill</span></span></span><br><span class="line">    <span class="tag">\<span class="name">subfloat</span><span class="string">[]</span><span class="string">&#123;\input&#123;img/3c&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;fig:ccc&#125;</span></span>&#125;<span class="tag">\<span class="name">hfill</span></span></span><br><span class="line">    <span class="tag">\<span class="name">subfloat</span><span class="string">[]</span><span class="string">&#123;\input&#123;img/3d_new&#125;</span></span><span class="tag">\<span class="name">label</span><span class="string">&#123;fig:ddd&#125;</span></span>&#125;</span><br><span class="line">    <span class="tag">\<span class="name">caption</span><span class="string">&#123;(a) xxxxxx. (b) xxxxxx. (c) xxxxxx. (d) xxxxxx. &#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">label</span><span class="string">&#123;fig:xxxx&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure*&#125;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>【附】如果我们自己用tikz画的图则直接包裹在<code>figure</code>和<code>tikzpicture</code>环境中即可，不需要另开一个文件也可以。将画图单独提取为一个文件主要为了论文中结构清晰。</p>
+</li>
+</ul>
+<h2 id="在latex中修饰tikz的绘图"><a class="markdownIt-Anchor" href="#在latex中修饰tikz的绘图"></a> 在LaTeX中修饰TikZ的绘图</h2>
+<p><strong>本节中我们的操作均对于<code>matlab2tikz</code>生成的<code>.tex</code>操作！</strong></p>
+<h3 id="常规操作"><a class="markdownIt-Anchor" href="#常规操作"></a> 常规操作</h3>
+<h4 id="大小"><a class="markdownIt-Anchor" href="#大小"></a> 大小</h4>
+<p>主要涉及两方面的调整：①对整个<code>\begin{tikzpicture}</code>环境的大小调整；②对画幅尺寸的调整（即<code>axis</code>环境中<code>height</code>和<code>witdh</code>的调整）</p>
+<ul>
+<li>首先建议将<code>axis</code>环境中的<code>at={(0.758in,0.481in)}, scale only axis,</code>两行注释，大家一会可以尝试一下不注释这两行的效果，选择自己想要的效果。</li>
+</ul>
+<ol>
+<li>对整个<code>tikzpicture</code>环境的调整：加上<code>\begin{tikzpicture}[scale=.65]</code>能够对整个图片的大小进行调整为原来的xx倍。
+<ol>
+<li>同时可以使用<code>xscale</code>和<code>yscale</code>命令对横纵进行不同大小的缩放，达到拉伸的效果。</li>
+<li>注意这样的调整是对整体的调整，所有曲线、坐标、字符均进行等同的大小缩放。</li>
+</ol>
+</li>
+<li><code>axis</code>环境中<code>height</code>和<code>witdh</code>是调整的图片原始的比例。
+<ol>
+<li>注意这样的调整实际上是调整了原始画幅的大小，相当于在matlab中对生成的figure窗口进行拉伸缩放操作。</li>
+<li>光调整这两个参数，虽然latex中图片大小变化了，可以注意到所有曲线、坐标、字符和原始大小不变。</li>
+</ol>
+</li>
+</ol>
+<p>建议大家<em>综合考量两个调整方式</em>，以使得图片尺寸和字体、mark大小等均比较合适。</p>
+<h4 id="坐标轴"><a class="markdownIt-Anchor" href="#坐标轴"></a> 坐标轴</h4>
+<p>主要包括以下几个方面：</p>
+<ul>
+<li>
+<p>坐标轴的取值范围：调整<code>xmin</code>,<code>xmax</code>,<code>ymin</code>,<code>ymax</code>即可</p>
+</li>
+<li>
+<p>四边坐标轴的黑边：如果想让四边均为黑色的可以把<code>axis x line*=bottom,axis y line*=left,</code>注释掉</p>
+</li>
+<li>
+<p>增加tick：例如原来坐标轴只标注了<code>2,4,6,8</code>，想标注更多<code>1,2,3,4,5,6,7</code>，则增加一行(对y坐标轴同理)</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xtick=&#123;1,2,3,4,5,6,7&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>增加tick（光增加灰色线条，不增加标注坐标轴数字）：则增加以下三行（对y坐标轴同理）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extra x ticks=&#123;1,2,3,4,5,6,7,8,9&#125;,</span><br><span class="line">extra x tick style=&#123;grid=major&#125;,</span><br><span class="line">extra x tick labels=&#123;&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>如果想要进一步挤压tick数字和label之间的距离可以加入这一行代码，但是会很紧（注意至少加在<code>y label</code>后面）</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">every axis y label/.style=&#123;</span><br><span class="line">at=&#123;(ticklabel cs:0.5)&#125;,rotate=90,anchor=center,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="图例"><a class="markdownIt-Anchor" href="#图例"></a> 图例</h4>
+<p>主要介绍：①位置，②字体大小，③透明度表现形式，④图例内容</p>
+<p><code>matlab2tikz</code>生成的图例相关的指令通常类似于</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">legend style=&#123;at=&#123;(0.97,0.74)&#125;, anchor=east, legend cell align=left, align=left, draw=white!15!black&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>首先说明以下这里面关于位置的一些说明</p>
+<ul>
+<li>
+<p><code>at={(0.97,0.74)}</code>指定legend框的<em>端点</em>在整个图片横纵坐标的比例位置，即放置在横向97%位置，纵向74%位置。</p>
+</li>
+<li>
+<p>上面所谓的<em>端点</em>又是什么呢？它由anchor决定，表示端点和legend的位置关系。<br>
+<img alt="image-20231231215100509" style="zoom:50%;" class="post-img b-lazy" data-img="/2024/01/01/latex-note-06/image-20231231215100509.png" data-index="0" data-src="/2024/01/01/latex-note-06/image-20231231215100509.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>调整图例的字体大小可以通过<code>font=\scriptsize</code>来调整。</p>
+</li>
+<li>
+<p>介绍一个比较好看的legend表现形式（我们可以观察到python的legend的底框是透明的，可以透出下面的线条），如何在tikz完成呢？</p>
+<ul>
+<li>
+<p>在<code>{}</code>中增加以下的代码即可，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fill opacity&#x3D;0.7,text opacity&#x3D;1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>这表示legend框的填充透明度为0.7（越高越不透明），文字完全不透明，大家可以适度调整</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>matlab2tikz</code>的图例内容来源来源于跟在每条线条画图<code>\addplot</code>后面的<code>\addlegendentry{XXX}</code>，大家想要修改线条的图例名称直接在这里修改即可。这里支持latex的公式语法哦！</p>
+</li>
+</ol>
+<h4 id="曲线相关"><a class="markdownIt-Anchor" href="#曲线相关"></a> 曲线相关</h4>
+<p>曲线数值的来源<code>\addplot</code>中的table的数值，如果想要修改/增减曲线的点，直接修改<code>table</code>数值即可。</p>
+<p>曲线相关的美化主要介绍：①线条类型、粗细；②mark大小；③颜色、透明度；④线条的增删</p>
+<ol>
+<li>线条类型、粗细：
+<ul>
+<li>线宽由<code>line width=1.5pt</code>控制，一般我觉得<code>1.5pt</code>-<code>2.0pt</code>是比较明显清晰的粗细</li>
+<li>实线类型没什么好说的</li>
+<li>对于虚线由<code>matlab2tikz</code>生成的虚线比较奇怪，我们可以将<code>dashed</code>修改为<code>dash pattern=on 6pt off 3pt</code>，这是我尝试下来比较不错的pattern。</li>
+<li>还有一些其他的pattern可以参考<a href="https://www.latexstudio.net/archives/51622.html" target="_blank" rel="noopener">TiKZ 线条绘制的控制 - LaTeX工作室 (latexstudio.net)</a></li>
+</ul>
+</li>
+<li>mark大小：这是我觉得<code>matlab2tikz</code>控制的比较不好的一点，由它生成的mark不知道为什么大大小小的，大家可以统一为<code>mark size=3.0pt</code>或者<code>4.0pt</code>左右。</li>
+<li>颜色、透明度：
+<ul>
+<li>曲线和mark的颜色由<code>color=mycolor1</code>控制，大家可以自己在画图的顶上定义自己喜欢的颜色</li>
+<li>如果想要让mark有填充，并且存在透明度。可以将
+<ul>
+<li>①原始的<code>mark</code>均加上<code>*</code>，如<code>mark=diamond*</code>、<code>mark=triangle*</code>等。注意原来代表mark形状为圆圈的<code>o</code>直接改为<code>*</code>即可。</li>
+<li>②<code>mark options={solid, mycolor2}</code>增加一条<code>fill opacity=0.5</code>，变为<code>mark options={solid, mycolor2, fill opacity=0.5}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>线条的删除——直接将该线条对应的<code>\addplot</code>直到<code>\addlegendentry</code>删除</li>
+<li>线条的增加——复制别的线条对应的<code>\addplot</code>直到<code>\addlegendentry</code>，修改对应的颜色、数值等</li>
+</ol>
+<h3 id="一些别的操作实例"><a class="markdownIt-Anchor" href="#一些别的操作实例"></a> 一些别的操作实例</h3>
+<h4 id="新增线条的标注如水平线条-垂直线条"><a class="markdownIt-Anchor" href="#新增线条的标注如水平线条-垂直线条"></a> 新增线条的标注——如水平线条、垂直线条</h4>
+<p>下面直接通过一个实例来解释——实例内数值均无实际含义</p>
+<p>该实例主要包含以下几个操作</p>
+<ul>
+<li>描边文字<code>\contour{white}{$\sim$Z.ZZx}</code>：这样主要可以使得文字可以更加明显的显示</li>
+<li>绘制虚线并在线上标注：<code>\draw[gray, line width=1.5pt, dashed] (8.5, 200) node[ above] {\contour{white}{XXXX@10\%YYYY}}-- (18.2, 200) ;</code></li>
+<li>绘制双箭头线并多个标注：<code>\draw[red, line width=2pt, &lt;-&gt;] (14, 120)node[right]{\color{mycolor1} $\sim$AAA~Mbps} -- (14, 200) node[midway, above right, red, font=\bfseries\sffamily\large] {\contour{white}{$\sim$Z.ZZx}};</code></li>
+</ul>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 以下代码会用到，请在导言区加入</span></span><br><span class="line"><span class="comment">% \usepackage&#123;xcolor&#125;</span></span><br><span class="line"><span class="comment">% \usepackage&#123;contour&#125; % 导入 contour 库，实现描边文字</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% document环境内</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor1&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.00000,0.44700,0.74100&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor2&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.85000,0.32500,0.09800&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor3&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.92900,0.69400,0.12500&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor4&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.49400,0.18400,0.55600&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor5&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.46600,0.67400,0.18800&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor6&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.63529,0.07843,0.18431&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span><span class="string">[scale=.8]</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;axis&#125;</span><span class="string">[%</span></span></span><br><span class="line"><span class="tag"><span class="string">width=4.521in,</span></span></span><br><span class="line"><span class="tag"><span class="string">height=3.566in,</span></span></span><br><span class="line"><span class="tag"><span class="string">at=&#123;(0.758in,0.481in)&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">scale only axis,</span></span></span><br><span class="line"><span class="tag"><span class="string">xmin=7,</span></span></span><br><span class="line"><span class="tag"><span class="string">xmax=18.3,</span></span></span><br><span class="line"><span class="tag"><span class="string">xtick=&#123; 7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">xlabel style=&#123;font=\color&#123;white!15!black&#125;&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">xlabel=&#123;SNR (dB)&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">ymin=0,</span></span></span><br><span class="line"><span class="tag"><span class="string">ymax=250,</span></span></span><br><span class="line"><span class="tag"><span class="string">ylabel style=&#123;font=\color&#123;white!15!black&#125;&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">ylabel=&#123;CCCCCCC&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">axis background/.style=&#123;fill=white&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">xmajorgrids,</span></span></span><br><span class="line"><span class="tag"><span class="string">ymajorgrids,</span></span></span><br><span class="line"><span class="tag"><span class="string">legend style=&#123;at=&#123;(0.97,0.03)&#125;, anchor=south east, legend cell align=left, align=left, draw=white!15!black&#125;</span></span></span><br><span class="line"><span class="tag"><span class="string">]</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor1, line width=1.5pt, mark size=3.0pt, mark=triangle*, mark options=&#123;solid, mycolor1, fill opacity=0.5&#125;]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">8	13<span class="tag">\<span class="name">\</span></span></span><br><span class="line">12	70<span class="tag">\<span class="name">\</span></span></span><br><span class="line">16	160<span class="tag">\<span class="name">\</span></span></span><br><span class="line">18  200<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">addlegendentry</span><span class="string">&#123;XXX1&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor2, line width=1.5pt, mark size=3.0pt, mark=triangle*, mark options=&#123;solid, mycolor2, fill opacity=0.5&#125;]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">8	40<span class="tag">\<span class="name">\</span></span></span><br><span class="line">12	95<span class="tag">\<span class="name">\</span></span></span><br><span class="line">16	200<span class="tag">\<span class="name">\</span></span></span><br><span class="line">18  210<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">addlegendentry</span><span class="string">&#123;XXX2&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 添加虚线</span></span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[gray, line width=1.5pt, dashed]</span></span> (8.5, 200) node[ above] &#123;<span class="tag">\<span class="name">contour</span><span class="string">&#123;white&#125;</span><span class="string">&#123;XXXX@10\%YYYY&#125;</span></span>&#125;-- (18.2, 200) ;</span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[gray, line width=1.5pt, dashed]</span></span> (16.5, 180) -- (18.2, 180) node[ above left] &#123;<span class="tag">\<span class="name">contour</span><span class="string">&#123;white&#125;</span><span class="string">&#123;XXXX@10\%YYYY&#125;</span></span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 添加箭头线</span></span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[red, line width=2pt, &lt;-&gt;]</span></span> (14, 120)node[right]&#123;<span class="tag">\<span class="name">color</span><span class="string">&#123;mycolor1&#125;</span></span> <span class="formula">$<span class="tag">\<span class="name">sim</span></span>$</span>AAA~Mbps&#125; -- (14, 200) node[midway, above right, red, font=<span class="tag">\<span class="name">bfseries</span></span><span class="tag">\<span class="name">sffamily</span></span><span class="tag">\<span class="name">large</span></span>] &#123;<span class="tag">\<span class="name">contour</span><span class="string">&#123;white&#125;</span><span class="string">&#123;$\sim$Z.ZZx&#125;</span></span>&#125;;</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;axis&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span><span class="comment">%</span></span><br></pre></td></tr></table></figure>
+<img alt="image-20231231224111626" style="zoom:50%;" class="post-img b-lazy" data-img="/2024/01/01/latex-note-06/image-20231231224111626.png" data-index="1" data-src="/2024/01/01/latex-note-06/image-20231231224111626.png">
+<h4 id="label和ref来构造不一般的legend"><a class="markdownIt-Anchor" href="#label和ref来构造不一般的legend"></a> <code>\label</code>和<code>\ref</code>来构造不一般的legend</h4>
+<p>下面直接通过一个实例来解释——实例内数值均无实际含义</p>
+<p>该实例主要包含以下几个操作</p>
+<ul>
+<li>使用<code>\label</code>和<code>\ref</code>来构造不一般的legend</li>
+</ul>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor1&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.00000,0.44706,0.74118&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">definecolor</span><span class="string">&#123;mycolor3&#125;</span><span class="string">&#123;rgb&#125;</span><span class="string">&#123;0.85098,0.32549,0.09804&#125;</span></span><span class="comment">%</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;axis&#125;</span><span class="string">[%</span></span></span><br><span class="line"><span class="tag"><span class="string">width=3.5in,</span></span></span><br><span class="line"><span class="tag"><span class="string">height=3.1in,</span></span></span><br><span class="line"><span class="tag"><span class="string">xmin=1,</span></span></span><br><span class="line"><span class="tag"><span class="string">xmax=9.8,</span></span></span><br><span class="line"><span class="tag"><span class="string">xlabel style=&#123;font=\color&#123;white!15!black&#125;&#125;,</span></span></span><br><span class="line"><span class="tag"><span class="string">xlabel=&#123;SNR [dB]</span></span>&#125;,</span><br><span class="line">ymin=50,</span><br><span class="line">ymax=130,</span><br><span class="line">ylabel style=&#123;font=<span class="tag">\<span class="name">color</span><span class="string">&#123;white!15!black&#125;</span></span>&#125;,</span><br><span class="line">ylabel=&#123;CCCCCCCCCCC&#125;,</span><br><span class="line">every axis y label/.style=&#123;</span><br><span class="line">at=&#123;(ticklabel cs:0.5)&#125;,rotate=90,anchor=center,</span><br><span class="line">&#125;,</span><br><span class="line">axis background/.style=&#123;fill=white&#125;,</span><br><span class="line">xmajorgrids,</span><br><span class="line">ymajorgrids,</span><br><span class="line">xtick=&#123;1,2,3,4,5,6,7,8,9&#125;,</span><br><span class="line">extra y ticks=&#123;50,60,70,80,90,100,110,120,130&#125;,</span><br><span class="line">extra y tick style=&#123;grid=major&#125;,</span><br><span class="line">extra y tick labels=&#123;&#125;,</span><br><span class="line">legend style=&#123;at=&#123;(0.99,0.01)&#125;, anchor=south east, legend cell align=left, align=left, draw=white!15!black,fill opacity=0.6,text opacity=1,font=<span class="tag">\<span class="name">scriptsize</span></span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="tag">\<span class="name">addlegendimage</span><span class="string">&#123;empty legend&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">addlegendentry</span><span class="string">[text depth=]</span><span class="string">&#123;\begin&#123;tabular&#125;</span><span class="string">&#123;lcc&#125;</span></span></span><br><span class="line">         &amp; <span class="formula">$EEE=1$</span>  &amp; <span class="formula">$EEE=8$</span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">        BBB &amp; <span class="tag">\<span class="name">protect</span></span><span class="tag">\<span class="name">ref</span><span class="string">&#123;pgf:bbb_1&#125;</span></span> &amp; <span class="tag">\<span class="name">ref</span><span class="string">&#123;pgf:bbb_8&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">        VVV  &amp; <span class="tag">\<span class="name">protect</span></span><span class="tag">\<span class="name">ref</span><span class="string">&#123;pgf:vvv_1&#125;</span></span>&amp;<span class="tag">\<span class="name">ref</span><span class="string">&#123;pgf:vvv_8&#125;</span></span><span class="tag">\<span class="name">\</span></span> </span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;tabular&#125;</span></span>&#125;</span><br><span class="line">    </span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor1, dash pattern=on 6pt off 3pt, line width=1.5pt, mark size=3.0pt, mark=diamond*, mark options=&#123;solid, mycolor1, fill opacity=0.5&#125;, opacity=0.6]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">1.5	65<span class="tag">\<span class="name">\</span></span></span><br><span class="line">4.5	95<span class="tag">\<span class="name">\</span></span></span><br><span class="line">7.5	110<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;pgf:bbb_1&#125;</span></span></span><br><span class="line"><span class="comment">% \addlegendentry&#123;BBB (1)&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor1, line width=1.5pt, mark size=3.0pt, mark=diamond*, mark options=&#123;solid, mycolor1, fill opacity=0.5&#125;]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">1.5	80<span class="tag">\<span class="name">\</span></span></span><br><span class="line">4.5	100<span class="tag">\<span class="name">\</span></span></span><br><span class="line">7.5	110<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;pgf:bbb_8&#125;</span></span></span><br><span class="line"><span class="comment">% \addlegendentry&#123;BBB (8)&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor3, dash pattern=on 6pt off 3pt, line width=1.5pt, mark size=3.0pt, mark=triangle*, mark options=&#123;solid, rotate=180, mycolor3, fill opacity=0.5, fill opacity=0.5&#125;, opacity=0.6]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">3.5	65<span class="tag">\<span class="name">\</span></span></span><br><span class="line">6.5	95<span class="tag">\<span class="name">\</span></span></span><br><span class="line">9.5	105<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;pgf:vvv_1&#125;</span></span></span><br><span class="line"><span class="comment">% \addlegendentry&#123;vvv (1)&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">addplot</span></span> [color=mycolor3, line width=1.5pt, mark size=3.0pt, mark=triangle*, mark options=&#123;solid, rotate=180, mycolor3, fill opacity=0.5&#125;]</span><br><span class="line">  table[row sep=crcr]&#123;<span class="comment">%</span></span><br><span class="line">3.5	90<span class="tag">\<span class="name">\</span></span></span><br><span class="line">6.5	105<span class="tag">\<span class="name">\</span></span></span><br><span class="line">9.5	110<span class="tag">\<span class="name">\</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">label</span><span class="string">&#123;pgf:vvv_8&#125;</span></span></span><br><span class="line"><span class="comment">% \addlegendentry&#123;vvv (8)&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;axis&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span><span class="comment">%</span></span><br></pre></td></tr></table></figure>
+<img alt="image-20231231225309545" style="zoom:50%;" class="post-img b-lazy" data-img="/2024/01/01/latex-note-06/image-20231231225309545.png" data-index="2" data-src="/2024/01/01/latex-note-06/image-20231231225309545.png">
+<h2 id="将tikz绘图保存为pdf"><a class="markdownIt-Anchor" href="#将tikz绘图保存为pdf"></a> 将TikZ绘图保存为PDF</h2>
+<h3 id="preview宏包"><a class="markdownIt-Anchor" href="#preview宏包"></a> preview宏包</h3>
+<p>可以使用<code>preview</code>宏包来创建只含有tikz画图的PDF文件</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">[active,pdftex,tightpage]</span><span class="string">&#123;preview&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">PreviewEnvironment</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">setlength</span><span class="string">&#123;\PreviewBorder&#125;</span><span class="string">&#123;0.5bp&#125;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意<code>\setlength{\PreviewBorder}{0.5bp}</code>设置的是图片周围白边的宽度为<code>0.5bp</code></li>
+</ul>
+<p>生成结果如下</p>
+<p><img alt="image-20231231225824094" class="post-img b-lazy" data-img="/2024/01/01/latex-note-06/image-20231231225824094.png" data-index="3" data-src="/2024/01/01/latex-note-06/image-20231231225824094.png"></p>
+<p>大家再采用Adobe Acrobat等工具分开每张图即可。</p>
+<h3 id="附脚本删除所有pdf文件的白边例如用于powerpointmatlab绘图导出的pdf文档"><a class="markdownIt-Anchor" href="#附脚本删除所有pdf文件的白边例如用于powerpointmatlab绘图导出的pdf文档"></a> 【附】脚本删除所有PDF文件的白边——例如用于PowerPoint/MATLAB绘图导出的PDF文档</h3>
+<p>安装texlive的时候会安装一个脚本<code>pdfcrop</code>，定位到需要删除白边的文件夹下在命令行中输入该代码能够将所有的PDF结尾的图片的白边全都去除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for %i in (*.pdf) do pdfcrop %i %i</span><br></pre></td></tr></table></figure>
+<hr>
+<p>勤问chatGPT就是最好的老师！</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>LaTeX札记（六）：MATLAB与TikZ绘图</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2023年12月31日 - 19:41:52</p>
+  <p><span>原始链接:</span><a href="/2024/01/01/latex-note-06/" title="LaTeX札记（六）：MATLAB与TikZ绘图">https://levitate-qian.github.io/2024/01/01/latex-note-06/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2024/01/01/latex-note-06/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="【科研札记】Python和MATLAB的协同使用" href="/2023/04/05/python-matlab/">
+            【科研札记】Python和MATLAB的协同使用 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#latex札记六matlab与tikz绘图"><span class="toc-text"> LaTeX\LaTeXLATE​X札记（六）——MATLAB与TikZ绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导出matlab绘图至tikz"><span class="toc-text"> 导出MATLAB绘图至TikZ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在latex中修饰tikz的绘图"><span class="toc-text"> 在LaTeX中修饰TikZ的绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常规操作"><span class="toc-text"> 常规操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#大小"><span class="toc-text"> 大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#坐标轴"><span class="toc-text"> 坐标轴</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图例"><span class="toc-text"> 图例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#曲线相关"><span class="toc-text"> 曲线相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些别的操作实例"><span class="toc-text"> 一些别的操作实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新增线条的标注如水平线条-垂直线条"><span class="toc-text"> 新增线条的标注——如水平线条、垂直线条</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#label和ref来构造不一般的legend"><span class="toc-text"> \label和\ref来构造不一般的legend</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将tikz绘图保存为pdf"><span class="toc-text"> 将TikZ绘图保存为PDF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#preview宏包"><span class="toc-text"> preview宏包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附脚本删除所有pdf文件的白边例如用于powerpointmatlab绘图导出的pdf文档"><span class="toc-text"> 【附】脚本删除所有PDF文件的白边——例如用于PowerPoint&#x2F;MATLAB绘图导出的PDF文档</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2024/01/01/latex-note-06/">LaTeX札记（六）：MATLAB与TikZ绘图</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2023/04/05/python-matlab/">【科研札记】Python和MATLAB的协同使用</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2022/12/05/SEU-note/">【完结】研究生期间笔记整理</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19.71px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 18.29px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19.71px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.43px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.43px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19.71px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.57px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.43px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 21.14px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 16.86px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.43px;">神经网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.43px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 16.86px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2020-2023</a>
+			
+				
+			        <span hidden="true" id="/2024/01/01/latex-note-06/" class="leancloud-visitors" data-flag-title="LaTeX札记（六）：MATLAB与TikZ绘图">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">LaTeX札记（六）：MATLAB与TikZ绘图</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
