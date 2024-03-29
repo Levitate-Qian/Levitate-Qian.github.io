@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+
+	<title>【更新中】LeetCode自用刷题记录 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="【更新中】LeetCode自用刷题记录 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2024/03/30/LeetCode-problems/">
+
+	
+	<meta property="article:published_time" content="2024-03-29T21:03:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2024/03/30/LeetCode-problems/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/details" title="DETAILS">DETAILS</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzoui即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2024-03-29T21:38:44.000Z">
+                    2024-03-29
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">【更新中】LeetCode自用刷题记录</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s21.ax1x.com/2024/03/29/pFTkIht.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="leetcode刷题思路"><a class="markdownIt-Anchor" href="#leetcode刷题思路"></a> LeetCode刷题思路</h1>
+<p>自用的刷题记录，以防后续不记得之前自己怎么想的~ 正式的题解还是看官方题解和下面的这个“代码随想录”吧</p>
+<blockquote>
+<ul>
+<li>
+<p>做题顺序&amp;一些图片与思路：<a href="https://programmercarl.com/" target="_blank" rel="noopener">代码随想录 (programmercarl.com)</a>、<a href="https://leetcode.cn/problemset/" target="_blank" rel="noopener">题库 - 力扣 (LeetCode) 全球极客挚爱的技术成长平台</a>、b站视频、自制等</p>
+</li>
+<li>
+<p>点击👉右边或者👇下面的菜单栏🗂，可以调出目录</p>
+</li>
+<li>
+<p>前期主要是用C语言刷的，但是C的功能太简陋了，从哈希表部分开始换用C++刷题。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h2>
+<h3 id="704-二分查找"><a class="markdownIt-Anchor" href="#704-二分查找"></a> <a href="https://leetcode.cn/problems/binary-search/" target="_blank" rel="noopener">704. 二分查找</a></h3>
+<blockquote>
+<p>给定一个 <code>n</code> 个元素有序的（升序）整型数组 <code>nums</code> 和一个目标值 <code>target</code> ，写一个函数搜索 <code>nums</code> 中的 <code>target</code>，如果目标值存在返回下标，否则返回 <code>-1</code>。</p>
+</blockquote>
+<p>注意开闭区间</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = numsSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right)&#123;</span><br><span class="line">        middle = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[middle] == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> middle;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (nums[middle] &gt; target) &#123;</span><br><span class="line">            right = middle - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            left = middle + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="27-移除元素"><a class="markdownIt-Anchor" href="#27-移除元素"></a> <a href="https://leetcode.cn/problems/remove-element/" target="_blank" rel="noopener">27. 移除元素</a></h3>
+<blockquote>
+<p>给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">原地</a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 <code>O(1)</code> 额外空间并 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">原地 </a>修改输入数组</strong>。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+</blockquote>
+<p>快指针指向原始数组，慢指针指向新数组。如果等于val，slow不加；不等于val，fast指向的值赋给slow指向的值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> slow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> fast = <span class="number">0</span>; fast &lt; numsSize; fast++) &#123;</span><br><span class="line">        <span class="comment">// 快指针指向原始数组，慢指针指向新数组。如果等于val，slow不加；不等于val，fast指向的值赋给slow指向的值</span></span><br><span class="line">        <span class="keyword">if</span> (nums[fast] != val) &#123;</span><br><span class="line">            nums[slow] = nums[fast];</span><br><span class="line">            slow++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="977-有序数组的平方"><a class="markdownIt-Anchor" href="#977-有序数组的平方"></a> <a href="https://leetcode.cn/problems/squares-of-a-sorted-array/" target="_blank" rel="noopener">977. 有序数组的平方</a></h3>
+<blockquote>
+<p>给你一个按 <strong>非递减顺序</strong> 排序的整数数组 <code>nums</code>，返回 <strong>每个数字的平方</strong> 组成的新数组，要求也按 <strong>非递减顺序</strong> 排序。</p>
+</blockquote>
+<p>动态数组不行！</p>
+<p>中途比较，两头的数字一定是最大的，其平方一定在平方数组的末尾</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Note: The returned array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>* <span class="title">sortedSquares</span><span class="params">(<span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize, <span class="keyword">int</span>* returnSize)</span> </span>&#123;</span><br><span class="line">    *returnSize = numsSize;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = numsSize - <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span>* ans = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * numsSize);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 中途比较，两头的数字一定是最大的，其平方一定在平方数组的末尾</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = numsSize - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[left] * nums[left] &gt;= nums[right] * nums[right]) &#123;</span><br><span class="line">            ans[i] = nums[left] * nums[left];</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            ans[i] = nums[right] * nums[right];</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="209-长度最小的子数组"><a class="markdownIt-Anchor" href="#209-长度最小的子数组"></a> <a href="https://leetcode.cn/problems/minimum-size-subarray-sum/" target="_blank" rel="noopener">209. 长度最小的子数组</a></h3>
+<blockquote>
+<p>给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> <strong>。</strong></p>
+<p>找出该数组中满足其总和大于等于 <code>target</code> 的长度最小的 <strong>连续子数组</strong><code>[numsl, numsl+1, ..., numsr-1, numsr]</code> ，并返回其长度**。**如果不存在符合条件的子数组，返回 <code>0</code> 。</p>
+</blockquote>
+<p>暴力解法过不了</p>
+<p>张开的窗口之和至少要能够装下target。首先移动end（必须到结尾），至少要装下target。接着，start向右，找最小的长度，装不下了，end向右。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minSubArrayLen</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span>* nums, <span class="keyword">int</span> numsSize)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">100001</span>;</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> <span class="built_in">end</span> = <span class="number">0</span>; <span class="built_in">end</span> &lt; numsSize; <span class="built_in">end</span>++) &#123;</span><br><span class="line">        sum += nums[<span class="built_in">end</span>];</span><br><span class="line">        <span class="keyword">while</span> (sum &gt;= target) &#123; <span class="comment">//这个while是精髓！！！ 滑动初始窗口</span></span><br><span class="line">            <span class="keyword">if</span> ((<span class="built_in">end</span> - start + <span class="number">1</span>) &lt; length) &#123;</span><br><span class="line">                length = <span class="built_in">end</span> - start + <span class="number">1</span>;</span><br><span class="line">            &#125;            </span><br><span class="line">            sum -= nums[start];</span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (length &lt; <span class="number">100001</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="59-螺旋矩阵-ii"><a class="markdownIt-Anchor" href="#59-螺旋矩阵-ii"></a> <a href="https://leetcode.cn/problems/spiral-matrix-ii/" target="_blank" rel="noopener">59. 螺旋矩阵 II</a></h3>
+<blockquote>
+<p>给你一个正整数 <code>n</code> ，生成一个包含 <code>1</code> 到 <code>n2</code> 所有元素，且元素按顺时针顺序螺旋排列的 <code>n x n</code> 正方形矩阵 <code>matrix</code> 。</p>
+</blockquote>
+<p>找规律，注意边界</p>
+<p>找规律，第一步先把第一行填满，后续每次转弯向右，每两次需要步长减一。注意，横纵坐标有没有超出范围，且二维数组第一位为行，第二位为列</p>
+<img alt="image-20240326200626892" style="zoom: 50%;" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240326200626892-1711721196799-15.png" data-index="0" data-src="/2024/03/30/LeetCode-problems/image-20240326200626892-1711721196799-15.png">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return an array of arrays of size *returnSize.</span></span><br><span class="line"><span class="comment"> * The sizes of the arrays are returned as *returnColumnSizes array.</span></span><br><span class="line"><span class="comment"> * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span>** <span class="title">generateMatrix</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>* returnSize, <span class="keyword">int</span>** returnColumnSizes)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化返回的结果数组</span></span><br><span class="line">    *returnSize = n;</span><br><span class="line">    *returnColumnSizes = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * n);</span><br><span class="line">    <span class="keyword">int</span>** ans = (<span class="keyword">int</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>*) * n);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        ans[i] = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * n);</span><br><span class="line">        (*returnColumnSizes)[i] = n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> shiftX = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> shiftY = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> inputNum = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> directionX = <span class="number">0</span>; <span class="comment">// 0往左，1往右</span></span><br><span class="line">    <span class="keyword">int</span> directionY = <span class="number">0</span>; <span class="comment">// 0往下，1往上</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> <span class="built_in">step</span> = n; <span class="built_in">step</span> &gt; <span class="number">0</span>; <span class="built_in">step</span>-- ) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">step</span> == n) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++) &#123;</span><br><span class="line">                ans[shiftY][shiftX] = inputNum;</span><br><span class="line">                inputNum++;</span><br><span class="line">                shiftX++;</span><br><span class="line">            &#125;</span><br><span class="line">            shiftX--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 先移动Y方向</span></span><br><span class="line">            <span class="keyword">if</span> (directionY == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++) &#123;</span><br><span class="line">                    shiftY++;</span><br><span class="line">                    ans[shiftY][shiftX] = inputNum;</span><br><span class="line">                    inputNum++;</span><br><span class="line">                &#125;</span><br><span class="line">                directionY = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++) &#123;</span><br><span class="line">                    shiftY--;</span><br><span class="line">                    ans[shiftY][shiftX] = inputNum;</span><br><span class="line">                    inputNum++;</span><br><span class="line">                &#125;</span><br><span class="line">                directionY = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//再移动X方向</span></span><br><span class="line">            <span class="keyword">if</span> (directionX == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++) &#123;</span><br><span class="line">                    shiftX--;</span><br><span class="line">                    ans[shiftY][shiftX] = inputNum;</span><br><span class="line">                    inputNum++;</span><br><span class="line">                &#125;</span><br><span class="line">                directionX = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">step</span>; i++) &#123;</span><br><span class="line">                    shiftX++;</span><br><span class="line">                    ans[shiftY][shiftX] = inputNum;</span><br><span class="line">                    inputNum++;</span><br><span class="line">                &#125;</span><br><span class="line">                directionX = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="链表"><a class="markdownIt-Anchor" href="#链表"></a> 链表</h2>
+<h3 id="203-移除链表元素"><a class="markdownIt-Anchor" href="#203-移除链表元素"></a> <a href="https://leetcode.cn/problems/remove-linked-list-elements/" target="_blank" rel="noopener">203. 移除链表元素</a></h3>
+<blockquote>
+<p>给你一个链表的头节点 <code>head</code> 和一个整数 <code>val</code> ，请你删除链表中所有满足 <code>Node.val == val</code> 的节点，并返回 <strong>新的头节点</strong> 。</p>
+</blockquote>
+<p>定义虚拟头节点dummyHead，以解决第一个节点就是val值的问题。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">removeElements</span><span class="params">(struct ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">dummyHead</span> = <span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">ListNode</span>));</span></span><br><span class="line">    dummyHead-&gt;next = head;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p</span> = <span class="title">dummyHead</span>;</span></span><br><span class="line">    <span class="keyword">while</span>(p-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;next-&gt;val == val) &#123;</span><br><span class="line">            p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummyHead-&gt;next;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="707-设计链表"><a class="markdownIt-Anchor" href="#707-设计链表"></a> <a href="https://leetcode.cn/problems/design-linked-list/" target="_blank" rel="noopener">707. 设计链表</a></h3>
+<blockquote>
+<p>你可以选择使用单链表或者双链表，设计并实现自己的链表。</p>
+<p>单链表中的节点应该具备两个属性：<code>val</code> 和 <code>next</code> 。<code>val</code> 是当前节点的值，<code>next</code> 是指向下一个节点的指针/引用。</p>
+<p>如果是双向链表，则还需要属性 <code>prev</code> 以指示链表中的上一个节点。假设链表中的所有节点下标从 <strong>0</strong> 开始。</p>
+<p>实现 <code>MyLinkedList</code> 类：</p>
+<ul>
+<li><code>MyLinkedList()</code> 初始化 <code>MyLinkedList</code> 对象。</li>
+<li><code>int get(int index)</code> 获取链表中下标为 <code>index</code> 的节点的值。如果下标无效，则返回 <code>-1</code> 。</li>
+<li><code>void addAtHead(int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中第一个元素之前。在插入完成后，新节点会成为链表的第一个节点。</li>
+<li><code>void addAtTail(int val)</code> 将一个值为 <code>val</code> 的节点追加到链表中作为链表的最后一个元素。</li>
+<li><code>void addAtIndex(int index, int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中下标为 <code>index</code> 的节点之前。如果 <code>index</code> 等于链表的长度，那么该节点会被追加到链表的末尾。如果 <code>index</code> 比长度更大，该节点将 <strong>不会插入</strong> 到链表中。</li>
+<li><code>void deleteAtIndex(int index)</code> 如果下标有效，则删除链表中下标为 <code>index</code> 的节点。</li>
+</ul>
+</blockquote>
+<p>找准指向的元素。前一个还是后一个。另外需要分类分析头尾的情况。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MyLinkedList</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">MyLinkedList</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125; MyLinkedList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">MyLinkedList* <span class="title">myLinkedListCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义虚拟头节点</span></span><br><span class="line">    MyLinkedList* head = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myLinkedListGet</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    MyLinkedList* p = obj-&gt;next; <span class="comment">//定义工作指针</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; p != <span class="literal">NULL</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == index) &#123;</span><br><span class="line">            <span class="keyword">return</span> p-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtHead</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    MyLinkedList* newHead = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    newHead-&gt;next = obj-&gt;next;</span><br><span class="line">    newHead-&gt;val = val;</span><br><span class="line">    obj-&gt;next = newHead;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtTail</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    MyLinkedList* p = obj-&gt;next; <span class="comment">//定义工作指针</span></span><br><span class="line">    MyLinkedList* newTail = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    newTail-&gt;val = val;</span><br><span class="line">    newTail-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(p-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next = newTail;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        obj-&gt;next = newTail;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    MyLinkedList* p = obj-&gt;next; <span class="comment">//工作指针</span></span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">0</span>) &#123;</span><br><span class="line">        myLinkedListAddAtHead(obj, val);</span><br><span class="line">    &#125;</span><br><span class="line">    MyLinkedList* newAdd = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    newAdd-&gt;val = val;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; p != <span class="literal">NULL</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == index - <span class="number">1</span>) &#123;</span><br><span class="line">            newAdd-&gt;next = p-&gt;next;</span><br><span class="line">            p-&gt;next = newAdd;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListDeleteAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    MyLinkedList* p = obj-&gt;next;</span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            obj-&gt;next = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; p-&gt;next != <span class="literal">NULL</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == index - <span class="number">1</span>) &#123;</span><br><span class="line">                p-&gt;next = p-&gt;next-&gt;next; </span><br><span class="line">                <span class="keyword">if</span> (p-&gt;next == <span class="literal">NULL</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    p = p-&gt;next;</span><br><span class="line">                &#125;    </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListFree</span><span class="params">(MyLinkedList* obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(obj != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        MyLinkedList* temp =  obj;</span><br><span class="line">        obj = obj-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(temp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyLinkedList struct will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyLinkedList* obj = myLinkedListCreate();</span></span><br><span class="line"><span class="comment"> * int param_1 = myLinkedListGet(obj, index);</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * myLinkedListAddAtHead(obj, val);</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * myLinkedListAddAtTail(obj, val);</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * myLinkedListAddAtIndex(obj, index, val);</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * myLinkedListDeleteAtIndex(obj, index);</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * myLinkedListFree(obj);</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="206-反转链表"><a class="markdownIt-Anchor" href="#206-反转链表"></a> <a href="https://leetcode.cn/problems/reverse-linked-list/" target="_blank" rel="noopener">206. 反转链表</a></h3>
+<blockquote>
+<p>给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。</p>
+</blockquote>
+<p>【双指针】注意链表不带头节点。所以双指针的工作和带头结点的不同。</p>
+<img alt="image-20240326200013905" style="zoom:50%;" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240326200013905-1711721196799-14.png" data-index="1" data-src="/2024/03/30/LeetCode-problems/image-20240326200013905-1711721196799-14.png">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">reverseList</span><span class="params">(struct ListNode* head)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//head 不带头节点</span></span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">p</span> = <span class="title">NULL</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">q</span> = <span class="title">head</span>;</span></span><br><span class="line">    <span class="keyword">while</span> (q != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">r</span> = <span class="title">q</span>-&gt;<span class="title">next</span>;</span></span><br><span class="line">        q-&gt;next = p;</span><br><span class="line">        p = q;</span><br><span class="line">        q = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// head-&gt;next = NULL;</span></span><br><span class="line">    head = p;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="24-两两交换链表中的节点"><a class="markdownIt-Anchor" href="#24-两两交换链表中的节点"></a> <a href="https://leetcode.cn/problems/swap-nodes-in-pairs/" target="_blank" rel="noopener">24. 两两交换链表中的节点</a></h3>
+<blockquote>
+<p>给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。</p>
+</blockquote>
+<img alt="image-20240326195630531" style="zoom: 50%;" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240326195630531-1711721196799-18.png" data-index="2" data-src="/2024/03/30/LeetCode-problems/image-20240326195630531-1711721196799-18.png">
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">swapPairs</span><span class="params">(struct ListNode* head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> <span class="title">ListNode</span>;</span></span><br><span class="line">    ListNode *dummyHead = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">    ListNode *p = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode)); <span class="comment">// 定义头节点和工作指针</span></span><br><span class="line">    dummyHead-&gt;next = head;</span><br><span class="line">    p = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(p-&gt;next != <span class="literal">NULL</span> &amp;&amp; p-&gt;next-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        ListNode *temp = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">        temp = p-&gt;next;</span><br><span class="line">        p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">        temp-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">        p-&gt;next-&gt;next = temp;</span><br><span class="line">        p = p-&gt;next-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummyHead-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="19-删除链表的倒数第-n-个结点"><a class="markdownIt-Anchor" href="#19-删除链表的倒数第-n-个结点"></a> <a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">19. 删除链表的倒数第 N 个结点</a></h3>
+<blockquote>
+<p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
+</blockquote>
+<p>暴力解法，两次遍历</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode* <span class="title">removeNthFromEnd</span><span class="params">(struct ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> <span class="title">ListNode</span>;</span></span><br><span class="line">    ListNode *dummyNode = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">    dummyNode-&gt;next = head;</span><br><span class="line">    ListNode *p = dummyNode;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (p-&gt;next != <span class="number">0</span>) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    p = dummyNode;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count - n; i++) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> dummyNode-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>双指针，让快慢指针间隔n位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">removeNthFromEnd</span><span class="params">(struct ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> <span class="title">ListNode</span>;</span></span><br><span class="line">    ListNode *dummyNode = (ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ListNode));</span><br><span class="line">    dummyNode-&gt;next = head;</span><br><span class="line">    ListNode *fast = dummyNode;</span><br><span class="line">    ListNode *slow = dummyNode;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(fast-&gt; next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    slow-&gt;next = slow-&gt;next-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> dummyNode-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="160-相交链表"><a class="markdownIt-Anchor" href="#160-相交链表"></a> <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">160. 相交链表</a></h3>
+<blockquote>
+<p>给你两个单链表的头节点 <code>headA</code> 和 <code>headB</code> ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 <code>null</code> 。</p>
+<p>图示两个链表在节点 <code>c1</code> 开始相交**：**</p>
+<p><a href="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png" target="_blank" rel="noopener"><img alt="img" style="zoom:33%;" class="post-img b-lazy" data-img="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png" data-index="3" data-src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png"></a></p>
+<p>题目数据 <strong>保证</strong> 整个链式结构中不存在环。</p>
+<p><strong>注意</strong>，函数返回结果后，链表必须 <strong>保持其原始结构</strong> 。</p>
+</blockquote>
+<p>计算链表长度的差，移动到剩余相同长度，一个一个节点比较</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode *<span class="title">getIntersectionNode</span><span class="params">(struct ListNode *headA, struct ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> <span class="title">ListNode</span>;</span></span><br><span class="line"></span><br><span class="line">    ListNode *p = headA;</span><br><span class="line">    ListNode *q = headB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算链表长度的差</span></span><br><span class="line">    <span class="keyword">int</span> lenA = <span class="number">0</span>, lenB = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> gap = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lenA++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (q != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        lenB++;</span><br><span class="line">        q = q-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移动到相同长度</span></span><br><span class="line">    p = headA;</span><br><span class="line">    q = headB;</span><br><span class="line">    <span class="keyword">if</span> (lenA &gt; lenB) &#123;</span><br><span class="line">        gap = lenA - lenB;</span><br><span class="line">        <span class="keyword">while</span>(gap != <span class="number">0</span>) &#123;</span><br><span class="line">            gap--;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        gap = lenB - lenA;</span><br><span class="line">        <span class="keyword">while</span>(gap != <span class="number">0</span>) &#123;</span><br><span class="line">            gap--;</span><br><span class="line">            q = q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 一个一个比较</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; q != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == q) &#123;</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            q = q-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>官方题解——双指针的思路</p>
+<p>两者长度分别为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo separator="true">,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m,n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span></span></span></span>，假设公共部分为后<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">m=a+c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><mi>b</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n=b+c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></p>
+<p>开始先指向自己，走完自己全程指向对方</p>
+<ul>
+<li>两链表相交：
+<ul>
+<li>长度相等：两个指针会同时到达两个链表相交的节点</li>
+<li>长度不等：走到第一个公共节点的距离是相同的，第一个走的是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>c</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a+c+b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span>，第二个走的是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>+</mo><mi>c</mi><mo>+</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">b+c+a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span></li>
+</ul>
+</li>
+<li>两个链表不相交
+<ul>
+<li>长度相等：同时到达两个链表自己的尾节点变成NULL</li>
+<li>长度不等：两个指针都会遍历完两个链表（自己加对方），变成NULL</li>
+</ul>
+</li>
+</ul>
+<h3 id="142-环形链表-ii"><a class="markdownIt-Anchor" href="#142-环形链表-ii"></a> <a href="https://leetcode.cn/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">142. 环形链表 II</a></h3>
+<blockquote>
+<p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
+</blockquote>
+<p><img alt="img" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/20220925103433-1711721196799-13.png" data-index="4" data-src="/2024/03/30/LeetCode-problems/20220925103433-1711721196799-13.png"></p>
+<p>慢指针每次走一步，快指针每次走两部</p>
+<p>相遇时</p>
+<ul>
+<li>
+<p>slow： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span></p>
+</li>
+<li>
+<p>fast：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>n</mi><mo stretchy="false">(</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x+y+n(y+z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span>​ 比slow多走了n圈</p>
+</li>
+<li>
+<p>重要的等式！！！</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo stretchy="false">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>n</mi><mo stretchy="false">(</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">2(x+y)=x+y+n(y+z)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span></span></p>
+<p>于是可以推导出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mi>n</mi><mo stretchy="false">(</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy="false">)</mo><mo>−</mo><mi>y</mi><mo>=</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy="false">)</mo><mo>+</mo><mi>z</mi></mrow><annotation encoding="application/x-tex">x=n(y+z)-y = (n-1)(y+z)+z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.04398em;">z</span></span></span></span>，至少多走了一圈，所以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n\ge 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>合理.</p>
+</li>
+<li>
+<p>所以x和z的关系就是差了整数圈的关系！</p>
+</li>
+<li>
+<p>所以从头节点走到环形入口的距离等于整数圈+相遇节点到入口。</p>
+<ul>
+<li>所以从相遇点、头节点出发的两个指针，每次走一步，相遇的位置一定是环形入口。</li>
+<li>代码注意后续这么动的时候，slow和fast在不在变，会导致判断条件有问题！</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct ListNode *next;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">struct ListNode *<span class="title">detectCycle</span><span class="params">(struct ListNode *head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> <span class="title">ListNode</span>;</span></span><br><span class="line">    ListNode *slow = head, *fast = head;</span><br><span class="line">    <span class="keyword">while</span> (fast != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="comment">// 先追及</span></span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 后从头开始</span></span><br><span class="line">        <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">            ListNode *p = head;</span><br><span class="line">            ListNode *q = slow;</span><br><span class="line">            <span class="keyword">while</span> (p != q) &#123;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>以下开始以C艹为主</p>
+<h2 id="哈希表"><a class="markdownIt-Anchor" href="#哈希表"></a> 哈希表</h2>
+<h3 id="242-有效的字母异位词"><a class="markdownIt-Anchor" href="#242-有效的字母异位词"></a> <a href="https://leetcode.cn/problems/valid-anagram/" target="_blank" rel="noopener">242. 有效的字母异位词</a></h3>
+<blockquote>
+<p>给定两个字符串 <code>s</code> 和 <code>t</code> ，编写一个函数来判断 <code>t</code> 是否是 <code>s</code> 的字母异位词。</p>
+<p>**注意：**若 <code>s</code> 和 <code>t</code> 中每个字符出现的次数都相同，则称 <code>s</code> 和 <code>t</code> 互为字母异位词。</p>
+</blockquote>
+<p>把小写字母表看作哈希表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() != t.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; alphabetS(<span class="number">26</span>);</span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; alphabetT(<span class="number">26</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            alphabetS[s[i] - <span class="string">'a'</span>] += <span class="number">1</span>;</span><br><span class="line">            alphabetT[t[i] - <span class="string">'a'</span>] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (alphabetS == alphabetT) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>或者通过是不是都是0来判断，减少空间需求。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="keyword">char</span>* s, <span class="keyword">char</span>* t)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strlen</span>(s) != <span class="built_in">strlen</span>(t)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *alphabet = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">26</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">        alphabet[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(s); i++) &#123;</span><br><span class="line">        alphabet[s[i] - <span class="string">'a'</span>] += <span class="number">1</span>;</span><br><span class="line">        alphabet[t[i] - <span class="string">'a'</span>] -= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (alphabet[i] != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="349-两个数组的交集"><a class="markdownIt-Anchor" href="#349-两个数组的交集"></a> <a href="https://leetcode.cn/problems/intersection-of-two-arrays/" target="_blank" rel="noopener">349. 两个数组的交集</a></h3>
+<blockquote>
+<p>给定两个数组 <code>nums1</code> 和 <code>nums2</code> ，返回 它们的 交集 。输出结果中的每个元素一定是 <strong>唯一</strong> 的。我们可以 <strong>不考虑输出结果的顺序</strong> 。</p>
+</blockquote>
+<p>建立数组hash表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">intersection</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; hash(<span class="number">1001</span>);</span><br><span class="line">        <span class="built_in">unordered_set</span> &lt;<span class="keyword">int</span>&gt; output;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num:nums1) &#123;</span><br><span class="line">            hash[num] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num:nums2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash[num] != <span class="number">0</span>) &#123;</span><br><span class="line">                output.insert(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; output_vec;</span><br><span class="line">        output_vec.assign(output.<span class="built_in">begin</span>(), output.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> output_vec;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>用无序set做</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">intersection</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_set</span> &lt;<span class="keyword">int</span>&gt; nums1_set(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">unordered_set</span> &lt;<span class="keyword">int</span>&gt; output_set;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num:nums2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1_set.<span class="built_in">find</span>(num) != <span class="number">0</span>) &#123;</span><br><span class="line">                output_set.insert(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; (output_set.<span class="built_in">begin</span>(), output_set.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="202-快乐数"><a class="markdownIt-Anchor" href="#202-快乐数"></a> <a href="https://leetcode.cn/problems/happy-number/" target="_blank" rel="noopener">202. 快乐数</a></h3>
+<blockquote>
+<p>编写一个算法来判断一个数 <code>n</code> 是不是快乐数。</p>
+<p><strong>「快乐数」</strong> 定义为：</p>
+<ul>
+<li>对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。</li>
+<li>然后重复这个过程直到这个数变为 1，也可能是 <strong>无限循环</strong> 但始终变不到 1。</li>
+<li>如果这个过程 <strong>结果为</strong> 1，那么这个数就是快乐数。</li>
+</ul>
+<p>如果 <code>n</code> 是 <em>快乐数</em> 就返回 <code>true</code> ；不是，则返回 <code>false</code> 。</p>
+</blockquote>
+<p>无限循环是重点！！！</p>
+<p>重点是可能会陷入无限循环。<br>
+需要先判断在不在之前存储的集合里面，再将sum添加进集合里面。<br>
+同时集合.find的判定适合end()比。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_set</span> &lt;<span class="keyword">int</span>&gt; results;</span><br><span class="line">        <span class="keyword">int</span> sum = n;</span><br><span class="line">        <span class="keyword">int</span> mod = n;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (results.<span class="built_in">find</span>(sum) == results.<span class="built_in">end</span>()) &#123;</span><br><span class="line">            results.insert(sum);</span><br><span class="line">            mod = sum;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// 下列循环求mod的各位平方和</span></span><br><span class="line">            <span class="keyword">while</span> (mod != <span class="number">0</span>) &#123;</span><br><span class="line">                sum += (mod % <span class="number">10</span>) * (mod % <span class="number">10</span>);</span><br><span class="line">                mod /= <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; sum &lt;&lt; " ";</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1-两数之和"><a class="markdownIt-Anchor" href="#1-两数之和"></a> <a href="https://leetcode.cn/problems/two-sum/" target="_blank" rel="noopener">1. 两数之和</a></h3>
+<blockquote>
+<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> <em><code>target</code></em> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+</blockquote>
+<p>暴力解法——复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="script">O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>( nums[i] + nums[j] == target) &#123;</span><br><span class="line">                    <span class="keyword">return</span> &#123;i, j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>利用哈希表的思路——利用键值对，在之前保存的键值对中找有没有能够匹配的元素。注意<strong>find的时候，是find的键值对的键</strong>，而非值，返回的是键值对的结构体。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span> &lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; nums_map;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums_map.<span class="built_in">find</span>(target - nums[i]) != nums_map.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;nums_map.<span class="built_in">find</span>(target - nums[i])-&gt;second, i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            nums_map[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="454-四数相加-ii"><a class="markdownIt-Anchor" href="#454-四数相加-ii"></a> <a href="https://leetcode.cn/problems/4sum-ii/" target="_blank" rel="noopener">454. 四数相加 II</a></h3>
+<blockquote>
+<p>给你四个整数数组 <code>nums1</code>、<code>nums2</code>、<code>nums3</code> 和 <code>nums4</code> ，数组长度都是 <code>n</code> ，请你计算有多少个元组 <code>(i, j, k, l)</code> 能满足：</p>
+<ul>
+<li><code>0 &lt;= i, j, k, l &lt; n</code></li>
+<li><code>nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0</code></li>
+</ul>
+</blockquote>
+<p>首先是无序的，但是需要次数，所以需要通过<code>unordered_map</code>。</p>
+<p>分组的思想降低for循环的次数</p>
+<p>map新增值不需要判断是否存在键。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums3, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums4)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span> &lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sumTwo;</span><br><span class="line">        <span class="keyword">int</span> counts = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num1:nums1) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num2:nums2) &#123;</span><br><span class="line">                sumTwo[num1 + num2] += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num3:nums3) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> num4:nums4) &#123;</span><br><span class="line">                <span class="keyword">if</span> (sumTwo.<span class="built_in">find</span>(- (num3 + num4)) != sumTwo.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                    counts += sumTwo[- (num3 + num4)];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> counts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="383-赎金信"><a class="markdownIt-Anchor" href="#383-赎金信"></a> <a href="https://leetcode.cn/problems/ransom-note/" target="_blank" rel="noopener">383. 赎金信</a></h3>
+<blockquote>
+<p>给你两个字符串：<code>ransomNote</code> 和 <code>magazine</code> ，判断 <code>ransomNote</code> 能不能由 <code>magazine</code> 里面的字符构成。</p>
+<p>如果可以，返回 <code>true</code> ；否则返回 <code>false</code> 。</p>
+<p><code>magazine</code> 中的每个字符只能在 <code>ransomNote</code> 中使用一次。</p>
+</blockquote>
+<p>小写字母建立hash表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canConstruct</span><span class="params">(<span class="built_in">string</span> ransomNote, <span class="built_in">string</span> magazine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> alphabet[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">if</span> (magazine.length() &lt; ransomNote.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; magazine.length(); i++) &#123;</span><br><span class="line">            alphabet[magazine[i] - <span class="string">'a'</span>] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; ransomNote.length(); j++) &#123;</span><br><span class="line">            alphabet[ransomNote[j] - <span class="string">'a'</span>] -= <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (alphabet[ransomNote[j] - <span class="string">'a'</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="15-三数之和"><a class="markdownIt-Anchor" href="#15-三数之和"></a> <a href="https://leetcode.cn/problems/3sum/" target="_blank" rel="noopener">15. 三数之和</a></h3>
+<blockquote>
+<p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请</p>
+<p>你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<p>**注意：**答案中不可以包含重复的三元组。</p>
+</blockquote>
+<p>去重很困难。考虑双指针法</p>
+<p>去重的位置非常重要！同时要考虑使用双指针而非哈希表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">threeSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt;&gt; output;</span><br><span class="line">        sort(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123; <span class="comment">// 最左边的元素大于0，那么不可能和为0</span></span><br><span class="line">                <span class="keyword">return</span> output;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123; <span class="comment">//第一个数，去重</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 双指针启动！</span></span><br><span class="line">            <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[left] + nums[right] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] + nums[left] + nums[right] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    output.push_back(&#123;nums[i], nums[left], nums[right]&#125;);</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left + <span class="number">1</span>]) &#123;</span><br><span class="line">                        left++; <span class="comment">// 第二个数，去重，要求左右顺序不能错。如果这个数和后一个一样，那么会导致第二个数有重复，所以右移</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right - <span class="number">1</span>]) &#123;</span><br><span class="line">                        right--;<span class="comment">// 第三个数，去重</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//找到答案，同时收缩</span></span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="18-四数之和"><a class="markdownIt-Anchor" href="#18-四数之和"></a> <a href="https://leetcode.cn/problems/4sum/" target="_blank" rel="noopener">18. 四数之和</a></h3>
+<blockquote>
+<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> ，和一个目标值 <code>target</code> 。请你找出并返回满足下述全部条件且<strong>不重复</strong>的四元组 <code>[nums[a], nums[b], nums[c], nums[d]]</code> （若两个四元组元素一一对应，则认为两个四元组重复）：</p>
+<ul>
+<li><code>0 &lt;= a, b, c, d &lt; n</code></li>
+<li><code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> <strong>互不相同</strong></li>
+<li><code>nums[a] + nums[b] + nums[c] + nums[d] == target</code></li>
+</ul>
+<p>你可以按 <strong>任意顺序</strong> 返回答案 。</p>
+</blockquote>
+<p>不要判断<code>nums[k] &gt; target</code> 就返回了，三数之和 可以通过 <code>nums[i] &gt; 0</code> 就返回了，因为 0 已经是确定的数了，四数之和这道题目 target是任意值。比如：数组是<code>[-4, -3, -2, -1]</code>，<code>target</code>是<code>-10</code>，不能因为<code>-4 &gt; -10</code>而跳过。但是我们依旧可以去做剪枝，逻辑变成<code>nums[i] &gt; target &amp;&amp; (nums[i] &gt;=0 || target &gt;= 0)</code>就可以了。</p>
+<p>这边的重点是第二个数要求<code>j &gt; i+1</code>而非<code>j&gt;0</code>，不然数相等时候会往右缩。</p>
+<p>同时注意不加<code>(long)</code>可能会溢出。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">fourSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span> &lt;<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt;&gt; output;</span><br><span class="line">        <span class="comment">//先要从小到大排</span></span><br><span class="line">        sort(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="comment">// if (nums[i] &gt; target &amp;&amp; nums[i] &gt;= 0) &#123;</span></span><br><span class="line">            <span class="comment">//     break; //剪枝处理，类似之前的首元素大于0，那么必然不行</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="comment">// if (nums[i] + nums[j] &gt; target &amp;&amp; nums[i] + nums[j] &gt;= 0) &#123;</span></span><br><span class="line">                <span class="comment">//     break; //剪枝处理，类似之前的首元素大于0，那么必然不行</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line">                <span class="keyword">if</span> (j &gt; i+<span class="number">1</span> &amp;&amp; nums[j] == nums[j<span class="number">-1</span>]) &#123;  <span class="comment">// 这边的重点是j &gt; i+1而非j&gt;0</span></span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="keyword">int</span> left = j + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((<span class="keyword">long</span>) nums[i] + nums[j] + nums[left] + nums[right] &lt; target) &#123; <span class="comment">//会溢出</span></span><br><span class="line">                        left++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="keyword">long</span>) nums[i] + nums[j] + nums[left] + nums[right] &gt; target) &#123;</span><br><span class="line">                        right--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        output.push_back(&#123;nums[i], nums[j], nums[left], nums[right]&#125;);</span><br><span class="line">                        <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left+<span class="number">1</span>]) &#123;</span><br><span class="line">                            left++;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right<span class="number">-1</span>]) &#123;</span><br><span class="line">                            right--;</span><br><span class="line">                        &#125;</span><br><span class="line">                        left++;</span><br><span class="line">                        right--;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h2>
+<h3 id="344-反转字符串"><a class="markdownIt-Anchor" href="#344-反转字符串"></a> <a href="https://leetcode.cn/problems/reverse-string/" target="_blank" rel="noopener">344. 反转字符串</a></h3>
+<blockquote>
+<p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>s</code> 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须**<a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">原地</a>修改输入数组**、使用 O(1) 的额外空间解决这一问题。</p>
+</blockquote>
+<p>注意right的其实位置是length-1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverseString</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = s.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = s[left];</span><br><span class="line">            s[left] = s[right];</span><br><span class="line">            s[right] = temp;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="541-反转字符串-ii"><a class="markdownIt-Anchor" href="#541-反转字符串-ii"></a> <a href="https://leetcode.cn/problems/reverse-string-ii/" target="_blank" rel="noopener">541. 反转字符串 II</a></h3>
+<blockquote>
+<p>给定一个字符串 <code>s</code> 和一个整数 <code>k</code>，从字符串开头算起，每计数至 <code>2k</code> 个字符，就反转这 <code>2k</code> 字符中的前 <code>k</code> 个字符。</p>
+<ul>
+<li>如果剩余字符少于 <code>k</code> 个，则将剩余字符全部反转。</li>
+<li>如果剩余字符小于 <code>2k</code> 但大于或等于 <code>k</code> 个，则反转前 <code>k</code> 个字符，其余字符保持原样。</li>
+</ul>
+</blockquote>
+<p>还是写的有点复杂了，可以把两个大于等于k的条件再精简一下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseStr</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> loop = s.length() / (<span class="number">2</span> * k) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; loop; i++) &#123;</span><br><span class="line">            <span class="comment">// 如果不是最后一个loop，则反转当前loop前k个</span></span><br><span class="line">            <span class="keyword">if</span> (i != loop - <span class="number">1</span>) &#123;  <span class="comment">//和下面last_loop &gt;= k合并</span></span><br><span class="line">                <span class="keyword">int</span> left = <span class="number">2</span> * i * k;</span><br><span class="line">                <span class="keyword">int</span> right = <span class="number">2</span> * i * k + (k - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                    swap(s[left], s[right]);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> last_loop = s.length() % (<span class="number">2</span> * k);</span><br><span class="line">                <span class="keyword">int</span> left = <span class="number">2</span> * i * k;</span><br><span class="line">                <span class="keyword">int</span> right;</span><br><span class="line">                <span class="keyword">if</span> (last_loop &lt; k) &#123; <span class="comment">//0的情况也没事，不会进入while循环。</span></span><br><span class="line">                    right = s.length() - <span class="number">1</span>;</span><br><span class="line">                &#125; </span><br><span class="line">                <span class="keyword">else</span> &#123;  <span class="comment">//和上面i != loop - 1合并</span></span><br><span class="line">                    right = <span class="number">2</span> * i * k + (k - <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                    swap(s[left], s[right]);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="54-替换数字kamacoder"><a class="markdownIt-Anchor" href="#54-替换数字kamacoder"></a> <a href="https://kamacoder.com/problempage.php?pid=1064" target="_blank" rel="noopener">54. 替换数字(kamacoder)</a></h3>
+<blockquote>
+<p><strong>题目描述</strong></p>
+<p>给定一个字符串 s，它包含小写字母和数字字符，请编写一个函数，将字符串中的字母字符保持不变，而将每个数字字符替换为number。 例如，对于输入字符串 <code>a1b2c3</code>，函数应该将其转换为 <code>anumberbnumbercnumber</code>。</p>
+<p><strong>输入描述</strong></p>
+<p>输入一个字符串 s,s 仅包含小写字母和数字字符。</p>
+<p><strong>输出描述</strong></p>
+<p>打印一个新的字符串，其中每个数字字符都被替换为了number</p>
+</blockquote>
+<p>从后往前替换字符，复杂度低，左边不用管。</p>
+<p><img alt="img" class="post-img b-lazy" data-img="https://code-thinking-1253855093.file.myqcloud.com/pics/20231030173058.png" data-index="5" data-src="https://code-thinking-1253855093.file.myqcloud.com/pics/20231030173058.png"></p>
+<p>注意处理完之后要左移一下，且判断条件注意边界。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s) &#123;</span><br><span class="line">        <span class="keyword">int</span> countNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> oldSize = s.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; oldSize; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] &gt;= <span class="string">'0'</span> &amp;&amp; s[i] &lt;= <span class="string">'9'</span>) &#123;</span><br><span class="line">                countNum++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; countNum &lt;&lt; endl;</span></span><br><span class="line">        s.resize(s.<span class="built_in">size</span>() + <span class="number">5</span> * countNum);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> left = oldSize - <span class="number">1</span>, right = s.<span class="built_in">size</span>() - <span class="number">1</span>; left &gt;= <span class="number">0</span>; left--)&#123;</span><br><span class="line">            <span class="keyword">if</span> (s[left] &lt; <span class="string">'0'</span> || s[left] &gt; <span class="string">'9'</span>) &#123; <span class="comment">// 不应该有等号</span></span><br><span class="line">                s[right] = s[left];</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                s[right--] = <span class="string">'r'</span>;</span><br><span class="line">                s[right--] = <span class="string">'e'</span>;</span><br><span class="line">                s[right--] = <span class="string">'b'</span>;</span><br><span class="line">                s[right--] = <span class="string">'m'</span>;</span><br><span class="line">                s[right--] = <span class="string">'u'</span>;</span><br><span class="line">                s[right--] = <span class="string">'n'</span>; <span class="comment">// 注意先减还是后减去</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="151-反转字符串中的单词"><a class="markdownIt-Anchor" href="#151-反转字符串中的单词"></a> <a href="https://leetcode.cn/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">151. 反转字符串中的单词</a></h3>
+<blockquote>
+<p>给你一个字符串 <code>s</code> ，请你反转字符串中 <strong>单词</strong> 的顺序。</p>
+<p><strong>单词</strong> 是由非空格字符组成的字符串。<code>s</code> 中使用至少一个空格将字符串中的 <strong>单词</strong> 分隔开。</p>
+<p>返回 <strong>单词</strong> 顺序颠倒且 <strong>单词</strong> 之间用单个空格连接的结果字符串。</p>
+<p>**注意：**输入字符串 <code>s</code>中可能会存在前导空格、尾随空格或者单词间的多个空格。返回的结果字符串中，单词间应当仅用单个空格分隔，且不包含任何额外的空格。</p>
+</blockquote>
+<p><img alt="fig" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/mutable2-1711721196799-17.png" data-index="6" data-src="/2024/03/30/LeetCode-problems/mutable2-1711721196799-17.png"></p>
+<p>——图片来自官方题解</p>
+<p>反转整个字符串。<br>
+同时操作反转单词和去除空格，要定义一个变量表示当前单词头，然后快慢指针删除空格. （代码随想录中分开处理。）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverseString</span> <span class="params">(<span class="built_in">string</span> &amp;s, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            swap(s[left++], s[right--]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reverseWords</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 反转整个字符串</span></span><br><span class="line">        reverseString (s, <span class="number">0</span>, s.length() - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 同时操作反转单词和去除空格，要定义一个变量表示当前单词头，然后快慢指针删除空格.</span></span><br><span class="line">        <span class="comment">// 慢指针指向单词尾部时，从单词头到慢指针反转。</span></span><br><span class="line">        <span class="comment">// 处理完一个单词后，注意单词之间有空格</span></span><br><span class="line">        <span class="keyword">int</span> wordHead = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> slow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> fast = <span class="number">0</span>; fast &lt; s.length(); fast++) &#123;</span><br><span class="line">            <span class="comment">/*三种情况（前两种可以合并）：</span></span><br><span class="line"><span class="comment">            ① fast=0 且 s[fast] 不为空，要传给slow</span></span><br><span class="line"><span class="comment">            ② fast!=0 且 s[fast] 不为空，要传给slow </span></span><br><span class="line"><span class="comment">            （这样不好处理最后一个单词）③ fast!=0 且 s[fast] 为空，s[fast-1] 不为空，要传给slow，同时从wordHead到slow-1逆转，wordHead移动到空格后</span></span><br><span class="line"><span class="comment">            ③ fast!=0 且 s[fast] 不为空，s[fast+1] 为空或者句子结尾，要传给slow后，同时从wordHead到slow逆转，slow补齐空格，wordHead移动到空格后</span></span><br><span class="line"><span class="comment">            所以先处理情况三*/</span></span><br><span class="line">            <span class="keyword">if</span> (s[fast] != <span class="string">' '</span>) &#123;</span><br><span class="line">                s[slow] = s[fast];</span><br><span class="line">                <span class="keyword">if</span> (s[fast+<span class="number">1</span>] == <span class="string">' '</span> || fast+<span class="number">1</span> &gt;= s.length()) &#123;</span><br><span class="line">                    reverseString(s, wordHead, slow);</span><br><span class="line">                    s[++slow] = <span class="string">' '</span>;</span><br><span class="line">                    wordHead = slow + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                slow++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 重置string长度，注意slow移向上一个单词的后一个格了</span></span><br><span class="line">        s.resize(slow<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="55-右旋字符串-kamacoder"><a class="markdownIt-Anchor" href="#55-右旋字符串-kamacoder"></a> <a href="https://kamacoder.com/problempage.php?pid=1065" target="_blank" rel="noopener">55. 右旋字符串 (kamacoder)</a></h3>
+<blockquote>
+<p><strong>题目描述</strong></p>
+<p>字符串的右旋转操作是把字符串尾部的若干个字符转移到字符串的前面。给定一个字符串 s 和一个正整数 k，请编写一个函数，将字符串中的后面 k 个字符移到字符串的前面，实现字符串的右旋转操作。</p>
+<p>例如，对于输入字符串 “abcdefg” 和整数 2，函数应该将其转换为 “fgabcde”。</p>
+<p><strong>输入描述</strong></p>
+<p>输入共包含两行，第一行为一个正整数 k，代表右旋转的位数。第二行为字符串 s，代表需要旋转的字符串。</p>
+<p><strong>输出描述</strong></p>
+<p>输出共一行，为进行了右旋转操作后的字符串。</p>
+</blockquote>
+<p>直接字符串提取拼接</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> length = s.length();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">string</span> s1 = s.substr(<span class="number">0</span>, length - k);</span><br><span class="line">    <span class="built_in">string</span> s2 = s.substr(length - k, k);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s2 &lt;&lt; s1;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在原本字符串中处理，变成“整体反转字符串”+“两个反转单词”的过程。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// void reverseString (string &amp;s, int left, int right) &#123;</span></span><br><span class="line"><span class="comment">//     while (left &lt; right) &#123;</span></span><br><span class="line"><span class="comment">//         swap (s[left++], s[right--]);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// int length = s.length();</span></span><br><span class="line">    <span class="comment">// reverseString(s, 0, length-1);</span></span><br><span class="line">    <span class="comment">// reverseString(s, 0, k-1);</span></span><br><span class="line">    <span class="comment">// reverseString(s, k, length-1);</span></span><br><span class="line">    </span><br><span class="line">    reverse(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>()); <span class="comment">//左闭右开</span></span><br><span class="line">    reverse(s.<span class="built_in">begin</span>(), s.<span class="built_in">begin</span>() + k);</span><br><span class="line">    reverse(s.<span class="built_in">begin</span>() + k, s.<span class="built_in">end</span>());</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="28-找出字符串中第一个匹配项的下标"><a class="markdownIt-Anchor" href="#28-找出字符串中第一个匹配项的下标"></a> <a href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/" target="_blank" rel="noopener">28. 找出字符串中第一个匹配项的下标</a></h3>
+<blockquote>
+<p>给你两个字符串 <code>haystack</code> 和 <code>needle</code> ，请你在 <code>haystack</code> 字符串中找出 <code>needle</code> 字符串的第一个匹配项的下标（下标从 0 开始）。如果 <code>needle</code> 不是 <code>haystack</code> 的一部分，则返回 <code>-1</code> 。</p>
+</blockquote>
+<ol>
+<li>注意：如果单纯通过一层for循环判断时候，当flag倒了的时候，可能前面部分字符还是重复了needle的少部分，所以需要回溯。</li>
+<li><strong>暴力解法</strong>也能解，取所有的n长字串即可。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(<span class="built_in">string</span> haystack, <span class="built_in">string</span> needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (needle[j] == haystack[i]) &#123;</span><br><span class="line">                flag++;</span><br><span class="line">                j++;</span><br><span class="line">                <span class="keyword">if</span> (j == needle.length()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i - j + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                flag = <span class="number">0</span>;</span><br><span class="line">                i = i - j;</span><br><span class="line">                j = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>
+<p>KMP的经典思想就是:<strong>当出现字符串不匹配时，可以记录一部分之前已经匹配的文本内容，利用这些信息避免从头再去做匹配。</strong></p>
+</li>
+<li>
+<p>前缀表</p>
+<ul>
+<li>
+<p>为什么需要？不想完全回溯。<br>
+<img alt="image-20240329202856323" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240329202856323-1711721196799-16.png" data-index="7" data-src="/2024/03/30/LeetCode-problems/image-20240329202856323-1711721196799-16.png"></p>
+</li>
+<li>
+<p>当前位置既然不能完全满足匹配串，那么至多能匹配上多少？也就是说可以少回溯多少呢？也就知道子串（匹配串）需要回溯到什么位置——这由当前位置的上一个前缀表值来确定。</p>
+<p><img alt="image-20240329202910993" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240329202910993-1711721196799-20.png" data-index="8" data-src="/2024/03/30/LeetCode-problems/image-20240329202910993-1711721196799-20.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>next数组的定义</p>
+<ul>
+<li>
+<p>初始化（前缀末尾（即最长相等前后缀长度）<code>j</code>、后缀末尾<code>i</code>）</p>
+</li>
+<li>
+<p>前后缀不相等（防止越界<code>j&gt;0</code>且<code>s[i]!=s[j]</code>时，<code>j</code>要连续回溯到<code>next[j-1]</code>）</p>
+</li>
+<li>
+<p>前后缀相等（<code>j</code>可以递增，同时后缀<code>i</code>指向位置的前缀表值为<code>j</code>）</p>
+</li>
+<li>
+<p>请注意这里最后一个为什么是2：这是由于B的时候发现匹配不上了，那么<code>j=3</code>也就要回溯到<code>j=next[j-1]=next[2]=1</code>这个位置。这里需要注意为什么明明是后缀的问题，要用前缀来看呢？因为后缀和前缀相等，所以后缀要回溯的值等于前缀需要回溯到的值（好乱啊55555555）<br>
+<img alt="image-20240329203055212" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240329203055212-1711721196799-19.png" data-index="9" data-src="/2024/03/30/LeetCode-problems/image-20240329203055212-1711721196799-19.png"></p>
+<p><img alt="image-20240329202935587" class="post-img b-lazy" data-img="/2024/03/30/LeetCode-problems/image-20240329202935587-1711721196799-21.png" data-index="10" data-src="/2024/03/30/LeetCode-problems/image-20240329202935587-1711721196799-21.png"></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>——图片来自<a href="https://www.bilibili.com/video/BV1AY4y157yL/?spm_id_from=333.337.search-card.all.click" target="_blank" rel="noopener">最浅显易懂的 KMP 算法讲解_哔哩哔哩_bilibili</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getNext</span> <span class="params">(<span class="keyword">int</span>* next, <span class="built_in">string</span> &amp;s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">//前缀末尾，即最长相等前后缀长度</span></span><br><span class="line">        next[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; s[i] != s[j]) &#123;</span><br><span class="line">                j = next[j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == s[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">strStr</span><span class="params">(<span class="built_in">string</span> haystack, <span class="built_in">string</span> needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (needle.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> next[needle.length()];</span><br><span class="line">        getNext(next, needle); <span class="comment">//获取前缀表</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>; <span class="comment">//指向匹配串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; haystack.length(); i++) &#123; <span class="comment">//i指向文本串</span></span><br><span class="line">            <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; haystack[i] != needle[j])&#123; <span class="comment">//注意这里也要连续回溯</span></span><br><span class="line">                j = next[j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(haystack[i] == needle[j]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">                <span class="keyword">if</span> (j == needle.length()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i - j + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<center>持续更新中~</center>
+<hr>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"># 编程</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="LaTeX札记（六）：MATLAB与TikZ绘图" href="/2024/01/01/latex-note-06/">
+            LaTeX札记（六）：MATLAB与TikZ绘图 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode刷题思路"><span class="toc-text"> LeetCode刷题思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-text"> 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#704-二分查找"><span class="toc-text"> 704. 二分查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-移除元素"><span class="toc-text"> 27. 移除元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#977-有序数组的平方"><span class="toc-text"> 977. 有序数组的平方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#209-长度最小的子数组"><span class="toc-text"> 209. 长度最小的子数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#59-螺旋矩阵-ii"><span class="toc-text"> 59. 螺旋矩阵 II</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-text"> 链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#203-移除链表元素"><span class="toc-text"> 203. 移除链表元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#707-设计链表"><span class="toc-text"> 707. 设计链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#206-反转链表"><span class="toc-text"> 206. 反转链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-两两交换链表中的节点"><span class="toc-text"> 24. 两两交换链表中的节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-删除链表的倒数第-n-个结点"><span class="toc-text"> 19. 删除链表的倒数第 N 个结点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#160-相交链表"><span class="toc-text"> 160. 相交链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#142-环形链表-ii"><span class="toc-text"> 142. 环形链表 II</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希表"><span class="toc-text"> 哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#242-有效的字母异位词"><span class="toc-text"> 242. 有效的字母异位词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#349-两个数组的交集"><span class="toc-text"> 349. 两个数组的交集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202-快乐数"><span class="toc-text"> 202. 快乐数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-两数之和"><span class="toc-text"> 1. 两数之和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#454-四数相加-ii"><span class="toc-text"> 454. 四数相加 II</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#383-赎金信"><span class="toc-text"> 383. 赎金信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-三数之和"><span class="toc-text"> 15. 三数之和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-四数之和"><span class="toc-text"> 18. 四数之和</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-text"> 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#344-反转字符串"><span class="toc-text"> 344. 反转字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#541-反转字符串-ii"><span class="toc-text"> 541. 反转字符串 II</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#54-替换数字kamacoder"><span class="toc-text"> 54. 替换数字(kamacoder)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#151-反转字符串中的单词"><span class="toc-text"> 151. 反转字符串中的单词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#55-右旋字符串-kamacoder"><span class="toc-text"> 55. 右旋字符串 (kamacoder)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-找出字符串中第一个匹配项的下标"><span class="toc-text"> 28. 找出字符串中第一个匹配项的下标</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2024/03/30/LeetCode-problems/">【更新中】LeetCode自用刷题记录</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2024/01/01/latex-note-06/">LaTeX札记（六）：MATLAB与TikZ绘图</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2023/04/05/python-matlab/">【科研札记】Python和MATLAB的协同使用</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/AI/" style="font-size: 19.71px;">AI</a> <a href="/tags/MATLAB/" style="font-size: 18.29px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19.71px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.43px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.43px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19.71px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.57px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 16.86px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.43px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 21.14px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 16.86px;">电磁场与电磁波</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 15.43px;">神经网络</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 14px;">编程</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.43px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 16.86px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2020-2024</a>
+			
+				
+			        <span hidden="true" id="/2024/03/30/LeetCode-problems/" class="leancloud-visitors" data-flag-title="【更新中】LeetCode自用刷题记录">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">【更新中】LeetCode自用刷题记录</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
