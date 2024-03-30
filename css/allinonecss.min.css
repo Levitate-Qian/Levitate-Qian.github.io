@@ -57,7 +57,7 @@ audio, canvas, iframe, img, svg, video {
 }
 
 a {
-  word-break: break-all;
+  word-break: normal;
   background-color: transparent;
   text-decoration: none;
   color: #26a8ed
@@ -1240,7 +1240,7 @@ img[mode=aspectFill] {
 
 .search-result {
   text-align: justify;
-  word-break: break-all
+  word-break: normal
 }
 
 .custom-page {
@@ -1252,7 +1252,7 @@ img[mode=aspectFill] {
 
 .post-card-excerpt {
   text-align: justify;
-  word-break: break-all
+  word-break: normal
 }
 
 .page-full-content {
@@ -1936,7 +1936,7 @@ h5.md-focus.md-heading:before {
 }
 
 .markdown-body>table {
-  word-break: keep-all;
+  word-break: normal;
   border-spacing: 0;
   border-collapse: collapse;
   margin: 0px auto;
@@ -2243,7 +2243,7 @@ pre .coffeescript .javascript, pre .javascript .xml, pre .tex .formula, pre .xml
   border-radius: 4px;
   /* font-size: 0.93rem; */
   line-height: 1.6em;
-  word-break: break-all;
+  word-break: normal;
   /* background: rgba(255,255,255,0.4); */
 }
 .my_post_copyright:hover {
