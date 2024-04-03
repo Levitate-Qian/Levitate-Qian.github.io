@@ -2057,7 +2057,7 @@ h5.md-focus.md-heading:before {
   min-height: 1.5em
 }
 
-.highlight.bash .code:before, .highlight.css .code:before, .highlight.html .code:before, .highlight.js .code:before, .highlight.tex .code:before, .highlight.matlab .code:before {
+.highlight.bash .code:before, .highlight.css .code:before, .highlight.html .code:before, .highlight.js .code:before, .highlight.tex .code:before, .highlight.matlab .code:before, .highlight.c .code:before, .highlight.cpp .code:before, .highlight.json .code:before, .highlight.latex .code:before {
   position: absolute;
   top: 0;
   right: 0;
@@ -2087,12 +2087,29 @@ h5.md-focus.md-heading:before {
 }
 
 .highlight.tex .code:before {
-  content: "tex";
+  content: "TeX";
+}
+
+.highlight.json .code:before {
+  content: "JSON";
+}
+
+.highlight.latex .code:before {
+  content: "LaTeX";
 }
 
 .highlight.matlab .code:before {
-  content: "matlab";
+  content: "MATLAB";
 }
+
+.highlight.c .code:before {
+  content: "C";
+}
+
+.highlight.cpp .code:before {
+  content: "C++";
+}
+
 
 .gutter pre {
   color: #999;
