@@ -151,9 +151,20 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous变为lanzou
         
         <div class="site-header-content">
             
-            <h1 class="site-title">
-                预编码
-            </h1>
+            
+            <script src="https://cdn.jsdelivr.net/npm/vara@1.4.0/lib/vara.min.js"></script>
+            <div id="handwritten-text"></div>
+            <script>
+                new Vara("#handwritten-text", "https://cdn.jsdelivr.net/npm/vara@1.4.0/fonts/Parisienne/Parisienne.json", [{
+                    text: "Levitate_",
+                }], {
+                    fontSize: 46,
+                    color:"white", // Color of the text
+                    strokeWidth:1.5, // Width / Thickness of the stroke
+                    textAlign:"center", // String, text align, accepted values are left,center,right
+                    letterSpacing:-1.5,
+                });
+            </script>
             <h2 class="site-description">标签</h2>
         </div>
         
