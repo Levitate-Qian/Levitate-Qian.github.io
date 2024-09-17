@@ -181,7 +181,7 @@ ul {
 }
 
 .site-title {
-  font-family: "得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "Smiley Sans Oblique","得意黑","Avenir","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 4rem;
   font-weight: 700;
   z-index: 10;
@@ -190,7 +190,7 @@ ul {
 }
 
 .site-description {
-  font-family: "京華老宋体_KingHwa_OldSong","霞鹜文楷","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "KingHwa_OldSong","LXGW Bright Medium","Avenir","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 2.2rem;
   font-weight: 300;
   z-index: 10;
@@ -629,7 +629,7 @@ box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%)
 }
 
 .post-full-title {
-  font-family: "Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "Avenir","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 4rem;
   margin: 0;
   color: var(--H-title)
@@ -794,7 +794,7 @@ box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%)
 }
 
 .read-next-card-header-sitetitle {
-  font-family: "得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "Smiley Sans Oblique","得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 1.3rem;
   line-height: 1.3em;
   display: block;
@@ -802,7 +802,7 @@ box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%)
 }
 
 .read-next-card-header-title {
-  font-family: "得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "Smiley Sans Oblique","得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   font-size: 3rem;
   line-height: 1.2em;
   margin: 0;
@@ -911,7 +911,7 @@ box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%)
 
 .floating-header-logo {
   font-size: 1.6rem;
-  font-family: "得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
+  font-family: "Smiley Sans Oblique","得意黑","Avenir Next LT Pro","Avenir Next","更纱黑体 UI SC", "PingFang SC", 'Source Han Sans',"Hiragino Sans GB", Arial, sans-serif;
   line-height: 1em;
   overflow: hidden;
   margin: 0 0 0 20px;
@@ -1041,7 +1041,7 @@ box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%)
 }
 
 .site-header-content .author-meta {
-  font-family: "京華老宋体_KingHwa_OldSong","霞鹜文楷",Georgia, serif;
+  font-family: "KingHwa_OldSong","LXGW Bright Medium",Georgia, serif;
   z-index: 10;
   display: flex;
   margin: 0 0 10px;
@@ -1882,7 +1882,7 @@ h5.md-focus.md-heading:before {
 }
 
 .markdown-body blockquote {
-  font-family: 'Avenir Next LT Pro','Avenir Next',"霞鹜文楷",'Adobe Kaiti Std','楷体','Kaiti SC','楷体_GB2312';
+  font-family: 'Avenir Next LT Pro','Avenir Next',"LXGW Bright Medium",'Adobe Kaiti Std','楷体','Kaiti SC','楷体_GB2312';
   text-size-adjust: 100%;
   line-height: 1.55em;
   font-weight: 400;
