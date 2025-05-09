@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/京華老宋体v2_002/result.css">
+<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Regular/result.css"> 
+	<link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/dyh/dist/SmileySans-Oblique/result.css">
+	<link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
+
+
+	<title>LaTeX札记（八）：Beamer演示文稿 | Levitate_</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Levitate_">
+	<meta name="description" content>
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	<link rel="apple-touch-icon" href="https://s1.ax1x.com/2022/05/18/Oo3OeI.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+	<link rel="alternate" href="/atom.xml" title="Levitate_">
+	
+
+	<meta property="og:site_name" content="Levitate_">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="LaTeX札记（八）：Beamer演示文稿 | Levitate_">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://levitate-qian.github.io/2025/05/08/latex-note-08/">
+
+	
+	<meta property="article:published_time" content="2025-05-08T15:05:00+08:00"> 
+	<meta property="article:author" content="Levitate_">
+	<meta property="article:published_first" content="Levitate_, /2025/05/08/latex-note-08/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	
+	
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.0/katex.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+	
+
+	
+<link rel="alternate" href="/atom.xml" title="Levitate_" type="application/atom+xml">
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            <li>
+                <a href="/details" title="DETAILS">DETAILS</a>
+            </li>
+            
+            <li>
+                <a href="/links" title="LINKS">LINKS</a>
+            </li>
+            
+            
+            <li>
+                <p title="公告栏" style="margin: 0px" onclick="disp_notice_alert()">📌</p>
+            </li>
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/Levitate-Qian/" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+<script type="text/javascript">
+function disp_notice_alert()
+{
+alert("如果出现蓝奏云链接失效，请将链接中的lanzous/lanzoui等变为lanzoub即可解决！")
+}
+</script>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2025-05-08T15:16:52.000Z">
+                    2025-05-08
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/LaTeX-and/">LaTeX and ...</a>&nbsp;&nbsp;
+                
+                
+                
+            </div>
+            <h1 class="post-full-title">LaTeX札记（八）：Beamer演示文稿</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://s21.ax1x.com/2025/05/09/pEOu46e.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="photoswipe" class="markdown-body">
+                    <h1 id="latex札记八beamer演示文稿"><a class="markdownIt-Anchor" href="#latex札记八beamer演示文稿"></a> $ \LaTeX{}$札记（八）——Beamer演示文稿</h1>
+<p>又是一年毕业季～ 这次把做了这么久beamer的一些心得分享一下。</p>
+<p>首先，推荐阅读一下<a href="https://tug.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf" target="_blank" rel="noopener">beamer的手册</a>（<em>The beamer class User Guide for version 3.72.</em>，通过命令行<code>texdoc beamer</code>即可获得），也有<a href="https://static.latexstudio.net/wp-content/uploads/2017/02/BeamerUserGuide_V3.24_zh-cn.pdf" target="_blank" rel="noopener">中文翻译版</a>（但是年份比较早，针对的还是3.24版）。在手册中其实已经很详尽的说明了如何创建一个beamer演示文稿，这里我就粗略的说明一下吧～</p>
+<p>Beamer的上手还是很简单的，有个模版往里面填论文的内容就可以啦～ 我<a href="https://github.com/Levitate-Qian/SEU_radio_beamer_template" target="_blank" rel="noopener">学位论文答辩的beamer模版</a>也已经放在Github里，如果想要改为自己学校的样式，换换logo、配色方案、主图就可以叻，都还是挺简单的～</p>
+<hr>
+<p>鉴于我也学艺不精，本篇札记主要分为以下几部分：</p>
+<ul>
+<li>入门
+<ul>
+<li>是什么</li>
+<li>基本结构</li>
+</ul>
+</li>
+<li>进阶
+<ul>
+<li>与常见的article相比，beamer独特的用法
+<ul>
+<li>突出强调（structure &amp; alert）</li>
+<li>块（block）</li>
+<li>列表（enumerate &amp; itemize &amp; description）</li>
+</ul>
+</li>
+<li>使Beamer更“演示”的一些方式
+<ul>
+<li>帧、叠层、动画</li>
+<li>多列并排</li>
+<li>公式的优雅注释</li>
+<li>页面脚注</li>
+</ul>
+</li>
+<li>“演讲者备注”的实现——笔记页</li>
+</ul>
+</li>
+<li>其他应用
+<ul>
+<li>poster制作（先咕咕咕～）</li>
+</ul>
+</li>
+</ul>
+<p>如果还有什么想到了在加～</p>
+<hr>
+<h2 id="beamer入门"><a class="markdownIt-Anchor" href="#beamer入门"></a> Beamer入门</h2>
+<h3 id="引子"><a class="markdownIt-Anchor" href="#引子"></a> 引子</h3>
+<h4 id="引子一"><a class="markdownIt-Anchor" href="#引子一"></a> 引子（一）</h4>
+<p>在小红书上之前有这样一个问题“PPT上面的这个是怎么做的”（图自小红书用户ID:10987385808）</p>
+<p><img alt="图片" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/640" data-index="0" data-src="/2025/05/08/latex-note-08/640"></p>
+<p>而我关注很久的“旁门左道PPT”在<a href="https://mp.weixin.qq.com/s/H_8SMeaF9wdpFj9OlHpCIA" target="_blank" rel="noopener">PPT最上面这个是啥？咋做的呀？</a>中回复ppt的导航栏就可以完成这样的操作。真的是这样的吗？</p>
+<p>注意到上面的小圆点是会跟随页面的递进而变化的，同时圆圈的透明度代表当前页面属于哪一小节。这样的操作真的能通过ppt简单的实现吗？其实是很困难的，如果只是实现简单的章节导航栏，ppt还是可以实现的，但是对于这种每页都不同的，对于ppt来说就是难上加难了，尤其当你要加减页面时，那就更加痛苦了。</p>
+<p>很显然，这个演示文档并不是使用powerpoint制作的，而是采用beamer制作的，文字风格和主题也是非常默认的风格～而顶部这个导航栏则是通过选用相应的beamer主题自动实现的，它会根据你的章节分配自动实现这样的小圆点。</p>
+<p><img alt="image-20250509151402512" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509151402512.png" data-index="1" data-src="/2025/05/08/latex-note-08/image-20250509151402512.png"></p>
+<p>例如上图这样，该页所属的节（section）的标题会重点突出，其他节会轻微透明；当前页面的圆圈会显示为实心，当前页面所属小节的圆圈会显示为更深的颜色。</p>
+<h4 id="引子二是什么"><a class="markdownIt-Anchor" href="#引子二是什么"></a> 引子（二）&amp;是什么？</h4>
+<p>我最开始接触到beamer是在数模美赛培训期间，想要将论文用类似ppt的手段展示出来，但是把latex写的内容转化成ppt也很麻烦，于是就搜到了beamer这个东西。</p>
+<blockquote>
+<p>当然latex公式要想在ppt中完美显示也有很多手段，我首推IguanaTex（<em>A Free LaTeX Add-In for PowerPoint on Windows and Mac</em>）。</p>
+<p>如果你本地安装了texlive/mactex，那么这个工具属于是即插即用，直接把论文的公式复制过来就可以了。生成的公式是矢量格式，对每个元素都可以更换颜色等等，很方便。虽然界面是丑了点～</p>
+<p>写着写着就歪了～</p>
+</blockquote>
+<p>言归正传，beamer可以直接把你的论文转化为一个适合演示的pdf，放在大屏上展示你的成果～</p>
+<blockquote>
+<p>beamer 是LATEX 的一个文档类（class）， 它可用于创建用投影机（projector） 放映的演示稿（presentations），也可用于制作幻灯片（slides）。</p>
+</blockquote>
+<h3 id="beamer的基本结构"><a class="markdownIt-Anchor" href="#beamer的基本结构"></a> Beamer的基本结构</h3>
+<p>Beamer和一般创建的latex文件类似，都有导言区和正文组成。</p>
+<h4 id="导言区"><a class="markdownIt-Anchor" href="#导言区"></a> 导言区</h4>
+<p>在beamer的导言区中通常包括以下部分：</p>
+<ul>
+<li>
+<p><strong>文件分类</strong>，即<code>beamer</code>或者<code>ctexbeamer</code>（引入中文的相关环境）。在<code>documentclass</code>中我们还可以加上对应的选项来采用需要的页面比例（<em>aspectratio</em>）、字体大小（如<em>10pt</em>）、输出版本（如<em>handout</em>会取消所有叠层，输出可供分发的版本）。例如在我提供的模版中，</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">documentclass</span><span class="string">[aspectratio=169,xcolor=table,10pt]</span><span class="string">&#123;ctexbeamer&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中<code>xcolor=table</code>是为表格颜色提供的选项。</p>
+</li>
+<li>
+<p><u><strong>主题</strong></u> 🆕：beamer包含五类主题，这五个主题相互影响，与先后放置排列顺序甚至也有影响。这里不加赘述，具体每种主题能够带来什么样的效果可以参考beamer手册第III部分。在提供的模版中，我新定义了一种SEU颜色主题，其中定义了SEUcolor（东大绿）, SEUyellow, SEUdarkyellow, SEUred, SEUblue五种颜色，在模版中主要采用东大绿、东大黄作为主色调，其余颜色大家可以按需选用。</p>
+<ul>
+<li>演示主题<code>\usetheme</code></li>
+<li>颜色主题<code>\usecolortheme</code></li>
+<li>字体主题<code>\usefonttheme</code></li>
+<li>内部主题<code>\useinnertheme</code></li>
+<li>外部主题<code>\useoutertheme</code></li>
+</ul>
+</li>
+<li>
+<p><strong>标题、作者、单位、日期</strong>——这一部分基本与article一致。我们可以采用<code>[]</code>, <code>{}</code> 设置简略、完整版本的文本，用于封面和页脚。</p>
+</li>
+<li>
+<p>相关的<strong>字体设置、宏包</strong>应用</p>
+<ul>
+<li>字体相关设置可以参考“<a href="https://levitate-qian.github.io/2022/04/14/latex-note-04/">LaTeX札记（四）：字体</a>”的相关设置。在模版中，中文主字体为采用“更纱黑体”、斜体采用“霞鹜文楷”；西文主字体采用computer modern的非衬线体与cmbright的组合，以满足公式中字体同样统一；并且定义了<code>\XWWK</code>直接调用“霞鹜文楷”，方便霞鹜文楷与直立英文文本并排。</li>
+<li>其余相关图片、表格、画图等宏包</li>
+</ul>
+</li>
+<li>
+<p>其余常用<strong>command定义</strong></p>
+</li>
+<li>
+<p><u><strong>标题页面</strong></u> 🆕：封面页面定义、节标题页面定义、小节标题页面定义——其中，节标题、小节标题的实现方式其实就是在每个出现节、小节的开头位置，新增一个页面，显示相应的内容，大家可以按需调整。</p>
+<ul>
+<li>
+<p>封面标题——加入了校标、院徽，四牌楼校区的楼</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">titlegraphic</span></span> &#123; </span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span><span class="string">[overlay,remember picture]</span></span></span><br><span class="line"><span class="tag">\<span class="name">node</span><span class="string">[above left]</span></span> at (current page.332)&#123;</span><br><span class="line">    <span class="tag">\<span class="name">includegraphics</span><span class="string">[width=.6\textwidth]</span><span class="string">&#123;seu_building.png&#125;</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">node</span><span class="string">[above=0.5cm]</span></span> at (current page.220)&#123;</span><br><span class="line">    <span class="comment">% \includegraphics[width=.25\textwidth]&#123;logo_color_green.pdf&#125;</span></span><br><span class="line">    <span class="tag">\<span class="name">includegraphics</span><span class="string">[width=.13\textwidth]</span><span class="string">&#123;SEUlogo.pdf&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">includegraphics</span><span class="string">[width=.13\textwidth]</span><span class="string">&#123;RADIOlogo.pdf&#125;</span></span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>节标题——修改了编号样式（改为“Part I”的样式，虽然这不是真的part），增加了该节出现的小节标题。注意这里小节标题的放置比较丑陋，展示没有想到更好的居中对齐方式。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">AtBeginSection</span><span class="string">[]</span><span class="string">&#123;</span></span></span><br><span class="line"><span class="tag"><span class="string">    %  \let\insertsectionnumber\relax</span></span></span><br><span class="line"><span class="tag"><span class="string">     \let\sectionname\relax</span></span></span><br><span class="line"><span class="tag"><span class="string">     \frame&#123;\sectionpage&#125;</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">\<span class="name">renewcommand</span><span class="string">&#123;\thesection&#125;</span><span class="string">&#123;\Roman&#123;section&#125;</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">setbeamertemplate</span><span class="string">&#123;section page&#125;</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;centering&#125;</span></span></span><br><span class="line">        &#123;<span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;section title&#125;</span></span> <span class="tag">\<span class="name">textsc</span><span class="string">&#123;Part&#125;</span></span> <span class="tag">\<span class="name">thesection</span></span>&#125;</span><br><span class="line"></span><br><span class="line">        <span class="tag">\<span class="name">vspace</span><span class="string">&#123;10pt&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;beamercolorbox&#125;</span><span class="string">[sep=12pt,center,colsep=-4bp,rounded=true,shadow=true]</span><span class="string">&#123;part title&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">usebeamerfont</span><span class="string">&#123;section title&#125;</span></span><span class="tag">\<span class="name">bfseries</span></span><span class="tag">\<span class="name">insertsection</span></span><span class="tag">\<span class="name">par</span></span></span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;beamercolorbox&#125;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="tag">\<span class="name">vspace</span><span class="string">&#123;20pt&#125;</span></span><span class="tag">\<span class="name">begin</span><span class="string">&#123;minipage&#125;</span></span></span><br><span class="line">        &#123;.35<span class="tag">\<span class="name">linewidth</span></span>&#125;</span><br><span class="line">        <span class="tag">\<span class="name">tableofcontents</span><span class="string">[sectionstyle=hide,subsectionstyle=show/shaded/hide]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;minipage&#125;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;centering&#125;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>小节标题（暂未启用）——表示该小节在整体结构中的位置</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">AtBeginSubsection</span><span class="string">[]</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;frame&#125;</span><span class="string">[shrink]</span></span></span><br><span class="line"></span><br><span class="line">    <span class="tag">\<span class="name">centering</span></span></span><br><span class="line">        <span class="tag">\<span class="name">tableofcontents</span><span class="string">[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;frame&#125;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h4>
+<p>正文部分可以采用<code>\part</code>, <code>\section</code>, <code>\subsection</code>来进行划分章节，同时也存在对应的<code>*</code>版本用于不编号，在目录中不进行显示。</p>
+<ul>
+<li>
+<p>注意到论文答辩一般是一个比较简短的演示文稿，所以一般不会用到<code>\part</code>来区分。对于不同的part会一般分别采用新的tableofcontent目录，包括顶部或侧边的导航栏，即导航栏和目录中只显示当前part的节。</p>
+</li>
+<li>
+<p><code>\section</code>（节）的标题一般会显示在导航栏中，其样式根据主题区分。</p>
+</li>
+<li>
+<p><code>\subsection</code>（小节）的标题根据不同的主题可能会显示/不显示在导航栏或页面顶端。对于论文答辩一般也不会区分到小节，所以可用可不用～</p>
+</li>
+<li>
+<p>此外，类似于latex论文中，我们可以采用<code>[]</code>, <code>{}</code> 设置长短标题，用于目录等不同用途，在beamer中同样有这样的操作。例如：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">section</span><span class="string">[SIP上行 -- 迭代接收机设计]</span><span class="string">&#123;上行链路叠加导频系统的迭代接收机设计&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>那么，在导航栏中会显示<code>[]</code>中的短标题，减少字数，更突出重点；而在使用tableofcontent（目录）、节标题页中会显示<code>{}</code>的长标题。</p>
+</li>
+</ul>
+<p>而对于每一个页面我们可以采用<code>frame</code>环境进行包裹，作为一个页面。例如：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;frame&#125;</span></span></span><br><span class="line">		<span class="tag">\<span class="name">frametitle</span><span class="string">&#123;该页面标题&#125;</span></span></span><br><span class="line">		页面正文内容</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;frame&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>或者更简单的写作</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;frame&#125;</span><span class="string">&#123;该页面标题&#125;</span></span></span><br><span class="line">		页面正文内容</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;frame&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p>如果我们把“页面标题”留空，则可以得到一个不带标题的页面。注意如果我们如果需要在页面中包含代码等环境，可能需要采用脆弱环境，即加上<code>[fragile]</code> 选项。</p>
+<p>为了在标题栏放置校标、院徽，并将标题文字加粗，我在模版中定义了<code>\frametitleb</code>命令，只要将上述的<code>\frametitle{该页面标题}</code>修改为<code>\frametitleb{该页面标题}</code>就能够获得下面的标题文本效果。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">newcommand</span><span class="string">&#123;\frametitleb&#125;</span><span class="string">[1]</span><span class="string">&#123;\frametitle&#123;\makebox[\framewidth]&#123;\bfseries #1 \hfill\raisebox&#123;-1.5ex&#125;</span><span class="string">&#123;\includegraphics[height=1.1\baselineskip]&#123;logo.pdf&#125;</span></span>&#125;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><img alt="image-20250509172712132" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509172712132.png" data-index="2" data-src="/2025/05/08/latex-note-08/image-20250509172712132.png"></p>
+<hr>
+<h2 id="beamer进阶"><a class="markdownIt-Anchor" href="#beamer进阶"></a> Beamer进阶</h2>
+<p>在第一部分中，我们主要介绍了beamer的结构，但是总体看来除了frame，其余貌似和article/book类型没什么区别啊🤨～ 下面就介绍一些beamer更独有的用法，让beamer更加“演示”！</p>
+<h3 id="beamer独特的用法"><a class="markdownIt-Anchor" href="#beamer独特的用法"></a> Beamer独特的用法</h3>
+<h4 id="列表有了新外观有序列表enumerate-无序列表itemize-描述description"><a class="markdownIt-Anchor" href="#列表有了新外观有序列表enumerate-无序列表itemize-描述description"></a> 列表有了“新外观”（有序列表<code>enumerate</code>、无序列表<code>itemize</code>、描述<code>description</code>）</h4>
+<p>我们再将上面出现的图搬下来，可以看到无序列表、有序列表的圆点、序号变成了一种更加立体的风格，这个主要是<em>Warsaw</em>主题提供的特性。我们也可以采用别的主题获得不同的效果，例如<em>Berlin</em>主题提供平面方块点的风格，<em>Hannover</em>主题提供平面圆点的风格…… 更本质其实是内部主题（inner theme）起了作用，上面三个主题分别对应于<em>rounded</em>、<em>rectangles</em>、<em>circles</em>三种内部主题。</p>
+<p>而描述环境则是将前面悬挂部分的问题设置为了结构色。</p>
+<p><img alt="image-20250509151402512" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509151402512.png" data-index="3" data-src="/2025/05/08/latex-note-08/image-20250509151402512.png"></p>
+<h4 id="通过颜色进行突出强调结构色structure-警告色alert"><a class="markdownIt-Anchor" href="#通过颜色进行突出强调结构色structure-警告色alert"></a> 通过“颜色”进行突出强调（结构色<code>structure</code>、警告色<code>alert</code>）</h4>
+<p>在slides中，我们通常利用颜色进行突出强调。于是在beamer中我们有一些通过颜色来表示内容轻重缓急的方式。</p>
+<ul>
+<li>结构色<code>\structure</code>：在手册中表述为“<em>给定的文本被标记为（marked as）结构（structure）的一部分，也就是说，它有助于观众了解演示稿的结构。</em>” 在给出模版的效果就是把显示的文字颜色变化为东大绿（即结构色），其余常见模版中一般是默认的蓝色。使用方法：<code>\structure{text}</code></li>
+<li>警告色<code>\alert</code>：在手册中表述为“<em>给定的文本高亮显示，典型地显示为红色。</em>” 使用方法：<code>\alert{text}</code></li>
+<li>半透明<code>shade</code>：这并不是一个能够在全文使用的颜色效果，而是当采用叠层等设置时候，会将当前不在视觉重点的内容采用半透明的方式显示。一般在目录设置中会使用。此外，利用<code>\setbeamercovered{transparent}</code>，列表项会以一定的透明度被隐藏。</li>
+</ul>
+<p>此外，我们可以通过重定义<code>\emph</code>更加突出重点。例如，我定义了两种强调的方式：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">renewcommand</span><span class="string">&#123;\emph&#125;</span><span class="string">[1]</span><span class="string">&#123;&#123;\XWWK \structure&#123;#1&#125;</span></span>&#125;&#125;</span><br><span class="line"><span class="tag">\<span class="name">newcommand</span><span class="string">&#123;\emphbf&#125;</span><span class="string">[1]</span><span class="string">&#123;\structure&#123;\bfseries#1&#125;</span></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>于是，<code>\emph</code>利用结构色的霞鹜文楷突出强调，而非原本的正文色斜体；<code>\emphbf</code>则进一步利用结构色的粗非衬线体突出强调。</p>
+<h4 id="包裹起来的块环境block"><a class="markdownIt-Anchor" href="#包裹起来的块环境block"></a> “包裹起来”的块环境<code>block</code></h4>
+<p>beamer中定义了用于排版文本的三种块环境，块环境包含标题（可省略）、正文。</p>
+<ul>
+<li>常规块：<code>\begin{block}{标题}	正文	\end{block}</code>——采用结构色配色</li>
+<li>举例块：<code>\begin{exampleblock}{标题}	正文	\end{exampleblock}</code> ——一般是黄色</li>
+<li>警告块：<code>\begin{alertblock}{标题}	正文	\end{alertblock}</code>——一般是红色</li>
+</ul>
+<p><img alt="image-20250509171557907" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509171557907.png" data-index="4" data-src="/2025/05/08/latex-note-08/image-20250509171557907.png"></p>
+<p>当我们对标题的<code>{}</code>留空即可得到只包含正文的块，这可能帮我们生成一个具有整行宽度的框，放置一些需要突出的内容，例如在模版中图名即放置在不带标题的举例块中，并配合一个小图标。</p>
+<p><img alt="image-20250509171750746" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509171750746.png" data-index="5" data-src="/2025/05/08/latex-note-08/image-20250509171750746.png"></p>
+<p>但是，我并不推荐在全文中滥用块环境，每段文本都用块包裹，这会显得非常割裂。</p>
+<p>此外，在beamer中定理、定义、证明等其实也都是采用的块环境，只是进行了一定的预先定义。</p>
+<h3 id="使beamer更演示的一些方式"><a class="markdownIt-Anchor" href="#使beamer更演示的一些方式"></a> 使Beamer更“演示”的一些方式</h3>
+<h4 id="帧-叠层-动画"><a class="markdownIt-Anchor" href="#帧-叠层-动画"></a> 帧、叠层、动画</h4>
+<p>在beamer中页面被按照帧（frame）进行放映，而在一帧中可以创建多个叠层（overlay）分段展示，实现类似于powerpoint中一页内容中分部分显示的效果。（<em>ps：我觉得帧这个概念有点奇怪，甚至觉得后面那个叠层才是实际帧的意思</em>😂）</p>
+<p>由于论文答辩也不需要非常多的动画，这里只介绍三个主要的叠层相关操作：</p>
+<ul>
+<li>
+<p><strong>只是“暂停”</strong>：pause 提供了一个最简单的分段显示帧的方法。如果在帧的某处放置<code>\pause</code>，其后的内容会在下一slide才出现。这个<code>\pause</code>能够在一个帧中多处使用。此外，该命令还可以跟着一个选项表示在该帧第几个slide后才显示，即<code>\pause[数字]</code>。</p>
+</li>
+<li>
+<p><strong>列表中</strong></p>
+<ul>
+<li>
+<p>如果你想让列表的每一项按顺序出现可以在<code>\begin{itemize}</code>后面加上选项<code>[&lt;+-&gt;]</code>，具体含义参见手册吧。即：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;itemize&#125;</span><span class="string">[&lt;+-&gt;]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">item</span></span> 从第1个slide开始显示直到这一帧结束。</span><br><span class="line">    <span class="tag">\<span class="name">item</span></span> 从第2个slide开始显示直到这一帧结束。</span><br><span class="line">    <span class="tag">\<span class="name">item</span></span> 从第3个slide开始显示直到这一帧结束。</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;itemize&#125;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>如果你想让不同项目在不同slide上面显示。可以看下下面的案例：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;itemize&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">item</span></span>&lt;1&gt; 只在第1个slide显示。</span><br><span class="line">    <span class="tag">\<span class="name">item</span></span>&lt;2-&gt; 从第2个slide开始显示直到这一帧结束。</span><br><span class="line">    <span class="tag">\<span class="name">item</span></span>&lt;2-4&gt; 在第2到4个slide上显示，其余不显示。</span><br><span class="line">    <span class="tag">\<span class="name">item</span></span>&lt;3,5&gt; 在第3和第5个slide上显示，其余不显示。</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;itemize&#125;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>还有一些类似于高亮等的用法，请参考手册</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>大段文字图片</strong>——这种情况主要出现在如下情况：“一个帧顶部的内容始终是一致的（例如一个图），下半部分对这个图的不同模块进行说明（每次的文本说明都会占足整个下半部分）”，但是如果我采用不同的帧表现顶部图像位置可能会动来动去，同时会占用三个页码。此时，采用<code>overprint</code>环境就是非常好的选择。<br>
+<img alt="image-20250509175325388" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509175325388.png" data-index="6" data-src="/2025/05/08/latex-note-08/image-20250509175325388.png"></p>
+<ul>
+<li>采用overprint环境，对每个叠层的内容放置一个onslide。<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;frame&#125;</span><span class="string">&#123;heading&#125;</span></span></span><br><span class="line">    &#123;不变的图片或者文字内容&#125;</span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;overprint&#125;</span></span></span><br><span class="line">        <span class="tag">\<span class="name">onslide</span></span>&lt;1&gt;</span><br><span class="line">        Some text for the first slide.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">        Possibly several lines long.</span><br><span class="line">        <span class="tag">\<span class="name">onslide</span></span>&lt;2&gt;</span><br><span class="line">        Replacement on the second slide. </span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;overprint&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;frame&#125;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>该方案有两个已知的弊端：①使用handout模式时候不好处理，毕竟只有一个页面但要放置三段文本是不可行的，只能有所取舍；②此时overprint生成的区间的高度是偏高的，采用内容左右分布时候，minipage不能采用m选项，否则对齐可能有问题。</li>
+</ul>
+</li>
+</ul>
+<p>对于动画这个问题，已经在该系列的第一辑“<a href="https://levitate-qian.github.io/2020/06/13/latex-note-01/">LaTeX札记（一）：插入动画</a>”中分享过啦～但是值得注意的是，动画对于PDF阅读器的要求很高，需要使用Adobe Acrobat获得较好的放映体验！</p>
+<h4 id="图文-多列并排minipage"><a class="markdownIt-Anchor" href="#图文-多列并排minipage"></a> 图文、多列并排<code>minipage</code></h4>
+<p>为了能够有效利用横向空间，beamer中一般需要多列并排。我通常选用minipage环境这样能够更方便的对齐基线、调整列宽。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;minipage&#125;</span><span class="string">[m]</span><span class="string">&#123;.47\linewidth&#125;</span></span></span><br><span class="line">     <span class="tag">\<span class="name">centering</span></span><span class="tag">\<span class="name">includegraphics</span><span class="string">[width=\linewidth]</span><span class="string">&#123;figure.pdf&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;minipage&#125;</span></span><span class="tag">\<span class="name">hfill</span></span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;minipage&#125;</span><span class="string">[m]</span><span class="string">&#123;.47\linewidth&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;exampleblock&#125;</span><span class="string">&#123;&#125;</span></span></span><br><span class="line">    		<span class="tag">\<span class="name">raisebox</span><span class="string">&#123;-1pt&#125;</span><span class="string">&#123;\structure&#123;\faArrowCircleLeft&#125;</span></span>&#125;<span class="tag">\<span class="name">parbox</span><span class="string">&#123;.95\textwidth&#125;</span><span class="string">&#123;\centering 图片说明&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;exampleblock&#125;</span></span> </span><br><span class="line">    文本说明</span><br><span class="line">    <span class="tag">\<span class="name">begin</span><span class="string">&#123;itemize&#125;</span></span></span><br><span class="line">        <span class="tag">\<span class="name">item</span></span> A</span><br><span class="line">        <span class="tag">\<span class="name">item</span></span> B</span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;itemize&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;minipage&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p><img alt="image-20250509180621890" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509180621890.png" data-index="7" data-src="/2025/05/08/latex-note-08/image-20250509180621890.png">在上面的例子中给出了一个左图右文的图文并排案例，两个块垂直居中对齐，可以获得类似上图的效果。大家可以自行调整minipage的宽度、对齐选项等实现符合需求的效果。</p>
+<h4 id="公式注释"><a class="markdownIt-Anchor" href="#公式注释"></a> 公式注释</h4>
+<p>在beamer中为了更清晰、简要地说明公式，我们可以使用<code>annotate-equations</code>宏包为公式添加漂亮的注释。具体地使用说明请参考“<a href="https://github.com/st--/annotate-equations" target="_blank" rel="noopener">Github上的使用说明</a>”。同样给一个例子~</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation*&#125;</span></span></span><br><span class="line">        [<span class="tag">\<span class="name">hat</span><span class="string">&#123;\mathbf&#123;d&#125;</span></span>&#125;]_u = <span class="tag">\<span class="name">tikzmarknode</span><span class="string">&#123;nodeSum&#125;</span><span class="string">&#123;\sum_&#123;a\in\mathcal&#123;Q&#125;</span></span>&#125;&#125; <span class="tag">\<span class="name">eqnmarkbox</span><span class="string">[SEUdarkyellow]</span><span class="string">&#123;nodeA&#125;</span><span class="string">&#123;a&#125;</span></span> <span class="tag">\<span class="name">cdot</span></span> <span class="tag">\<span class="name">eqnmarkbox</span><span class="string">[SEUcolor]</span><span class="string">&#123;nodeProb&#125;</span><span class="string">&#123;\mathbb&#123;P&#125;</span></span><span class="tag">\<span class="name">left</span><span class="string">[[\mathbf&#123;d&#125;]</span></span>_u = a <span class="tag">\<span class="name">,</span></span>|<span class="tag">\<span class="name">,</span></span> <span class="tag">\<span class="name">mathsf</span><span class="string">&#123;L&#125;</span></span>_<span class="tag">\<span class="name">text</span><span class="string">&#123;map&#125;</span></span>^A <span class="tag">\<span class="name">right</span></span>]&#125;</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation*&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">annotate</span><span class="string">[yshift=.7em,xshift=1em]</span><span class="string">&#123;below,right&#125;</span><span class="string">&#123;nodeSum&#125;</span><span class="string">&#123;\scriptsize \textit&#123;加权求和&#125;</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">annotate</span><span class="string">[yshift=.5em]</span><span class="string">&#123;above&#125;</span><span class="string">&#123;nodeA&#125;</span><span class="string">&#123;\scriptsize \textit&#123;星座点对应的复值符号&#125;</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">annotate</span><span class="string">&#123;below&#125;</span><span class="string">&#123;nodeProb&#125;</span><span class="string">&#123;\scriptsize \textit&#123;根据LLR得到的先验概率&#125;</span></span>&#125;</span><br></pre></td></tr></table></figure>
+<img alt="image-20250509181141613" style="zoom:50%;" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509181141613.png" data-index="8" data-src="/2025/05/08/latex-note-08/image-20250509181141613.png">
+<h4 id="参考文献使用脚注而非尾注"><a class="markdownIt-Anchor" href="#参考文献使用脚注而非尾注"></a> 参考文献使用脚注而非尾注</h4>
+<p>在beamer中一般不会把使用的参考文献放置在整个beamer的最后，这样不太方便查看，而作为页面的脚注放在帧的下方。这里也给出一个使用案例：</p>
+<ul>
+<li>
+<p>首先，为了将beamer脚注的样式调整为“[1]”的格式，我们再导言区重定义脚注的编号方式：<code>\renewcommand{\thefootnote}{[\arabic{footnote}]}</code></p>
+</li>
+<li>
+<p>其次，使用时为了能够更加清晰突出文献可以写作</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">emph</span><span class="string">&#123;(Chu \textit&#123;et al&#125;</span></span>., 2022)&#125;<span class="tag">\<span class="name">footnote</span><span class="string">&#123;\fontsize&#123;7pt&#125;</span><span class="string">&#123;7pt&#125;</span></span><span class="tag">\<span class="name">selectfont</span></span>  M. Chu, A. Liu, V. K. N. Lau, C. Jiang, and T. Yang, “Deep Reinforcement Learning based End-to-end Multi-user Channel Prediction and Beamforming,” <span class="tag">\<span class="name">textit</span><span class="string">&#123;IEEE Trans. Wirel. Commun.&#125;</span></span>, pp. 1–1, 2022, doi: 10.1109/TWC.2022.3183255.&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>显示效果如下：</p>
+<p><img alt="image-20250509181713987" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509181713987.png" data-index="9" data-src="/2025/05/08/latex-note-08/image-20250509181713987.png"></p>
+<h3 id="演讲者备注的实现笔记页"><a class="markdownIt-Anchor" href="#演讲者备注的实现笔记页"></a> “演讲者备注”的实现——笔记页</h3>
+<p>在beamer中，能不能像powerpoint中一样在答辩的时候偷偷看“小抄”呢？答案是肯定的，只是对于PDF放映软件的要求可能比较高，所以<strong>对于不能使用自己设备的场景可能要谨慎使用beamer的双屏放映功能</strong>。</p>
+<h4 id="笔记页的制作和放置"><a class="markdownIt-Anchor" href="#笔记页的制作和放置"></a> 笔记页的制作和放置</h4>
+<ul>
+<li>
+<p><strong>添加笔记</strong>：在beamer中，可以简单的利用<code>\note</code>命令为每个页面添加笔记（放置在frame环境内部即可），如果是section、maketitle之类的页面可以放在在后面。</p>
+<ul>
+<li>
+<p>在笔记中可以包含公式、列表等等一系列的环境～</p>
+</li>
+<li>
+<p>如果页面有多个叠层，可以为不同叠层创建不同的笔记！例如：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">note</span></span>&lt;1-&gt;&#123;第1个slide对应笔记页显示的内容，直到该帧的最后一个slide&#125;</span><br><span class="line"><span class="tag">\<span class="name">note</span></span>&lt;1&gt;&#123;只在第1个slide对应笔记页显示的内容&#125;</span><br><span class="line"><span class="tag">\<span class="name">note</span></span>&lt;2&gt;&#123;第2个slide对应笔记页显示的内容，直到该帧的最后一个slide&#125;</span><br></pre></td></tr></table></figure>
+<p>这一点相比在powerpoint的演讲者备注中手动标注这句“（点）”一下鼠标的方式，优雅多了～读完这部分的~~“小抄”~~（笔记），跳到下一页可以接着念，即使它属于同一个帧。</p>
+</li>
+<li>
+<p>在<code>\note</code>命令后面加上一个选项<code>[item]</code>，于是添加的不同笔记会被作为一个有序列表放置在笔记页，对于上述“<strong>大段文字图片的叠层</strong>”场景非常适用。<br>
+<img alt="image-20250509190428270" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509190428270.png" data-index="10" data-src="/2025/05/08/latex-note-08/image-20250509190428270.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>显示笔记</strong>&amp;<strong>页面布局</strong>——beamer默认是不显示笔记页的内容的，需要在导言区加入相应的<code>\setbeameroption</code></p>
+<ul>
+<li>一页正文，一页笔记：<code>\setbeameroption{show notes}</code></li>
+<li>将笔记页放置在第二屏：<code>\setbeameroption{show notes on second screen=right}</code>。给定该选项后，会创建slides的双屏版本。可以指定在在左侧（left）、右侧（right）、底部（bottom）、顶部（top）放置第二屏幕显示笔记页。</li>
+<li>仅展示笔记：<code>\setbeameroption{show only notes}</code></li>
+</ul>
+</li>
+<li>
+<p><strong>将笔记页放置在第二屏时可能存在的问题与相应解决方式：</strong></p>
+<ul>
+<li>
+<p>正文页面内容显示有问题，如文本不显示、字体颜色显示为白色、图片加载有问题等<br>
+——【解决方案】在导言区加上对应代码：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">makeatletter</span></span> </span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">beamer</span></span>@framenotesbegin&#123;<span class="comment">% at beginning of slide</span></span><br><span class="line">     <span class="tag">\<span class="name">usebeamercolor</span><span class="string">[fg]</span><span class="string">&#123;normal text&#125;</span></span></span><br><span class="line">      <span class="tag">\<span class="name">gdef</span></span><span class="tag">\<span class="name">beamer</span></span>@noteitems&#123;&#125;<span class="comment">% </span></span><br><span class="line">      <span class="tag">\<span class="name">gdef</span></span><span class="tag">\<span class="name">beamer</span></span>@notes&#123;&#125;<span class="comment">% </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">\<span class="name">makeatother</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>原本应该出现在笔记（正文）页面超链接出现在了正文（笔记）页，导致超链接位置出错，影响放映时的跳转<br>
+——【解决方案】使用下列patch，即在导言区引入<code>\input{beamer-notes-patch}</code>，在文件夹目录上放置“<a href="https://gist.github.com/lrtfm" target="_blank" rel="noopener">lrtfm</a>”提供的<a href="https://gist.github.com/lrtfm/aeffae97d078c7261aba186af07100a7#file-beamer-notes-patch-tex" target="_blank" rel="noopener"><strong>beamer-notes-patch.tex</strong></a>，重新编译两遍，即可获得正确的超链接位置。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="双屏放映"><a class="markdownIt-Anchor" href="#双屏放映"></a> 双屏放映</h4>
+<p>我也试用了知乎和网络推荐的不少软件（比如Présentation和pdfpc尝试了，之前常用的Adobe Acrobat和Sumatra PDF没找到双屏放映的方式），最后用下来感觉还是<a href="https://github.com/Cimbali/pympress" target="_blank" rel="noopener">pympress</a>最好用。虽然刚打开beamer会有点卡卡的，但是实际播放、显示笔记页、激光等等的功能还是非常完善的。同时在Windows和Mac上都可以使用～</p>
+<p><img alt="image-20250509183245435" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509183245435.png" data-index="11" data-src="/2025/05/08/latex-note-08/image-20250509183245435.png"></p>
+<hr>
+<h2 id="其他应用"><a class="markdownIt-Anchor" href="#其他应用"></a> 其他应用</h2>
+<h3 id="poster制作"><a class="markdownIt-Anchor" href="#poster制作"></a> poster制作</h3>
+<p>先咕咕咕着…… 给个小案例，来自之前科技论文写作的一个作业</p>
+<p><img alt="image-20250509183441839" class="post-img b-lazy" data-img="/2025/05/08/latex-note-08/image-20250509183441839.png" data-index="12" data-src="/2025/05/08/latex-note-08/image-20250509183441839.png"></p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div>
+        <div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>LaTeX札记（八）：Beamer演示文稿</p>
+  <p><span>文章作者:</span>Levitate_</p>
+  <p><span>发布时间:</span>2025年05月08日 - 15:16:52</p>
+  <p><span>原始链接:</span><a href="/2025/05/08/latex-note-08/" title="LaTeX札记（八）：Beamer演示文稿">https://levitate-qian.github.io/2025/05/08/latex-note-08/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2025/05/08/latex-note-08/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    </div>
+    
+    
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="LaTeX札记（七）：硕士学位论文相关" href="/2024/12/28/latex-note-07/">
+            LaTeX札记（七）：硕士学位论文相关 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#latex札记八beamer演示文稿"><span class="toc-text"> $ \LaTeX{}$札记（八）——Beamer演示文稿</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#beamer入门"><span class="toc-text"> Beamer入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引子"><span class="toc-text"> 引子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引子一"><span class="toc-text"> 引子（一）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引子二是什么"><span class="toc-text"> 引子（二）&amp;是什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#beamer的基本结构"><span class="toc-text"> Beamer的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#导言区"><span class="toc-text"> 导言区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正文"><span class="toc-text"> 正文</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#beamer进阶"><span class="toc-text"> Beamer进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#beamer独特的用法"><span class="toc-text"> Beamer独特的用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表有了新外观有序列表enumerate-无序列表itemize-描述description"><span class="toc-text"> 列表有了“新外观”（有序列表enumerate、无序列表itemize、描述description）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过颜色进行突出强调结构色structure-警告色alert"><span class="toc-text"> 通过“颜色”进行突出强调（结构色structure、警告色alert）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包裹起来的块环境block"><span class="toc-text"> “包裹起来”的块环境block</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使beamer更演示的一些方式"><span class="toc-text"> 使Beamer更“演示”的一些方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#帧-叠层-动画"><span class="toc-text"> 帧、叠层、动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图文-多列并排minipage"><span class="toc-text"> 图文、多列并排minipage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#公式注释"><span class="toc-text"> 公式注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文献使用脚注而非尾注"><span class="toc-text"> 参考文献使用脚注而非尾注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#演讲者备注的实现笔记页"><span class="toc-text"> “演讲者备注”的实现——笔记页</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#笔记页的制作和放置"><span class="toc-text"> 笔记页的制作和放置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双屏放映"><span class="toc-text"> 双屏放映</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他应用"><span class="toc-text"> 其他应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#poster制作"><span class="toc-text"> poster制作</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; Levitate_ &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2025/05/08/latex-note-08/">LaTeX札记（八）：Beamer演示文稿</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2024/12/28/latex-note-07/">LaTeX札记（七）：硕士学位论文相关</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2024/11/19/seu-to-job/">秋招小结与建议——SEU to JOB</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX-and/">LaTeX and ...</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E7%A0%94%E5%90%91/">科研向</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%90%91/">课程向</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://s1.ax1x.com/2020/08/09/a7ycNV.png)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/MATLAB/" style="font-size: 18.29px;">MATLAB</a> <a href="/tags/MIMO/" style="font-size: 19.71px;">MIMO</a> <a href="/tags/Vscode/" style="font-size: 15.43px;">Vscode</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/iPad/" style="font-size: 14px;">iPad</a> <a href="/tags/ssh/" style="font-size: 14px;">ssh</a> <a href="/tags/%E4%BF%A1%E5%8F%B7/" style="font-size: 14px;">信号</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 14px;">博客</a> <a href="/tags/%E5%A4%A7%E5%AD%A6/" style="font-size: 14px;">大学</a> <a href="/tags/%E5%B0%84%E9%A2%91/" style="font-size: 15.43px;">射频</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 19.71px;">数学建模</a> <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" style="font-size: 22.57px;">无线通信</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 19.71px;">机器学习</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" style="font-size: 15.43px;">模拟电子技术</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 21.14px;">深度学习</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 16.86px;">电磁场与电磁波</a> <a href="/tags/%E7%A7%8B%E6%8B%9B/" style="font-size: 15.43px;">秋招</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 14px;">编程</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 24px;">论文</a> <a href="/tags/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" style="font-size: 15.43px;">通信原理</a> <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/" style="font-size: 16.86px;">预编码</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <div class="search-overlay-logo">
+        	<img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_">
+        </div>
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="Levitate_">Levitate_ &copy; 2020-2025</a>
+			
+				
+			        <span hidden="true" id="/2025/05/08/latex-note-08/" class="leancloud-visitors" data-flag-title="LaTeX札记（八）：Beamer演示文稿">
+			            <span>阅读量 </span>
+			            <span class="leancloud-visitors-count">0</span>
+			        </span>
+	    		
+    		
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="/atom.xml" title="RSS" target="_blank" rel="noopener">RSS</a>
+			
+			<a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+			<a href="https://chinese-font.netlify.app/zh-cn/" title="博客所用“京華老宋体”、“霞鹜文楷”、“得意黑”等字体均来自“中文网字计划--字图CDN”" target="_blank" rel="noopener">中文网字计划</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister()
+            }
+        })
+    }
+</script>
+
+
+<script id="scriptLoad" src="/js/allinone.min.js" async></script>
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="Levitate_">
+			
+                <img src="https://s1.ax1x.com/2022/05/18/Oo3OeI.png" alt="Levitate_ icon">
+			
+            <span>Levitate_</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">LaTeX札记（八）：Beamer演示文稿</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        
+        
+            var bLazy = new Blazy();
+        
+
+        
+        
+
+        
+        
+        
+            searchFunc("/");
+        
+        
+    })
+</script>
+
+
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+
+
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+
+
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+
+
+
+<script id="valineScript" src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+<script>
+    document.getElementById('valineScript').addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: 'lv1bzqDwJo9FTYdBip3QGP7t-gzGzoHsz',
+            appKey: 'mK4QC79PTUYTSginf9BXEzlv',
+            placeholder: '求轻喷(*/ω＼*)',
+            pageSize: 10,
+            avatar: 'retro',
+            visitor: true,
+            requiredFields: ['mail']
+        })
+    });
+</script>
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
