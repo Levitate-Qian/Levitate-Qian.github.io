@@ -26,7 +26,7 @@
 	<link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
 
 
-	<title>【MIMO通信学习笔记】Foundations of MIMO Communication | Levitate_</title>
+	<title>iPad作为Mac唯一屏幕的实现方法 | Levitate_</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -56,14 +56,14 @@
 
 	<meta property="og:site_name" content="Levitate_">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="【MIMO通信学习笔记】Foundations of MIMO Communication | Levitate_">
+	<meta property="og:title" content="iPad作为Mac唯一屏幕的实现方法 | Levitate_">
 	<meta property="og:description" content>
-	<meta property="og:url" content="https://levitate-qian.github.io/2022/05/26/mimo-communication/">
+	<meta property="og:url" content="https://levitate-qian.github.io/2025/05/14/iPad-Mac-sidecar/">
 
 	
-	<meta property="article:published_time" content="2022-05-26T15:05:00+08:00"> 
+	<meta property="article:published_time" content="2025-05-13T16:05:00+08:00"> 
 	<meta property="article:author" content="Levitate_">
-	<meta property="article:published_first" content="Levitate_, /2022/05/26/mimo-communication/">
+	<meta property="article:published_first" content="Levitate_, /2025/05/14/iPad-Mac-sidecar/">
 	
 
 	
@@ -163,176 +163,57 @@ alert("如果出现蓝奏云链接失效，请将链接中的lanzous/lanzoui等�
     <div class="inner">
         <header class="post-full-header">
             <div class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2022-05-26T15:18:23.000Z">
-                    2022-05-26
+                <time class="post-full-meta-date" datetime="2025-05-13T16:59:07.000Z">
+                    2025-05-13
                 </time>
                 
                 <span class="date-divider">/</span>
                 
-                <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%90%91/">课程向</a>&nbsp;&nbsp;
+                <a href="/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/">杂七杂八</a>&nbsp;&nbsp;
                 
                 
                 
             </div>
-            <h1 class="post-full-title">【MIMO通信学习笔记】Foundations of MIMO Communication</h1>
+            <h1 class="post-full-title">iPad作为Mac唯一屏幕的实现方法</h1>
         </header>
         <div class="post-full ">
             
-            <figure class="post-full-image" style="background-image: url(https://s1.ax1x.com/2022/05/26/XVKONd.png)">
+            <figure class="post-full-image" style="background-image: url(https://s21.ax1x.com/2025/05/13/pEXOMMF.png)">
             </figure>
             
             <div class="post-full-content">
                 <article id="photoswipe" class="markdown-body">
-                    <h1 id="mimo通信学习笔记foundations-of-mimo-communication"><a class="markdownIt-Anchor" href="#mimo通信学习笔记foundations-of-mimo-communication"></a> 【MIMO通信学习笔记】Foundations of MIMO Communication</h1>
+                    <h1 id="ipad作为mac唯一屏幕的实现方法"><a class="markdownIt-Anchor" href="#ipad作为mac唯一屏幕的实现方法"></a> iPad作为Mac唯一屏幕的实现方法</h1>
 <blockquote>
-<p>本文是<em>Foundations of MIMO Communication</em>(Robert W. Heath Jr. and Angel Lozano, 2018)笔记的总结帖。总算是在答辩完后三天看完了，没拖到研究生，</p>
-<p>之前想过看好几本无线通信、MIMO的书，但都没能看完。。</p>
-<ul>
-<li><em>Wireless communications</em> (Andrea Goldsmith, 2005)</li>
-<li><em>Fundamentals of wireless communication</em> (David Tse and Pramod Viswanath)</li>
-</ul>
+<p>由于Mac mini太香了，在三月份入手了丐版，但是最后几个月宿舍不准备添置显示器了，所以在宿舍考虑使用iPad作为Mac mini的显示器。经过一段时间的使用觉得是可行的，所以也就有了这篇文章。</p>
+<p>前提：</p>
+<ol>
+<li>需要有一个HDMI显卡欺骗器（PDD只要3块钱不到）。</li>
+<li>不使用其他第三方应用程序，只采用“自动操作”。</li>
+</ol>
+<p>该方法修改自：<a href="https://www.bilibili.com/video/BV18fZtYJEa6/" target="_blank" rel="noopener">「永不吃灰」iPad变Mac的最完美显示器</a>。</p>
+<p>我尝试的环境为Mac mini M4 + iPad Pro 2020，理论上对于其他的Mac和iPad也都是可以的。</p>
 </blockquote>
-<p>先甩出笔记的链接：<a href="https://levitate.lanzouq.com/b0dg6sdli" target="_blank" rel="noopener">https://levitate.lanzouq.com/b0dg6sdli</a>	密码:levitate</p>
-<blockquote>
-<p>看的不算特别仔细，错误肯定很多，欢迎批评指正。</p>
-<p>一些材料可以在这边下：<a href="https://www.cambridge.org/core/books/foundations-of-mimo-communication/D1D999D61E48C62C44240EF2341A29A1" target="_blank" rel="noopener">Foundations of MIMO Communication (cambridge.org)</a>，<a href="https://www.cambridge.org/us/academic/subjects/engineering/wireless-communications/foundations-mimo-communication?format=HB" target="_blank" rel="noopener">Foundations mimo communication | Wireless communications | Cambridge University Press</a></p>
-</blockquote>
-<p>目录：</p>
-<p><strong>Part I: Wireless Communication Theory（第一部分：无线通信原理）	1</strong><br>
-1 A primer on information theory and MMSE estimation（信息论与MMSE估计初步）	3<br>
-1.1 Introduction	3<br>
-1.2 Signal distributions	4<br>
-1.3 Information content	6<br>
-1.4 Information dependence	11<br>
-1.5 Reliable communication	17<br>
-1.6 MMSE estimation	39<br>
-1.7 LMMSE estimation	47<br>
-1.8 Summary	51<br>
-Problems	51<br>
-2 A signal processing perspective（信号处理的角度）	57<br>
-2.1 Introduction	57<br>
-2.2 Signal, channel, and noise representations	58<br>
-2.3 Signal, channel, and noise representations: extension to MIMO	77<br>
-2.4 Linear channel equalization	87<br>
-2.5 Single-carrier frequency-domain equalization	98<br>
-2.6 OFDM	104<br>
-2.7 Channel estimation	110<br>
-2.8 Summary and outlook	122<br>
-Problems	124<br>
-3 Channel modeling（信道建模）	131<br>
-3.1 Introduction	131<br>
-3.2 Preliminaries	132<br>
-3.3 Large-scale phenomena	135<br>
-3.4 Small-scale fading	143<br>
-3.5 Interlude: essential notions of antenna arrays	170<br>
-3.6 Modeling of MIMO channels	175<br>
-3.7 Channel estimation revisited	192<br>
-3.8 MIMO channel models in standards	199<br>
-3.9 Summary and outlook	202<br>
-Problems	205<br>
-4 Single-user SISO（单用户SISO）	209<br>
-4.1 Introduction	209<br>
-4.2 Interplay of bit rate, power, and bandwidth	209<br>
-4.3 AWGN channel	220<br>
-4.4 Frequency-selective channel	228<br>
-4.5 Frequency-flat fading channel	244<br>
-4.6 Frequency-selective fading channel	267<br>
-4.7 Which fading setting applies?	268<br>
-4.8 Pilot-assisted communication	271<br>
-4.9 Channels with interference	279<br>
-4.10 Summary and outlook	284<br>
-Problems	287</p>
-<p><strong>Part II: Single-user MIMO（单用户MIMO系统）	295</strong><br>
-5 SU-MIMO with optimum receivers（最佳接收机的单用户MIMO系统）	297<br>
-5.1 Introduction	297<br>
-5.2 Initial considerations	298<br>
-5.3 CSIR and CSIT	301<br>
-5.4 No CSIT	311<br>
-5.5 No CSI	338<br>
-5.6 Pilot-assisted communication	341<br>
-5.7 Channels with interference	345<br>
-5.8 Optimum transmitter and receiver structures	348<br>
-5.9 Link adaptation	358<br>
-5.10 Reciprocity and CSI feedback	361<br>
-5.11 Summary and outlook	374<br>
-Problems	378<br>
-6 SU-MIMO with linear receivers（线性接收机的单用户MIMO系统）	386<br>
-6.1 Introduction	386<br>
-6.2 General characteristics of linear MIMO receivers	387<br>
-6.3 Linear ZF receiver	388<br>
-6.4 LMMSE receiver	396<br>
-6.5 Relationship between the LMMSE and the optimum receiver	407<br>
-6.6 Summary and outlook	408<br>
-Problems	410</p>
-<p><strong>Part III: Multiuser MIMO（多用户MIMO系统）	413</strong><br>
-7 Multiuser communication prelude（多用户通信序曲）	415<br>
-7.1 Introduction	415<br>
-7.2 Spectral efficiency region	416<br>
-7.3 Orthogonal channel sharing	418<br>
-7.4 Non-orthogonal channel sharing	420<br>
-7.5 Scalar metrics	422<br>
-7.6 User selection and resource allocation	426<br>
-7.7 Low-SNR regime	429<br>
-7.8 Summary and outlook	431<br>
-Problems	433<br>
-8 MU-MIMO with optimum transceivers（最佳收发信机的多用户MIMO系统）	436<br>
-8.1 Introduction	436<br>
-8.2 The multiple-access channel	437<br>
-8.3 Multiple-access channel with CSIR and CSIT	440<br>
-8.4 Multiple-access channel with no CSIT	457<br>
-8.5 Multiple-access channel with no CSI	460<br>
-8.6 Pilot-assisted multiple-access channel	461<br>
-8.7 Duality between the multiple access and broadcast channels	462<br>
-8.8 The broadcast channel	467<br>
-8.9 Broadcast channel with CSIR and CSIT	469<br>
-8.10 Broadcast channel with no CSIT	487<br>
-8.11 Summary and outlook	490<br>
-Problems	490<br>
-9 MU-MIMO with linear transceivers（线性收发信机的多用户MIMO系统）	497<br>
-9.1 Introduction	497<br>
-9.2 Linear receivers for the multiple-access channel	498<br>
-9.3 Linear ZF receiver for the multiple-access channel	500<br>
-9.4 LMMSE receiver for the multiple-access channel	507<br>
-9.5 Duality with linear transceivers	514<br>
-9.6 Linear transmitters for the broadcast channel	516<br>
-9.7 Linear ZF transmitter for the MU-MISO broadcast channel	517<br>
-9.8 Block-diagonalization for the broadcast channel	554<br>
-9.9 Regularized ZF transmitter for the broadcast channel	562<br>
-9.10 Summary and outlook	571<br>
-Problems	574<br>
-10 Massive MIMO（大规模MIMO系统）	578<br>
-10.1 Introduction	578<br>
-10.2 Going massive	579<br>
-10.3 Reverse-link channel estimation	582<br>
-10.4 Reverse-link data transmission	587<br>
-10.5 Forward-link data transmission	615<br>
-10.6 Mitigation of pilot contamination	623<br>
-10.7 Practical considerations	628<br>
-10.8 Summary and outlook	631<br>
-Problems	636<br>
-11 Afterword	643<br>
-11.1 Beyond cellular	643<br>
-11.2 Beyond wireless	644</p>
-<p><strong>Appendices	647</strong><br>
-Appendix A: Transforms	649<br>
-Appendix B: Matrix algebra	653<br>
-Appendix C: Random variables and processes	661<br>
-Appendix D: Gradient operator	674<br>
-Appendix E: Special functions	676<br>
-Appendix F: Landau symbols	680<br>
-Appendix G: Convex optimization	681<br>
-References	685<br>
-Index	752</p>
+<h2 id="设置自动操作完成随航操作"><a class="markdownIt-Anchor" href="#设置自动操作完成随航操作"></a> 设置“自动操作”完成“随航”操作</h2>
+<p>首先打开<code>启动台</code>-&gt;<code>自动操作</code>，点击<code>新建文稿</code>，选择<code>应用程序</code>，在左上角搜索框搜索“AppleScript”，选择<code>运行AppleScript</code>，拖到右边的框中，将下面的代码替换到编辑区。注意将其中的“Levitate’s iPad”修改为你自己iPad的名称，不要删掉两边的引号。</p>
+<p>代码如下（来自b站视频：<a href="https://www.bilibili.com/video/BV18fZtYJEa6/" target="_blank" rel="noopener">「永不吃灰」iPad变Mac的最完美显示器</a>。）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">on findLastTargetIndex(targetItem, itemList)</span><br><span class="line">	set lastIndex to 0</span><br><span class="line">	repeat with i from (count of itemList) to 1 by -1</span><br><span class="line">		if item i of itemList is targetItem then</span><br><span class="line">			set lastIndex to i</span><br><span class="line">			exit repeat</span><br><span class="line">		end if</span><br><span class="line">	end repeat</span><br><span class="line">	return lastIndex</span><br><span class="line">end findLastTargetIndex</span><br><span class="line"></span><br><span class="line">do shell script &quot;afplay &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Pop.aiff&quot;</span><br><span class="line"></span><br><span class="line">tell application &quot;System Settings&quot;</span><br><span class="line">	activate</span><br><span class="line">	do shell script &quot;afplay &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Pop.aiff&quot;</span><br><span class="line">	delay 1</span><br><span class="line">	tell application &quot;System Events&quot;</span><br><span class="line">		tell process &quot;System Settings&quot;</span><br><span class="line">			-- 获取系统语言</span><br><span class="line">			set systemLanguage to do shell script &quot;defaults read -g AppleLocale&quot;</span><br><span class="line">			</span><br><span class="line">			if systemLanguage starts with &quot;zh&quot; then -- 简体中文系统</span><br><span class="line">				if systemLanguage is &quot;zh_CN&quot; then</span><br><span class="line">					set menuItemName to &quot;显示器&quot;</span><br><span class="line">					set menuBarItemName to &quot;显示&quot;</span><br><span class="line">					set addButtonName to &quot;添加&quot;</span><br><span class="line">				else -- 繁體中文系統</span><br><span class="line">					set menuItemName to &quot;顯示器&quot;</span><br><span class="line">					set menuBarItemName to &quot;顯示方式&quot;</span><br><span class="line">					set addButtonName to &quot;加號&quot;</span><br><span class="line">					</span><br><span class="line">				end if</span><br><span class="line">				</span><br><span class="line">				</span><br><span class="line">			else if systemLanguage starts with &quot;en&quot; then -- SystemOfEnglishLanguage</span><br><span class="line">				set menuItemName to &quot;Displays&quot;</span><br><span class="line">				set menuBarItemName to &quot;View&quot;</span><br><span class="line">				set addButtonName to &quot;Add&quot;</span><br><span class="line">				</span><br><span class="line">				-- else if systemLanguage starts with &quot;**&quot; then -- change ** to the Abbreviate of the LanguageYouUse</span><br><span class="line">				-- set menuItemName to &quot;...&quot; -- change ... to the definition of &quot;Displays&quot; in the MacOS of the LanguageYouUse				-- set emenuBarItemName to &quot;??&quot; -- change ?? to the definition of &quot;View&quot; in the MacOS of the LanguageYouUse</span><br><span class="line">				-- set addButtonName to &quot;$$&quot; --  change $$ to the definition of &quot;Add&quot; in the MacOS of the LanguageYouUse</span><br><span class="line">				</span><br><span class="line">			end if</span><br><span class="line">			</span><br><span class="line">			click menu item menuItemName of menu menuBarItemName of menu bar item menuBarItemName of menu bar 1</span><br><span class="line">			delay 0.3</span><br><span class="line">			tell group 1 of group 2 of splitter group 1 of group 1 of window menuItemName</span><br><span class="line">				try</span><br><span class="line">					delay 1</span><br><span class="line">					-- 这里需要延迟，因为系统设置冷启动后不能立刻加载出右侧的界面</span><br><span class="line">					click pop up button addButtonName</span><br><span class="line">					-- 获取所有菜单的名称</span><br><span class="line">					set menuItems to name of menu items of menu addButtonName of pop up button addButtonName</span><br><span class="line">					-- 通过名字查找要准确一些，这里去找最后一个名字的索引，因为如果符合通用控制的调节，就会出现两个名字，一个是通用控制，一个是随航</span><br><span class="line">					set targetIndex to (my findLastTargetIndex(&quot;Levitate’s iPad&quot;, menuItems)) -- Need to Change the NameOfTheiPad in the QuotationMarks to Your ipad&#39;s</span><br><span class="line">					-- 点击目标菜单项</span><br><span class="line">					delay 0.3</span><br><span class="line">					click menu item targetIndex of menu addButtonName of pop up button addButtonName</span><br><span class="line">					do shell script &quot;afplay &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Blow.aiff&quot;</span><br><span class="line">				on error</span><br><span class="line">					delay 0.5</span><br><span class="line">					do shell script &quot;afplay &#x2F;System&#x2F;Library&#x2F;Sounds&#x2F;Hero.aiff&quot;</span><br><span class="line">				end try</span><br><span class="line">			end tell</span><br><span class="line">		end tell</span><br><span class="line">	end tell</span><br><span class="line">end tell</span><br><span class="line">delay 1</span><br><span class="line"></span><br><span class="line">tell application &quot;System Settings&quot; to quit</span><br></pre></td></tr></table></figure>
+<p>点击左边的“运行代码”▶️，如果可以成功连上你的iPad说明成功啦～<code>cmd+S</code>存储为“开启iPad随航”，注意文件格式是应用程序，位置也是应用程序，点击<code>存储</code>。</p>
+<p>于是，在<code>启动台</code>可以看到这个“开启iPad随航”应用，如果出现任何的许可请求，都选择<code>允许</code>，注意此时可能仍然无法成功，请打开<code>设置</code>，进入<code>隐私与安全性</code>-&gt;<code>辅助功能</code>，将“开启iPad随航”的开关打开，如果没有找到这个应用，请点击下面的➕，从应用程序中选取这个应用打开权限。再尝试一次，此时应该可以完成随航的操作了～</p>
+<h2 id="设置快捷键打开随航"><a class="markdownIt-Anchor" href="#设置快捷键打开随航"></a> 设置快捷键，打开“随航”</h2>
+<p>下面，我们来设置快捷键。</p>
+<p>再次打开<code>启动台</code>-&gt;<code>自动操作</code>，点击<code>新建文稿</code>，选择<code>快速操作</code>，在左上角搜索框搜索“应用程序”，选择<code>开启应用程序</code>，在“开启应用程序”的框中选择“开启iPad随航”，如果找不到，请在<code>其他...</code>中找到，<code>cmd+S讲快速操作</code>存储为<code>打开应用“开启iPad随航”</code>。</p>
+<p>随后，进入<code>设置</code>，打开<code>键盘</code>-&gt;<code>键盘快捷键</code>-&gt;<code>服务</code>-&gt;<code>通用</code>，你应该能在菜单中看到<code>打开应用“开启iPad随航”</code>，双击右边<code>无</code>，在里面输入你想设置的快捷键，注意不要和其他应用的快捷键重复，我设置的是<code>ctrl+cmd+P</code>。</p>
+<p>于是我们可以直接通过快捷键启动iPad作为Mac的显示屏。</p>
+<h2 id="盲启动mac使ipad作为mac唯一屏幕"><a class="markdownIt-Anchor" href="#盲启动mac使ipad作为mac唯一屏幕"></a> 盲启动Mac，使iPad作为Mac唯一屏幕</h2>
+<p>首先，保证插上HDMI欺骗器。打开电脑，盲输入密码，稍等几秒钟，输入上述快捷键，即可实现iPad作为Mac唯一屏幕。</p>
+<p>当然也有不用欺骗器的方法，但是都需要利用第三方软件，感觉比较复杂了，不如花三块钱，即插即用😂～但是切记！要用已经链接上的键盘输入。此外这个方法不需要网络，直接把iPad和Mac用双C口线相连即可在无网络环境下使用。</p>
 
                 </article>
                 <ul class="tags-postTags">
                     
                     <li>
-                        <a href="/tags/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/" rel="tag"># 无线通信</a>
-                    </li>
-                    
-                    <li>
-                        <a href="/tags/MIMO/" rel="tag"># MIMO</a>
+                        <a href="/tags/iPad/" rel="tag"># iPad</a>
                     </li>
                     
                 </ul>
@@ -350,11 +231,11 @@ Index	752</p>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>【MIMO通信学习笔记】Foundations of MIMO Communication</p>
+  <p><span>本文标题:</span>iPad作为Mac唯一屏幕的实现方法</p>
   <p><span>文章作者:</span>Levitate_</p>
-  <p><span>发布时间:</span>2022年05月26日 - 15:18:23</p>
-  <p><span>原始链接:</span><a href="/2022/05/26/mimo-communication/" title="【MIMO通信学习笔记】Foundations of MIMO Communication">https://levitate-qian.github.io/2022/05/26/mimo-communication/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2022/05/26/mimo-communication/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2025年05月13日 - 16:59:07</p>
+  <p><span>原始链接:</span><a href="/2025/05/14/iPad-Mac-sidecar/" title="iPad作为Mac唯一屏幕的实现方法">https://levitate-qian.github.io/2025/05/14/iPad-Mac-sidecar/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://levitate-qian.github.io/2025/05/14/iPad-Mac-sidecar/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -380,14 +261,10 @@ Index	752</p>
     
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="【总结】聊聊“电子信息工程”" href="/2022/07/08/EE-map/">
-            ← 【总结】聊聊“电子信息工程”
-        </a>
-        
         <span class="prev-next-post">·</span>
         
-        <a class="next-post" title="LaTeX札记（五）：毕设相关" href="/2022/05/10/latex-note-05/">
-            LaTeX札记（五）：毕设相关 →
+        <a class="next-post" title="LaTeX札记（八）：Beamer演示文稿" href="/2025/05/08/latex-note-08/">
+            LaTeX札记（八）：Beamer演示文稿 →
         </a>
         
     </nav>
@@ -414,7 +291,7 @@ Index	752</p>
     </div>
     <div class="toc-main">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mimo通信学习笔记foundations-of-mimo-communication"><span class="toc-text"> 【MIMO通信学习笔记】Foundations of MIMO Communication</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ipad作为mac唯一屏幕的实现方法"><span class="toc-text"> iPad作为Mac唯一屏幕的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置自动操作完成随航操作"><span class="toc-text"> 设置“自动操作”完成“随航”操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置快捷键打开随航"><span class="toc-text"> 设置快捷键，打开“随航”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#盲启动mac使ipad作为mac唯一屏幕"><span class="toc-text"> 盲启动Mac，使iPad作为Mac唯一屏幕</span></a></li></ol></li></ol>
     
     </div>
 </div>
@@ -690,7 +567,7 @@ Index	752</p>
 			<a href="/" title="Levitate_">Levitate_ &copy; 2020-2025</a>
 			
 				
-			        <span hidden="true" id="/2022/05/26/mimo-communication/" class="leancloud-visitors" data-flag-title="【MIMO通信学习笔记】Foundations of MIMO Communication">
+			        <span hidden="true" id="/2025/05/14/iPad-Mac-sidecar/" class="leancloud-visitors" data-flag-title="iPad作为Mac唯一屏幕的实现方法">
 			            <span>阅读量 </span>
 			            <span class="leancloud-visitors-count">0</span>
 			        </span>
@@ -735,7 +612,7 @@ Index	752</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">【MIMO通信学习笔记】Foundations of MIMO Communication</div>
+    <div class="floating-header-title">iPad作为Mac唯一屏幕的实现方法</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
